@@ -1,0 +1,44 @@
+*{
+	
+	// MARGIN
+	@for $i from 0 to 15{ &.mt-#{$i}{ margin-top: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.mr-#{$i}{ margin-right: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.mb-#{$i}{ margin-bottom: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.ml-#{$i}{ margin-left: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.mx-#{$i}{ margin-left: calc(#{rem($i)} * 10) !important; margin-right: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.my-#{$i}{ margin-top: calc(#{rem($i)} * 10) !important; margin-bottom: calc(#{rem($i)} * 10) !important; } }
+
+	&.m-0{ margin: 0px; }
+	&.mm-0{ @include mq(max-mobile){ margin: 0px !important; }}
+
+	@for $i from 0 to 10{ &.mt-0#{$i}{ margin-top: #{rem($i)} !important; } }
+	@for $i from 0 to 10{ &.mb-0#{$i}{ margin-bottom: #{rem($i)} !important; } }
+
+	// PADDING
+	@for $i from 0 to 15{ &.pt-#{$i}{ padding-top: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.pr-#{$i}{ padding-right: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.pb-#{$i}{ padding-bottom: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.pl-#{$i}{ padding-left: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.px-#{$i}{ padding-left: calc(#{rem($i)} * 10) !important; padding-right: calc(#{rem($i)} * 10) !important; } }
+	@for $i from 0 to 15{ &.py-#{$i}{ padding-top: calc(#{rem($i)} * 10) !important; padding-bottom: calc(#{rem($i)} * 10) !important; } }
+
+	&.p-0{ padding: 0px; }
+	&.pm-0{ @include mq(max-mobile){ padding: 0px !important; }}
+
+	@for $i from 0 to 10{ &.pt-0#{$i}{ padding-top: #{rem($i)} !important; } }
+	@for $i from 0 to 10{ &.pb-0#{$i}{ padding-bottom: #{rem($i)} !important; } }
+
+	// &.full-width{ &:not(.on-mobile){min-width: 100%;} &.on-mobile{ @include mq(is-mobile){ min-width: 100%; } } }
+	// &.full-height{ &:not(.on-mobile){min-height: 100%;} &.on-mobile{ @include mq(is-mobile){ min-height: 100%; } } }
+	//
+	// &.full-vwidth{ &:not(.on-mobile){min-width: 100vw;} &.on-mobile{ @include mq(is-mobile){ min-width: 100vw; } } }
+	// &.full-vheight{ &:not(.on-mobile){min-height: 100vh;} &.on-mobile{ @include mq(is-mobile){ min-height: 100vh; } } }
+
+	&.is-fit{
+		position: absolute;
+		left: 0; top: 0;
+		width: 100% !important; height: 100% !important;
+		@include objectfit();
+	}
+
+}

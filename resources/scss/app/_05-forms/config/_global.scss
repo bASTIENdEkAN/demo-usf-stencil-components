@@ -1,0 +1,21 @@
+$form-transition: all .2s ease;
+
+$form-label-color: $grey;
+$form-color: $black;
+$form-background: $white;
+$form-radius: 0px;
+$form-border-size: 1px;
+$form-border-color: $border-color;
+$form-height: rem(60);
+$form-pt: #{rem(15)};
+$form-pr: rem(15);
+$form-pb: #{rem(15)};
+$form-pl: rem(15);
+
+$form-placeholder-color: $grey-light;
+form{
+    *{ @include placeholder($form-placeholder-color !important); }
+    .columns, &.columns{
+        @include layoutRestartColumn(rem(5), rem(10))
+    }
+}

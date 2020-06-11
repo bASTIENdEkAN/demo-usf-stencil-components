@@ -1,0 +1,24 @@
+body,
+html {
+	// @include mq(min-hugescreen){ font-size: 18px } // If you use REM this can be usefull
+	font-size: #{$browser-context}px;
+	line-height: 1.5;
+	overflow: auto;
+}
+
+body {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-family: $font-default;
+	font-weight: $fw-regular;
+	background: $white;
+	position: relative;
+
+}
+
+* {
+	@include box-sizing();
+	outline: none;
+}

@@ -1,0 +1,15 @@
+// CONTAINER
+.container{
+    width: 100%;
+    margin: 0 auto;
+    max-width: rem(1280);
+    &.is-medium{
+        max-width: rem(960);
+    }
+    &.is-small{
+        max-width: rem(760);
+    }
+    &.is-tiny{
+        max-width: rem(560);
+    }
+}

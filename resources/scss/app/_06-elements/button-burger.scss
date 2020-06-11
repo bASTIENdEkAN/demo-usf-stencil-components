@@ -1,0 +1,247 @@
+@keyframes animBtnBef{
+    0%{}
+    50%{ transform: translate3d(0,0,0); }
+    100%{ transform: translate3d(0,0,0) rotate(45deg);}
+}
+@keyframes animBtnAft{
+    0%{}
+    50%{ transform: translate3d(0,0,0); }
+    100%{ transform: translate3d(0,0,0) rotate(-45deg);}
+}
+@keyframes animBtnBefBSCA{
+    from{ transform: translate3d(0,0,0); }
+    to{ transform: translate3d(0,0,0) rotate(135deg);}
+    // to{ transform: translate3d(0,0,0) rotate(45deg);}
+}
+@keyframes animBtnAftBSCA{
+    from{ transform: translate3d(0,0,0); }
+    to{ transform: translate3d(0,0,0) rotate(225deg);}
+    // to{ transform: translate3d(0,0,0) rotate(135deg);}
+}
+@mixin buttonBurger(
+                $size: rem(57),
+                $linesHeight: 1px,
+                $linesWidth: 2.7777,
+                $linesDist: 8,
+                $linesColor: black,
+                $linesRadius: 0,
+                $backgroundColor: rgba(black, .08),
+                $backgroundColorHover: rgba(black, .08),
+                $borderRadius: 50%,
+                $interactionDir: v1,
+                $hoverBefAftDir: disabled,
+                    ){
+    position: relative;
+    width: $size; height: $size;
+    background: $backgroundColor;
+    border-radius: $borderRadius;
+    .button-burger__lines{
+        position: absolute;
+        left: 50%; top: 50%;
+        width: calc(#{$size} / #{$linesWidth});
+        height: $linesHeight;
+        background: $linesColor;
+        transform: translate3d(-50%,-50%,0);
+        border-radius: $linesRadius;
+        &:before, &:after{
+            content: '';
+            position: absolute; left: 0;
+            width: 100%; height: 100%;
+            background: $linesColor;
+            border-radius: $linesRadius;
+        }
+        &:before{
+            top: 0; transform: translate3d(0,calc(#{$size} / #{$linesDist}),0);
+            @include mq(ie){
+                transform: translate3d(0, 0.75rem ,0);
+            }
+        }
+        &:after{
+            bottom: 0; transform: translate3d(0,calc(#{$size} / -#{$linesDist}),0);
+            @include mq(ie){
+                transform: translate3d(0, -0.75rem ,0);
+            }
+        }
+    }
+    @if $interactionDir == v1 {
+        transition: all .2s ease;
+        .button-burger__lines{transition: all .3s ease-out; &:before, &:after{ transition: all .2s ease; }}
+        &:hover{
+            background: $backgroundColorHover;
+            .button-burger__lines{
+                &:before{ transform: translate3d(0,calc(#{$size} / calc(#{$linesDist} / 1.4)),0); }
+                &:after{ transform: translate3d(0,calc(#{$size} / calc(-#{$linesDist} / 1.4)),0); }
+            }
+        }
+        &.is-active{
+            .button-burger__lines{
+                background: transparent;
+                transform: translate3d(-50%,-50%,0) rotate(180deg);
+                &:before{ animation: animBtnBef forwards .2s ease; }
+                &:after{ animation: animBtnAft forwards .2s ease; }
+            }
+        }
+    }@else if $interactionDir == v2 {
+        transition: all .2s ease;
+        .button-burger__lines{transition: all .3s ease-out; &:before, &:after{ transition: all .2s ease; }}
+        &:hover{
+            background: $backgroundColorHover;
+            .button-burger__lines{
+                &:before{ transform: translate3d(0,calc(#{$size} / calc(#{$linesDist} * 1.4)),0); }
+                &:after{ transform: translate3d(0,calc(#{$size} / calc(-#{$linesDist} * 1.4)),0); }
+            }
+        }
+        &.is-active{
+            .button-burger__lines{
+                background: transparent;
+                transform: translate3d(-50%,-50%,0) rotate(270deg);
+                &:before{ animation: animBtnBef forwards .2s ease; }
+                &:after{ animation: animBtnAft forwards .2s ease; }
+            }
+        }
+    }@else if $interactionDir == v3 {
+        transition: all .2s ease;
+        .button-burger__lines{transition: all .0s linear; &:before, &:after{ transition: all .2s ease; }}
+        &:hover{
+            background: $backgroundColorHover;
+            .button-burger__lines{
+                transition: all .2s linear .2s;
+                &:before{ transform: translate3d(0,0,0); }
+                &:after{ transform: translate3d(0,0,0); }
+            }
+        }
+        &.is-active{ //transform: rotate(90deg);
+            .button-burger__lines{
+                background: transparent;
+                transition: all .0s linear;
+                &:before{ transform: translate3d(0,0,0) rotate(45deg); }
+                &:after{ transform: translate3d(0,0,0) rotate(-45deg); }
+            }
+        }
+    }@else if $interactionDir == riseandshine {
+        // ANIMATION R+S
+        transition: all .2s ease;
+        .button-burger__lines{transition: all .3s ease; &:before, &:after{ transition: all .2s ease .2s; }}
+        &:hover{
+            background: $backgroundColorHover;
+            .button-burger__lines{
+                transition: all .2s ease .2s;
+                transform: translate3d(-50%,-50%,0) rotate(90deg);
+                &:before{ transition: all .2s ease; transform: translate3d(0,0,0); }
+                &:after{ transition: all .2s ease; transform: translate3d(0,0,0); }
+            }
+        }
+        &.is-active{
+            .button-burger__lines{
+                transition: background 0s linear;
+                background: rgba($black,0);
+                transform: translate3d(-50%,-50%,0) rotate(90deg);
+                &:before{ transition: all .2s ease .2s; transform: translate3d(0,0,0) rotate(45deg); }
+                &:after{ transition: all .2s ease .2s; transform: translate3d(0,0,0) rotate(-45deg); }
+            }
+        }
+    }@else if $interactionDir == bsca {
+        // ANIMATION BSCA
+        .button-burger__lines{ transition: transform .3s ease; }
+        transition: all .2s ease;
+        &:hover{
+            background: $backgroundColorHover;
+        }
+
+        &.is-active{
+            // &:hover{ background: $backgroundColor; }
+            .button-burger__lines{
+                background: transparent;
+                transform: translate3d(-50%,-50%,0) rotate(90deg);
+                &:before{
+                    animation: animBtnBefBSCA .3s ease .1s forwards;
+                }
+                &:after{
+                    animation: animBtnAftBSCA .3s ease .1s forwards;
+                }
+            }
+        }
+    }@else if $interactionDir == actito {
+        transition: all .4s ease;
+        .button-burger__lines{
+            transition: all .4s ease;
+            &:after, &:before{
+                transition: all .4s ease;
+                left: initial;
+                right: 0;
+            }
+            &:after{
+                width: 130%;
+            }
+            &:before{
+                width: 70%;
+            }
+
+        }
+        &.is-active{
+            transition: all .4s ease .15s;
+            // &:hover{ background: $backgroundColor; }
+            .button-burger__lines{
+                transition: transform .4s ease .15s;
+                background: transparent;
+                transform: translate3d(-50%, -50%, 0) rotate(180deg);
+                &:before, &:after{
+                    transition: transform .4s ease .15s;
+                }
+                &:before{
+                    width: 100%;
+                    transform: translate3d(0,0,0) rotate(45deg);
+                }
+                &:after{
+                    width: 100%;
+                    transform: translate3d(0,0,0) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    @if $hoverBefAftDir == active {
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: $backgroundColorHover;
+            border-radius: $borderRadius;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all .2s ease;
+            // transition: all .2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        &:hover{
+            background: $backgroundColor;
+            &:before{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        // &.is-active{ &:hover:before{opacity: 0;} &:before{opacity: 0;} }
+    }@else if $hoverBefAftDir == disabled { }
+
+}
+
+// .button-burger{
+//     @include buttonBurger(
+//         $size: rem(36),
+//         $linesHeight: 4px,
+//         $linesWidth: 1.5,
+//         $linesDist: 3,
+//         $linesColor: $blue-dark,
+//         $linesRadius: 100px,
+//         $backgroundColor: transparent,
+//         $backgroundColorHover: rgba($blue-dark, .2),
+//         $borderRadius: $radius,
+//         $interactionDir: actito,
+//         $hoverBefAftDir: disabled,
+//     );
+// }
+
+
+.button-burger{
+    @include buttonBurger($interactionDir: v1);
+}

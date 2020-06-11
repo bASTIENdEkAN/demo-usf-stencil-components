@@ -1,0 +1,140 @@
+// V1
+$radio-size: rem(30);
+$radio-border-size: 1px;
+$radio-border-radius: 50%;
+$radio-back-background: $white;
+$radio-back-background-hover: $white;
+$radio-back-background-checked: $white;
+$radio-border-color: $border-color;
+$radio-border-color-hover: $border-color;
+$radio-border-color-checked: $border-color;
+$radio-background: transparent;
+$radio-background-hover: rgba($border-color, 0.2);
+$radio-background-checked: $primary;
+$radio-color: $form-color;
+/// V1
+
+// MIXIN
+// MIXIN
+// MIXIN
+@mixin radio($size: $radio-size,
+             $border-size: $radio-border-size,
+             $border-radius: $radio-border-radius,
+             $back-background: $radio-back-background,
+             $back-background-hover: $radio-back-background-hover,
+             $back-background-checked: $radio-back-background-checked,
+             $border-color: $radio-border-color,
+             $border-color-hover: $radio-border-color-hover,
+             $border-color-checked: $radio-border-color-checked,
+             $background: $radio-background,
+             $background-hover: $radio-background-hover,
+             $background-checked: $radio-background-checked,
+             $color: $radio-color,
+){
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+    width: auto;
+    color: $color;
+    &+ .radio { margin-left: 0; }
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .radio-el {
+        position: relative;
+        display: inline-block;
+        height: $size; width: $size;
+        min-height: $size; min-width: $size;
+        border-radius: $border-radius;
+        border: $border-size solid $border-color;
+        margin-right: em(5);
+        background: $back-background;
+        &:after{
+            content: "";
+            position: absolute;
+            top: 50%; left: 50%;
+            width: calc(#{$size} / 1.7); height: calc(#{$size} / 1.7);
+            border-radius: $border-radius;
+            background: $background;
+            transform: translate3d(-50%,-50%,0);
+            opacity: 1;
+            transition: all .2s ease-out;
+        }
+    }
+    &:hover {
+        color: $color;
+    }
+    &:hover input ~ .radio-el,
+    &:hover input ~ * .radio-el {
+        border-color: $border-color-hover;
+        background: $back-background-hover;
+        &:after{
+          background: $background-hover;
+          transform: translate3d(-50%,-50%,0) scale(3);
+        }
+    }
+    input:checked ~ .radio-el,
+    input:checked ~ * .radio-el {
+        border-color: $border-color-checked;
+        background: $back-background-checked;
+        &:after{
+          background: $background-checked;
+          transform: translate3d(-50%,-50%,0) scale(1);
+          transition: all .1s ease-out;
+        }
+    }
+    &.is-a-block{
+        padding-left: calc(#{$size} + 10px ) ;
+        .radio-el{
+            position: absolute; top: 50%; left: calc(#{$size} / 2);
+            transform: translate3d(-50%,-50%,0);
+            margin-right: 0;
+        }
+    }
+}
+// RADIO
+// RADIO
+// RADIO
+.radios{
+    display: flex;
+    flex-wrap: wrap;
+    .radio{
+        margin: rem(6) rem(40) rem(6) 0;
+        &.is-fullwidth{
+            width: 100%;
+            margin: rem(6) 0;
+        }
+    }
+    .radio-infos{
+        width: 100%;
+    }
+}
+.radio{
+    @include radio();
+    display: flex;
+    align-items: center;
+    span:not(.radio-el){
+        margin-bottom: rem(-2);
+    }
+    .radio-el{
+        margin-right: rem(15);
+    }
+}
+
+.radio-wrapper{
+    background: $white;
+    border: $form-border-size solid $border-color;
+    width: 100%;
+    padding: rem(15) rem(30);
+    .radio{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        .radio-el{
+            margin-right: rem(20);
+        }
+    }
+}

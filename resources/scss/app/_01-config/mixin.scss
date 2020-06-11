@@ -1,0 +1,266 @@
+// REM & EM
+$browser-context: 16;
+@function em($pixels, $context: $browser-context) {
+  @return ($pixels / $context) * 1em;
+}
+@function rem($pixels, $context: $browser-context) {
+    @return ($pixels / $context) * 1rem;
+}
+// BOX SIZING
+@mixin box-sizing($property: border-box){
+  -webkit-box-sizing: $property;
+     -moz-box-sizing: $property;
+          box-sizing: $property;
+}
+// MEDIA QUERIES
+$breakpoints: (
+    // FOR IE //
+    ie: "(-ms-high-contrast: active), (-ms-high-contrast: none)",
+    // LIKE BULMA: https://bulma.io/documentation/overview/responsiveness/ //
+    max-hugescreen:"(min-width:1599px)", min-hugescreen:"(min-width:1600px)",
+    max-fullhd: "(max-width:1407px)", min-fullhd: "(min-width:1408px)",
+    max-widescreen: "(max-width:1215px)", min-widescreen: "(min-width:1216px)",
+    max-desktop: "(max-width:1023px)", min-desktop: "(min-width:1024px)",
+    max-mobile: "(max-width:768px)", min-mobile: "(min-width:769px)",
+    max-small-mobile: "(max-width:540px)", min-small-mobile: "(max-width:540px)",
+    max-tiny: "(max-width:370px)", min-tiny: "(max-width:370px)",
+) !default;
+
+@mixin mq($breakpoint-name){
+  $breakpoint-name: unquote($breakpoint-name);
+  @if map-has-key($breakpoints, $breakpoint-name){
+  $query: map-get($breakpoints, $breakpoint-name);
+   @media all and #{$query}{
+     @content;
+   }
+  }@else{
+  @warn "#{$mq-name} is not a value defined in the 'breakpoints' map.";
+  }
+}
+// BACKGROUND @2x
+@mixin background-2x($path, $ext: "png", $w: auto, $pos: left top, $repeat: no-repeat) {
+
+  $at1x_path: "#{$path}.#{$ext}";
+  $at2x_path: "#{$path}@2x.#{$ext}";
+
+  background-image: url("#{$at1x_path}");
+  background-size: $w;
+  background-position: $pos;
+  background-repeat: $repeat;
+
+  @media all and (-webkit-min-device-pixel-ratio : 1.5),
+  all and (-o-min-device-pixel-ratio: 3/2),
+  all and (min--moz-device-pixel-ratio: 1.5),
+  all and (min-device-pixel-ratio: 1.5) {
+    background-image: url("#{$at2x_path}");
+    background-size: $w;
+    background-position: $pos;
+    background-repeat: $repeat;
+  }
+}
+// TRIANGLE
+@mixin triangle($dir, $color, $width, $height) {
+  width: 0; height: 0;
+  border-style: solid;
+  @if $dir == top {
+    border-width: 0 $width $height $width;
+    border-color: transparent transparent $color transparent
+
+  }@else if $dir == bottom {
+    border-width: $height $width 0 $width;
+    border-color: $color transparent transparent transparent
+  }
+  @else if $dir == left {
+    border-width: $height $width $height 0;
+    border-color: transparent $color transparent transparent
+  }
+  @else if $dir == right {
+    border-width: $height 0 $height $width;
+    border-color: transparent transparent transparent $color
+  }
+}
+// BACKGROUND GRADIENT
+// https://robots.thoughtbot.com/controlling-color-with-sass-color-functions
+// https://glennmccomb.com/articles/creating-smooth-sequential-animations-with-sass/
+@mixin bg-gradient($directionTo: top, $colorStart: black, $colorEnd: white , $upTo: 100%){
+	background: linear-gradient(to $directionTo, $colorStart 0%, $colorEnd $upTo);
+}
+// COLUMNS
+@mixin layoutRestartColumn($gapX, $gapY){
+    margin-left: -#{$gapX};
+    margin-right: -#{$gapX};
+    margin-top: -#{$gapY};
+    &:not(:last-child) {
+        margin-bottom: calc(1.5rem - #{$gapY});
+    }
+
+    >.column, >.col{ padding:$gapY $gapX;}
+}
+// PLACEHOLDER
+@mixin placeholder($color){
+
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: $color;
+	}
+	&::-moz-placeholder { /* Firefox 19+ */
+	  color: $color;
+	}
+	&:-ms-input-placeholder { /* IE 10+ */
+	  color: $color;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+	  color: $color;
+	}
+
+}
+// BACKGROUND SO COLOR
+@mixin backgroundSoColor($color){
+	// @if colorLuminance($color) < 0.5 {
+    //   color: white;
+  	// }@else if colorLuminance($color) > 0.5 {
+    //   color: black;
+    // }
+	background: $color;
+	color: findColorInvert($color);
+}
+// ELLIPSIS
+@mixin ellipsis(){
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+}
+//objectFitImages
+@mixin fit(){
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+}
+@mixin objectfit(){
+    object-fit: cover; object-position: center;
+    font-family: 'object-fit: cover; object-position: center;';
+}
+// BULMA mixin :
+// @include arrow($color);
+// @include center($size);
+// @include delete();
+// @include loader()
+// @include unselectable()
+
+// @include placeholder() à essaié ?
+
+// Medium mixin :
+// https://medium.com/@justinbrazeau/10-useful-sass-mixins-for-automation-833cdee9d69b
+// Define vertical, horizontal, or both position
+@mixin centeriser($position) {
+  position: absolute;
+  @if $position == 'vertical' {
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+  }
+  @else if $position == 'horizontal' {
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+  }
+  @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+// Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+// Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+// Engage mixin :
+// https://engageinteractive.co.uk/blog/top-10-scss-mixins
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+// http://qatsi.eu/calcul.ratio.image.php
+@mixin responsive-ratio($x,$y, $pseudo: true) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+@function z($name) {
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+    } @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
+}
+$z-indexes: (
+    "outdated-browser",
+    "modal",
+    "site-header",
+    "page-wrapper",
+    "site-footer"
+);
+
+// W3bits Mixin :
+// https://w3bits.com/sass-mixins/
+@mixin box($width, $height:$width) {
+  width: $width;
+  height: $height;
+}
+
+// Psd2html Mixin :
+// https://www.psd2html.com/blog/5-useful-sass-mixins.html
+@function makelongshadow($color) {
+  $val: 0px 0px $color;
+  @for $i from 1 through 200 {
+    $val: #{$val}, #{$i}px #{$i}px #{$color};
+  }
+  @return $val;
+}
+
+// Proportional Padding
+// By me
+$pp: 2;
+@function pp($size) {
+  $val: $size calc(#{$size} + (#{$size} / #{$pp}) );
+  @return $val;
+}
+
+@mixin longshadow($color) {
+  text-shadow: makelongshadow($color);
+}
+
+// Function from css trick
+//https://css-tricks.com/snippets/sass/strip-unit-function/
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+// Select CHILD:
+// https://lukyvj.github.io/family.scss/

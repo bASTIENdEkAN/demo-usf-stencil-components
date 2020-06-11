@@ -1,0 +1,54 @@
+@mixin selectBulmaOverhided(
+    $height: 40px,
+    $background: transparent,
+    $radius: 3px,
+    $paddingX: 10px,
+    $paddingY: 5px,
+    $border-size: 1px,
+    $border-color: transparent,
+    $dir: 'tiny',
+    $arrow-color: $primary,
+    $arrow-width: 10px,
+){
+    select{
+        width: 100%;
+        box-shadow: none;
+        height: $height;
+        background: $background;
+
+        border-radius: $radius;
+        border: $border-size solid $border-color;
+
+
+        padding:  $paddingY $paddingX;
+        @if($dir == 'tiny'){
+            padding-right: calc(#{$paddingX} + #{$arrow-width} )!important;
+        }
+
+        &:active,
+        &:focus,
+        &:hover{
+            width: 100%;
+            box-shadow: none;
+            border: $border-size solid $border-color;
+        }
+    }
+    &:not(.is-multiple):not(.is-loading)::after {
+        top: calc(#{$height} / 2);
+        @if($dir == 'tiny'){
+            right: 0;
+        }
+    }
+    &:not(.is-multiple):not(.is-loading)::after {
+        border-color: $arrow-color;
+        height: $arrow-width; width: $arrow-width;
+    }
+}
+
+.select-lang{
+    @extend #{'.select'};
+    @include selectBulmaOverhided();
+    // select:hover{
+    //     background: darken($white-ter, 5%);
+    // }
+}

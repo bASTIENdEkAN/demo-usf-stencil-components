@@ -1,0 +1,33 @@
+$footer-backhround: $white-ter;
+$footer-color: #{$black};
+$footer-font-size: rem(14);
+
+.footer{
+    @extend #{'.wrapper'};
+    background: $footer-backhround;
+    font-size: $footer-font-size;
+    .footer-container{
+        @extend #{'.container'};
+        padding: rem(40) 0;
+    }
+    .level{
+        .level-left{
+            .level-item{
+                @include mq(min-mobile){
+                    margin-right: rem(12);
+                    padding-right: rem(12);
+                    border-right: 1px solid $grey;
+                    &:last-child{
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+    .link{
+        color: $footer-color;
+        &:hover{
+            color: $footer-color;
+        }
+    }
+}

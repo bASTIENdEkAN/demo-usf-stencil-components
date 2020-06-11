@@ -1,0 +1,235 @@
+// V1
+$select-height: $form-height;
+$select-primary: $primary;
+$select-color: $black;
+$select-background: $white;
+$select-border-color: $form-border-color;
+$select-border-top-size: $form-border-size;
+$select-border-right-size: $form-border-size;
+$select-border-bottom-size: $form-border-size;
+$select-border-left-size: $form-border-size;
+$select-ptb: $form-pl;
+$select-plr: $form-pl;
+$select-radius: 0px;
+
+$select-border-less: false;
+
+$select2-arrow-triangle: false;
+$select2-arrow-triangle-tight: false;
+$select2-placeholder-color: $form-placeholder-color;
+$select2-color-selected: rgba($black, .1);
+$select2-arrow-border-size: 3px;
+/// V1
+@mixin selectBorderLess($dir: false, $border-color: $select-border-color){
+    @if($dir == true){
+        border-top: 0 none;
+        border-left: 0 none;
+        border-bottom: $select-border-bottom-size solid $border-color;
+        border-right: 0 none;
+    }@if($dir == false){
+        border-top: $select-border-top-size solid $border-color;
+        border-left: $select-border-left-size solid $border-color;
+        border-bottom: $select-border-bottom-size solid $border-color;
+        border-right: $select-border-right-size solid $border-color;
+    }
+}
+//select
+.select, .select2{
+    width: 100% !important;
+}
+.select select,
+.select2 .select2-selection{
+    width: 100%;
+    box-shadow: none;
+    height: $select-height;
+    background: $select-background;
+    @include selectBorderLess($select-border-less);
+    &:active,
+    &.is-active,
+    &:focus,
+    &.is-focused,{
+        width: 100%;
+        box-shadow: none;
+        @include selectBorderLess($select-border-less, darken($select-border-color,5%));
+    }
+}
+
+.select select,
+.select2 .select2-selection,
+{
+    border-radius: $select-radius;
+    padding: $select-ptb $select-plr;
+    height: $input-height;
+}
+
+.select{
+    &:not(.is-multiple){
+        height: auto;
+    }
+    &:not(.is-multiple):not(.is-loading)::after{
+        border-color: $select-primary;
+    }
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+    top: 18px;
+    top: calc(#{$select-height} / 2);
+}
+// SELECT2
+// SELECT2
+// SELECT2
+.select2-container{
+    width: 100% !important;
+    display: flex; flex-direction: column;
+    select{ order: 0; width: 100%; }
+    span{ order: 1; }
+    label{ order: 2; }
+    &:hover{
+        .select2-selection{
+            border-color: darken($select-border-color, 10%);
+        }
+    }
+}
+.select2{
+    font-size: 1em;
+}
+
+
+
+.select2 .select2-selection {
+    height: $select-height;
+    border-radius: $form-radius;
+
+    @include selectBorderLess($select-border-less);
+}
+.select2-dropdown {
+    border-top: $select-border-top-size solid $select-border-color;
+    border-left: $select-border-left-size solid $select-border-color;
+    border-bottom: $select-border-bottom-size solid $select-border-color;
+    border-right: $select-border-right-size solid $select-border-color;
+    background: $select-background;
+    color: $select-color;
+    // border-radius: 0 0 $form-radius $form-radius;
+}
+.select2-search--dropdown{
+    background: lighten($select-border-color, 10%);
+    padding: 6px;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: $select2-color-selected;
+}
+.select2-container--default .select2-results__option[aria-disabled=true] {
+    color: darken($select2-color-selected, 5%);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected]{
+    background: $select-primary;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid $select-border-color;
+    border-radius: $form-radius;
+    font-size: 1em;
+    height: 2.1em;
+    background: $select-background;
+    color: $select-color;
+}
+.select2-container--default .select2-selection--single{
+    background: $select-background;
+}
+// .select2-container--default .select2-selection--single .select2-selection__rendered {
+//     height: $select-height; line-height: calc(#{$select-height} - (#{$select-border-top-size} + #{$select-border-bottom-size}));
+//     // height: 2.1em; line-height: 2.1em;
+//     color: $select-color;
+//     padding-right: 2.5em;
+// }
+.select2-results{
+    padding: .75em 0;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 0px;
+}
+@mixin selectArrowTriangle($dir:true){
+    @if($dir == true){
+        &:after{
+            content:'';
+            display: block;
+            position: absolute;
+            @include triangle(bottom, $select-primary, 6px, 6px);
+            left: 50%; top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+
+        }
+    }@if($dir == false){
+        &:before{
+            content:'';
+            display: block;
+            position: absolute;
+            height: 0.625em; width: 0.625em;
+            left: 50%; top: 50%;
+            border-radius: 2px;
+            border-bottom: $select2-arrow-border-size solid $select-primary;
+            border-right: $select2-arrow-border-size solid $select-primary;
+            transform: translate3d(-50%, -50%, 0) rotate(45deg);
+        }
+    }
+}
+@mixin selectLessWidthIf($dir:false){
+    @if($dir == true){ width: 18px; }@if($dir == false){ width: 40px; }
+}
+
+.select:not(.is-multiple):not(.is-loading):hover::after{
+    border-color: $select-primary;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: $select-height; transform: translate3d(0,-#{$form-border-size},0);
+
+    @include selectLessWidthIf($select2-arrow-triangle-tight);
+
+    b{  display: none; }
+    @include selectArrowTriangle($select2-arrow-triangle);
+
+}
+
+@mixin paddingSelectDropdown($dir: 0){
+    @if($dir == 0){
+        padding: .8em;
+    }
+    @else{
+        padding: $select-ptb $select-plr;
+    }
+}
+.select2-search--dropdown{
+    @include paddingSelectDropdown($dir: $select-plr);
+}
+
+@mixin paddingSelectOption($dir: 0){
+    @if($dir == 0){
+        padding: $select-ptb;
+    }
+    @else{
+        padding: $select-ptb $select-plr;
+    }
+}
+.select2-results__option{
+    @include paddingSelectOption($dir: $select-plr)
+}
+// INTL TEL INPUT
+// INTL TEL INPUT
+// INTL TEL INPUT
+.selected-flag{
+	max-height: $select-height;
+}
+.intl-tel-input .selected-flag{
+    padding-left:$form-pl;
+}
+.intl-tel-input.allow-dropdown input, .intl-tel-input.allow-dropdown input[type=text], .intl-tel-input.allow-dropdown input[type=tel], .intl-tel-input.separate-dial-code input, .intl-tel-input.separate-dial-code input[type=text], .intl-tel-input.separate-dial-code input[type=tel]{
+    padding-left: calc(#{$form-pl} + 40px);
+}
+// PLACEHOLDER TRICKS
+// PLACEHOLDER TRICKS
+.field:not(.is-filled) .select select,
+.select2-container--default .select2-selection--single .select2-selection__placeholder{
+    color: $select2-placeholder-color;
+}

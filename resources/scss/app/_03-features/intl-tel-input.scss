@@ -1,0 +1,11 @@
+@import '~intl-tel-input/build/css/intlTelInput.min.css';
+//FIX BUG BULMA
+.highlight:not(:last-child){
+	margin-bottom: 0;
+}
+.iti__country-list {
+    z-index: 5;
+}
+.iti,.intl-tel-input{
+	width: 100%;
+}

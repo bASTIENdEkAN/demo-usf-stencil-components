@@ -1,0 +1,225 @@
+@mixin stepsLine(
+                $dotsRadius: 50%,
+                $dotsSize: rem(22), // Doit être paire
+                $dotsBorderSize: 1px,
+                $lineSize: 1px,
+                $backgroundColor: $white,
+                $backgroundNeutral: $grey-light,
+                $backgroundActive: $primary,
+                $backgroundCurrentStep: darken($primary, 10%),
+                $overflow: true,
+){
+    $steps: 7;
+    $steps-more: $steps + 2;
+    // .steps-line-container{
+
+    // DATA_STEPS
+    // DATA_STEPS
+    &:not(.data-disabled){
+        @for $i from 1 to $steps-more{
+            &[data-steps="#{$i}"]{
+                .steps-line--name .steps-line__el{
+                    @include mq(max-mobile){ display: none; }
+                }
+                .steps-line--name .steps-line__el:nth-child(#{$i}){
+                    font-weight: 700;
+                    @include mq(max-mobile){ display: block; }
+                }
+                @for $o from 1 to $steps-more{
+                    $steps-less: $i - $o;
+                    .steps-line--dots .steps-line__el:nth-child(#{$steps-less}){
+                        &:after{
+                            width: 100%;
+                        }
+                        .steps-line__dots:before{
+                            background: $backgroundActive;
+                            border: $dotsBorderSize solid $backgroundActive;
+                        }
+                    }
+
+                    // Bonus
+                    @if $overflow == true {
+                        @if($o > 1){
+                            .steps-line--dots {
+                                &:before{
+                                    background: $backgroundActive;
+                                }
+                            }
+                        }
+                    }
+                    /// Bonus
+                }
+                .steps-line--dots .steps-line__el:nth-child(#{$i}){
+                    .steps-line__dots{
+                        background: $backgroundColor;
+                        border: $dotsBorderSize solid $backgroundCurrentStep;
+                        &:before{
+                            background: $backgroundCurrentStep;
+                            border: $dotsBorderSize solid $backgroundCurrentStep;
+                        }
+                    }
+                }
+
+                &[data-half="true"]{
+                    .steps-line--dots .steps-line__el:nth-child(#{$i}):after{ width: 50%; }
+                }
+
+                &[data-half="false"]{
+                    .steps-line--dots .steps-line__el:nth-child(#{$i}):after{ width: 0; }
+                }
+
+            }
+        }
+
+    }
+    /// DATA_STEPS
+    /// DATA_STEPS
+
+    // OR
+
+    // CLASSES
+    // CLASSES
+    &.data-disabled{
+        .steps-line--name .steps-line__el{
+            @include mq(max-mobile){ display: none; }
+        }
+        .steps-line--name .steps-line__el.is-current{
+            font-weight: 700;
+            @include mq(max-mobile){ display: block; }
+        }
+
+        .steps-line--dots .steps-line__el.is-active{
+            &:not(.is-current){
+
+                .steps-line__dots{
+                    background: $backgroundColor;
+                    border: $dotsBorderSize solid $backgroundCurrentStep;
+                    &:before{
+                        background: $backgroundActive;
+                        border: $dotsBorderSize solid $backgroundActive;
+                    }
+                }
+                &:after{
+                    width: 100%;
+                }
+                &.is-half{
+                    &:after{
+                        width: 50%;
+                    }
+                }
+            }
+            &.is-current{
+                .steps-line__dots{
+                    background: $backgroundColor;
+                    border: $dotsBorderSize solid $backgroundCurrentStep;
+                    &:before{
+                        background: $backgroundCurrentStep;
+                        border: $dotsBorderSize solid $backgroundCurrentStep;
+                    }
+                }
+                &.is-half{
+                    &:after{
+                        width: 50%;
+                    }
+                }
+            }
+
+        }
+    }
+    /// CLASSES
+    /// CLASSES
+
+    // }
+
+    .steps-line{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &--name{
+            .steps-line__el{
+                @include ellipsis();
+                white-space: nowrap;
+                text-align: center;
+            }
+        }
+
+        &--dots{
+            // Bonus
+            @if $overflow == true{
+                position: relative;
+                &:before, &:after{
+                    @include pseudo(); z-index: 0;
+                    top: 50%;
+                    width: 50%; height: $lineSize;
+                    transform: translate3d(0,-50%,0);
+                    background: $backgroundNeutral;
+                }
+                &:before{
+                    left: 0;
+                }
+                &:after{
+                    right: 0;
+                }
+            }
+            /// Bonus
+            align-items: center;
+            margin-top: $dotsSize;
+            .steps-line__el{
+                &:before, &:after{
+                    @include pseudo(); z-index: 0;
+                    left: 50%; top: 50%;
+                    width: 100%; height: $lineSize;
+                    transform: translate3d(0,-50%,0);
+                    background: $backgroundNeutral;
+                }
+                &:after{
+                    width: 0%;
+                    z-index: 1;
+                    background: $backgroundActive;
+                }
+                &:last-child{
+                    // Bonus
+                    @if $overflow == true{
+                        &:before{ display: none;} &:after{ max-width: 50% !important; }
+                    }@else{
+                        &:before, &:after{ display: none; }
+                    }
+                    /// Bonus
+                }
+            }
+        }
+    }
+        .steps-line__el{
+            position: relative;
+            width: 100%;
+            min-height: $dotsSize;
+            &.is-hidden{
+                display: none;
+            }
+        }
+
+        .steps-line__dots{
+            position: absolute; z-index: 2;
+            top: 50%; left: 50%;
+            width: $dotsSize; height: $dotsSize;
+            border-radius: $dotsRadius;
+            transform: translate3d(-50%,-50%,0);
+            &:before{
+                @include pseudo();
+                left: 50%; top: 50%;
+                width: 46%; height: 46%;
+                transform: translate3d(-50%, -50%, 0);
+                border-radius: $dotsRadius;
+                background: $backgroundColor;
+                border: $dotsBorderSize solid $backgroundNeutral;
+            }
+        }
+}
+
+.steps-line-container{
+    @include stepsLine();
+}
+
+// Emmet starter :
+// div.steps-line-container[data-steps="7"][data-half="false"]>(ul.steps-line.steps-line--name>li.steps-line__el{Step $}*7)+(ul.steps-line.steps-line--dots>li.steps-line__el*7>div.steps-line__dots)

@@ -1,0 +1,71 @@
+$transition: all .3s ease;
+
+.accordion{
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 1px solid $grey-light;
+    &.is-active{
+        border-bottom: 1px solid transparent;
+        .accordion-head{
+            background: $black-ter;
+            color: $white;
+            // ARROW CSS
+            // ARROW CSS
+            .arrow{
+                transform: rotate(180deg);
+                border-color: rgba($white, .5);
+                &:after{
+                    border-top-color: $primary;
+                    border-left-color: $primary;
+                }
+            }
+        }
+    }
+}
+
+.accordion-head{
+    display: flex;
+    background: $white;
+    font-weight: $fw-bold;
+    transition: $transition;
+    .content-container, .arrow-container{
+        margin: 0;
+        padding: rem(20);
+    }
+    .content-container{
+        font-size: rem(14);
+        text-transform: uppercase;
+        flex-grow: 1;
+        padding-right: 0;
+        display: flex; justify-content: flex-start;align-items: center;
+    }
+    .arrow-container{
+
+    }
+    // ARROW CSS
+    // ARROW CSS
+    .arrow{
+        transition: $transition;
+        @include cross(
+            $crossBackground: $black,
+            $crossWidth: 33%,
+            $crossHeight: 2px,
+            $dir: down,
+        );
+    }
+}
+
+.accordion-content{
+    overflow: hidden;
+    transition: $transition;
+    .container{
+        max-width: rem(1180);
+        padding: rem(30) rem(20) rem(50) rem(20);
+        margin-left: 0;
+    }
+
+    .content{
+        font-weight: $fw-regular;
+        // color: $grey-dark;
+    }
+}

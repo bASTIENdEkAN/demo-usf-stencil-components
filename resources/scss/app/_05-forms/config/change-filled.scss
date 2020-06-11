@@ -1,0 +1,121 @@
+.change-filled{
+    position: relative;
+    cursor: pointer;
+    background: $form-background;
+    &.is-disabled{
+        &.is-filled{
+            .input{
+                background: $light;
+                border-color: $light;
+            }
+        }
+    }
+    .label{
+        cursor: text;
+        user-select: none; /* Standard */
+        position: absolute; z-index: 1;
+        left: 0; top: 0;
+        transform: translate3d(0,0,0);
+        padding: $form-pt $form-pr $form-pb $form-pl;
+        height: $form-height;
+        line-height: calc( #{$form-height} - (#{$form-pt} + #{$form-pb}) - (#{$form-border-size} * 2) );
+        transition: $form-transition;
+        white-space: nowrap;
+        span{
+            // padding: 0 $form-blur-px;
+            background: transparent;
+            // margin-left: calc( -#{$form-blur-px} + 2px);
+        }
+    }
+
+    .input{
+        @include placeholder(transparent !important);
+        padding-top: rem(25);
+        background: transparent;
+        &.is-birthday-master{
+            >*{ transition: $form-transition; opacity: 0;}
+        }
+    }
+    .textarea{
+        padding-top: rem(28) !important;
+        min-height: rem(180);
+        resize: none;
+        @include mq(max-mobile){
+            min-height: rem(300);
+        }
+    }
+    &.has-textarea{
+        .label{
+
+            span{
+                position:relative;
+                $plabel: rem(5);
+                &:before{
+                    @include pseudo();
+                    left: -#{$plabel}; top: -#{$plabel};
+                    width:calc(100% + (#{$plabel} * 2)); height: calc(100% + (#{$plabel} * 2));
+                    background: rgba($white, .95);
+                    border-radius: 100px;
+                    z-index: -1;
+                }
+            }
+
+        }
+
+    }
+
+    .icon, .iti__flag-container{
+        z-index: 9;
+        opacity: 0;
+        transition: $form-transition;
+
+        &:hover{
+            .iti__selected-flag{ background: transparent; }
+        }
+        .iti__selected-flag{
+            padding-top: calc(#{$form-pt} - #{rem(5)}) !important;
+            padding-left: $form-pl !important;
+            padding: 0;
+            background: transparent;
+            // PARENTHESE
+            &:before{
+                content:'( ';
+                display: inline-block;
+                margin-right: rem(5); opacity: 0.5;
+            }
+            &:after{
+                content:' )';
+                display: inline-block;
+                margin-left: rem(5); opacity: 0.5;
+            }
+            /// PARENTHESE
+        }
+        .iti__arrow{ display: none; }
+    }
+
+    &.is-filled{
+        .label{
+            z-index: 1;
+            transform: translate3d(0,-18%,0);
+            font-size: rem(14);
+        }
+        .input{
+            position: relative;
+            z-index: 2;
+            // border-top: $form-border-top-size solid $form-border-color-focus;
+            // border-left: $form-border-left-size solid $form-border-color-focus;
+            // border-bottom: $form-border-bottom-size solid $form-border-color-focus;
+            // border-right: $form-border-right-size solid $form-border-color-focus;
+            &.is-birthday-master{
+                >*{ opacity: 1;}
+            }
+        }
+        .select select,
+        .select2 .select2-selection{
+            padding-bottom: rem(10)
+        }
+        .icon, .iti__flag-container{
+            opacity: 1;
+        }
+    }
+}

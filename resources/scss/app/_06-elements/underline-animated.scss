@@ -1,0 +1,44 @@
+@mixin underlineAnimated(
+    $color: $black,
+    $lineColor: $black,
+    $lineHeight: 1px,
+    $pb: rem(5),
+    $dir: inout,
+){
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    padding-bottom: $pb;
+    color: $color;
+    &:before{
+        @include pseudo();
+        bottom: 0; left: 0;
+        width: 100%; height: $lineHeight;
+        background-color: $lineColor;
+        @if $dir == inout {
+            transform: scaleX(0);
+            transform-origin: left;
+            transform-origin: right bottom;
+            transition: transform .3s cubic-bezier(.165,.84,.44,1);
+        }@else if $dir == inback {
+            transition: all .3s ease;
+            transform: translate3d(-101%,0,0);
+        }
+    }
+    opacity: 1;
+    &:hover{
+        opacity: 1;
+        &:before{
+            @if $dir == inout {
+                transform: scaleX(1);
+                transform-origin: left bottom;
+            }@else if $dir == inback {
+                transform: translate3d(0,0,0);
+            }
+        }
+    }
+}
+.underline-animated{
+    @include underlineAnimated();
+}

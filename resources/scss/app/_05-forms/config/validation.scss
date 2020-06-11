@@ -1,0 +1,20 @@
+.field.is-error{
+
+}
+
+.field.is-valid{
+
+}
+
+.input,
+.textarea,
+.select select,
+select,
+input[type="checkbox"],
+input[type="radio"]{
+
+}
+
+.error-msg{
+    color: $danger;
+}

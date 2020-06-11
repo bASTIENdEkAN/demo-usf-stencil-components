@@ -1,0 +1,17 @@
+// To dark mode
+$black: #9da5b3;
+$white: #21252b;
+
+// Update Bulma's global variables
+// $black: ;
+$black-bis: darken($black, 7%);
+$black-ter: darken($black, 14%);
+$grey-darker: darken($black, 21%);
+$grey-dark: darken($black, 29%);
+// $grey: ;
+$grey-light: lighten($white, 29%);
+$grey-lighter: lighten($white, 21%);
+$grey-lightest: lighten($white, 19%);
+$white-ter: lighten($white, 14%);
+$white-bis: lighten($white, 7%);
+// $white: ;
