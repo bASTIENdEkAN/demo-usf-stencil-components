@@ -51,6 +51,7 @@
                             'label'=>'Email',
                             // 'changeFilled'=>true,
                             'placeholder'=>'Email placeholder',
+                            'infos'=>'exemple d\'infos dans le mail',
                             'required'=>true,
                             'errorMsg'=>'Error msg email',
                         ])

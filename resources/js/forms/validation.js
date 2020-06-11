@@ -1,8 +1,5 @@
 import $ from "jquery";
 import validate from 'jquery-validation'; // https://www.npmjs.com/package/jquery-validation
-// import format from "date-fns/format";
-
-// import {validationOnBlur} from "../global/function";
 
 let $forms = $('.form-validation');
 
