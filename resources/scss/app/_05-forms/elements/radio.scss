@@ -52,6 +52,7 @@ $radio-color: $form-color;
         border: $border-size solid $border-color;
         margin-right: em(5);
         background: $back-background;
+        color: transparent;
         &:after{
             content: "";
             position: absolute;

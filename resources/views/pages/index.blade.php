@@ -17,7 +17,7 @@
             {{-- Right side --}}
             <ul class="level-right">
                 <li class="level-item">
-                    {{-- @include('_ressources/elements/select-lang') --}}
+                    @include('_ressources/elements/select-lang')
                 </li>
             </ul>
         </nav>
@@ -26,7 +26,7 @@
 </header>
 
 
-{{-- <div class="wrapper">
+<div class="wrapper">
     <div class="container is-small pt-4 pb-1">
         @include ('_ressources/components/steps-line',
                         [
@@ -34,24 +34,24 @@
                             'steps'=>'5',
                         ])
     </div>
-</div> --}}
+</div> 
 
 
 <div class="wrapper">
     <div class="container is-small py-4">
-        <h1 class="title">Formulaire basic template</h1>
+        <h1 class="title">Formu template</h1>
         <div class="content">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, illo qui! Atque distinctio enim nihil, numquam, odit autem voluptatem corporis modi officia voluptate explicabo totam soluta. Dolorum veniam quibusdam consequatur.</p>
         </div>
         {{-- FORM --}}
-        {{-- @include('_ressources/form/form') --}}
+        @include('_ressources/form/form')
         {{--/ FORM --}}
     </div>
 
 </div>
 
 
-{{-- <div class="wrapper has-background-white-bis">
+<div class="wrapper has-background-white-bis">
     <div class="container is-medium py-8">
 
         <ul class="list-faq">
@@ -69,9 +69,7 @@
         </ul>
 
     </div>
-</div> --}}
-
-
+</div>
 
 <footer class="footer">
     <div class="footer-container">

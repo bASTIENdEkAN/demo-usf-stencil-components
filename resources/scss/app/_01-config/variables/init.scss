@@ -1,7 +1,7 @@
 // Import a Font and set your fonts variables
-// @import '../fonts/base64/VW';
-$font-default: 'Arial';
-$font-title: 'Arial';
+@import '../fonts/base64/VW';
+$font-default: 'VW';
+$font-title: 'VW';
 $fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;

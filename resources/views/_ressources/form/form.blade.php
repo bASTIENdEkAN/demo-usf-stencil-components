@@ -98,7 +98,7 @@
                             'name'=>'Optin',
                             'isFloat'=>true,
                             'required'=>true,
-                            'errorMsg'=>'Error msg phone',
+                            'errorMsg'=>'Error msg optin',
                         ])
 
         </div>

@@ -15,6 +15,7 @@ mix
     .copyDirectory("resources/images", "output/images")
     .js('resources/js/app.js', 'output/js/app.js')
     .sass('resources/scss/app.scss', 'output/css/app.css')
+    // .babel('output/js/app.js', 'output/js/app.babel.js')
 
     .browserSync({
         proxy: 'http://127.0.0.1:8080',

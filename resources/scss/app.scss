@@ -3,7 +3,6 @@
 //// Configuration:
 @import 'app/_01-config/variables/init'; // CUTSOMIZABLE
 @import 'app/_01-config/mixin';
-@import 'app/_01-config/images';
 
 //// Init:
 @import 'app/_02-init/reset';
@@ -37,7 +36,7 @@
 
 // Components
 @import 'app/_07-components/accordion';
-@import 'app/_07-components/steps-line';
+@import 'app/_07-components/steps-line'; 
 @import 'app/_07-components/footer';
 
 // Blocks
@@ -45,4 +44,3 @@
 
 // Pages
 // @import 'app/_09-pages/...';
- 
