@@ -31,7 +31,7 @@
     .input{
         @include placeholder(transparent !important);
         padding-top: rem(25);
-        background: transparent;
+        background: transparent; width: 100%;
         &.is-birthday-master{
             >*{ transition: $form-transition; opacity: 0;}
         }
