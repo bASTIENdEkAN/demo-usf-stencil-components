@@ -95,7 +95,7 @@
 
     &.is-filled{
         .label{
-            z-index: 1;
+            z-index: 3;
             transform: translate3d(0,-18%,0);
             font-size: rem(14);
         }
