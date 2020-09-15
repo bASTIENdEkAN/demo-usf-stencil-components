@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --watch --config=node_modules/laravel-mix/setup/webpack.config.js & node_modules/http-server/bin/http-server output & watch 'php compile.php' resources/views"
+      "dev": "cross-env node_modules/webpack/bin/webpack.js --no-progress --hide-modules --watch --config=node_modules/laravel-mix/setup/webpack.config.js & node_modules/http-server/bin/http-server output & watch 'php compile.php' resources/views",
+      "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js & node_modules/http-server/bin/http-server output & watch 'php compile.php' resources/views"
   },
   "author": "",
   "license": "ISC",
