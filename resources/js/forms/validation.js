@@ -85,7 +85,7 @@ $forms.each(function() {
     });
 
     if(submitOnlyWhenAllFieldsValid){
-        $('.input').keyup(function(){
+        $('.input').keyup(function(){ 
             let $this = $(this);
             if($this.val().length >= 1){
                 validator.element($this);
