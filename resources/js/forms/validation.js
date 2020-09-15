@@ -76,9 +76,11 @@ $forms.each(function() {
             $('input[name="'+nameBirthdayKiller+'"]').val($('#day').val()+'/'+$('#month').val()+'/'+$('#year').val());
         },
 
-        // submitHandler: function(form){
-        //
-        // },
+        submitHandler: function(form){
+            $('button[type="submit"]').attr('disabled', true);
+            $('button[type="submit"]').addClass('is-loading');
+            form.submit();
+        },
 
     });
 
