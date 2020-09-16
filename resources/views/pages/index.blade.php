@@ -22,11 +22,12 @@
             </ul>
         </nav>
         {{--/ Main container --}}
-    </div>
+    </div> 
 </header>
 
 
 <div class="wrapper">
+
     <div class="container is-small pt-4 pb-1">
         @include ('_ressources/components/steps-line',
                         [
@@ -34,7 +35,7 @@
                             'steps'=>'5',
                         ])
     </div>
-</div> 
+</div>
 
 
 <div class="wrapper">

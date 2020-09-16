@@ -17,7 +17,7 @@
                         [
                             'name'=>'firstname',
                             'label'=>'Firstname',
-                            // 'changeFilled'=>true,
+                            'changeFilled'=>true,
                             'placeholder'=>'Firstname placeholder',
                             'required'=>true,
                             'errorMsg'=>'Error msg firstname',
