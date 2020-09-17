@@ -12,7 +12,7 @@ if(document.querySelector('#email')){
 
     let domains = ['gmail.com', 'hotmail.com', 'outlook.com'];
     let secondLevelDomains = ['gmail','hotmail','outlook'];
-    let topLevelDomains = ["com", "be", "nl", "fr"];
+    let topLevelDomains = ["com", "be", "nl", "fr", "lu", "eu", "info", "net", "org", "online", "vlaanderen", "immo", "store", "design", "world", "tech", "website", "de", "brussels", "digital", "pro", "rocks", "live", "amsterdam", "ch", "uk"];
 
     let mailCheckRun = () => {
 
