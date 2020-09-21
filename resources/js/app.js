@@ -1,4 +1,5 @@
 require('./polyfill/object-fit');
+require('./polyfill/foreach');
 
 require('./features/smooth-scroll'); // jquery
 require('./features/select-lang'); // jquery
@@ -14,4 +15,3 @@ require('./forms/mailcheck.js');
 require('./forms/validation.js'); // jquery
 require('./forms/change-filled.js');
 require('./forms/change-filled-select.js');
- 

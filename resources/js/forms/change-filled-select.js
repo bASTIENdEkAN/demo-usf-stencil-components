@@ -21,7 +21,7 @@ $('.select select, .select2').each(function () {
     selectFilled($(this));
 });
 
-$('.select select').on('change', function () {
+$('.select select, select').on('change', function () {
     selectFilled($(this));
 });
 
