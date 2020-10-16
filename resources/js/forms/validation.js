@@ -100,7 +100,7 @@ $forms.each(function() {
 
 
 require('./validation/birthday-master.js');
-require('./validation/phone.js');
-require('./validation/email.js');
-require('./validation/exclude-mailcheck.js');
+// require('./validation/phone.js');
+// require('./validation/email.js');
+// require('./validation/exclude-mailcheck.js');
 // require('./validation/equal-to.js');
