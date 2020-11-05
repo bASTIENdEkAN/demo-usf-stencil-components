@@ -1,26 +1,62 @@
-import $ from "jquery";
 
-let regxEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-let $email = $('input[data-required="email"]');
 
-$.validator.methods.email = function(value, element, param) {
-    if( regxEmail.test(value) && value.length >= 5 ){
+const required = (field, attribute) => {
+
+    var selector = field.getAttribute('data-required');
+
+    if (selector === attribute){
+        console.log('data-required-email')
         return true;
-    }
-    return false;
+    } 
 }
 
-$.validator.messages.email = $email.data('error-msg');
+class validationEmail{
+    
+    validation(field) {
+        this.field = field;
+        console.log('sguen');
+        const regxEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        
+        if( required(field, 'email') ){
+            // Return false because there is NO error
+            console.log('isEmail')
+            if( regxEmail.test(this.field.value) && this.field.value.length >= 5 ){
+                console.log('false')
+                return false;
+            }
+            console.log('true')
+            return true;
+        }
+        // Return true when there is
+        return true;
+    }
 
-$email.each(function(){
-    $email.rules("add", {
-        email: true,
-        // regx: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
-        // minlength: 5,
-        // messages:{
-        //     // regx: $(email).data('error-msg'),
-        //     // minlength: $(email).data('error-msg'),
-        //     email: $email.data('error-msg'),
-        // }
-    });
-})
+    message(field) {
+        this.field = field;
+
+        var customMessage = this.field.getAttribute('data-error-msg');
+        return customMessage ? customMessage : 'no error settingé'
+    }
+
+}
+const validateEmail = new validationEmail();
+
+export {validateEmail};
+
+// BY FUNCTION:
+// const validateEmail = (field) => {
+//     const $field = field;
+//     const regxEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    
+//     if ($field.attributes.required.value === 'email'){
+//         // Return false because there is NO error
+//         if( regxEmail.test($field.value) && $field.value.length >= 5 ){
+//             return false;
+//         }
+//         return true;
+//     } 
+//     // Return true when there is
+//     return true;
+// }
+
+// export {validateEmail};

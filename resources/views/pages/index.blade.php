@@ -48,17 +48,15 @@
         {{-- @include('_ressources/formVanilla/form') --}}
         <form action="" class="form-validation" novalidate>
             <span>Name</span>
-            <input data-validate-length-range="6" data-validate-words="2" name="name" required="required" />
-            <span>Occupation</span>
-            <input data-validate-length-range="5,15" name="occupation" type="text" />
-            <span>Email</span>
-            <input name="email" required="required" type="email" class="email" />
-            <span>Confirm Email address</span>
-            <input data-validate-linked="email" type="email" class='email' name="confirm_email" required="required">
-            <span>Number</span>
-            <input data-validate-minmax="10,100" type="number" name="number" required='required'>
-
-            <button type="submit">SUBMIT</button>
+            <input class="input" name="name" required data-required="email" data-error-msg="merde email" data-error-location="#emailErrorLocation"/>
+            <h1><span id="emailErrorLocation"></span></h1>
+            <span>Pomme</span>
+            <input class="input" name="pomme" required/>
+            
+            <div>
+                <button type="submit" class="button">SUBMIT</button> 
+            </div>
+            
         </form>
         {{-- <div class="form-container">
 
