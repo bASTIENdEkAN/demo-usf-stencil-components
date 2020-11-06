@@ -46,17 +46,63 @@
         </div>
         {{-- FORM --}}
         {{-- @include('_ressources/formVanilla/form') --}}
-        <form action="" class="form-validation" novalidate>
-            <span>Name</span>
-            <input class="input" name="name" required data-required="email" data-error-msg="merde email" data-error-location="#emailErrorLocation"/>
+        {{-- <form data-validate>
+            <span>email</span>
+            
+                <label for="testID">Confirm Password </label>
+                <input id="testID" class="input" name="name" type="text" required data-required="email" data-error-msg="merde email" data-error-location="emailErrorLocation"/>
+            
+            
+                <label for="confirm-password">Confirm Password </label>
+                <input type="text" name="confirm-password" id="confirm-password" data-required="email" data-bouncer-mismatch-message="Your passwords do not match." required>
+            
+
+            
+
             <h1><span id="emailErrorLocation"></span></h1>
-            <span>Pomme</span>
-            <input class="input" name="pomme" required/>
+            
+            
             
             <div>
-                <button type="submit" class="button">SUBMIT</button> 
+                <input type="submit" class="button" value="Submit">
             </div>
             
+        </form> --}}
+
+        <form class="validate-me" id="validate-me" data-validate >
+
+            <div>
+                <label for="password">Password <span class="pattern">At least 1 uppercase character, 1 lowercase character, and 1 number</span></label>
+                <input type="password" name="password" id="password" data-error-msg="DATA ERROR MSG." pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*" required>
+            </div>
+        
+            <div>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="email" name="sguen" id="confirm-password" required="email" data-error-location="#sguen" data-error-msg="DATA ERROR MSG.">
+            </div>
+
+            <div>
+                <label>Confirm Password</label>
+                <input type="text" name="name" required data-error-msg="DATA ERROR MSG.">
+            </div>
+        
+                <div>
+                    <label for="select">select</label>
+                    <select id="select" name="select" required >
+                        <option value="">option 1</option>
+                        <option value="">option 2</option>
+                        <option value="">option 3</option>
+                    </select>
+                </div>
+            
+        
+        
+        
+            <input type="submit" class="button" value="Submit">
+
+            <div id="sguen">
+
+            </div>
         </form>
         {{-- <div class="form-container">
 

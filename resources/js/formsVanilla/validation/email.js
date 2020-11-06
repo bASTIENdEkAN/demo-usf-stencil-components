@@ -1,47 +1,25 @@
-
-
 const required = (field, attribute) => {
-
-    var selector = field.getAttribute('data-required');
-
+    var selector = field.getAttribute('required');
     if (selector === attribute){
-        console.log('data-required-email')
         return true;
     } 
 }
+   
+const validationEmail = (field) => {
 
-class validationEmail{
+    const regxEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     
-    validation(field) {
-        this.field = field;
-        console.log('sguen');
-        const regxEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        
-        if( required(field, 'email') ){
-            // Return false because there is NO error
-            console.log('isEmail')
-            if( regxEmail.test(this.field.value) && this.field.value.length >= 5 ){
-                console.log('false')
-                return false;
-            }
-            console.log('true')
-            return true;
+    if( required(field, 'email') ){
+        // Return false because there is NO error
+        if( regxEmail.test(field.value) && field.value.length >= 5 ){
+            return false;
         }
-        // Return true when there is
         return true;
     }
-
-    message(field) {
-        this.field = field;
-
-        var customMessage = this.field.getAttribute('data-error-msg');
-        return customMessage ? customMessage : 'no error settingé'
-    }
-
 }
-const validateEmail = new validationEmail();
+    
 
-export {validateEmail};
+export {validationEmail};
 
 // BY FUNCTION:
 // const validateEmail = (field) => {

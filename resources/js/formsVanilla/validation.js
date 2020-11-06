@@ -1,27 +1,61 @@
-import { validateEmail } from './validation/email';
-// export function validationOnBlur(){
-// console.log(validateEmail())
 // https://github.com/cferdinandi/bouncer
 // https://www.npmjs.com/package/formbouncerjs
 import Bouncer from 'formbouncerjs';
+// Import custom validations
+import { validationEmail } from './validation/email';
+// Import Default Error Message
+import { defaultErrorMsg } from './validation/error-msg';
 
-var validate = new Bouncer('form', {
-    fieldClass: 'error', // Applied to fields with errors
-	errorClass: 'error-message', // Applied to the error message for invalid fields
-	fieldPrefix: 'bouncer-field_', // If a field doesn't have a name or ID, one is generated with this prefix
-    errorPrefix: 'bouncer-error_', // Prefix used for error message IDs
-    messageAfterField: true, 
-    messageCustom: 'data-error-msg', // The data attribute to use for customer error messages
-	messageTarget: 'data-error-location',
-    customValidations: {
-        email: function (field) {
-            validateEmail.validation(field);
-        }
-    },
-    messages: {
-        // As a function
-        email: function (field) {
-            validateEmail.message(field);
-        }
-    }
+
+const validate = new Bouncer('[data-validate]', {
+    disableSubmit: true,
+    messageCustom: 'data-error-msg',
+    messageTarget: 'data-error-location',
+	customValidations: {
+		email: function (field) {
+            return validationEmail(field);
+        },
+        customErrorField: function (field) {
+            return true
+        },
+	},
+	messages: {
+        missingValue: {
+			checkbox: function (field) { return defaultErrorMsg(field) },
+			radio: function (field) { return defaultErrorMsg(field) },
+			select: function (field) { return defaultErrorMsg(field) },
+			'select-multiple': function (field) { return defaultErrorMsg(field) },
+			default: function (field) { return defaultErrorMsg(field) }
+        },
+        patternMismatch: {
+			email: function (field) { return defaultErrorMsg(field) },
+			url: function (field) { return defaultErrorMsg(field) },
+			number: function (field) { return defaultErrorMsg(field) },
+			color: function (field) { return defaultErrorMsg(field) },
+			date: function (field) { return defaultErrorMsg(field) },
+			time: function (field) { return defaultErrorMsg(field) },
+			month: function (field) { return defaultErrorMsg(field) },
+			default: function (field) { return defaultErrorMsg(field) }
+		},
+		outOfRange: {
+			over: function (field) { return defaultErrorMsg(field) },
+			under: function (field) { return defaultErrorMsg(field) }
+		},
+		wrongLength: {
+			over: function (field) { return defaultErrorMsg(field) },
+			under: function (field) { return defaultErrorMsg(field) }
+		}
+	}   
 });
+
+console.log(validate)
+// document.addEventListener('bouncerFormInvalid', function (event) {
+// 	console.log(event.detail.errors);
+// 	console.log(event.detail.errors[0].offsetTop);
+// 	window.scrollTo(0, event.detail.errors[0].offsetTop);
+// }, false);
+
+document.addEventListener('bouncerFormValid', function () {
+	alert('Form submitted successfully!');
+	window.location.reload();
+}, false);
