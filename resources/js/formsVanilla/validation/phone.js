@@ -1,63 +1,62 @@
-import $ from "jquery";
+const required = (field, attribute) => {
+    var selector = field.getAttribute('required');
+    if (selector === attribute){
+        return true;
+    } 
+}
 
 
-// PHONE
-// PHONE
-// PHONE
 var sliceVal = 0;
 let regexPhone = new RegExp("^[0-9 ]+$");
-let $phone = $('input[data-required="phone"]')
+// let $phone = $('input[data-required="phone"]')
 
-$.validator.messages.phonenumber = $phone.data('error-msg');
+const validationPhone = (field) => {
 
-$.validator.addMethod('phonenumber', function (value, element) {
+    const regxEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    
+    if( required(field, 'phone') ){
+        
+        let $this = field;
+        let thisValRe = $this.value.replace(/ /g,"");
+    
+        if(thisValRe.length <= 10) {
+            sliceVal = $this.value.length;
+        }
 
-    let $this = $phone;
-    let thisValRe = value.replace(/ /g,"");
-
-    if(thisValRe.length <= 10) {
-        sliceVal = $this.val().length;
-    }
-    // console.log(value);
-    // console.log(regexPhone.test(value));
-    if( regexPhone.test(value) ){
-
-        if(thisValRe.length >= 8) {
-            $phone.val($this.val().slice(0, sliceVal));
+        if( regexPhone.test($this.value) ){
+            
+            if(thisValRe.length >= 8) {
+                $this.value = $this.value.slice(0, sliceVal);
+                // Return false because there is NO error
+                return false;
+            }
             return true;
         }
-        return false;
+    
+        return true;
+        
     }
+}
 
-    return false;
+export {validationPhone};
 
-},$phone.data('error-msg'));
+// $phone.bind('keyup','keydown', function(e){
+//     const $this = $(this);
+//     let value = $this.val();
+//     let thisValRe = value.replace(/ /g,"");
 
-$phone.bind('keyup','keydown', function(e){
-    const $this = $(this);
-    let value = $this.val();
-    let thisValRe = value.replace(/ /g,"");
+//     if(thisValRe.length <= 10) {
+//         sliceVal = $this.val().length;
+//     }
 
-    if(thisValRe.length <= 10) {
-        sliceVal = $this.val().length;
-    }
+//     if( regexPhone.test(value) ){
 
-    if( regexPhone.test(value) ){
+//         if(thisValRe.length >= 8) {
+//             $phone.val($this.val().slice(0, sliceVal));
+//             return true;
+//         }
+//         return false;
+//     }
 
-        if(thisValRe.length >= 8) {
-            $phone.val($this.val().slice(0, sliceVal));
-            return true;
-        }
-        return false;
-    }
-
-    return false;
-});
-
-$phone.each(function(){
-    $(this).rules("add", {
-        // regx: regexPhone,
-        // minlength: 9,
-        phonenumber: true,
-    });
-})
+//     return false;
+// });

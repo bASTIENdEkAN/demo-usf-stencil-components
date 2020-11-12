@@ -8,9 +8,9 @@
         @endif
     </label>
     <div class="control">
-        <input class="input" id="intl-tel-input" type="tel" placeholder="" name="phone" data-init-value="" data-init-country="" @if(!empty($required)) data-required="phone" data-error-msg="{{$errorMsg}}" data-error-location="#phoneErrorMsgLocation" @endif>
-            <input id="intl-tel-input-country-code" type="tel" name="countryCode" hidden>
-            <input id="intl-tel-input-full-number-less" type="tel" name="fullNumberLess" hidden>
+        <input class="input" id="intl-tel-input" type="tel" placeholder="" name="phone" data-init-value="" data-init-country="" @if(!empty($required)) required="phone" data-error-msg="{{$errorMsg}}" data-error-location="#phoneErrorMsgLocation" @endif>
+        <input id="intl-tel-input-country-code" type="tel" name="countryCode" hidden>
+        <input id="intl-tel-input-full-number-less" type="tel" name="fullNumberLess" hidden>
     </div>
     @if(!empty($required) || !empty($infos))
     <div class="input-infos content">

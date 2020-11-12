@@ -1,18 +1,18 @@
-<form class="mt-3 form-validation" novalidate action="" method="POST">
+<form class="mt-3" data-validate action="" method="POST">
 
     <div class="columns is-multiline">
 
         <div class="column is-12">
-            @include('_ressources/formVanilla/elements/pre-build/gender',
+            {{-- @include('_ressources/formVanilla/elements/pre-build/gender',
                         [
                             'required'=>true,
                             'errorMsg'=>'Error msg gender',
                             'infos'=>'Infos supplémentaire sur ce champ.'
-                        ])
+                        ]) --}}
         </div>
 
 
-        <div class="column is-4">
+        <div class="column is-6">
             @include('_ressources/formVanilla/elements/input',
                         [
                             'name'=>'firstname',
@@ -24,7 +24,7 @@
                         ])
         </div>
 
-        <div class="column is-4">
+        <div class="column is-6">
             @include('_ressources/formVanilla/elements/input',
                         [
                             'name'=>'lastname',
@@ -36,13 +36,13 @@
                         ])
         </div>
 
-        <div class="column is-4">
+        {{-- <div class="column is-4">
             @include('_ressources/formVanilla/elements/pre-build/birthday',
                         [
                             'label'=>'Date d\'anniversaire',
                             // 'changeFilled'=>true,
                         ])
-        </div>
+        </div> --}}
 
 
         <div class="column is-6">

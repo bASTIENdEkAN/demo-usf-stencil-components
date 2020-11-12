@@ -10,7 +10,7 @@
         name="{{$name}}"
         @if(!empty($type)) type="{{$type}}" @else type="text" @endif
         @if(!empty($placeholder)) placeholder="{{$placeholder}}" @endif
-        @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" data-pristine-required-message="{{$errorMsg}}" @endif>
+        @if(!empty($required)) required="email" data-error-location="#{{$name}}ErrorMsgLocation" data-error-msg="{{$errorMsg}}" @endif>
   </div>
 
   @if(!empty($required) || !empty($infos))

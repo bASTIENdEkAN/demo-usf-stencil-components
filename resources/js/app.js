@@ -11,9 +11,9 @@
 
 // // require('./forms/select2.js'); // jquery
 // // require('./forms/intl-tel-input.js'); // jquery
-// // require('./forms/mailcheck.js');
 // // require('./forms/validation.js'); // jquery
 // // require('./forms/change-filled.js');
 // // require('./forms/change-filled-select.js');
 
+require('./formsVanilla/mailcheck.js');
 require('./formsVanilla/validation.js');

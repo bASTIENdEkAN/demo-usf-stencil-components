@@ -45,7 +45,7 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, illo qui! Atque distinctio enim nihil, numquam, odit autem voluptatem corporis modi officia voluptate explicabo totam soluta. Dolorum veniam quibusdam consequatur.</p>
         </div>
         {{-- FORM --}}
-        {{-- @include('_ressources/formVanilla/form') --}}
+        @include('_ressources/formVanilla/form')
         {{-- <form data-validate>
             <span>email</span>
             

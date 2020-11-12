@@ -3,6 +3,8 @@
 import Bouncer from 'formbouncerjs';
 // Import custom validations
 import { validationEmail } from './validation/email';
+import { validationEmailExcludeMailCheck } from './validation/email-exclude-mailcheck';
+import { validationPhone } from './validation/phone';
 // Import Default Error Message
 import { defaultErrorMsg } from './validation/error-msg';
 
@@ -14,10 +16,13 @@ const validate = new Bouncer('[data-validate]', {
 	customValidations: {
 		email: function (field) {
             return validationEmail(field);
-        },
-        customErrorField: function (field) {
-            return true
-        },
+		},
+		emailExcludeMailCheck: function (field) {
+            return validationEmailExcludeMailCheck(field);
+		},
+		phone: function (field) {
+            return validationPhone(field);
+        }
 	},
 	messages: {
         missingValue: {
@@ -44,7 +49,9 @@ const validate = new Bouncer('[data-validate]', {
 		wrongLength: {
 			over: function (field) { return defaultErrorMsg(field) },
 			under: function (field) { return defaultErrorMsg(field) }
-		}
+		},
+		fallback: function (field) { return defaultErrorMsg(field)}
+		
 	}   
 });
 
