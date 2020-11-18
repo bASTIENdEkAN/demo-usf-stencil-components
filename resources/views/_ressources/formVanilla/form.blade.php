@@ -78,7 +78,7 @@
                         ])
         </div>
 
-        <div class="column is-12">
+        {{-- <div class="column is-12">
             @include('_ressources/formVanilla/elements/select2',
                         [
                             'name'=>'select2',
@@ -89,7 +89,7 @@
                             'required'=>true,
                             'errorMsg'=>'Error msg select',
                         ])
-        </div>
+        </div> --}}
 
         <div class="column is-12">
 

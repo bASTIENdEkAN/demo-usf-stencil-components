@@ -10,7 +10,7 @@ import { defaultErrorMsg } from './validation/error-msg';
 
 
 const validate = new Bouncer('[data-validate]', {
-    disableSubmit: true,
+    disableSubmit: false,
     messageCustom: 'data-error-msg',
     messageTarget: 'data-error-location',
 	customValidations: {
@@ -62,7 +62,7 @@ console.log(validate)
 // 	window.scrollTo(0, event.detail.errors[0].offsetTop);
 // }, false);
 
-document.addEventListener('bouncerFormValid', function () {
-	alert('Form submitted successfully!');
-	window.location.reload();
-}, false);
+// document.addEventListener('bouncerFormValid', function () {
+// 	alert('Form submitted successfully!');
+// 	window.location.reload();
+// }, false);

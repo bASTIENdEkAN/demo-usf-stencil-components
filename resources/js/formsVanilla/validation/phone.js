@@ -11,8 +11,6 @@ let regexPhone = new RegExp("^[0-9 ]+$");
 // let $phone = $('input[data-required="phone"]')
 
 const validationPhone = (field) => {
-
-    const regxEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     
     if( required(field, 'phone') ){
         
@@ -38,25 +36,19 @@ const validationPhone = (field) => {
     }
 }
 
+const phoneInputs = document.querySelectorAll('input[required="phone"]');
+
+phoneInputs.forEach(input => {
+
+    input.addEventListener("keyup", (event) => {
+        validationPhone(input);
+    });
+    input.addEventListener("keydown", (event) => {
+        validationPhone(input);
+    });
+
+});
+  
 export {validationPhone};
 
-// $phone.bind('keyup','keydown', function(e){
-//     const $this = $(this);
-//     let value = $this.val();
-//     let thisValRe = value.replace(/ /g,"");
 
-//     if(thisValRe.length <= 10) {
-//         sliceVal = $this.val().length;
-//     }
-
-//     if( regexPhone.test(value) ){
-
-//         if(thisValRe.length >= 8) {
-//             $phone.val($this.val().slice(0, sliceVal));
-//             return true;
-//         }
-//         return false;
-//     }
-
-//     return false;
-// });

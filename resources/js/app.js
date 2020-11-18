@@ -1,5 +1,5 @@
-// require('./polyfill/object-fit');
-// require('./polyfill/foreach');
+require('./polyfill/object-fit');
+require('./polyfill/foreach');
 
 // // require('./features/smooth-scroll'); // jquery
 // // require('./features/select-lang'); // jquery
@@ -15,5 +15,7 @@
 // // require('./forms/change-filled.js');
 // // require('./forms/change-filled-select.js');
 
+require('./formsVanilla/change-filled.js');
 require('./formsVanilla/mailcheck.js');
+require('./formsVanilla/intl-tel-input.js');
 require('./formsVanilla/validation.js');
