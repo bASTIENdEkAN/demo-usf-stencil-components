@@ -31,14 +31,14 @@ foreach(glob("resources/views/pages/{,*/,*/*/,*/*/*/}*.blade.php", GLOB_BRACE) a
     try{
         $html = $blade->make($page)->render();
         
-        $config = array(
-                'indent'         => true,
-                'output-xhtml'   => true,
-                'wrap'           => 200);
+        // $config = array(
+        //         'indent'         => true,
+        //         'output-xhtml'   => true,
+        //         'wrap'           => 200);
 
-        $tidy = new tidy;
-        $tidy->parseString($html, $config, 'utf8');
-        $tidy->cleanRepair();
+        // $tidy = new tidy;
+        // $tidy->parseString($html, $config, 'utf8');
+        // $tidy->cleanRepair();
 
         if(is_file('output/html/'.$pageName.'.html')) unlink('output/html/'.$pageName.'.html');
         
@@ -51,7 +51,7 @@ foreach(glob("resources/views/pages/{,*/,*/*/,*/*/*/}*.blade.php", GLOB_BRACE) a
             $completePath .= $slug.'/';
         }
 
-        file_put_contents('output/html/'.$pageName.'.html',(string)$tidy);  
+        file_put_contents('output/html/'.$pageName.'.html',(string)$html);  
     } catch(\Exception $e){
         _log("-> ERROR: ".$e->getMessage());
     }
