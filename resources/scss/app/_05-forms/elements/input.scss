@@ -130,3 +130,13 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
+
+.input-switch-type{
+    cursor: pointer;
+    position: absolute; z-index: 9;
+    right: $form-pr; top: 50%;
+    transform: translate3d(0,-50%,0);
+    font-size: rem(12);
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+}

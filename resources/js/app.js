@@ -15,7 +15,8 @@ require('./polyfill/foreach');
 // // require('./forms/change-filled.js');
 // // require('./forms/change-filled-select.js');
 
-require('./formsVanilla/change-filled.js');
-require('./formsVanilla/mailcheck.js');
-require('./formsVanilla/intl-tel-input.js');
-require('./formsVanilla/validation.js');
+require('./form/vanilla/change-filled.js');
+require('./form/vanilla/mailcheck.js');
+require('./form/vanilla/intl-tel-input.js');
+require('./form/vanilla/password.js');
+require('./form/vanilla/validation.js');

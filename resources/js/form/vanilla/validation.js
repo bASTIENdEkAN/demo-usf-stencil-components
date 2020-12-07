@@ -5,6 +5,7 @@ import Bouncer from 'formbouncerjs';
 import { validationEmail } from './validation/email';
 import { validationEmailExcludeMailCheck } from './validation/email-exclude-mailcheck';
 import { validationPhone } from './validation/phone';
+import { validationMatch } from './validation/match';
 // Import Default Error Message
 import { defaultErrorMsg } from './validation/error-msg';
 
@@ -22,7 +23,10 @@ const validate = new Bouncer('[data-validate]', {
 		},
 		phone: function (field) {
             return validationPhone(field);
-        }
+		},
+		match: function (field) {
+            return validationMatch(field);
+		},
 	},
 	messages: {
         missingValue: {

@@ -92,8 +92,13 @@
         }
         .iti__arrow{ display: none; }
     }
-
+    .input-switch-type{
+        opacity: 0;
+    }
     &.is-filled{
+        .input-switch-type{
+            opacity: 1;
+        }
         .label{
             z-index: 3;
             transform: translate3d(0,-18%,0);
