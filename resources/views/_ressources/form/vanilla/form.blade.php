@@ -9,6 +9,7 @@
                             'required'=>true,
                             // 'label'=>'Gender',
                             'name'=>'gender',
+                            'required'=>true,
                             'errorMsg'=>'Error msg radio',
                             'value1'=>'M',
                             'label1'=>'Men',
@@ -112,7 +113,7 @@
                         ])
         </div> --}}
 
-        <div class="column is-12">
+        {{-- <div class="column is-12">
 
             @include('_ressources/form/vanilla/elements/pre-build/optin',
                         [
@@ -123,7 +124,7 @@
                             'errorMsg'=>'Error msg optin',
                         ])
 
-        </div>
+        </div> --}}
 
     </div>
 

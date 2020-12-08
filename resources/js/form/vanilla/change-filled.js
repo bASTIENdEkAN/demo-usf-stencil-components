@@ -26,7 +26,7 @@ var getClosest = function (elem, selector) {
 };
 ///
 
-const inputs = document.querySelectorAll('.change-filled input, .change-filled textarea');
+const inputs = document.querySelectorAll('.change-filled input, .change-filled textarea, .change-filled select');
 
 let setInputClasses = (input, boolean) => {
 
@@ -42,9 +42,7 @@ let setInputClasses = (input, boolean) => {
         }
     }
 
-    if( boolean == true ){
-        wrapper.classList.add('is-filled');
-    }
+    if( boolean == true ) wrapper.classList.add('is-filled');
 }
 
 inputs.forEach(input => {
@@ -53,15 +51,14 @@ inputs.forEach(input => {
   };
 
   input.addEventListener("input", (event) => {
-      setInputClasses(input, true);
-  });
-  input.addEventListener("focus", (event) => {
-      setInputClasses(input, true);
-  });
-  input.addEventListener("focusout", (event) => {
       setInputClasses(input);
   });
-
+  input.addEventListener("click", (event) => {
+      if(input.tagName != "SELECT") setInputClasses(input, true);
+  });
+//   input.addEventListener("focusout", (event) => {
+//       setInputClasses(input);
+//   });
   setTimeout(() => {
     setInputClasses(input);
   }, 200);
