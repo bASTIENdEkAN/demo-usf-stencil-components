@@ -1,10 +1,9 @@
 require('./polyfill/object-fit');
 require('./polyfill/foreach');
 
-// // require('./features/smooth-scroll'); // jquery
-// // require('./features/select-lang'); // jquery
-// // require('./features/accordion'); // jquery
-// require('./features/switch-lang');
+require('./features/smooth-scroll'); // jquery
+require('./features/select-dynamic'); // jquery
+require('./features/accordion'); // jquery
 // // require('./features/swiper'); // npm i swiper // https://www.npmjs.com/package/swiper
 // // require('./features/light-gallery'); // npm i lightgallery // https://www.npmjs.com/package/lightgallery
 // // require('./features/remodal'); // npm i remodal // https://www.npmjs.com/package/remodal

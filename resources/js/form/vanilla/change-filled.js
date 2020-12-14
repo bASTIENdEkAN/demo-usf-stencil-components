@@ -56,9 +56,9 @@ inputs.forEach(input => {
   input.addEventListener("click", (event) => {
       if(input.tagName != "SELECT") setInputClasses(input, true);
   });
-//   input.addEventListener("focusout", (event) => {
-//       setInputClasses(input);
-//   });
+  input.addEventListener("focusout", (event) => {
+      setInputClasses(input);
+  });
   setTimeout(() => {
     setInputClasses(input);
   }, 200);
