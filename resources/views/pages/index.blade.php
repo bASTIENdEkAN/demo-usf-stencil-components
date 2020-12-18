@@ -9,7 +9,9 @@
             <ul class="level-left">
                 <li class="level-item">
                     <p class="text">
+                        
                         <strong>R+S</strong> STARTER
+                        
                     </p>
                 </li>
             </ul>
@@ -31,15 +33,15 @@
     <div class="container is-small pt-4 pb-1">
         @include ('_ressources/components/steps-line',
                         [
-                            'currentStep'=>'5',
+                            'currentStep'=>'5', 
                             'steps'=>'5',
                         ])
     </div>
 </div>
 
 
-<div class="wrapper">
-    <div class="container is-small py-4">
+<div class="wrapper" >
+    <div class="container is-small py-4"> 
         <h1 class="title">Formu template</h1>
         <div class="content">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, illo qui! Atque distinctio enim nihil, numquam, odit autem voluptatem corporis modi officia voluptate explicabo totam soluta. Dolorum veniam quibusdam consequatur.</p>
@@ -74,7 +76,7 @@
     </div>
 </div>
 
-<footer class="footer">
+<footer class="footer" id="smoothScroll">
     <div class="footer-container">
 
         <nav class="level">

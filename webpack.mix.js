@@ -1,5 +1,5 @@
 let mix = require('laravel-mix');
-
+require('laravel-mix-purgecss');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -14,8 +14,14 @@ let mix = require('laravel-mix');
 mix
     .copyDirectory("resources/images", "output/images")
     .js('resources/js/app.js', 'output/js/app.js')
-    .sass('resources/scss/app.scss', 'output/css/app.css')
     // .babel('output/js/app.js', 'output/js/app.babel.js')
+    .sass('resources/scss/app.scss', 'output/css/app.css')
+    .purgeCss({
+        extend: {
+            whitelistPatterns: [/iti/],
+        },
+    })
+    
 
     .browserSync({
         proxy: 'http://127.0.0.1:8080',

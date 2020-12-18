@@ -1,41 +1,31 @@
-import $ from "jquery";
+const accodrions = document.querySelectorAll('.accordion');
 
-$('.accordion').each(function(){
-        let $this = $(this);
-        let $cta = $this.find('.accordion-head');
-        let $panel = $this.find('.accordion-content');
+const selectorAllRemoveClass = (element,array) =>{
+    const elements = document.querySelectorAll(element);
+    elements.forEach(element =>{
+        element.classList.remove(array);    
+    })
+};
 
-        $panel.css({
-            'height': 0+'px',
-        })
+accodrions.forEach( accordion =>{
+    
+    const cta = accordion.querySelector('.accordion-head');
+    const panel = accordion.querySelector('.accordion-content');
 
-        $cta.on('click', function(){
+    panel.style.height = '0px';
 
-            let panelHeight = $panel.find('.container').outerHeight();
+    cta.addEventListener('click', (e)=>{
+        const panelHeight = panel.querySelector('.container').offsetHeight;
+        const isActive = accordion.classList.contains('is-active');
 
-            $('.accordion-content').css({
-                'height': 0+'px',
-            });
+        if(!isActive){
+            selectorAllRemoveClass('.accordion','is-active');
+            accordion.classList.add('is-active');
+            panel.style.height = panelHeight+'px';
+        }else{
+            accordion.classList.remove('is-active');
+            panel.style.height = '0px';
+        }
+    })
 
-            if( !$this.hasClass('is-active')){
-
-                $('.accordion').removeClass('is-active');
-
-                $this.addClass('is-active');
-                $panel.css({
-                    'height': panelHeight+'px',
-                })
-
-
-
-            }else{
-
-                $this.removeClass('is-active');
-                $panel.css({
-                    'height': 0+'px',
-                })
-            }
-
-        });
-
-});
+})
