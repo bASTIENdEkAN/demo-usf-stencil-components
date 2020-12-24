@@ -8,7 +8,7 @@ const required = (field, attribute) => {
 const validationMatch = (field) => {
     
     if( required(field, 'match') ){
-        
+        console.log('MOT DE PASSE REP7TE')
         // Look for a selector for a field to compare
         // If there isn't one, return false (no error)
         var selector = field.getAttribute('data-match');

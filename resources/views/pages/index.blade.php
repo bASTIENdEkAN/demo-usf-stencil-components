@@ -10,7 +10,7 @@
                 <li class="level-item">
                     <p class="text">
                         
-                        <strong>R+S</strong> STARTER
+                        <span class="logo-springbok"></span><strong>R+S</strong> STARTER
                         
                     </p>
                 </li>
@@ -57,7 +57,7 @@
 
 
 <div class="wrapper has-background-white-bis">
-    <div class="container is-medium py-8">
+    <div class="container is-medium py-6">
 
         <ul class="list-faq">
 

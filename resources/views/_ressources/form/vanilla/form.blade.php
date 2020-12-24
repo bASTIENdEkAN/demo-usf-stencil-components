@@ -10,7 +10,7 @@
                             // 'label'=>'Gender',
                             'name'=>'gender',
                             'required'=>true,
-                            'errorMsg'=>'Error msg radio',
+                            // 'errorMsg'=>'Error msg radio',
                             'value1'=>'M',
                             'label1'=>'Men',
                             'value2'=>'W',
@@ -28,7 +28,7 @@
                             'changeFilled'=>true,
                             'placeholder'=>'Firstname placeholder',
                             'required'=>true,
-                            'errorMsg'=>'Error msg firstname',
+                            // 'errorMsg'=>'Error msg firstname',
                         ])
         </div>
 
@@ -40,7 +40,7 @@
                             'changeFilled'=>true,
                             'placeholder'=>'Lastname placeholder',
                             'required'=>true,
-                            'errorMsg'=>'Error msg lastname',
+                            // 'errorMsg'=>'Error msg lastname',
                         ])
         </div>
 
@@ -52,7 +52,7 @@
                             'placeholder'=>'Email placeholder',
                             'infos'=>'exemple d\'infos dans le mail',
                             'required'=>true,
-                            'errorMsg'=>'Error msg email',
+                            // 'errorMsg'=>'Error msg email',
                         ])
         </div>
 
@@ -62,7 +62,7 @@
                             'label'=>'Phone',
                             'changeFilled'=>true,
                             'required'=>true,
-                            'errorMsg'=>'Error msg phone',
+                            // 'errorMsg'=>'Error msg phone',
                         ])
         </div>
 
@@ -77,6 +77,17 @@
                         ])
         </div>
 
+        {{-- <div class="column is-12">
+            @include('_ressources/form/vanilla/elements/tailselect',
+                        [
+                            'name'=>'tailselect',
+                            'label'=>'Tailselect',
+                            'changeFilled'=>true,
+                            'required'=>true,
+                            'errorMsg'=>'Error msg select',
+                        ])
+        </div> --}}
+
         <div class="column is-6">
             @include('_ressources/form/vanilla/elements/pre-build/password',
                         [
@@ -84,7 +95,7 @@
                             'label'=>'Mot de passe',
                             'changeFilled'=>true,
                             'required'=>true,
-                            'errorMsg'=>'Error msg password',
+                            // 'errorMsg'=>'Error msg password',
                         ])
         </div>
 
@@ -96,7 +107,7 @@
                             'changeFilled'=>true,
                             'required'=>'match',
                             'match'=>'#password',
-                            'errorMsg'=>'Error msg password',
+                            // 'errorMsg'=>'Error msg password',
                         ])
         </div>
 

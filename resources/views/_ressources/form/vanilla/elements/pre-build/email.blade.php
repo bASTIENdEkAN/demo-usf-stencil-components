@@ -7,7 +7,7 @@
         @endif
     </label>
     <div class="control">
-        <input id="email" class="input" type="email" @if(!empty($placeholder) ) placeholder="{{$placeholder}}" @endif name="email" @if(!empty($required)) required="email" data-error-msg="{{$errorMsg}}" data-error-location="#emailErrorMsgLocation" @endif>
+        <input id="email" class="input" type="email" @if(!empty($placeholder) ) placeholder="{{$placeholder}}" @endif name="email" @if(!empty($required)) required="email"data-error-location="#emailErrorMsgLocation" @endif @if(!empty(errorMsg)) data-error-msg="{{$errorMsg}}" @endif>
     </div>
     @if(!empty($required) || !empty($infos))
     <div class="input-infos content">

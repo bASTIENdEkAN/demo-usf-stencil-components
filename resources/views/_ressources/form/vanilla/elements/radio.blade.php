@@ -8,7 +8,7 @@
 
     @if(!empty($label1))
         <label class="radio radio" for="{{$name}}{{$value1}}">
-            <input id="{{$name}}{{$value1}}" type="radio" value="{{$value1}}" name="{{$name}}" @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" data-error-msg="{{$errorMsg}}"  @endif/>
+            <input id="{{$name}}{{$value1}}" type="radio" value="{{$value1}}" name="{{$name}}" @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
             <span class="radio-el">&nbsp</span>
             <span>{{$label1}}</span>
         </label>
@@ -16,7 +16,7 @@
     
     @if(!empty($label2))
         <label class="radio" for="{{$name}}{{$value2}}">
-            <input id="{{$name}}{{$value2}}" type="radio" value="{{$value2}}" name="{{$name}}"  @if(!empty($required)) required data-error-msg="{{$errorMsg}}"@endif/>
+            <input id="{{$name}}{{$value2}}" type="radio" value="{{$value2}}" name="{{$name}}"  @if(!empty($required)) required @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
             <span class="radio-el">&nbsp</span>
             <span>{{$label2}}</span>
         </label>
@@ -24,7 +24,7 @@
 
     @if(!empty($label3))
         <label class="radio" for="{{$name}}{{$value3}}">
-            <input id="{{$name}}{{$value3}}" type="radio" value="{{$value3}}" name="{{$name}}" @if(!empty($required)) required data-error-msg="{{$errorMsg}}"@endif/>
+            <input id="{{$name}}{{$value3}}" type="radio" value="{{$value3}}" name="{{$name}}" @if(!empty($required)) required @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
             <span class="radio-el">&nbsp</span>
             <span>{{$label3}}</span>
         </label>
@@ -32,7 +32,7 @@
     
     @if(!empty($label4))
         <label class="radio" for="{{$name}}{{$value4}}">
-            <input id="{{$name}}{{$value4}}" type="radio" value="{{$value4}}" name="{{$name}}" @if(!empty($required)) required data-error-msg="{{$errorMsg}}"@endif/>
+            <input id="{{$name}}{{$value4}}" type="radio" value="{{$value4}}" name="{{$name}}" @if(!empty($required)) required @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
             <span class="radio-el">&nbsp</span>
             <span>{{$label4}}</span>
         </label>

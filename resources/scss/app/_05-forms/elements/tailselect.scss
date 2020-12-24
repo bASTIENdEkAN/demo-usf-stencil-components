@@ -1,0 +1,91 @@
+// V1
+$select-height: $form-height;
+$select-primary: $primary;
+$select-color: $black;
+$select-background: $white;
+$select-border-color: $form-border-color;
+$select-border-top-size: $form-border-size;
+$select-border-right-size: $form-border-size;
+$select-border-bottom-size: $form-border-size;
+$select-border-left-size: $form-border-size;
+$select-ptb: $form-pl;
+$select-plr: $form-pl;
+$select-radius: 0px;
+
+$select-border-less: false;
+
+$select2-arrow-triangle: false;
+$select2-arrow-triangle-tight: false;
+$select2-placeholder-color: $form-placeholder-color;
+$select2-color-selected: rgba($black, .1);
+$select2-arrow-border-size: 3px;
+
+//select
+.tail-select{
+    width: 100% !important;
+}
+
+.tail-select .select-label{
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+    box-shadow: none;
+    height: $select-height;
+    background: $select-background;
+    @include selectBorderLess($select-border-less);
+    // &:active,
+    // &.is-active,
+    // &:focus,
+    // &.is-focused{
+    //     width: 100%;
+    //     box-shadow: none;
+    //     @include selectBorderLess($select-border-less, darken($select-border-color,5%));
+    // }
+    $arrowWidth: 0.625em;
+    &:after{
+        display: block;
+        top: calc(50% - (#{$arrowWidth} / 3.3) );
+        height: #{$arrowWidth}; width: #{$arrowWidth};
+        border-radius: 2px;
+        border-top: 0 solid transparent;
+        border-bottom: $select2-arrow-border-size solid $select-primary;
+        border-right: $select2-arrow-border-size solid $select-primary;
+        border-left: 0 solid transparent;
+        transform: translate3d(0,-50%,0) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+.tail-select.active .select-label:after {
+    transform: rotate(225deg);
+}
+
+.tail-select.active .select-label, 
+.tail-select.idle .select-label, 
+.tail-select:hover .select-label {
+    width: 100%;
+    box-shadow: none;
+}
+
+.tail-select .select-dropdown{
+    border: $select-border-bottom-size solid $select-border-color;
+    box-shadow: none;
+}
+
+$tailselect-spacingValue-y: #{rem(7)};
+$tailselect-spacingValue-x: #{rem(15)};
+.tail-select .select-dropdown ul li{
+    padding: $tailselect-spacingValue-y $tailselect-spacingValue-x;
+    &:nth-child(2){
+        margin-top: $tailselect-spacingValue-y;
+    }
+    &:last-child{
+        margin-bottom: $tailselect-spacingValue-y;
+    }
+    &:before, 
+    &.dropdown-option.hover:before, 
+    &.dropdown-option:hover:before,
+    &.dropdown-option.selected:before{
+        display: none;
+    }
+}

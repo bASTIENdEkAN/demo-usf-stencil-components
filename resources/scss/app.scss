@@ -11,7 +11,8 @@
 //// Features:
 @import 'app/_03-features/tricks';
 @import 'app/_03-features/intl-tel-input';
-@import 'app/_03-features/select2';
+// @import 'app/_03-features/tailselect';
+// @import 'app/_03-features/select2';
 // @import 'app/_03-features/swiper'; // npm i swiper // https://www.npmjs.com/package/swiper
 // @import 'app/_03-features/light-gallery'; // npm i lightgallery // https://www.npmjs.com/package/lightgallery
 // @import 'app/_03-features/remodal'; // npm i remodal // https://www.npmjs.com/package/remodal
@@ -37,10 +38,12 @@
 // Components
 @import 'app/_07-components/accordion';
 @import 'app/_07-components/steps-line';
+@import 'app/_07-components/header';
 @import 'app/_07-components/footer';
 
+
 // Blocks
-// @import 'app/_08-blocks/...';
+// @import 'app/_08-blocks/...'; 
 
 // Pages
 // @import 'app/_09-pages/...';

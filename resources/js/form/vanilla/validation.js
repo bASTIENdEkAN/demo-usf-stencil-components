@@ -7,7 +7,7 @@ import { validationEmailExcludeMailCheck } from './validation/email-exclude-mail
 import { validationPhone } from './validation/phone';
 import { validationMatch } from './validation/match';
 // Import Default Error Message
-import { defaultErrorMsg } from './validation/error-msg';
+import { defaultErrorMsg, messages } from './error-msg';
 
 
 const validate = new Bouncer('[data-validate]', {
@@ -30,31 +30,37 @@ const validate = new Bouncer('[data-validate]', {
 	},
 	messages: {
         missingValue: {
-			checkbox: function (field) { return defaultErrorMsg(field) },
-			radio: function (field) { return defaultErrorMsg(field) },
-			select: function (field) { return defaultErrorMsg(field) },
-			'select-multiple': function (field) { return defaultErrorMsg(field) },
-			default: function (field) { return defaultErrorMsg(field) }
+			checkbox: function (field) { return defaultErrorMsg(field, messages.missingValue.checkbox) },
+			radio: function (field) { return defaultErrorMsg(field, messages.missingValue.radio) },
+			select: function (field) { return defaultErrorMsg(field, messages.missingValue.select) },
+			'select-multiple': function (field) { return defaultErrorMsg(field, messages.missingValue.selectMultiple) },
+			default: function (field) { return defaultErrorMsg(field, messages.missingValue.default) }
         },
         patternMismatch: {
-			email: function (field) { return defaultErrorMsg(field) },
-			url: function (field) { return defaultErrorMsg(field) },
-			number: function (field) { return defaultErrorMsg(field) },
-			color: function (field) { return defaultErrorMsg(field) },
-			date: function (field) { return defaultErrorMsg(field) },
-			time: function (field) { return defaultErrorMsg(field) },
-			month: function (field) { return defaultErrorMsg(field) },
-			default: function (field) { return defaultErrorMsg(field) }
+			email: function (field) { return defaultErrorMsg(field, messages.patternMismatch.email) },
+			url: function (field) { return defaultErrorMsg(field, messages.patternMismatch.url) },
+			number: function (field) { return defaultErrorMsg(field, messages.patternMismatch.number) },
+			color: function (field) { return defaultErrorMsg(field, messages.patternMismatch.color) },
+			date: function (field) { return defaultErrorMsg(field, messages.patternMismatch.date) },
+			time: function (field) { return defaultErrorMsg(field, messages.patternMismatch.time) },
+			month: function (field) { return defaultErrorMsg(field, messages.patternMismatch.month) },
+			default: function (field) { return defaultErrorMsg(field, messages.patternMismatch.default) }
 		},
 		outOfRange: {
-			over: function (field) { return defaultErrorMsg(field) },
-			under: function (field) { return defaultErrorMsg(field) }
+			over: function (field) { return defaultErrorMsg(field, messages.outOfRange.over) },
+			under: function (field) { return defaultErrorMsg(field, messages.outOfRange.under) }
 		},
 		wrongLength: {
-			over: function (field) { return defaultErrorMsg(field) },
-			under: function (field) { return defaultErrorMsg(field) }
+			over: function (field) { return defaultErrorMsg(field, messages.wrongLength.over) },
+			under: function (field) { return defaultErrorMsg(field, messages.wrongLength.under) }
 		},
-		fallback: function (field) { return defaultErrorMsg(field)}
+
+		email: function (field) { return defaultErrorMsg(field, messages.patternMismatch.email)},
+		emailExcludeMailCheck: function (field) { return defaultErrorMsg(field, messages.patternMismatch.email)},
+		phone: function (field) { return defaultErrorMsg(field, messages.patternMismatch.phone)},
+		match: function (field) { return defaultErrorMsg(field, messages.patternMismatch.match)},
+
+		fallback: function (field) { return defaultErrorMsg(field, messages.fallback)},
 		
 	}   
 });

@@ -16,11 +16,11 @@ mix
     .js('resources/js/app.js', 'output/js/app.js')
     // .babel('output/js/app.js', 'output/js/app.babel.js')
     .sass('resources/scss/app.scss', 'output/css/app.css')
-    .purgeCss({
-        extend: {
-            whitelistPatterns: [/iti/],
-        },
-    })
+    // .purgeCss({
+    //     extend: {
+    //         whitelistPatterns: [/iti/],
+    //     },
+    // })
     
 
     .browserSync({

@@ -1,3 +1,12 @@
+// REM & EM
+$browser-context: 16;
+@function em($pixels, $context: $browser-context) {
+  @return ($pixels / $context) * 1em;
+}
+@function rem($pixels, $context: $browser-context) {
+    @return ($pixels / $context) * 1rem;
+}
+
 // Import a Font and set your fonts variables
 // @import '../fonts/base64/VW';
 $font-default: 'Arial';
@@ -41,6 +50,16 @@ $white:  #ffffff;
 // $size-7: 12px;
 $text: #000000;
 
+// Spacing : https://bulma.io/documentation/helpers/spacing-helpers/
+$spacing-values: (
+    "1": rem(10), 
+    "2": rem(20),  
+    "3": rem(30),
+    "4": rem(40),
+    "5": rem(50),
+    "6": rem(60),
+); 
+ 
 $body-background-color: $white;
 $control-border-width: 1px;
 $input-border-color: transparent;

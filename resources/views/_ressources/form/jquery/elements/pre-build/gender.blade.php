@@ -1,7 +1,7 @@
 <div class="radios">
 
     <label class="radio" for="genderF">
-        <input id="genderF" type="radio" value="F" name="gender" @if(!empty($required)) data-required data-error-msg="{{$errorMsg}}" data-error-location="#genderErrorMsgLocation" @endif/>
+        <input id="genderF" type="radio" value="F" name="gender" @if(!empty($required)) data-required @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif data-error-location="#genderErrorMsgLocation" @endif/>
         <span class="radio-el">.</span>
         <span>Homme</span>
     </label>
