@@ -11,12 +11,17 @@ accodrions.forEach( accordion =>{
     
     const cta = accordion.querySelector('.accordion-head');
     const panel = accordion.querySelector('.accordion-content');
+    const allPanels = document.querySelectorAll('.accordion-content');
 
     panel.style.height = '0px';
 
     cta.addEventListener('click', (e)=>{
         const panelHeight = panel.querySelector('.container').offsetHeight;
         const isActive = accordion.classList.contains('is-active');
+
+        allPanels.forEach(allPanel =>{
+            allPanel.style.height = '0px';
+        })
 
         if(!isActive){
             selectorAllRemoveClass('.accordion','is-active');
