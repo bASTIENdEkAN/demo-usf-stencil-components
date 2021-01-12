@@ -13,3 +13,12 @@
 .iti-mobile .iti--container{
 	height: 90%;
 }
+
+.iti__flag {
+    background-image: url(https://image.mail.dieteren.be/lib/fea113737564047c76/m/13/5352152c-8066-4faa-a9aa-ac7076dd3620.png);
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
+	.iti__flag {
+		background-image: url(https://image.mail.dieteren.be/lib/fea113737564047c76/m/13/3882250b-dd53-4694-b7a9-b0476802e1fc.png);
+	}
+} 
