@@ -76,3 +76,30 @@ console.log(validate)
 // 	alert('Form submitted successfully!');
 // 	window.location.reload();
 // }, false);
+
+
+// Detect show error events
+document.addEventListener('bouncerShowError', function (event) {
+	
+	// The field with the error
+	const input = event.target;
+	const field = input.closest('.field');
+	
+	if(field){
+		field.classList.add('error');
+	}
+
+}, false);
+
+// Detect remove error events
+document.addEventListener('bouncerRemoveError', function (event) {
+	
+	// The field with the error
+	const input = event.target;
+	const field = input.closest('.field');
+	
+	if(field){
+		field.classList.remove('error');
+	}
+
+}, false);

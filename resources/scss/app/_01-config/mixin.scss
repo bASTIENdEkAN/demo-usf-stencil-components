@@ -1,3 +1,4 @@
+@use "sass:string";
 // BOX SIZING
 @mixin box-sizing($property: border-box){
   -webkit-box-sizing: $property;
@@ -48,9 +49,15 @@ $breakpoints: (
     background-size: $w;
     background-position: $pos;
     background-repeat: $repeat;
-  }
+  } 
 }
 // BACKGROUND SVG
+@function hexToSVG($string){
+    @return string.slice($string, 2, 100);
+}
+@function backgroundSVG($string){
+    @return url('data:image/svg+xml;charset=UTF-8,'+$string+'');
+}
 @mixin backgroundSVG($svg){
   background: url('data:image/svg+xml;charset=UTF-8,#{$svg}');
 }
