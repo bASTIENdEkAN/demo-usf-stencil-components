@@ -1,7 +1,9 @@
 .change-filled{
     position: relative;
     cursor: pointer;
-    background: $form-background;
+    .control{
+        background: $form-background;
+    }
     &.is-disabled{
         &.is-filled{
             .input{
