@@ -111,6 +111,46 @@
                         ])
         </div>
 
+        <div class="column is-12">
+            @include('_ressources/form/vanilla/elements/textarea',
+                        [
+                            'name'=>'message',
+                            'label'=>'Message (optional)',
+                            'changeFilled'=>true,
+                            // 'required'=>true,
+                            // 'errorMsg'=>'Error msg message',
+                        ])
+        </div> 
+        <div class="column is-12">
+            <div class="content is-size-5">
+                <p>
+                    I agree to receive offers and promotions relating to the services and products of the Renault Group, its subsidiaries and members of its sales network:
+                </p>
+            </div>
+        </div>
+        <div class="column is-6">
+            @include('_ressources/form/vanilla/elements/radio',
+                    [
+                        'block'=>true,
+                        'label'=>'YES',
+                        'value'=>'Y',
+                        'name'=>'optin',
+                        'required'=>true,
+                        'errorMsg'=>'Error msg radio',
+                    ])    
+        </div> 
+        <div class="column is-6">
+            @include('_ressources/form/vanilla/elements/radio',
+                    [
+                        'block'=>true,
+                        'label'=>'NO',
+                        'value'=>'N',
+                        'name'=>'optin',
+                        'required'=>true,
+                        'errorMsg'=>'Error msg radio',
+                    ])    
+        </div> 
+
         {{-- <div class="column is-12">
             @include('_ressources/form/vanilla/elements/select2',
                         [

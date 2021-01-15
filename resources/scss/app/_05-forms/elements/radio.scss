@@ -90,13 +90,14 @@ $radio-color: $form-color;
           transition: all .1s ease-out;
         }
     }
-    &.is-a-block{
-        padding-left: calc(#{$size} + 10px ) ;
-        .radio-el{
-            position: absolute; top: 50%; left: calc(#{$size} / 2);
-            transform: translate3d(-50%,-50%,0);
-            margin-right: 0;
-        }
+    &.is-block{
+        display: flex !important;
+        align-items: center;
+        height: $form-height;  
+        background: $form-background;
+        border: $form-border-size solid $form-border-color;
+        border-radius: $form-radius;
+        padding: $form-pt $form-pr $form-pb $form-pl;
     }
 }
 // RADIO

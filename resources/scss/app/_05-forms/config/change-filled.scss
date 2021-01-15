@@ -46,24 +46,19 @@
             min-height: rem(300);
         }
     }
-    &.has-textarea{
+    &.has-textarea{ 
         .label{
-
-            span{
-                position:relative;
-                $plabel: rem(5);
-                &:before{
-                    @include pseudo();
-                    left: -#{$plabel}; top: -#{$plabel};
-                    width:calc(100% + (#{$plabel} * 2)); height: calc(100% + (#{$plabel} * 2));
-                    background: rgba($white, .95);
-                    border-radius: 100px;
-                    z-index: -1;
-                }
-            }
-
+            width: 100%;
         }
-
+        .control{
+            position: relative;
+            &:after{
+                @include pseudo();
+                left: $form-border-size; top: $form-border-size;
+                width: calc( 100% - (#{$form-border-size} * 2)); height: rem(40);
+                background: linear-gradient(to bottom, $form-background 0%, $form-background 50%, rgba($form-background, 0) 100%);
+            }
+        }
     }
 
     .icon, .iti__flag-container{

@@ -42,7 +42,7 @@
 
 <div class="wrapper" >
     <div class="container is-small py-4"> 
-        <h1 class="title">Formu template</h1>
+        <h1 class="title">Form template</h1>
         <div class="content">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, illo qui! Atque distinctio enim nihil, numquam, odit autem voluptatem corporis modi officia voluptate explicabo totam soluta. Dolorum veniam quibusdam consequatur.</p>
         </div>
