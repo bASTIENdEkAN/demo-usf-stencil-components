@@ -1,9 +1,0 @@
-.block-cols{
-    // @extend #{'.columns, .is-multiline, .is-mobile, .is-centered'};
-    .col{
-        // @extend #{'.column, .is-6-mobile, .is-4-tablet, .is-4-desktop, .is-4-widescreen, .is-4-fullhd'};
-        @include mq(max-small-mobile){
-            width: 100% !important;
-        }
-    }
-}

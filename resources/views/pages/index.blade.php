@@ -4,41 +4,23 @@
 <header class="wrapper has-background-light">
     <div class="container py-1">
          {{-- Main container --}}
-        <nav class="level is-mobile">
+        <nav class="header-nav-layout">
             {{-- Left side --}}
-            <ul class="level-left">
-                <li class="level-item">
-                    <p class="text">
-                        
-                        <span class="logo-springbok"></span><strong>R+S</strong> STARTER
-                        
-                    </p>
-                </li>
-            </ul>
+            <div class="left">
+                <span class="logo-springbok">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12,0.0789473684 C18.5838156,0.0789473684 23.9210526,5.41618443 23.9210526,12 C23.9210526,18.5838156 18.5838156,23.9210526 12,23.9210526 C5.41618443,23.9210526 0.0789473684,18.5838156 0.0789473684,12 C0.0789473684,5.41618443 5.41618443,0.0789473684 12,0.0789473684 Z M12,3.07894737 C7.07303868,3.07894737 3.07894737,7.07303868 3.07894737,12 C3.07894737,16.9269613 7.07303868,20.9210526 12,20.9210526 C16.9269613,20.9210526 20.9210526,16.9269613 20.9210526,12 C20.9210526,7.07303868 16.9269613,3.07894737 12,3.07894737 Z M12,9.50137606 L15.8935751,13.3949511 L14.6654422,14.623084 L12,11.9575263 L9.33455775,14.623084 L8.10642492,13.3949511 L12,9.50137606 Z"/></svg>
+                </span>
+                
+                <strong>R+S</strong> STARTER
+            </div>
 
-            {{-- Right side --}}
-            <ul class="level-right">
-                <li class="level-item">
-                    @include('_ressources/elements/select-lang')
-                </li>
-            </ul>
+            <div class="right">
+                @include('_ressources/elements/select-lang')
+            </div>
         </nav>
         {{--/ Main container --}}
     </div>
 </header>
-
-
-<div class="wrapper">
-
-    <div class="container is-small pt-4 pb-1">
-        @include ('_ressources/components/steps-line',
-                        [
-                            'currentStep'=>'5', 
-                            'steps'=>'5',
-                        ])
-    </div>
-</div>
-
 
 <div class="wrapper" >
     <div class="container is-small py-4"> 

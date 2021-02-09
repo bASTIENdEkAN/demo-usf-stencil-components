@@ -11,17 +11,9 @@
 //// Features:
 @import 'app/_03-features/tricks';
 @import 'app/_03-features/intl-tel-input';
-// @import 'app/_03-features/tailselect';
-// @import 'app/_03-features/select2';
-// @import 'app/_03-features/swiper'; // npm i swiper // https://www.npmjs.com/package/swiper
-// @import 'app/_03-features/light-gallery'; // npm i lightgallery // https://www.npmjs.com/package/lightgallery
-// @import 'app/_03-features/remodal'; // npm i remodal // https://www.npmjs.com/package/remodal
 
 //// Layout Grid:
-@import 'app/_04-layout/wrapper';
-@import 'app/_04-layout/container';
-@import 'app/_04-layout/section';
-@import 'app/_04-layout/columns';
+@import 'app/_04-layout/global';
 
 //// Form:
 @import 'app/_05-forms/init';
@@ -30,20 +22,11 @@
 @import 'app/_06-elements/typography';
 @import 'app/_06-elements/button';
 @import 'app/_06-elements/select-lang';
-// @import 'app/_06-elements/button-burger';
-@import 'app/_06-elements/cross-plus-back';
-// @import 'app/_06-elements/underline-animated';
-// @import 'app/_06-elements/link-arrow';
 
 // Components
 @import 'app/_07-components/accordion';
-@import 'app/_07-components/steps-line';
 @import 'app/_07-components/header';
 @import 'app/_07-components/footer';
 
-
-// Blocks
-// @import 'app/_08-blocks/...'; 
-
 // Pages
-// @import 'app/_09-pages/...';
+// @import 'app/_08-pages/...';
