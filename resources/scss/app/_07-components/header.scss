@@ -1,13 +1,20 @@
 .logo-springbok{
-    margin-bottom: rem(-6);
-    margin-right: rem(6);
+    display: inline-block;
+    position: relative;
+    width: 24px; height: 1rem;
+    margin-right: rem(7);
     >svg{
         width: 24px; height: 24px;
-        display: inline-block; 
+        position: absolute;
+        @include centeriser('both');
     }
 } 
 
-.header-nav-layout{
+.header-nav{
     display: flex;
     justify-content: space-between;
+    >.left, >.right{
+        display: flex;
+        align-items: center;
+    }
 } 
