@@ -46,12 +46,12 @@ $transition: all .3s ease;
     // ARROW CSS
     .arrow{
         transition: $transition;
-        // @include cross(
-        //     $crossBackground: $black,
-        //     $crossWidth: 33%,
-        //     $crossHeight: 2px,
-        //     $dir: down,
-        // );
+        @include iconTricks(
+            $crossBackground: $black,
+            $crossWidth: 33%,
+            $crossHeight: 2px,
+            $dir: down,
+        );
     }
 }
 

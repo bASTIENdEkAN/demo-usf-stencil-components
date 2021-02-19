@@ -143,6 +143,67 @@ $breakpoints: (
     object-fit: cover; object-position: center;
     font-family: 'object-fit: cover; object-position: center;';
 }
+// CROSS PLUS BACK
+@mixin iconTricks(
+    $width: rem(30),
+    $height: rem(30),
+    $background: transparent,
+    $backgroundHover: rgba(black, .05),
+    $borderSize: 1px,
+    $borderColor: rgba(black, .1),
+    $radius: 50%,
+    $crossWidth: 50%,
+    $crossHeight: 1px,
+    $crossBackground: black,
+    $dir: cross,
+){
+    display: block;
+    cursor: pointer;
+    padding: 0; margin: 0;
+    position: relative;
+    width: $width; height: $height;
+    background: $background;
+    border-radius: $radius;
+    transition: all .2s ease;
+    text-indent: -999999px;
+    overflow: hidden;
+    border: $borderSize solid $borderColor;
+    &:before, &:after{
+        content:'';
+        position: absolute;
+        left: 50%; top: 50%;
+        width: $crossWidth; height: $crossHeight;
+        background: $crossBackground;
+    }
+    &:before{
+        @if $dir == cross {
+            transform: translate3d(-50%,-50%,0) rotate(45deg);
+        }@else if $dir == plus {
+            transform: translate3d(-50%,-50%,0) rotate(0deg);
+        }@else if $dir == back or $dir == down {
+            display: none;
+        }
+    }
+    &:after{
+        @if $dir == cross {
+            transform: translate3d(-50%,-50%,0) rotate(-45deg);
+        }@else if $dir == plus {
+            transform: translate3d(-50%,-50%,0) rotate(-90deg);
+        }@else if $dir == back or $dir == down{
+            transform: translate3d(-30%,-50%,0) rotate(-45deg);
+            width: $crossWidth; height: $crossWidth;
+            background: transparent;
+            border-top: $crossHeight solid $crossBackground;
+            border-left: $crossHeight solid $crossBackground;
+            @if $dir == down {
+                transform: translate3d(-50%,-70%,0) rotate(-135deg);
+            }
+        }
+    }
+    &:hover{
+        background: $backgroundHover;
+    }
+}
 // BULMA mixin :
 // @include arrow($color);
 // @include center($size);
