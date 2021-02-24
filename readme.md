@@ -3,7 +3,7 @@
 [documentation source](https://docs.google.com/document/d/1nCR0h5pYG8729_oQzI9mimfXB9z39z0bdPOUzzYKNhs/edit?usp=sharing)
 
 ## __1__ Download the starter and create you’re repo.
-First go [here](https://bitbucket.org/riseandshinebxl/starter-slicing_basic/src/master/) and click to “_clone_” and copy the _[displayed url]_.
+First go [here](https://bitbucket.org/riseandshinebxl/starter-slicing_basic/src/master/) and click to __clone__ and copy the __[displayed url]__.
 Now execute theses commands in the terminal:
 ```
 git init
@@ -14,7 +14,7 @@ git pull fork master
 
 Secondly go on [bitbucket](https://bitbucket.org/riseandshinebxl) and create a new repository (workspace RiseandShine). 
 
-Click to “clone” and copy the displayed url of your new project.
+Click to __clone__ and copy the __[displayed url of your new project]__.
 Now execute theses commands in the terminal:
 ```
 git remote add origin [displayed url of your new project]  
