@@ -54,16 +54,19 @@ Blade is the simple, yet powerful templating engine…
 
 ## SCSS
 CSS on its own can be fun, but stylesheets are getting larger, more complex, and harder to maintain. This is where a preprocessor can help. Scss lets you use features that don't exist in CSS yet like…
+
 [https://sass-lang.com/guide](https://sass-lang.com/guide)
 
 ## BULMA
 Bulma is a free, open source CSS framework based on Flexbox and used by more than 200,000 developers. 
 At R+S we only use certain global components such as: column, utilities, button, container, content, form, helpers.
 Feel free to use more compoenent from bulma if need.
+
 [https://bulma.io/](https://bulma.io/)
 
 ## Bouncer
 Reasonable System for CSS Stylesheet Structure.
 A set of simple ideas to guide your process of building maintainable CSS.
 > Note: Consider to use “is-modifier” var instead of “-modifier”
+
 [https://rscss.io/index.html](https://rscss.io/index.html)
