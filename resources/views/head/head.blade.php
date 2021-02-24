@@ -5,11 +5,11 @@
 <meta property="og:description" content="{{$description}}" />
 <meta property="og:type" content="website" />
 @if(!empty($image))
-<meta property="og:image" content="../images/head/{{$image}}" /> {{-- best size is 1200 x 1200 --}}
+<meta property="og:image" content="../images/{{$image}}" /> {{-- best size is 1200 x 1200 --}}
 @else
 <!-- <meta property="og:image" content="/images/head/{{$image}}" /> -->
 @endif
-<link rel="icon" href="../images/head/{{$favicon}}" type="image/png">
+<link rel="icon" href="../images/{{$favicon}}" type="image/png">
 
 {{-- https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR --}}
 {{-- https://developers.facebook.com/tools/debug/sharing --}}

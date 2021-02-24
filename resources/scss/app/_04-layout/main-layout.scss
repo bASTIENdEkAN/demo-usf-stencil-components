@@ -1,0 +1,44 @@
+// MAIN LAYOUT
+.main-layout{
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    
+    @include mq(ie){ height: rem(600); }
+
+    // max-width: rem(1440);
+    // margin: 0 auto;
+    // box-shadow: 0 0 0 1px $grey-lighter;
+    
+    >.head, >.foot{
+        flex-grow: 0;
+        flex-shrink: 0;
+    }   
+    >.body{
+        flex-grow: 1;
+        flex-shrink: 0;
+    } 
+    
+}
+// WRAPPER
+.wrapper{
+    padding: 0 $gutter;
+}
+// CONTAINER
+.container{
+    width: 100%;
+    margin: 0 auto;
+    max-width: rem(1160);
+    &.is-medium{
+        max-width: rem(960);
+    }
+    &.is-small{
+        max-width: rem(760);
+    }
+    &.is-tiny{
+        max-width: rem(560);
+    }
+}
+

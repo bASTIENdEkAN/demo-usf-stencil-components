@@ -1,0 +1,92 @@
+/* REM & EM */
+$browser-context: 16;
+@function em($pixels, $context: $browser-context) {
+  @return ($pixels / $context) * 1em;
+}
+@function rem($pixels, $context: $browser-context) {
+    @return ($pixels / $context) * 1rem;
+}
+
+/* Import a Font and set your fonts variables */
+@import 'fonts/base64/VW';
+$font-default: 'Arial';
+$font-title: 'Arial';
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+$fw-black: 900;
+
+/* Colors variables: */
+
+/* Bulma colors */
+$black:  #000000;
+// $black-bis: hsl(0, 0%, 7%);
+$black-ter: #373737;
+$grey-darker: #333;
+$grey-dark: #666;
+$grey: #999;
+$grey-light: #CCC;
+$grey-lighter: #DDD;
+$white-ter: #F3F5F6;
+// $white-bis: hsl(0, 0%, 98%);
+$white:  #ffffff;
+/**/
+$primary: #61a9ff;
+// $info: $cyan;
+// $success: $green;
+// $warning: $yellow;
+// $danger: $red;
+// $dark: $grey-darker;
+// $light: $white-ter;
+/* Add custom variable inside BULMA : https://bulma.io/documentation/customize/variables/ */
+// $custom-colors: ("purple": ($purple, $white));
+
+/* Font settings: */ 
+$size-7: rem(12);
+// $size-5:;
+// $size-5:;
+// $size-5:;
+// $size-5:;
+// $size-5:;
+$text: $black;
+
+/* Spacing : https://bulma.io/documentation/helpers/spacing-helpers/ */
+$spacing-values: (
+    "1": rem(10), 
+    "2": rem(20),  
+    "3": rem(30),
+    "4": rem(40),
+    "5": rem(50),
+    "6": rem(60),
+); 
+
+/* Global settings */ 
+$column-gap: 10px;
+$gutter: 16px;
+$hero-body-padding: $gutter;
+$family-sans-serif: $font-default;
+$body-background-color: $white;
+$body-size: #{$browser-context}px;
+$control-border-width: 1px;
+$input-border-color: transparent;
+$input-shadow: none;
+$text-strong: $black;
+$radius: 0px;
+$border-color: $grey-lighter;
+/* Shadow smooth: https://s.muz.li/MWNjYTY2Yjk4 */ 
+$shadow  :
+0 0.4px 1.5px rgba(0, 0, 0, 0.008),
+0 1.3px 5.1px rgba(0, 0, 0, 0.011),
+0 6px 23px rgba(0, 0, 0, 0.03)!default;
+$shadow-far  : 0 0 40px 0 rgba(0,0,0,0.15) !default;
+
+/* 
+  What we import from bulma.io: 
+  column, utilities, button, container, content, form, helpers
+  
+  Feel free to use more compoenent from bulma if need.
+*/
+@import "bulma";

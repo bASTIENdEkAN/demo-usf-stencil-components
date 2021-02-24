@@ -1,0 +1,34 @@
+.br{
+	@include mq(min-mobile){
+		display: block;
+	}
+}
+.no-wrap{
+	white-space: nowrap;
+}
+.to-long{
+	display: inline-block;
+	hyphens: auto;
+}
+
+// BREAKPOINTS DISPLAY
+.min-mobile{
+	@include mq(max-mobile){
+		display: none !important;
+	}
+}
+.max-mobile{
+	@include mq(min-mobile){
+		display: none !important;
+	}
+}
+.min-desktop{
+	@include mq(max-desktop){
+		display: none !important;
+	}
+}
+.max-desktop{
+	@include mq(min-desktop){
+		display: none !important;
+	}
+}

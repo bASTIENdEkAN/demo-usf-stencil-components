@@ -1,32 +1,29 @@
 @charset "utf-8";
 
-//// Configuration:
-@import 'app/_01-config/variables/init'; // INIT YOU VARIABLES
-@import 'app/_01-config/mixin';
+/* Configuration: */
+@import 'app/_01-config/variables';
+@import 'app/_01-config/mixins_&_functions';
+@import 'app/_01-config/reset';
 
-//// Init:
-@import 'app/_02-init/reset';
-@import 'app/_02-init/base';
+/* Features: */
+@import 'app/_02-features/tricks';
+@import 'app/_02-features/intl-tel-input';
 
-//// Features:
-@import 'app/_03-features/tricks';
-@import 'app/_03-features/intl-tel-input';
+/* Form (the special feature from R+S): */
+@import 'app/_03-form/init';
 
-//// Layout Grid:
-@import 'app/_04-layout/global';
+/* Layout Grid: */
+@import 'app/_04-layout/main-layout';
 
-//// Form:
-@import 'app/_05-forms/init';
+/* Elements */
+@import 'app/_05-elements/typography';
+@import 'app/_05-elements/button';
+@import 'app/_05-elements/select-lang';
 
-//// Elements
-@import 'app/_06-elements/typography';
-@import 'app/_06-elements/button';
-@import 'app/_06-elements/select-lang';
+/* Components */
+@import 'app/_06-components/accordion';
+@import 'app/_06-components/header';
+@import 'app/_06-components/footer';
 
-// Components
-@import 'app/_07-components/accordion';
-@import 'app/_07-components/header';
-@import 'app/_07-components/footer';
-
-// Pages
-// @import 'app/_08-pages/...';
+/* Pages */
+@import 'app/_07-pages/landing';

@@ -1,0 +1,60 @@
+$footer-backhround: $white-ter;
+$footer-color: #{$black};
+$footer-font-size: rem(14);
+
+.footer{
+    @extend #{'.wrapper'};
+    background: $footer-backhround;
+    font-size: $footer-font-size;
+    >.container{
+        padding: rem(30) 0;
+    }
+    
+    .link{
+        display: block;
+        color: $footer-color;
+        &:hover{
+            color: $footer-color;
+        }
+    }
+}
+
+.footer-nav{
+    display: flex;
+    justify-content: space-between;
+    @include mq(max-mobile){
+        display: block;
+    }
+
+    >.list-left, >.list-right{
+        display: flex; align-items: center;
+        margin: 0 rem(-10);
+        >.el{
+            padding: 0 rem(10);
+            &:not(:last-child){
+                border-right: 1px solid $grey-light;
+            }   
+        }
+        @include mq(max-mobile){
+            display: block;
+            text-align: center;
+            margin: 0;
+            >.el{
+                padding: rem(5);
+                &:not(:last-child){
+                    border-right: none;
+                }   
+            }
+        }
+    }
+
+    @include mq(max-mobile){
+        >.list-left{
+            padding-bottom: rem(10);
+        } 
+        >.list-right{
+            padding-top: rem(10);
+            border-top: 1px solid rgba($grey-light, .5);
+        } 
+    }
+}

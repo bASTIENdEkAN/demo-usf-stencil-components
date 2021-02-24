@@ -3,7 +3,12 @@
     <head>
         <meta charset="utf-8">
 
-        @include('head/head',['title'=>'meta title', 'description'=>'meta description', 'image'=>'head__og-image.jpg', 'favicon'=>'head__favicon.png'])
+        @include('head/head',[
+            'title'=>'meta title', 
+            'description'=>'meta description', 
+            'image'=>'projectName_head_og-image.jpg', 
+            'favicon'=>'projectName_head_favicon.png'
+        ])
 
         <link rel="stylesheet" href="../css/app.css">
 

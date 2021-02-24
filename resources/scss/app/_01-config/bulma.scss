@@ -31,11 +31,11 @@
 // @import "~bulma/sass/form/tools";
 
 // COMPONENTS
-@import "~bulma/sass/components/_all";
+// @import "~bulma/sass/components/_all";
 // @import "~bulma/sass/components/breadcrumb";
 // @import "~bulma/sass/components/card";
 // @import "~bulma/sass/components/dropdown";
-@import "~bulma/sass/components/level";
+// @import "~bulma/sass/components/level";
 // @import "~bulma/sass/components/media";
 // @import "~bulma/sass/components/menu";
 // @import "~bulma/sass/components/message";
@@ -46,8 +46,8 @@
 // @import "~bulma/sass/components/tabs";
 
 // GRID
-@import "~bulma/sass/grid/_all";
-// @import "~bulma/sass/grid/columns";
+// @import "~bulma/sass/grid/_all";
+@import "~bulma/sass/grid/columns";
 // @import "~bulma/sass/grid/tiles";
 
 // HELPERS
@@ -64,5 +64,5 @@
 // LAYOUT
 // @import "~bulma/sass/layout/_all";
 // @import "~bulma/sass/layout/footer";
-@import "~bulma/sass/layout/hero";
+// @import "~bulma/sass/layout/hero";
 // @import "~bulma/sass/layout/section";

@@ -4,7 +4,7 @@
         
 
         <div class="column is-12">
-                @include('_ressources/form/vanilla/elements/radio',
+                @include('_ressources/form/elements/radio',
                         [
                             'required'=>true,
                             // 'label'=>'Gender',
@@ -21,7 +21,7 @@
 
 
         <div class="column is-6">
-            @include('_ressources/form/vanilla/elements/input',
+            @include('_ressources/form/elements/input',
                         [
                             'name'=>'firstname',
                             'label'=>'Firstname',
@@ -33,7 +33,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/vanilla/elements/input',
+            @include('_ressources/form/elements/input',
                         [
                             'name'=>'lastname',
                             'label'=>'Lastname',
@@ -45,7 +45,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/vanilla/elements/pre-build/email',
+            @include('_ressources/form/elements/pre-build/email',
                         [
                             'label'=>'Email',
                             'changeFilled'=>true,
@@ -57,7 +57,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/vanilla/elements/pre-build/phone',
+            @include('_ressources/form/elements/pre-build/phone',
                         [
                             'label'=>'Phone',
                             'changeFilled'=>true,
@@ -67,7 +67,7 @@
         </div>
 
         <div class="column is-12">
-            @include('_ressources/form/vanilla/elements/select',
+            @include('_ressources/form/elements/select',
                         [
                             'name'=>'select',
                             'label'=>'Select',
@@ -78,7 +78,7 @@
         </div>
 
         {{-- <div class="column is-12">
-            @include('_ressources/form/vanilla/elements/tailselect',
+            @include('_ressources/form/elements/tailselect',
                         [
                             'name'=>'tailselect',
                             'label'=>'Tailselect',
@@ -89,7 +89,7 @@
         </div> --}}
 
         <div class="column is-6">
-            @include('_ressources/form/vanilla/elements/pre-build/password',
+            @include('_ressources/form/elements/pre-build/password',
                         [
                             'name'=>'password',
                             'label'=>'Mot de passe',
@@ -100,7 +100,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/vanilla/elements/pre-build/password',
+            @include('_ressources/form/elements/pre-build/password',
                         [
                             'name'=>'confirm-password',
                             'label'=>'Confirmer le mot de passe',
@@ -112,7 +112,7 @@
         </div>
 
         <div class="column is-12">
-            @include('_ressources/form/vanilla/elements/textarea',
+            @include('_ressources/form/elements/textarea',
                         [
                             'name'=>'message',
                             'label'=>'Message (optional)',
@@ -129,7 +129,7 @@
             </div>
         </div>
         <div class="column is-6">
-            @include('_ressources/form/vanilla/elements/radio',
+            @include('_ressources/form/elements/radio',
                     [
                         'block'=>true,
                         'label'=>'YES',
@@ -140,7 +140,7 @@
                     ])    
         </div> 
         <div class="column is-6">
-            @include('_ressources/form/vanilla/elements/radio',
+            @include('_ressources/form/elements/radio',
                     [
                         'block'=>true,
                         'label'=>'NO',
@@ -152,9 +152,9 @@
         </div> 
 
         {{-- <div class="column is-12">
-            @include('_ressources/form/vanilla/elements/select2',
+            @include('_ressources/form/elements/select2',
                         [
-                            'name'=>'select2',
+                            'name'=>'select3',
                             'label'=>'Select 2',
                             'placeholder'=>'Placeholder',
                             'classes'=>'with-search',
@@ -164,9 +164,9 @@
                         ])
         </div> --}}
 
-        {{-- <div class="column is-12">
+        <div class="column is-12">
 
-            @include('_ressources/form/vanilla/elements/pre-build/optin',
+            @include('_ressources/form/elements/pre-build/optin',
                         [
                             'label'=>'<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, doloribus consequatur dolor eligendi eius recusandae quasi velit ad sit nihil, ratione pariatur? Deleniti enim, tenetur minima dicta laboriosam omnis minus.</p>',
                             'name'=>'Optin',
@@ -175,7 +175,7 @@
                             'errorMsg'=>'Error msg optin',
                         ])
 
-        </div> --}}
+        </div>
 
     </div>
 
