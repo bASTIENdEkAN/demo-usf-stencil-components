@@ -2,12 +2,12 @@
 # Starter Slicing • R+S
 [documentation source](https://docs.google.com/document/d/1nCR0h5pYG8729_oQzI9mimfXB9z39z0bdPOUzzYKNhs/edit?usp=sharing)
 
-## 1 Download the starter and create you’re repo.
-First go [here](https://bitbucket.org/riseandshinebxl/starter-slicing_basic/src/master/) and click to “clone” and copy the displayed url.
+## __1__ Download the starter and create you’re repo.
+First go [here](https://bitbucket.org/riseandshinebxl/starter-slicing_basic/src/master/) and click to “_clone_” and copy the _[displayed url]_.
 Now execute theses commands in the terminal:
 ```
 git init
-git remote add fork https://user-name@bitbucket.org/riseandshinebxl/starter-slicing_global.git
+git remote add fork [displayed url]
 git fetch fork
 git pull fork master
 ```
@@ -23,14 +23,14 @@ git push -u origin master -f
 
 Yeah !! Now you can work with peace of mind.
 
-## 2 Installation
+## __2__ Installation
 Execute theses commands in the terminal:
 ```
 npm i
 composer update
 ```
 
-## 3 Process
+## __3__ Process
 Execute this command to start your slicing:
 ```
 npm run dev
