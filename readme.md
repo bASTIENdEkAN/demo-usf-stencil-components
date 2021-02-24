@@ -50,6 +50,7 @@ The basic starter is the lightest and easiest to use, its structure has been rev
 # Features & Framework
 ## Blade
 Blade is the simple, yet powerful templating engine… 
+
 [https://laravel.com/docs/7.x/blade](https://laravel.com/docs/7.x/blade)
 
 ## SCSS
