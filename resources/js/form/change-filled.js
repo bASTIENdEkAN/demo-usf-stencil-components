@@ -34,7 +34,7 @@ let setInputClasses = (input, boolean) => {
     let wrapper = getClosest(input, '.field');
 
 
-    if (input.value.length > 0 ) {
+    if (input.value.length > 0 || input == document.activeElement) {
         wrapper.classList.add('is-filled');
     }else{
         if(input.id != 'intl-tel-input'){
