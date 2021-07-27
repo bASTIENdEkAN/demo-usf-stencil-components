@@ -12,6 +12,7 @@ const messages = {
         email: fr ? "S'il vous plaît, mettez une adresse email valide.":"Vul een geldig e-mailadres in.",
         phone: fr ? "Le format 04xx xx xx xx n’est pas respecté.":"Het formaat 04xx xx xx xx wordt niet gerespecteerd.",
         url: fr ? "Veuillez saisir une URL.":"Voer een URL in.",
+        birthday: fr ? "Veuillez saisir une date d'anniversaire valide.":"Voer een geldige verjaardagsdatum in.",
         number: fr ? "Veuillez saisir un nombre":"Voer alstublieft een nummer in",
         color: fr ? "Veuillez respecter le format suivant: #rrggbb":"Pas het volgende formaat aan: #rrggbb",
         date: fr ? "Veuillez utiliser le format JJ-MM-AAA":"Gebruik het formaat DD-MM-JJJJ",

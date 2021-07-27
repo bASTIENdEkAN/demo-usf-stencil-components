@@ -5,6 +5,7 @@ import Bouncer from 'formbouncerjs';
 import { validationEmail } from './validation/email';
 import { validationEmailExcludeMailCheck } from './validation/email-exclude-mailcheck';
 import { validationPhone } from './validation/phone';
+import { validationBirthday } from './validation/birthday';
 import { validationMatch } from './validation/match';
 // Import Default Error Message
 import { defaultErrorMsg, messages } from './error-msg';
@@ -23,6 +24,9 @@ const validate = new Bouncer('[data-validate]', {
 		},
 		phone: function (field) {
             return validationPhone(field);
+		},
+		birthday: function (field) {
+            return validationBirthday(field);
 		},
 		match: function (field) {
             return validationMatch(field);
@@ -58,6 +62,7 @@ const validate = new Bouncer('[data-validate]', {
 		email: function (field) { return defaultErrorMsg(field, messages.patternMismatch.email)},
 		emailExcludeMailCheck: function (field) { return defaultErrorMsg(field, messages.patternMismatch.email)},
 		phone: function (field) { return defaultErrorMsg(field, messages.patternMismatch.phone)},
+		birthday: function (field) { return defaultErrorMsg(field, messages.patternMismatch.birthday)},
 		match: function (field) { return defaultErrorMsg(field, messages.patternMismatch.match)},
 
 		fallback: function (field) { return defaultErrorMsg(field, messages.fallback)},

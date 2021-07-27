@@ -66,7 +66,18 @@
                         ])
         </div>
 
-        <div class="column is-12">
+        <div class="column is-6">
+            @include('_ressources/form/elements/input',
+                        [
+                            'name'=>'input_birthday',
+                            'label'=>'Date de naissance',
+                            'changeFilled'=>true,
+                            'required'=>'birthday',
+                            // 'errorMsg'=>'Error msg lastname',
+                        ])
+        </div>
+
+        <div class="column is-6">
             @include('_ressources/form/elements/select',
                         [
                             'name'=>'select',

@@ -12,6 +12,6 @@ require('./features/accordion'); //2kb
 require('./form/change-filled.js'); // 2kb
 require('./form/mailcheck.js'); // 12kb
 require('./form/intl-tel-input.js'); // 99 Kb
+require('./form/birthday.js'); // 99 Kb
 require('./form/password.js'); // 2kb
 require('./form/validation.js'); // 26kb
-    
