@@ -6,7 +6,7 @@
     </label>
     <div class="control">
         <div class="">
-            <select class="tailselect @if(!empty($classes)) {{$classes}} @endif" id="{{$name}}" placeholder="{{$placeholder}}" name="{{$name}}" name="{{$placeholder}}" @if(!empty($required)) required data-error-msg="{{$errorMsg}}" data-error-location="#{{$name}}ErrorMsgLocation" @endif>
+            <select class="tailselect @if(!empty($classes)) {{$classes}} @endif" id="{{$name}}" placeholder="{{$placeholder}}" name="{{$name}}" name="{{$placeholder}}" @if(!empty($required)) required @if(!empty($errorMsg))  data-error-msg="{{$errorMsg}}" @endif data-error-location="#{{$name}}ErrorMsgLocation" @endif>
                 @if(!empty($changeFilled))
                     <option disabled selected></option>
                 @else

@@ -6,7 +6,7 @@
     <!-- head: will stick at the top -->
     <div class="head">
         <!-- HEAD -->
-        <header class="header">
+        <header class="header" id="pushData" style="cursor:pointer">
             <div class="container">
                 <nav class="header-nav">
                     <div class="left">

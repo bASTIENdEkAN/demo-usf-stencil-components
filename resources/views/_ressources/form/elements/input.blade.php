@@ -12,7 +12,7 @@
         @if(!empty($placeholder)) placeholder="{{$placeholder}}" @endif
         @if(!empty($required)) 
             @if($required === true ) required @else required="{{$required}}" @endif
-            data-error-location="#{{$name}}ErrorMsgLocation" data-error-msg="{{$errorMsg}}" 
+            data-error-location="#{{$name}}ErrorMsgLocation" @if(!empty($errorMsg))  data-error-msg="{{$errorMsg}}" @endif
         @endif>
   </div>
 

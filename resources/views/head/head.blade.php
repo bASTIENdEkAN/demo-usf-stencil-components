@@ -7,7 +7,7 @@
 @if(!empty($image))
 <meta property="og:image" content="../images/{{$image}}" /> {{-- best size is 1200 x 1200 --}}
 @else
-<!-- <meta property="og:image" content="/images/head/{{$image}}" /> -->
+<!-- <meta property="og:image" content="/images/head/projectName_head_og-image.jpg" /> -->
 @endif
 <link rel="icon" href="../images/{{$favicon}}" type="image/png">
 

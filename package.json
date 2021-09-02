@@ -10,10 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bulma": "^0.9.0",
     "cross-env": "^7.0.2",
     "date-fns": "^2.14.0",
     "formbouncerjs": "^1.4.6",
+    "graphql": "^15.5.1",
+    "graphql-request": "^3.5.0",
     "http-server": "^0.12.3",
     "intl-tel-input": "^17.0.3",
     "jquery": "^3.5.1",

@@ -6,7 +6,7 @@
     </label>
     <div class="control">
         <div class="select2-container">
-            <select class="select2 @if(!empty($classes)) {{$classes}} @endif" @if(empty($changeFilled)) data-placeholder="{{$placeholder}}" @endif id="{{$name}}" name="{{$name}}" @if(!empty($required)) required data-error-msg="{{$errorMsg}}" data-error-location="#{{$name}}ErrorMsgLocation" @endif>
+            <select class="select2 @if(!empty($classes)) {{$classes}} @endif" @if(empty($changeFilled)) data-placeholder="{{$placeholder}}" @endif id="{{$name}}" name="{{$name}}" @if(!empty($required)) required @if(!empty($errorMsg))  data-error-msg="{{$errorMsg}}" @endif data-error-location="#{{$name}}ErrorMsgLocation" @endif>
                 @if(!empty($changeFilled))
                     <option disabled selected></option>
                 @else

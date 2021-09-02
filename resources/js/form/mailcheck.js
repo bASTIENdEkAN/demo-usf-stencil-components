@@ -11,8 +11,8 @@ if(document.querySelector('#email')){
     let $suggestionSentencePt2 = document.querySelector('#suggestionEmail').getAttribute('data-sentence-pt2');
 
 
-    let domains = ['gmail.com', 'hotmail.com', 'outlook.com'];
-    let secondLevelDomains = ['gmail','hotmail','outlook'];
+    let domains = ['gmail.com', 'hotmail.com', 'outlook.com', 'gmx.com'];
+    let secondLevelDomains = ['gmail','hotmail','outlook','gmx'];
     let topLevelDomains = ["com", "be", "nl", "fr", "lu", "eu", "info", "net", "org", "online", "vlaanderen", "immo", "store", "design", "world", "tech", "website", "de", "brussels", "digital", "pro", "rocks", "live", "amsterdam", "ch", "uk"];
 
     let mailCheckRun = () => {
