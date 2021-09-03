@@ -45,44 +45,10 @@ $input-pl: $form-pl;
         // BIGGER BODRE COLOR
         // box-shadow: 0 0 0 1px $input-border-color-focus;
     }
-    // BIRTHDAY KILLER
-    // BIRTHDAY KILLER
-    // BIRTHDAY KILLER
-    &.is-birthday-master{
-        // padding-left: em(6) !important;
-        padding-left: $input-pl;
-        input{
-            border: none; box-shadow: none;
-            padding: 0; margin: 0;
-            font-size: 1rem;
-            text-align: left;
-            color: $input-color;
-            background: $input-background;
-            &#day{
-                width: em(28);
-            }
-            &#month{
-                width: em(28);
-            }
-            &#year{
-                width: em(48);
-            }
-        }
-        label{ display: none !important;}
-        .slash{
-            margin-right:em(2);
-            &.is-first{ margin-left:em(-2); margin-right:em(6); }
-            &.is-second{ margin-left:em(5); margin-right:em(6); }
-
-        }
-    }
-    // END BIRTHDAY KILLER
-    // END BIRTHDAY KILLER
-    // END BIRTHDAY KILLER
 }
 
 .input,
-.textarea,
+.textarea
 {
     border-radius: $input-radius;
     padding: $input-pt $input-pr $input-pb $input-pl;
@@ -109,12 +75,6 @@ $input-pl: $form-pl;
 }
 .field.error label.error{
     color: $danger !important;
-}
-// OVERHIDE ICON INPUT
-// OVERHIDE ICON INPUT
-// OVERHIDE ICON INPUT
-.control.has-icons-left .icon, .control.has-icons-right .icon{
-    height: $input-height;
 }
 
 // INTL TEL INPUT

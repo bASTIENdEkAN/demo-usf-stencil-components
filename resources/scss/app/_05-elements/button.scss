@@ -1,23 +1,94 @@
-$button-height: $form-height;
-$button-radius: $radius;
-$button-transition: all .2s ease-in-out;
+$button--height: $form-height;
+$button--radius: $radius;
+$button--transition: all .2s ease-in-out;
 
-.button{
-    cursor: pointer;
-    box-shadow: none;
-    border-radius: $button-radius;
-    font-family: $font-default;
-	font-weight: $fw-regular;
-    height: $button-height;
-    line-height: 1;
-    &:active,
-    &.is-active,
-    &:focus,
-    &.is-focused{
-        box-shadow: none;
-        &:not(:active){ box-shadow: none; }
+$button--background: $primary !default;
+$button--family: false !default;
+
+$button--border-color: $button--background !default;
+$button--border-width: $control-border-width !default;
+
+$button--py: rem(15) !default;
+$button--px: rem(25) !default;
+
+$button--hover-color: $link-hover !default;
+$button--hover-border-color: $link-hover-border !default;
+
+// The button sizes use mixins so they can be used at different breakpoints
+.button {
+  @extend %control;
+  @extend %unselectable;
+  height: $button--height;
+  border: $button--border-width solid $button--border-color;
+  background-color: $button--background;
+  font-weight: $fw-bold;
+  color: findColorInvert($button--background);
+  cursor: pointer;
+  @if $button--family {
+    font-family: $button--family;
+  }
+  justify-content: center;
+  padding: $button--py $button--px;
+  text-align: center;
+  white-space: nowrap;
+  transition: $button--transition;
+  strong {
+    color: inherit;
+  }
+  
+  &:hover{
+    background: darken($button--background, 5%);
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    opacity: .5;
+  }
+  &.has-link{
+      color: $black;
+      text-decoration: underline;
+      background-color: transparent;
+      border-color: transparent;
+        &:hover{
+            text-decoration: none;
+        }
+  }
+  &.is-fullwidth {
+    display: flex;
+    width: 100%;
+  }
+  &.is-loading {
+    color: transparent !important;
+    pointer-events: none;
+    &::after {
+      @extend %loader;
+      @include center(1em);
+      position: absolute !important;
     }
+  }
 }
-.button{
-    transition: $button-transition;
+
+$buttons--gutter-x: rem(4);
+$buttons--gutter-y: rem(8);
+.buttons {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  .button {
+    margin-bottom: $buttons--gutter-y;
+    &:not(:last-child):not(.is-fullwidth) {
+      @include ltr-property("margin", #{$buttons--gutter-x});
+    }
+  }
+  
+  &.is-centered {
+    justify-content: center;
+    &:not(.has-addons) {
+      .button:not(.is-fullwidth) {
+        margin-left: $buttons--gutter-x;
+        margin-right: $buttons--gutter-x;
+      }
+    }
+  }
 }

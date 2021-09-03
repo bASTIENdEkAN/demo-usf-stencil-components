@@ -190,9 +190,11 @@
 
     </div>
 
-
-    <div class="has-text-centered mt-3 mb-3">
-        <button class="button is-medium is-primary" type="submit">Submit</button>
+    <div>
+        <div class="buttons is-centered mb-3">
+            <button class="button" type="submit">Submit</button>
+            {{-- <a class="button has-link" href="#">voir le détails</a> --}}
+        </div>
     </div>
 
 </form>
