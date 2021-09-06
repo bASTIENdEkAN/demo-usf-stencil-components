@@ -1,4 +1,4 @@
-<div class="form-group field @if(!empty($changeFilled)) change-filled @endif">
+<div class="field @if(!empty($changeFilled)) change-filled @endif">
   <label class="label" for="{{$name}}">
       @if(!empty($changeFilled)) <span> @endif
           {{$label}}

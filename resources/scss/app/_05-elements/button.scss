@@ -1,4 +1,4 @@
-$button--height: $form-height;
+$button--height: $form--height;
 $button--radius: $radius;
 $button--transition: all .2s ease-in-out;
 
@@ -24,8 +24,9 @@ $button--hover-border-color: $link-hover-border !default;
   font-weight: $fw-bold;
   color: findColorInvert($button--background);
   cursor: pointer;
+  font-family: $font-default;
   @if $button--family {
-    font-family: $button--family;
+
   }
   justify-content: center;
   padding: $button--py $button--px;

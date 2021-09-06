@@ -1,48 +1,51 @@
-// V1
-$checkbox-size: rem(30);
-$checkbox-margin-size: 24px;
-$checkbox-size-hover: 2.8;
-$checkbox-border-size: 1px;
-$checkbox-border-radius: 0px;
-$checkbox-border-color: $border-color;
-$checkbox-border-color-checked: $primary;
-$checkbox-background-hover: rgba($border-color, 0.2);
-$checkbox-background-checked: $primary;
-$checkbox-check-width: 3;
-$checkbox-check-color: findColorInvert($primary); // findColorInvert is a bulma function
-/// V1
+$checkbox--size: rem(30);
+$checkbox--margin-size: 24px;
+$checkbox--size-hover: 2.8;
+// Border
+$checkbox--border-radius: 0px;
+$checkbox--border-size: $form--border-size;
+$checkbox--border-color: $form--border-color;
+$checkbox--border-color-hover: $form--border-color-focus;
+$checkbox--border-color-checked: $primary;
 
-// MIXIN
-// MIXIN
-// MIXIN
+// Background
+$checkbox--background-hover: rgba($checkbox--border-color, 0.2);
+$checkbox--background-checked: $primary;
+// Check
+$checkbox--check-width: 3;
+$checkbox--check-color: findColorInvert($primary); // findColorInvert is a bulma function
+/* 
+    Here is personal mixin releated to select, but to fin the other mixin it's:
+    -> _01-config/mixins_&_function.scss
+    -> nodes_modules/bulma/sass/utilities/mixins.sass & other
+*/
 @keyframes check {
     0% { stroke-dashoffset: 400; opacity: 1;}
     100% { stroke-dashoffset: 350; opacity: 1;}
 }
 
-@mixin checkbox($size: $checkbox-size,
-                $size-hover: $checkbox-size-hover,
-                $border-size: $checkbox-border-size,
-                $border-radius: $checkbox-border-radius,
-                $border-color: $checkbox-border-color,
-                $border-color-checked: $checkbox-border-color-checked,
-                $background-hover: $checkbox-background-hover,
-                $background-checked: $checkbox-background-checked,
-                $check-width: $checkbox-check-width,
-                $check-color: $checkbox-check-color,
-                $color: $form-color,
+@mixin checkbox($checkbox--size: $checkbox--size,
+                $checkbox--size-hover: $checkbox--size-hover,
+                $checkbox--border-size: $checkbox--border-size,
+                $checkbox--border-radius: $checkbox--border-radius,
+                $checkbox--border-color: $checkbox--border-color,
+                $checkbox--border-color-checked: $checkbox--border-color-checked,
+                $checkbox--background-hover: $checkbox--background-hover,
+                $checkbox--background-checked: $checkbox--background-checked,
+                $checkbox--check-width: $checkbox--check-width,
+                $checkbox--check-color: $checkbox--check-color,
+                $checkbox--color: $form--color,
 ){
     cursor: pointer;
-    color: $color;
+    color: $checkbox--color;
     input{ position: absolute; opacity: 0;}
     .checkbox-el {
         position: relative;
         display: inline-block;
-        width: $size;  height: $size;
-        min-width: $size;  min-height: $size;
-        // margin-right: calc(#{$checkbox-margin-size} - #{$checkbox-size});
-        border-radius: $border-radius;
-        border: $border-size solid $border-color;
+        width: $checkbox--size;  height: $checkbox--size;
+        min-width: $checkbox--size;  min-height: $checkbox--size;
+        border-radius: $checkbox--border-radius;
+        border: $checkbox--border-size solid $checkbox--border-color;
         background: transparent;
         opacity: 1;
         &:after{
@@ -50,19 +53,19 @@ $checkbox-check-color: findColorInvert($primary); // findColorInvert is a bulma 
             position: absolute;
          	top: 50%;
         	left: 50%;
-        	width: calc(#{$size} / 1.6);
-        	height: calc(#{$size} / 1.6);
+        	width: calc(#{$checkbox--size} / 1.6);
+        	height: calc(#{$checkbox--size} / 1.6);
         	border-radius: 50%;
-            background: $background-hover;
+            background: $checkbox--background-hover;
             transform: translate3d(-50%,-50%,0);
             opacity: 0;
             transition: all .2s ease;
             // @include mq(ie){
-            //     width: calc( #{$size} / 3 );
-            //     height: calc( #{$size} / 2 );
+            //     width: calc( #{$checkbox--size} / 3 );
+            //     height: calc( #{$checkbox--size} / 2 );
             //     border-radius: 0;
             //     background: transparent;
-            //     border-bottom: 2px solid $check-color; border-right: 2px solid $check-color;
+            //     border-bottom: 2px solid $checkbox--check-color; border-right: 2px solid $checkbox--check-color;
             //     transform: translate3d(-50%,-50%,0) rotate(45deg);
             //     opacity: 0;
             //     transition: none;
@@ -78,22 +81,23 @@ $checkbox-check-color: findColorInvert($primary); // findColorInvert is a bulma 
         transform: translate3d(-50%,-50%,0);
 
         .check{
-          stroke: $check-color;
+          stroke: $checkbox--check-color;
           fill: none;
-          stroke-width: $check-width;
+          stroke-width: $checkbox--check-width;
           stroke-dasharray: 400;
           stroke-dashoffset: 350;
           opacity: 0;
         }
     }
     &:hover{
-        color: $color;
+        color: $checkbox--color;
     }
     &:hover input ~ .checkbox-el,
     &:hover input ~ * .checkbox-el {
+        border-color: $checkbox--border-color-hover;
         &:after{
           opacity: 1;
-          transform: translate3d(-50%,-50%,0) scale(#{$size-hover});
+          transform: translate3d(-50%,-50%,0) scale(#{$checkbox--size-hover});
           // @include mq(ie){
           //     opacity: 0;
           // }
@@ -102,7 +106,7 @@ $checkbox-check-color: findColorInvert($primary); // findColorInvert is a bulma 
     input:checked ~ .checkbox-el,
     input:checked ~ * .checkbox-el {
          &:after{
-            background: $background-checked;
+            background: $checkbox--background-checked;
             opacity: 1;
             transform: translate3d(-50%,-50%,0) scale(1);
             // @include mq(ie){
@@ -111,10 +115,8 @@ $checkbox-check-color: findColorInvert($primary); // findColorInvert is a bulma 
             //     transform: translate3d(-50%,-50%,0) rotate(45deg);
             // }
          }
-
-         background: $background-checked;
-         border-color: $border-color-checked;
-
+         background: $checkbox--background-checked;
+         border-color: $checkbox--border-color-checked;
          .svg .check { animation: check .3s ease .1s forwards; }
     }
 
@@ -127,12 +129,10 @@ $checkbox-check-color: findColorInvert($primary); // findColorInvert is a bulma 
         }
     }
 }
-// CHECKBOX
-// CHECKBOX
-// CHECKBOX
 input[type="checkbox"]{
     position: absolute;
 }
+
 .checkbox{
     @include checkbox();
     span:not(.checkbox-el){

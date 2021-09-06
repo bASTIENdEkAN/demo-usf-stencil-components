@@ -1,3 +1,7 @@
+/* 
+    Here is personal mixin releated to select, but to fin the other mixin it's:
+    -> nodes_modules/bulma/sass/utilities/mixins.sass & other
+*/
 @use "sass:string";
 // BOX SIZING
 @mixin box-sizing($property: border-box){
@@ -90,22 +94,17 @@ $breakpoints: (
     >.column, >.col{ padding:$gapY $gapX;}
 }
 // PLACEHOLDER
-@mixin placeholder($color){
+// Find the mixin there -> nodes_modules/bulma/sass/utilities/mixins.sass & other
+// @mixin placeholder {
+//   $placeholders: ':-moz' ':-webkit-input' '-moz' '-ms-input';
+//   @each $placeholder in $placeholders {
+//     &:#{$placeholder}-placeholder {
+//       @content;
+//     }
+//   }
+// }
 
-	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-	  color: $color;
-	}
-	&::-moz-placeholder { /* Firefox 19+ */
-	  color: $color;
-	}
-	&:-ms-input-placeholder { /* IE 10+ */
-	  color: $color;
-	}
-	&:-moz-placeholder { /* Firefox 18- */
-	  color: $color;
-	}
-
-}
+// }
 // BACKGROUND SO COLOR
 @mixin backgroundSoColor($color){
 	// @if colorLuminance($color) < 0.5 {

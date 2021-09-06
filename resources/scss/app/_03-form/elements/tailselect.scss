@@ -1,22 +1,22 @@
 // V1
-$select-height: $form-height;
+$select-height: $form--height;
 $select-primary: $primary;
 $select-color: $black;
 $select-background: $white;
-$select-border-color: $form-border-color;
-$select-border-top-size: $form-border-size;
-$select-border-right-size: $form-border-size;
-$select-border-bottom-size: $form-border-size;
-$select-border-left-size: $form-border-size;
-$select-ptb: $form-pl;
-$select-plr: $form-pl;
+$select-border-color: $form--border-color;
+$select-border-top-size: $form--border-size;
+$select-border-right-size: $form--border-size;
+$select-border-bottom-size: $form--border-size;
+$select-border-left-size: $form--border-size;
+$select-ptb: $form--pl;
+$select-plr: $form--pl;
 $select-radius: 0px;
 
 $select-border-less: false;
 
 $select2-arrow-triangle: false;
 $select2-arrow-triangle-tight: false;
-$select2-placeholder-color: $form-placeholder-color;
+$select2-placeholder-color: $form--placeholder-color;
 $select2-color-selected: rgba($black, .1);
 $select2-arrow-border-size: 3px;
 

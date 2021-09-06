@@ -11,7 +11,8 @@ if( document.documentElement.lang == 'fr'){
 const input = document.querySelector('#intl-tel-input');
 
 if(input){
-    
+
+
     const lang = input.dataset.lang
     let preferredCountries = ['be','nl','lu'];
 
@@ -29,6 +30,12 @@ if(input){
                 customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
                     return selectedCountryPlaceholder;
                     },
+    });
+
+    const itiContainer = document.querySelector('.iti');
+    itiContainer.addEventListener('click',()=>{
+        const field = itiContainer.closest('.field');
+        field.classList.add('is-filled');
     });
 
     let phoneNumberValue = input.getAttribute('data-init-value');

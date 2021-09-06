@@ -1,43 +1,49 @@
 
-// V1
-$radio-size: rem(30);
-$radio-border-size: 1px;
-$radio-border-radius: 50%;
-$radio-back-background: $white;
-$radio-back-background-hover: $white;
-$radio-back-background-checked: $white;
-$radio-border-color: $border-color;
-$radio-border-color-hover: $border-color;
-$radio-border-color-checked: $border-color;
-$radio-background: transparent;
-$radio-background-hover: rgba($border-color, 0.2);
-$radio-background-checked: $primary;
-$radio-color: $form-color;
-/// V1
+// Global
+$radio--size: rem(30);
+$radio--border-size: $form--border-size;
+$radio--color: $form--color;
+$radio--label-weight: $form--label-weight;
+$radio--border-radius: 50%;
+// Background
+$radio--back-background: $white;
+$radio--back-background-hover: $white;
+$radio--back-background-checked: $white;
+// Border
+$radio--border-color: $form--border-color;
+$radio--border-color-hover: $form--border-color-focus;
+$radio--border-color-checked: $form--border-color;
+// Background
+$radio--background: transparent;
+$radio--background-hover: rgba($radio--border-color, 0.2);
+$radio--background-checked: $primary;
 
-// MIXIN
-// MIXIN
-// MIXIN
-@mixin radio($size: $radio-size,
-             $border-size: $radio-border-size,
-             $border-radius: $radio-border-radius,
-             $back-background: $radio-back-background,
-             $back-background-hover: $radio-back-background-hover,
-             $back-background-checked: $radio-back-background-checked,
-             $border-color: $radio-border-color,
-             $border-color-hover: $radio-border-color-hover,
-             $border-color-checked: $radio-border-color-checked,
-             $background: $radio-background,
-             $background-hover: $radio-background-hover,
-             $background-checked: $radio-background-checked,
-             $color: $radio-color,
+/* 
+    Here is personal mixin releated to select, but to fin the other mixin it's:
+    -> _01-config/mixins_&_function.scss
+    -> nodes_modules/bulma/sass/utilities/mixins.sass & other
+*/
+@mixin radio(
+    $radio--size: $radio--size,
+    $radio--border-size: $radio--border-size,
+    $radio--border-radius: $radio--border-radius,
+    $radio--back-background: $radio--back-background,
+    $radio--back-background-hover: $radio--back-background-hover,
+    $radio--back-background-checked: $radio--back-background-checked,
+    $radio--border-color: $radio--border-color,
+    $radio--border-color-hover: $radio--border-color-hover,
+    $radio--border-color-checked: $radio--border-color-checked,
+    $radio--background: $radio--background,
+    $radio--background-hover: $radio--background-hover,
+    $radio--background-checked: $radio--background-checked,
+    $radio--color: $radio--color,
 ){
     cursor: pointer;
     position: relative;
     text-align: left;
     width: auto;
-    color: $color;
-    font-weight: $fw-regular;
+    color: $radio--color;
+    font-weight: $radio--label-weight;
     &+ .radio { margin-left: 0; }
     input {
         position: absolute;
@@ -48,56 +54,64 @@ $radio-color: $form-color;
     .radio-el {
         position: relative;
         display: inline-block;
-        height: $size; width: $size;
-        min-height: $size; min-width: $size;
-        border-radius: $border-radius;
-        border: $border-size solid $border-color;
+        height: $radio--size; width: $radio--size;
+        min-height: $radio--size; min-width: $radio--size;
+        border-radius: $radio--border-radius;
+        border: $radio--border-size solid $radio--border-color;
         margin-right: em(5);
-        background: $back-background;
+        background: $radio--back-background;
         color: transparent;
         &:after{
             content: "";
             position: absolute;
             top: 50%; left: 50%;
-            width: calc(#{$size} / 1.7); height: calc(#{$size} / 1.7);
-            border-radius: $border-radius;
-            background: $background;
+            width: calc(#{$radio--size} / 1.7); height: calc(#{$radio--size} / 1.7);
+            border-radius: $radio--border-radius;
+            background: $radio--background;
             transform: translate3d(-50%,-50%,0);
             opacity: 1;
             transition: all .2s ease-out;
         }
     }
     &:hover {
-        color: $color;
+        color: $radio--color;
     }
+
+    // Hover
     &:hover input ~ .radio-el,
     &:hover input ~ * .radio-el {
-        border-color: $border-color-hover;
-        background: $back-background-hover;
+        border-color: $radio--border-color-hover !important;
+        background: $radio--back-background-hover;
         &:after{
-          background: $background-hover;
+          background: $radio--background-hover;
           transform: translate3d(-50%,-50%,0) scale(3);
         }
     }
+    
+    // Checked
     input:checked ~ .radio-el,
     input:checked ~ * .radio-el {
-        border-color: $border-color-checked;
-        background: $back-background-checked;
+        border-color: $radio--border-color-checked;
+        background: $radio--back-background-checked;
         &:after{
-          background: $background-checked;
+          background: $radio--background-checked;
           background: $primary;
           transform: translate3d(-50%,-50%,0) scale(1);
           transition: all .1s ease-out;
         }
     }
+
     &.is-block{
         display: flex !important;
         align-items: center;
-        height: $form-height;  
-        background: $form-background;
-        border: $form-border-size solid $form-border-color;
-        border-radius: $form-radius;
-        padding: $form-pt $form-pr $form-pb $form-pl;
+        height: $form--height;  
+        background: $form--background;
+        border: $form--border-size solid $form--border-color;
+        border-radius: $form--radius;
+        padding: $form--pt $form--pr $form--pb $form--pl;
+        &:hover{
+            border-color: $radio--border-color-hover;
+        }
     }
 }
 // RADIO
@@ -106,11 +120,11 @@ $radio-color: $form-color;
 .radios{
     display: flex;
     flex-wrap: wrap;
-    margin: rem(-3) rem(-20);
+    margin: rem(-3) rem(-10);
     .radio{
-        margin: rem(6) rem(20);
+        padding: rem(3) rem(10);
         &.is-infos, &.is-label{
-            font-weight: $fw-regular;
+            font-weight: $form--label-weight;
         }
         &.is-infos{
             width: 100%;
@@ -120,9 +134,9 @@ $radio-color: $form-color;
             
         }
     }
-    .radio + .radio {
-        margin-left: rem(20);
-    }
+    // .radio + .radio {
+    //     margin-left: rem(20);
+    // }
     
 }
 
@@ -138,9 +152,16 @@ $radio-color: $form-color;
     }
 }
 
+// Infos 
+.radio:not(.is-block) ~ .radio .radio-infos{
+    margin-top: rem(0);
+    
+}
+
+
 .radio-wrapper{
     background: $white;
-    border: $form-border-size solid $border-color;
+    border: $form--border-size solid $radio--border-color;
     width: 100%;
     padding: rem(15) rem(30);
     .radio{

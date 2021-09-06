@@ -1,20 +1,84 @@
-// INIT
-.title, .subtitle, .text, .content{
+$title--font-family: $font-title;
+$title--size: $size-3;
+$title--weight: $weight-semibold;
+$title--line-height: 1.125;
+$title--strong-color: inherit;
+$title--strong-weight: inherit;
 
+$subtitle--size: $size-5;
+$subtitle--weight: $weight-normal;
+$subtitle--line-height: 1.25;
+$subtitle--strong-color: $text-strong;
+$subtitle--strong-weight: $weight-semibold;
+$subtitle--negative-margin: -1.25rem;
+
+// TITLE & SUBTITLE
+.title,
+.subtitle {
+  @extend %block;
+  word-break: break-word;
+  em,
+  span {
+    font-weight: inherit;
+  }
+  .tag {
+    vertical-align: middle;
+  }
 }
+
 // TITLE
-.title{
-    font-family: $font-title;
+.title {
+  font-size: $title--size;
+  font-weight: $title--weight;
+  line-height: $title--line-height;
+  strong {
+    color: $title--strong-color;
+    font-weight: $title--strong-weight;
+  }
+  
+  &:not(.is-spaced) + .subtitle {
+    margin-top: $subtitle--negative-margin;
+  } 
 }
+
 // SUBTITLE
-.subtitle{
-
+.subtitle {
+  font-size: $subtitle--size;
+  font-weight: $subtitle--weight;
+  line-height: $subtitle--line-height;
+  strong {
+    color: $subtitle--strong-color;
+    font-weight: $subtitle--strong-weight;
+  }
+  &:not(.is-spaced) + .title {
+    margin-top: $subtitle--negative-margin;
+  } 
 }
-// TEXT
-.text{
 
-}
 // CONTENT
+/*
+    Juste to let you know it's allready imported from bulma.
+    -> ~bulma/sass/elements/content
+    But feel ffree to customize it!
+*/
 .content{
 
+}
+
+// Size
+/*
+    It's based on the start config file "variablse.scss"
+*/
+@each $size in $sizes {
+    $i: index($sizes, $size);
+    $i-next: $i + 1;
+    .is-size-#{$i} {
+        font-size: $size;
+        @include mq(max-mobile){
+            @if $i-next < 7 {
+                // @debug "$i mean: #{$i-previous}";
+                font-size: nth($sizes, $i-next);
+            }
+        }
+    }
 }

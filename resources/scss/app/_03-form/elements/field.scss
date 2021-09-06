@@ -1,0 +1,246 @@
+$label--color: $form--label-color;
+$label--weight: $form--label-weight;
+
+.label {
+  color: $label--color;
+  display: block;
+  font-size: $size-normal;
+  font-weight: $label--weight;
+  &:not(:last-child) {
+    margin-bottom: 0.5em;
+  }  // Sizes
+}
+
+.field {
+  &:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }  // Modifiers
+  &.has-addons {
+    display: flex;
+    justify-content: flex-start;
+    .control {
+      &:not(:last-child) {
+        @include ltr-property("margin", -1px);
+      }
+      &:not(:first-child):not(:last-child) {
+        .button,
+        .input,
+        .select select {
+          border-radius: 0;
+        }
+      }
+      &:first-child:not(:only-child) {
+        .button,
+        .input,
+        .select select {
+          @include ltr {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+          @include rtl {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+        }
+      }
+      &:last-child:not(:only-child) {
+        .button,
+        .input,
+        .select select {
+          @include ltr {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+          }
+          @include rtl {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+      }
+      .button,
+      .input,
+      .select select {
+        &:not([disabled]) {
+          &:hover,
+          &.is-hovered {
+            z-index: 2;
+          }
+          &:focus,
+          &.is-focused,
+          &:active,
+          &.is-active {
+            z-index: 3;
+            &:hover {
+              z-index: 4;
+            }
+          }
+        }
+      }
+      &.is-expanded {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+    &.has-addons-centered {
+      justify-content: center;
+    }
+    &.has-addons-right {
+      justify-content: flex-end;
+    }
+    &.has-addons-fullwidth {
+      .control {
+        flex-grow: 1;
+        flex-shrink: 0;
+      }
+    }
+  }
+  &.is-grouped {
+    display: flex;
+    justify-content: flex-start;
+    & > .control {
+      flex-shrink: 0;
+      &:not(:last-child) {
+        margin-bottom: 0;
+        @include ltr-property("margin", 0.75rem);
+      }
+      &.is-expanded {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+    &.is-grouped-centered {
+      justify-content: center;
+    }
+    &.is-grouped-right {
+      justify-content: flex-end;
+    }
+    &.is-grouped-multiline {
+      flex-wrap: wrap;
+      & > .control {
+        &:last-child,
+        &:not(:last-child) {
+          margin-bottom: 0.75rem;
+        }
+      }
+      &:last-child {
+        margin-bottom: -0.75rem;
+      }
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &.is-horizontal {
+    @include tablet {
+      display: flex;
+    }
+  }
+}
+.field-label {
+  .label {
+    font-size: inherit;
+  }
+  @include mobile {
+    margin-bottom: 0.5rem;
+  }
+  @include tablet {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    @include ltr-property("margin", 1.5rem);
+    text-align: right;
+    &.is-small {
+      font-size: $size-small;
+      padding-top: 0.375em;
+    }
+    &.is-normal {
+      padding-top: 0.375em;
+    }
+    &.is-medium {
+      font-size: $size-medium;
+      padding-top: 0.375em;
+    }
+    &.is-large {
+      font-size: $size-large;
+      padding-top: 0.375em;
+    }
+  }
+}
+.field-body {
+  .field .field {
+    margin-bottom: 0;
+  }
+  @include tablet {
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 5;
+    flex-shrink: 1;
+    .field {
+      margin-bottom: 0;
+    }
+    & > .field {
+      flex-shrink: 1;
+      &:not(.is-narrow) {
+        flex-grow: 1;
+      }
+      &:not(:last-child) {
+        @include ltr-property("margin", 0.75rem);
+      }
+    }
+  }
+}
+.control {
+  box-sizing: border-box;
+  clear: both;
+  font-size: $size-normal;
+  position: relative;
+  text-align: inherit;
+  // Modifiers
+  &.has-icons-left,
+  &.has-icons-right {
+    .input,
+    .select {
+      &:focus {
+        & ~ .icon {
+        //   color: $input-icon-active-color;
+        }
+      }
+    }
+    .icon {
+      height: $form--height;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      width: $form--height;
+      z-index: 4;
+    }
+  }
+  &.has-icons-left {
+    .input,
+    .select select {
+      padding-left: $form--height;
+    }
+    .icon.is-left {
+      left: 0;
+    }
+  }
+  &.has-icons-right {
+    .input,
+    .select select {
+      padding-right: $form--height;
+    }
+    .icon.is-right {
+      right: 0;
+    }
+  }
+  &.is-loading {
+    &::after {
+      @extend %loader;
+      position: absolute !important;
+      @include ltr-position(#{$form--pr});
+      // calc( (input height / 2 ) - loader height / 2);
+      top: calc( (#{$form--height} / 2) - #{em(8)});
+      z-index: 4;
+    }
+  }
+}

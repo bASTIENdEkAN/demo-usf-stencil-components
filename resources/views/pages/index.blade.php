@@ -34,6 +34,7 @@
         <div class="wrapper" >
             <div class="container is-small py-4"> 
                 <h1 class="title">Form components</h1>
+                <h2 class="subtitle">Developed with love by Bastien De Kan</h2>
                 <div class="content">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, illo qui! Atque distinctio enim nihil, numquam, odit autem voluptatem corporis modi officia voluptate explicabo totam soluta. Dolorum veniam quibusdam consequatur.</p>
                 </div>
@@ -44,7 +45,7 @@
         </div>
         
         
-        <div class="wrapper has-background-white-bis">
+        <div class="wrapper wrapper-accordions">
             <div class="container is-medium py-6">
         
                 <ul class="list-faq">

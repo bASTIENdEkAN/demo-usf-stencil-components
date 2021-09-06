@@ -1,57 +1,22 @@
-// V1
-$select-height: $form-height;
-$select-primary: $primary;
-$select-color: $black;
-$select-background: $white;
-$select-border-color: $form-border-color;
-$select-border-top-size: $form-border-size;
-$select-border-right-size: $form-border-size;
-$select-border-bottom-size: $form-border-size;
-$select-border-left-size: $form-border-size;
-$select-ptb: $form-pl;
-$select-plr: $form-pl;
-$select-radius: 0px;
-
-$select-border-less: false;
-$select-with-triangle: false;
-
-$select2-arrow-triangle-tight: false;
-$select2-placeholder-color: $form-placeholder-color;
-$select2-color-selected: rgba($black, .1);
-$select2-arrow-border-size: 3px;
-
-/* 
-    Here is personal mixin releated to select, but to fin the other mixin it's:
-    -> mixins@Functions.scss
-    -> nodes_modules/bulma/sass/utilities/mixins.sass & other
-*/
-@mixin selectBorderLess($dir: false, $border-color: $select-border-color){
-    @if($dir == true){
-        border-top: 0 none;
-        border-left: 0 none;
-        border-bottom: $select-border-bottom-size solid $border-color;
-        border-right: 0 none;
-    }@if($dir == false){
-        border-top: $select-border-top-size solid $border-color;
-        border-left: $select-border-left-size solid $border-color;
-        border-bottom: $select-border-bottom-size solid $border-color;
-        border-right: $select-border-right-size solid $border-color;
-    }
-}
-
-@mixin selectWithTriangle($dir:false){
-    @if($dir == true){
-        @include pseudo();
-        @include centeriser('vertical');
-        @include triangle(bottom,$select-primary,10px,10px);
-        top: 51%;
-        border-radius: rem(10);
-    }@if($dir == false){
-        @include arrow();
-        border-color: $select-primary;
-    }
-}
-
+// Global
+$select--height: $form--height;
+$select--primary: $primary;
+$select--color: $black;
+$select--background: $white;
+// Border
+$select--radius: $form--radius;
+$select--border-color: $form--border-color;
+$select--border-color-focus: $form--border-color-focus;
+$select--border-top-size: $form--border-size;
+$select--border-right-size: $form--border-size;
+$select--border-bottom-size: $form--border-size;
+$select--border-left-size: $form--border-size;
+// Padding
+$select--ptb: $form--pl;
+$select--plr: $form--pl;
+// Config
+$select--border-less: false;
+$select--with-triangle: false;
 
 // BULMA STUFF
 .select {
@@ -76,17 +41,25 @@ $select2-arrow-border-size: 3px;
         }
         //// Remove default arrow
         
-        background: $select-background;
-        border-radius: $select-radius;
-        padding: $select-ptb $select-plr;
-        height: $input-height;
-        @include selectBorderLess($select-border-less);
-        // @include selectBorderLess($select-border-less, darken($select-border-color,5%));
+        background: $select--background;
+        border-radius: $select--radius;
+        padding: $select--ptb $select--plr;
+        height: $form--height;
 
-        // &[disabled]:hover,
-        // fieldset[disabled] &:hover {
-        // border-color: $input-disabled-border-color;
-        // }
+        @if $select--border-less {
+            border: 0 none;
+            border-bottom: $select--border-bottom-size solid $border-color;
+        }@else{
+            border-top: $select--border-top-size solid $border-color;
+            border-left: $select--border-left-size solid $border-color;
+            border-bottom: $select--border-bottom-size solid $border-color;
+            border-right: $select--border-right-size solid $border-color;
+        }
+        // @include selectBorderLess($select--border-less, darken($select--border-color,5%));
+
+        &:hover {
+            border-color: $select--border-color-focus;
+        }
         &[multiple] {
             height: auto;
             padding: 0;
@@ -97,7 +70,17 @@ $select2-arrow-border-size: 3px;
     }
     &:not(.is-loading) {
         &::after {
-            @include selectWithTriangle($select-with-triangle);
+            @if $select--with-triangle {
+                @include pseudo();
+                @include centeriser('vertical');
+                @include triangle(bottom,$select--primary,10px,10px);
+                top: 51%;
+                border-radius: rem(10);
+            }@else{
+                @include arrow();
+                border-color: $select--primary;
+            }
+
             @include ltr-position(1.125em);
             z-index: 4;
         }
@@ -115,11 +98,11 @@ $select2-arrow-border-size: 3px;
 }
 // INTL TEL INPUT
 .selected-flag{
-	max-height: $select-height;
+	max-height: $select--height;
 }
 .intl-tel-input .selected-flag{
-    padding-left:$form-pl;
+    padding-left:$form--pl;
 }
 .intl-tel-input.allow-dropdown input, .intl-tel-input.allow-dropdown input[type=text], .intl-tel-input.allow-dropdown input[type=tel], .intl-tel-input.separate-dial-code input, .intl-tel-input.separate-dial-code input[type=text], .intl-tel-input.separate-dial-code input[type=tel]{
-    padding-left: calc(#{$form-pl} + 40px);
+    padding-left: calc(#{$form--pl} + 40px);
 }

@@ -20,10 +20,8 @@ $fw-extrabold: 800;
 $fw-black: 900;
 
 /* Colors variables: */
-
-/* Bulma colors */
 $black:  #000000;
-// $black-bis: hsl(0, 0%, 7%);
+$black-bis: hsl(0, 0%, 7%);
 $black-ter: #373737;
 $grey-darker: #333;
 $grey-dark: #666;
@@ -31,27 +29,23 @@ $grey: #999;
 $grey-light: #CCC;
 $grey-lighter: #DDD;
 $white-ter: #F3F5F6;
-// $white-bis: hsl(0, 0%, 98%);
+$white-bis: hsl(0, 0%, 98%);
 $white:  #ffffff;
 /**/
 $primary: #61a9ff;
-// $info: $cyan;
-// $success: $green;
-// $warning: $yellow;
 // $danger: $red;
-// $dark: $grey-darker;
-// $light: $white-ter;
-/* Add custom variable inside BULMA : https://bulma.io/documentation/customize/variables/ */
-// $custom-colors: ("purple": ($purple, $white));
+// $success: $green;
 
-/* Font settings: */ 
+/* Font sizes: */ 
+$size-1: rem(48);
+$size-2: rem(40);
+$size-3: rem(32);
+$size-4: rem(24);
+$size-5: rem(20);
+$size-6: rem(16);
 $size-7: rem(12);
-// $size-5:;
-// $size-5:;
-// $size-5:;
-// $size-5:;
-// $size-5:;
-$text: $black;
+
+$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
 
 /* Spacing : https://bulma.io/documentation/helpers/spacing-helpers/ */
 $spacing-values: (
@@ -64,16 +58,16 @@ $spacing-values: (
 ); 
 
 /* Global settings */ 
+// Spacing values
 $column-gap: 10px;
 $gutter: 16px;
-$hero-body-padding: $gutter;
+// Font settings
 $family-sans-serif: $font-default;
+$text: $black;
+// Global
 $body-background-color: $white;
 $body-size: #{$browser-context}px;
-$control-border-width: 1px;
-$input-border-color: transparent;
-$input-shadow: none;
-$text-strong: $black;
+// Border
 $radius: 0px;
 $border-color: $grey-lighter;
 /* Shadow smooth: https://s.muz.li/MWNjYTY2Yjk4 */ 
@@ -85,7 +79,7 @@ $shadow-far  : 0 0 40px 0 rgba(0,0,0,0.15) !default;
 
 /* 
   What we import from bulma.io: 
-  column, utilities, button, container, content, form, helpers
+  column, utilities, content and spacing -> 44Kb
   
   Feel free to use more compoenent from bulma if need.
 */

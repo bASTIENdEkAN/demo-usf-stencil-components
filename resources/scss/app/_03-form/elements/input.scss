@@ -1,89 +1,90 @@
-// V1
-$input-label-color: $black;
-$input-color: $black;
-$input-background: $white;
-$input-radius: $form-radius;
-$input-border-size: $form-border-size;
-$form-border-top-size: $input-border-size;
-$form-border-right-size: $input-border-size;
-$form-border-bottom-size: $input-border-size;
-$form-border-left-size: $input-border-size;
-$input-border-color: $border-color;
-$input-border-color-focus: darken($border-color, 10%);
-$input-height: $form-height;
-$input-pt: $form-pt;
-$input-pr: $form-pr;
-$input-pb: $form-pb;
-$input-pl: $form-pl;
-/// V1
+$input--color: $black;
+$input--background: $white;
+$input--border-color: $form--border-color;
+$input--border-color-focus: $form--border-color-focus;
+$input--radius: $form--radius;
 
-.label{
-    color: $input-label-color;
-    font-weight: $fw-medium;
-    font-size: rem(16);
-}
+$input--pt: $form--pt;
+$input--pr: $form--pr;
+$input--pb: $form--pb;
+$input--pl: $form--pl;
 
-.input, .textarea{
-    font-size: rem(16);
-    box-shadow: none;
-    color: $input-color;
-    background: $input-background;
-    border-top: $form-border-top-size solid $input-border-color;
-    border-left: $form-border-left-size solid $input-border-color;
-    border-bottom: $form-border-bottom-size solid $input-border-color;
-    border-right: $form-border-right-size solid $input-border-color;
-    &:active,
+$input--border-size: $form--border-size;
+$form-border-top-size: $input--border-size;
+$form-border-right-size: $input--border-size;
+$form-border-bottom-size: $input--border-size;
+$form-border-left-size: $input--border-size;
+
+
+
+$input--disabled-color: $text-light;
+$input--disabled-background-color: $background;
+$input--disabled-border-color: $background;
+$input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3);
+
+@mixin input {
+    @extend %control;
+    background: $input--background;
+    // Border
+    border-radius: $input--radius;
+    border-color: $input--border-color;
+    border-top: $form-border-top-size solid $input--border-color;
+    border-left: $form-border-left-size solid $input--border-color;
+    border-bottom: $form-border-bottom-size solid $input--border-color;
+    border-right: $form-border-right-size solid $input--border-color;
+
+    color: $input--color;
+    height: $form--height;
+    padding: $input--pt $input--pr $input--pb $input--pl;
+
+    max-width: 100%;
+    width: 100%; 
+    display: block;
+
     &:hover,
-    &.is-active,
-    &:focus,
-    &.is-focused{
+    &:focus{
+        border-color: $input--border-color-focus;
+    }
+    
+    &[disabled],
+    fieldset[disabled] & {
+        background-color: $input--disabled-background-color;
+        border-color: $input--disabled-border-color;
         box-shadow: none;
-        border-top: $form-border-top-size solid $input-border-color-focus;
-        border-left: $form-border-top-size solid $input-border-color-focus;
-        border-bottom: $form-border-top-size solid $input-border-color-focus;
-        border-right: $form-border-top-size solid $input-border-color-focus;
-        // BIGGER BODRE COLOR
-        // box-shadow: 0 0 0 1px $input-border-color-focus;
+        color: $input--disabled-color;
+
+        @include placeholder {
+          color: $input--disabled-placeholder-color;
+        }
     }
 }
 
-.input,
-.textarea
-{
-    border-radius: $input-radius;
-    padding: $input-pt $input-pr $input-pb $input-pl;
-    height: $input-height;
+.input {
+    @include input;
 }
 
-.input-infos, .radio-infos, .checkbox-infos{
-    font-size: rem(14); *{ font-size: rem(14); }
-    margin: 0 0 0 $input-pl;
-    color: $grey-dark;
-    margin-top: rem(7);
-    line-height: 1;
-    position: relative;
-    &.content{
-        margin-bottom: 0;
-        p:not(:last-child){margin-bottom: rem(4);}
-    }
-}
-.radio-infos, .checkbox-infos{
-    // margin-left: 0;
-}
-.checkbox-infos .mt-3{
-    margin-left: -#{$input-pl};
-}
-.field.error label.error{
-    color: $danger !important;
+// Password
+.input-switch-type{
+    cursor: pointer;
+    position: absolute; z-index: 9;
+    right: $form--pr; top: 50%;
+    transform: translate3d(0,-50%,0);
+    font-size: rem(12);
+    font-weight: $form--label-weight;
+    text-transform: uppercase;
 }
 
-// INTL TEL INPUT
-// INTL TEL INPUT
-// INTL TEL INPUT
+// Intl tel input
 .iti{
-    height: $input-height;
+    // height: $input--height;
+    &:hover,
+    &:focus{
+        .input{
+            border-color: $input--border-color-focus;
+        }
+    }
 }
-//
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -91,12 +92,40 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-.input-switch-type{
-    cursor: pointer;
-    position: absolute; z-index: 9;
-    right: $form-pr; top: 50%;
-    transform: translate3d(0,-50%,0);
-    font-size: rem(12);
-    font-weight: $fw-bold;
-    text-transform: uppercase;
+// Infos
+.input-infos, 
+.radio-infos, 
+.checkbox-infos{
+    font-size: rem(14); *{ font-size: rem(14); }
+    margin: rem(7) 0 0 $input--pl;
+    color: $grey-dark;
+    font-weight: $fw-regular;
+    line-height: 1;
+    position: relative;
+    &.content{
+        margin-bottom: 0;
+        p:not(:last-child){margin-bottom: rem(4);}
+    }
+}
+
+$textarea--max-height: 40em !default;
+$textarea--min-height: 8em !default;
+
+.textarea {
+    @include input;
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+    resize: vertical;
+
+    &:not([rows]) {
+        max-height: $textarea--max-height;
+        min-height: $textarea--min-height;
+    }
+    &[rows] {
+        height: initial;
+    }  // Modifiers
+    &.has-fixed-size {
+        resize: none;
+    }
 }
