@@ -85,6 +85,9 @@ $change-filled-google--label-px: rem(5);
             .iti__selected-flag{ background: transparent; }
         }
         .iti__selected-flag{
+            @if $change-filled-google != true {
+                padding-top: calc((#{$form--height} / 100 ) * 25) !important;
+            }
             padding-left: $form--pl !important;
             padding: 0;
             background: transparent;
