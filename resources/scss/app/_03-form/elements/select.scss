@@ -19,7 +19,8 @@ $select--border-less: false;
 $select--with-triangle: false;
 
 // BULMA STUFF
-.select {
+.select,
+%select{
     display: inline-block;
     width: 100%;
     position: relative;
