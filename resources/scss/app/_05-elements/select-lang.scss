@@ -46,7 +46,4 @@
 .select-lang{
     @extend %select;
     @include selectOverhided();
-    // select:hover{
-    //     background: darken($white-ter, 5%);
-    // }
 }
