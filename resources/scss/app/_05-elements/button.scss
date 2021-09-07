@@ -19,22 +19,37 @@ $button--hover-border-color: $link-hover-border !default;
   @extend %control;
   @extend %unselectable;
   height: $button--height;
+  border-radius: $button--radius; 
   border: $button--border-width solid $button--border-color;
-  background-color: $button--background;
   font-weight: $fw-bold;
-  color: findColorInvert($button--background);
   cursor: pointer;
   font-family: $font-default;
-  @if $button--family {
-
-  }
-  justify-content: center;
+  background-color: $button--background;
+  color: findColorInvert($button--background);
   padding: $button--py $button--px;
+  
+  display: flex; 
+  justify-content: center;
+  align-items: center;
   text-align: center;
   white-space: nowrap;
   transition: $button--transition;
   strong {
     color: inherit;
+  }
+
+  .icon-svg{
+    &:not(:first-child){
+        margin-left: rem(6);
+        margin-right: rem(-4);
+    }
+    &:not(:last-child){
+        margin-right: rem(6);
+        margin-left: rem(-4);
+    }
+    .fill{
+        fill: findColorInvert($button--background);
+    }
   }
   
   &:hover{
@@ -55,7 +70,6 @@ $button--hover-border-color: $link-hover-border !default;
         }
   }
   &.is-fullwidth {
-    display: flex;
     width: 100%;
   }
   &.is-loading {
@@ -91,5 +105,8 @@ $buttons--gutter-y: rem(8);
         margin-right: $buttons--gutter-x;
       }
     }
+  }
+  &.is-right {
+      justify-content: flex-end;
   }
 }

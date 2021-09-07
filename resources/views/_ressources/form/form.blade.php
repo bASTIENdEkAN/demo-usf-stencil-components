@@ -192,8 +192,13 @@
 
     <div>
         <div class="buttons is-centered mb-3">
-            <button class="button" type="submit">Submit</button>
             {{-- <a class="button has-link" href="#">voir le détails</a> --}}
+            <button class="button" type="submit">
+                <span>Submit</span>
+                <span class="icon-svg">
+                    @include('_ressources/icon-svg/arrow')
+                </span>
+            </button>
         </div>
     </div>
 

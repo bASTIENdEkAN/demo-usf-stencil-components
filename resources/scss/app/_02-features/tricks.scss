@@ -1,3 +1,4 @@
+
 .br{
 	@include mq(min-mobile){
 		display: block;
@@ -30,5 +31,70 @@
 .max-desktop{
 	@include mq(min-desktop){
 		display: none !important;
+	}
+}
+
+// Here is some tricks from the helpers of bulma
+$spacing-shortcuts: ("margin": "m", "padding": "p") !default;
+$spacing-directions: ("top": "t", "right": "r", "bottom": "b", "left": "l") !default;
+$spacing-horizontal: "x" !default;
+$spacing-vertical: "y" !default;
+// Allready definde in: _01-config/variables.scss
+// $spacing-values: ("0": 0, "1": 0.25rem, "2": 0.5rem, "3": 0.75rem, "4": 1rem, "5": 1.5rem, "6": 3rem) !default;
+
+@each $property, $shortcut in $spacing-shortcuts {
+	@each $name, $value in $spacing-values {    // Cardinal directions
+		$i: index($spacing-values,($name $value));
+		$i-prev: $i - 1;
+		$value-prev: false;
+		@if $i-prev > 0 {
+			$object-prev: "#{nth($spacing-values, $i-prev)}";
+			$value-prev: removeXFirstSting($object-prev, 3);
+		}
+		
+		@each $direction, $suffix in $spacing-directions {
+			.#{$shortcut}#{$suffix}-#{$name},
+			%#{$shortcut}#{$suffix}-#{$name} {
+				#{$property}-#{$direction}: $value !important;
+				// Customisation from Bastien
+				@if $value-prev {
+					@include mq(max-mobile){
+						#{$property}-#{$direction}: $value-prev !important;
+					}
+				}
+
+			}
+		};
+		// Horizontal axis;
+		@if $spacing-horizontal != null {
+			.#{$shortcut}#{$spacing-horizontal}-#{$name},
+			%#{$shortcut}#{$spacing-horizontal}-#{$name} {
+				#{$property}-left: $value !important;
+				#{$property}-right: $value !important;
+				// Customisation from Bastien
+				@if $value-prev {
+					@include mq(max-mobile){
+						#{$property}-left: $value-prev !important;
+						#{$property}-right: $value-prev !important;
+					}
+				}
+
+			}
+		};
+		// Vertical axis;
+		@if $spacing-vertical != null {
+			.#{$shortcut}#{$spacing-vertical}-#{$name},
+			%#{$shortcut}#{$spacing-vertical}-#{$name} {
+				#{$property}-top: $value !important;
+				#{$property}-bottom: $value !important;
+				// Customisation from Bastien
+				@if $value-prev {
+					@include mq(max-mobile){
+						#{$property}-top: $value-prev !important;
+						#{$property}-bottom: $value-prev !important;
+					}
+				}
+			}
+		}	
 	}
 }

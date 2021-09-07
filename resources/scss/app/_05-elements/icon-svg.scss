@@ -1,0 +1,12 @@
+.icon-svg {
+  position: relative;
+  display: inline-block;
+  width: rem(24);
+  height: rem(24);
+
+  svg {
+    @include centeriser("both");
+    width: 100%;
+    height: auto;
+  }
+}

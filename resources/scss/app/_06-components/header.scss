@@ -12,7 +12,7 @@
 
 .header{
     background: $light;
-    @extend #{'.wrapper'};
+    @extend %wrapper;
     >.container{
         padding: rem(10) 0;
     }

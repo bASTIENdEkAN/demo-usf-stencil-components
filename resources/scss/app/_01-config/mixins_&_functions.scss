@@ -286,7 +286,9 @@ $z-indexes: (
 @function backgroundSVG($string){
   @return url('data:image/svg+xml;charset=UTF-8,'+$string+'');
 }
-
+@function removeXFirstSting($string, $number){
+	@return #{string.slice($string, $number, 100)};
+}
 // Psd2html Mixin :
 // https://www.psd2html.com/blog/5-useful-sass-mixins.html
 @function makelongshadow($color) {
