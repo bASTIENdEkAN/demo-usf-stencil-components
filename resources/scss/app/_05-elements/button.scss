@@ -54,6 +54,7 @@ $button--hover-border-color: $link-hover-border !default;
   
   &:hover{
     background: darken($button--background, 5%);
+    color: findColorInvert($button--background);
   }
 
   &[disabled],
