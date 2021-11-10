@@ -1,10 +1,11 @@
+@use "sass:math";
 /* REM & EM */
 $browser-context: 16;
 @function em($pixels, $context: $browser-context) {
-  @return ($pixels / $context) * 1em;
+  @return math.div($pixels, $context) * 1em;
 }
 @function rem($pixels, $context: $browser-context) {
-    @return ($pixels / $context) * 1rem;
+    @return math.div($pixels,  $context) * 1rem;
 }
 
 /* Import a Font and set your fonts variables */
