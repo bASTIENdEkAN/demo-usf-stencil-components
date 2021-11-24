@@ -43,9 +43,8 @@ npm run production
 The basic starter is the lightest and easiest to use, its structure has been revised to simplify development.
 > Please consider creating your own starter to have an optimized workflow.
 
-1.  Basic: [starter-slicing_basic](https://www.google.com/url?q=https://bitbucket.org/riseandshinebxl/starter-slicing_basic/src/master/&sa=D&source=editors&ust=1614186886021000&usg=AOvVaw0DJ7XZpOJAn90ajKZqLRZk)
-2.  Global: [starter-slicing_global](https://www.google.com/url?q=https://bitbucket.org/riseandshinebxl/starter-slicing_global/src/master/&sa=D&source=editors&ust=1614186269643000&usg=AOvVaw1A6jJ__3uxxGk1qEA5C96c)
-3.  Renault & Dacia: [starter-slicing_renault-dacia](https://bitbucket.org/riseandshinebxl/starter-slicing_renault-dacia/src/master/)
+1.  Light: [starter-slicing_light](https://bitbucket.org/riseandshinebxl/starter-slicing_light/src/master/)
+2.  Renault & Dacia: [starter-slicing_renault-dacia](https://bitbucket.org/riseandshinebxl/starter-slicing_renault-dacia/src/master/)
 
 # Features & Framework
 ## Blade
