@@ -28,7 +28,7 @@ $button--hover-border-color: $link-hover-border !default;
   color: findColorInvert($button--background);
   padding: $button--py $button--px;
   
-  display: flex; 
+  display: inline-flex; 
   justify-content: center;
   align-items: center;
   text-align: center;
