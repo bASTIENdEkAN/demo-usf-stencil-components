@@ -108,3 +108,28 @@ document.addEventListener('bouncerRemoveError', function (event) {
 	}
 
 }, false);
+
+// ADD * ON REQUIRED
+const requireds = document.querySelectorAll('input[required], select[required]');
+requireds.forEach((item, index)=>{
+	const field = item.closest('.field');
+	if(field){
+		const label = field.querySelector('.label');
+		if(label){
+			label.innerHTML = label.innerHTML+'*';
+		}
+	}
+})
+
+// REQUIRED FILLED
+const requiredFilled = document.querySelectorAll('input[data-required-filled]');
+requiredFilled.forEach((item)=>{
+	const required = item.getAttribute('data-required-filled') ?? true;
+	item.addEventListener('input',()=>{
+		if(item.value.length >= 1){
+			item.setAttribute('required',required);
+		}else{
+			item.removeAttribute('required');
+		}
+	});
+});
