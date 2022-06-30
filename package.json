@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animejs": "^3.2.1",
     "axios": "^0.21.1",
     "bulma": "^0.9.0",
     "cross-env": "^7.0.2",

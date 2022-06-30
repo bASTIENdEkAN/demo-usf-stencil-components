@@ -31,6 +31,8 @@
     <!-- body: will be in the middle -->
     <div class="body">
         <!-- BODY -->
+        <progress class="header-progress progress" max="100" value="0" data-anim-to="75"> 70% </progress>
+
         <div class="wrapper" >
             <div class="container is-small py-4"> 
                 <h1 class="title">Form components</h1>

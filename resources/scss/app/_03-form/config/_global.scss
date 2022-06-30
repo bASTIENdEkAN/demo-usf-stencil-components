@@ -1,9 +1,10 @@
 // Global
+$form--primary: $primary;
 $form--transition: all .2s ease;
 $form--height: rem(60);
 $form--placeholder-color: $grey-light;
 // Font
-$form--label-weight: $fw-bold;
+$form--label-weight: $fw-semibold;
 $form--label-color: $black;
 $form--color: $black;
 // Background

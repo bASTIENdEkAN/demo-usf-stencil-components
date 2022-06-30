@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  animejs: ^3.2.1
   axios: ^0.21.1
   browser-sync: ^2.26.7
   browser-sync-webpack-plugin: ^2.0.1
@@ -29,6 +30,7 @@ specifiers:
   watch: ^1.0.2
 
 dependencies:
+  animejs: 3.2.1
   axios: 0.21.4
   bulma: 0.9.3
   cross-env: 7.0.3
@@ -1447,6 +1449,10 @@ packages:
 
   /alphanum-sort/1.0.2:
     resolution: {integrity: sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=}
+    dev: false
+
+  /animejs/3.2.1:
+    resolution: {integrity: sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==}
     dev: false
 
   /ansi-colors/3.2.4:

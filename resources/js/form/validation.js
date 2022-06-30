@@ -10,7 +10,6 @@ import { validationMatch } from './validation/match';
 // Import Default Error Message
 import { defaultErrorMsg, messages } from './error-msg';
 
-
 const validate = new Bouncer('[data-validate]', {
     disableSubmit: false,
     messageCustom: 'data-error-msg',

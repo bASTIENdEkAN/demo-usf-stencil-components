@@ -6,16 +6,23 @@
         <div class="column is-12">
                 @include('_ressources/form/elements/radio',
                         [
-                            'required'=>true,
                             // 'label'=>'Gender',
                             'name'=>'gender',
                             'required'=>true,
+                            'labelsValues'=>[
+                                [
+                                    'label'=>'Woman',
+                                    'value'=>'W',
+                                ],  
+                                [
+                                    'label'=>'Men',
+                                    'value'=>'M',
+                                ],  
+                            ],
+                            'infos'=>'Infos supplémentaire sur ce champ.',
+                            'required'=>true,
+                            'checkStyle'=>true,
                             // 'errorMsg'=>'Error msg radio',
-                            'value1'=>'M',
-                            'label1'=>'Men',
-                            'value2'=>'W',
-                            'label2'=>'Women',
-                            'infos'=>'Infos supplémentaire sur ce champ.'
                         ])    
         </div> 
 

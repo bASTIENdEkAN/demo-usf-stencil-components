@@ -1,144 +1,176 @@
+// Global
 $checkbox--size: rem(30);
 $checkbox--margin-size: 24px;
-$checkbox--size-hover: 2.8;
+$checkbox--color: $form--color;
+$checkbox--label-weight: $form--label-weight;
+// After
+$checkbox--after-size: rem(17);
+$checkbox--after-size-hover: 2.8;
+$checkbox--after-background: transparent;
+$checkbox--after-background-hover: rgba($form--border-color-focus, 0.2);
+$checkbox--after-background-checked: $primary;
+// Background
+$checkbox--back-background: $white;
+$checkbox--back-background-hover: $white;
+$checkbox--back-background-checked: $white;
 // Border
 $checkbox--border-radius: 0px;
 $checkbox--border-size: $form--border-size;
 $checkbox--border-color: $form--border-color;
 $checkbox--border-color-hover: $form--border-color-focus;
 $checkbox--border-color-checked: $primary;
-
-// Background
-$checkbox--background-hover: rgba($checkbox--border-color, 0.2);
-$checkbox--background-checked: $primary;
 // Check
 $checkbox--check-width: 3;
 $checkbox--check-color: findColorInvert($primary); // findColorInvert is a bulma function
-/* 
-    Here is personal mixin releated to select, but to fin the other mixin it's:
-    -> _01-config/mixins_&_function.scss
-    -> nodes_modules/bulma/sass/utilities/mixins.sass & other
-*/
-@keyframes check {
+// Check animation #01
+@keyframes check1 {
+    0% { stroke-dashoffset: 20; opacity: 1;}
+    100% { stroke-dashoffset: 0; opacity: 1;}
+}
+// Check animation #02
+@keyframes check2 {
+    0% { stroke-dashoffset: 18; opacity: 1;}
+    100% { stroke-dashoffset: 0; opacity: 1;}
+}
+// Check animation #03
+@keyframes check3 {
     0% { stroke-dashoffset: 400; opacity: 1;}
     100% { stroke-dashoffset: 350; opacity: 1;}
 }
-
-@mixin checkbox($checkbox--size: $checkbox--size,
-                $checkbox--size-hover: $checkbox--size-hover,
-                $checkbox--border-size: $checkbox--border-size,
-                $checkbox--border-radius: $checkbox--border-radius,
-                $checkbox--border-color: $checkbox--border-color,
-                $checkbox--border-color-checked: $checkbox--border-color-checked,
-                $checkbox--background-hover: $checkbox--background-hover,
-                $checkbox--background-checked: $checkbox--background-checked,
-                $checkbox--check-width: $checkbox--check-width,
-                $checkbox--check-color: $checkbox--check-color,
-                $checkbox--color: $form--color,
-){
-    cursor: pointer;
+.checkbox {
     color: $checkbox--color;
-    input{ position: absolute; opacity: 0;}
-    .checkbox-el {
-        position: relative;
-        display: inline-block;
-        width: $checkbox--size;  height: $checkbox--size;
-        min-width: $checkbox--size;  min-height: $checkbox--size;
-        border-radius: $checkbox--border-radius;
-        border: $checkbox--border-size solid $checkbox--border-color;
-        background: transparent;
-        opacity: 1;
-        &:after{
-            content: "";
-            position: absolute;
-         	top: 50%;
-        	left: 50%;
-        	width: calc(#{$checkbox--size} / 1.6);
-        	height: calc(#{$checkbox--size} / 1.6);
-        	border-radius: 50%;
-            background: $checkbox--background-hover;
-            transform: translate3d(-50%,-50%,0);
-            opacity: 0;
-            transition: all .2s ease;
-            // @include mq(ie){
-            //     width: calc( #{$checkbox--size} / 3 );
-            //     height: calc( #{$checkbox--size} / 2 );
-            //     border-radius: 0;
-            //     background: transparent;
-            //     border-bottom: 2px solid $checkbox--check-color; border-right: 2px solid $checkbox--check-color;
-            //     transform: translate3d(-50%,-50%,0) rotate(45deg);
-            //     opacity: 0;
-            //     transition: none;
-            // }
-        }
-    }
+    cursor: pointer;
+    display: inline-block;
+    font-weight: $checkbox--label-weight;
+    position: relative;
+    width: auto;
 
-    .checkbox-el .svg{
+    input {
+        cursor: pointer;
+        opacity: 0;
         position: absolute;
-        z-index: 1;
-        left: 50%;  top: 50%;
-        height: 65%; width: 65%;
-        transform: translate3d(-50%,-50%,0);
-
-        .check{
-          stroke: $checkbox--check-color;
-          fill: none;
-          stroke-width: $checkbox--check-width;
-          stroke-dasharray: 400;
-          stroke-dashoffset: 350;
-          opacity: 0;
-        }
     }
-    &:hover{
+
+    &:hover {
         color: $checkbox--color;
-    }
-    &:hover input ~ .checkbox-el,
-    &:hover input ~ * .checkbox-el {
-        border-color: $checkbox--border-color-hover;
-        &:after{
-          opacity: 1;
-          transform: translate3d(-50%,-50%,0) scale(#{$checkbox--size-hover});
-          // @include mq(ie){
-          //     opacity: 0;
-          // }
+
+        .checkbox-checkbox,
+        .checkbox-check {
+            border-color: $checkbox--border-color-hover;
+        }
+
+        .checkbox-checkbox,
+        .checkbox-check {
+            background: $checkbox--back-background-hover;
+            border-color: $checkbox--border-color-hover;
+
+            &:after {
+                background: $checkbox--after-background-hover;
+                transform: translate3d(-50%, -50%, 0) scale($checkbox--after-size-hover);
+            }
         }
     }
-    input:checked ~ .checkbox-el,
-    input:checked ~ * .checkbox-el {
-         &:after{
-            background: $checkbox--background-checked;
-            opacity: 1;
-            transform: translate3d(-50%,-50%,0) scale(1);
-            // @include mq(ie){
-            //     opacity: 1;
-            //     transition: none;
-            //     transform: translate3d(-50%,-50%,0) rotate(45deg);
-            // }
-         }
-         background: $checkbox--background-checked;
-         border-color: $checkbox--border-color-checked;
-         .svg .check { animation: check .3s ease .1s forwards; }
-    }
 
-    display: flex;
+
+    &.is-block {
+        width: 100%;
+        .checkbox-inner{
+            display: flex !important;
+            align-items: center;
+            height: $form--height;
+            background: $form--background;
+            border: $form--border-size solid $form--border-color;
+            border-radius: $form--radius;
+            padding: $form--pt $form--pr $form--pb $form--pl;
+    
+        }
+        &:hover {
+            .checkbox-inner{
+                border-color: $checkbox--border-color-hover;
+            }
+        }
+    }
+}
+
+.checkbox-label {
     align-items: center;
-    &.is-float{
-        display: block;
-        .checkbox-el {
-            float: left;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.checkbox-checkbox,
+.checkbox-check {
+    background: $checkbox--back-background;
+    border: $checkbox--border-size solid darken($checkbox--border-color, 5%);
+    border-radius: $checkbox--border-radius;
+    color: transparent;
+    display: inline-block;
+    height: $checkbox--size;
+    margin-right: em(10);
+    min-width: $checkbox--size;
+    position: relative;
+    width: $checkbox--size;
+
+    &:after {
+        background: $checkbox--after-background;
+        // border-radius: $checkbox--border-radius;
+        border-radius: 50%;
+        content: '';
+        height: $checkbox--after-size;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        transition: all 0.2s ease;
+        width: $checkbox--after-size;
+    }
+}
+
+.check-svg {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 1;
+
+}
+
+.check-svg-path {
+    fill: none;
+    opacity: 0;
+    stroke: $white; // TODO: convert to var
+    stroke-dasharray: 18;
+    stroke-dashoffset: 18;
+    stroke-width: 2; // TODO: convert to var
+}
+
+.checkbox-inner {
+    align-items: center;
+    display: inline-flex;
+}
+
+.input-checkbox:checked~.checkbox-check,
+.input-checkbox:checked~* .checkbox-check,
+.input-checkbox:checked~.checkbox-checkbox,
+.input-checkbox:checked~* .checkbox-checkbox {
+    background: $checkbox--back-background-checked;
+    border-color: $checkbox--border-color-checked;
+
+    &:after {
+        background: $checkbox--after-background-checked;
+        transform: translate3d(-50%, -50%, 0) scale(1);
+        transition: all 0.1s ease;
+    }
+
+    &:not(.checkbox-checkbox) {
+        background: $checkbox--after-background-checked;
+
+        &:after {
+            opacity: 0;
         }
     }
 }
-input[type="checkbox"]{
-    position: absolute;
-}
 
-.checkbox{
-    @include checkbox();
-    span:not(.checkbox-el){
-        margin-bottom: rem(-2);
-    }
-    .checkbox-el{
-        margin-right: rem(15);
-    }
+.input-checkbox:checked~* .check-svg-path {
+    animation: check1 0.2s ease-out 0.1s forwards;
 }

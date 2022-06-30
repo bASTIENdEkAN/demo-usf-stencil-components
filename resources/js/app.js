@@ -6,6 +6,7 @@ require('./polyfill/closest'); // 1bk
 require('./features/smooth-scroll'); // 1bk
 require('./features/select-dynamic'); // 1bk
 require('./features/accordion'); //2kb
+require('./features/progress'); //2kb
 
 /* Vanilla from validation */
 // require('./form/vanilla/tailselect.js'); // 54kb

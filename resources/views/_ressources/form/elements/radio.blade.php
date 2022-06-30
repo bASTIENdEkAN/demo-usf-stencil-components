@@ -1,68 +1,61 @@
-@if(!empty($block))
-
-    <label class="radio is-block" for="{{$name}}{{$value}}">
-        <input id="{{$name}}{{$value}}" type="radio" value="{{$value}}" name="{{$name}}" @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
-        <span class="radio-el">&nbsp</span>
-        <span>{{$label}}</span>
+@if(empty($labelsValues))
+    <label class="radio @if(!empty($block))is-block @endif" for="{{$name.$value}}">
+        <input class="input-radio" id="{{$name.$value}}" type="radio" value="{{$value}}" name="{{$name}}" @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
+        <div class="radio-inner">
+            @if(!empty($checkStyle))
+                <span class="radio-check">
+                    {{-- check #01 --}}
+                    <svg class="check-svg" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="check-svg-path" d="M1.00098 4.104L5.54298 8.973L12.972 0.102997" stroke="#FF0000" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            @else
+                <span class="radio-radio"></span>
+            @endif
+            <span calss="radio-label">{{$label}}</span>
+        </div>
     </label>
 
     @if(!empty($required) || !empty($infos))
-        <div class="radio is-infos">
-            <div class="radio-infos content">
-                @if( !empty($infos))<p>{{$infos}}</p>@endif
-                <div class="error-msg" id="{{$name}}ErrorMsgLocation">
-                </div>
-            </div>
+    <div class="radio-infos content">
+        @if( !empty($infos))<p>{{$infos}}</p>@endif
+        <div class="error-msg" id="{{$name}}ErrorMsgLocation">
         </div>
+    </div>
     @endif
-
 @else
+
 <div class="radios">
 
     @if(!empty($label))
-        <div class="radio is-label">
+        <div class="radio-label">
             <p>{{$label}}</p>
         </div>
     @endif
 
-    @if(!empty($label1))
-        <label class="radio" for="{{$name}}{{$value1}}">
-            <input id="{{$name}}{{$value1}}" type="radio" value="{{$value1}}" name="{{$name}}" @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
-            <span class="radio-el">&nbsp</span>
-            <span>{{$label1}}</span>
-        </label>
-    @endif
-    
-    @if(!empty($label2))
-        <label class="radio" for="{{$name}}{{$value2}}">
-            <input id="{{$name}}{{$value2}}" type="radio" value="{{$value2}}" name="{{$name}}"  @if(!empty($required)) required @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
-            <span class="radio-el">&nbsp</span>
-            <span>{{$label2}}</span>
-        </label>
-    @endif
-
-    @if(!empty($label3))
-        <label class="radio" for="{{$name}}{{$value3}}">
-            <input id="{{$name}}{{$value3}}" type="radio" value="{{$value3}}" name="{{$name}}" @if(!empty($required)) required @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
-            <span class="radio-el">&nbsp</span>
-            <span>{{$label3}}</span>
-        </label>
-    @endif
-    
-    @if(!empty($label4))
-        <label class="radio" for="{{$name}}{{$value4}}">
-            <input id="{{$name}}{{$value4}}" type="radio" value="{{$value4}}" name="{{$name}}" @if(!empty($required)) required @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
-            <span class="radio-el">&nbsp</span>
-            <span>{{$label4}}</span>
-        </label>
-    @endif
+    @foreach ($labelsValues as $item)
+        <label class="radio" for="{{$name.$item['value']}}">
+            <input class="input-radio" id="{{$name.$item['value']}}" type="radio" value="{{$item['value']}}" name="{{$name}}" @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
+            <div class="radio-inner">
+                @if(!empty($checkStyle))
+                    <span class="radio-check">
+                        {{-- check #01 --}}
+                        <svg class="check-svg" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="check-svg-path" d="M1.00098 4.104L5.54298 8.973L12.972 0.102997" stroke="#FF0000" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                @else
+                    <span class="radio-radio"></span>
+                @endif
+                <span calss="radio-label">{{$item['label']}}</span>
+            </div>
+        </label>        
+    @endforeach
 
     @if(!empty($required) || !empty($infos))
-        <div class="radio is-infos">
-            <div class="radio-infos content">
-                @if( !empty($infos))<p>{{$infos}}</p>@endif
-                <div class="error-msg" id="{{$name}}ErrorMsgLocation">
-                </div>
+        <div class="radio-infos content">
+            @if( !empty($infos))<p>{{$infos}}</p>@endif
+            <div class="error-msg" id="{{$name}}ErrorMsgLocation">
             </div>
         </div>
     @endif

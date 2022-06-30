@@ -10,8 +10,8 @@ $browser-context: 16;
 
 /* Import a Font and set your fonts variables */
 // @import 'fonts/base64/VW';
-$font-default: 'Arial';
-$font-title: 'Arial';
+$font-default: Tahoma,Geneva,Verdana,sans-serif;
+$font-title: Tahoma,Geneva,Verdana,sans-serif;
 $fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
