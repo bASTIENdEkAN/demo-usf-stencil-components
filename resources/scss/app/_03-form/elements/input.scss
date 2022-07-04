@@ -92,30 +92,6 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-// Infos
-.input-infos, 
-.radio-infos, 
-.checkbox-infos{
-    font-size: rem(14); *{ font-size: rem(14); }
-    margin: 0 0 0 $input--pl;
-    color: $grey-dark;
-    font-weight: $fw-regular;
-    line-height: 1;
-    position: relative;
-    &.content{
-        margin-bottom: 0;
-        p:not(:last-child){margin-bottom: rem(4);}
-    }
-    .info{
-        >*{
-            margin-top: rem(7);
-        }
-        & + .info>*{
-            margin-top: rem(3);
-        }
-    }
-}
-
 $textarea--max-height: 40em !default;
 $textarea--min-height: 8em !default;
 

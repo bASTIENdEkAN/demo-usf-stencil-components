@@ -1,0 +1,54 @@
+.field.is-error{
+
+}
+
+.field.is-valid{
+
+}
+
+.input,
+.textarea,
+.select select,
+select,
+input[type="checkbox"],
+input[type="radio"]{
+
+}
+
+.error-msg{
+    color: $danger;
+    text-align: left;
+}
+
+.suggestion-msg{
+    color: $black;
+}
+
+
+// Infos
+.input-infos, 
+.radio-infos, 
+.checkbox-infos{
+    font-size: rem(14); *{ font-size: rem(14); }
+    margin: 0 0 0 $form--pl;
+    color: $grey-dark;
+    font-weight: $fw-regular;
+    line-height: 1;
+    position: relative;
+    &.content{
+        margin-bottom: 0;
+        p:not(:last-child){margin-bottom: rem(4);}
+    }
+    .info{
+        >*{
+            margin-top: rem(7);
+        }
+        & + .info>*{
+            margin-top: rem(3);
+        }
+    }
+}
+
+.radio-infos{
+    margin-top: -#{$form--gap-y};       
+}

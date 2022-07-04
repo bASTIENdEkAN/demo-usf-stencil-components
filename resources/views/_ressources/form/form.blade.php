@@ -4,7 +4,7 @@
         
 
         <div class="column is-12">
-                @include('_ressources/form/elements/radio',
+                @include('_ressources/form/elements/radios',
                         [
                             // 'label'=>'Gender',
                             'name'=>'gender',
@@ -22,7 +22,7 @@
                             'infos'=>'Infos supplémentaire sur ce champ.',
                             'required'=>true,
                             // 'checkStyle'=>true,
-                            // 'errorMsg'=>'Error msg radio',
+                            'errorMsg'=>'Error msg radio',
                         ])    
         </div> 
 
@@ -35,7 +35,7 @@
                             'changeFilled'=>true,
                             'placeholder'=>'Firstname placeholder',
                             'required'=>true,
-                            // 'errorMsg'=>'Error msg firstname',
+                            'errorMsg'=>'Error msg firstname',
                         ])
         </div>
 
@@ -47,7 +47,7 @@
                             'changeFilled'=>true,
                             'placeholder'=>'Lastname placeholder',
                             'required'=>true,
-                            // 'errorMsg'=>'Error msg lastname',
+                            'errorMsg'=>'Error msg lastname',
                         ])
         </div>
 
@@ -59,7 +59,7 @@
                             'placeholder'=>'Email placeholder',
                             'infos'=>'exemple d\'infos dans le mail',
                             'required'=>true,
-                            // 'errorMsg'=>'Error msg email',
+                            'errorMsg'=>'Error msg email',
                             ])
         </div>
 
@@ -69,7 +69,7 @@
                             'label'=>'Phone',
                             'changeFilled'=>true,
                             'required'=>true,
-                            // 'errorMsg'=>'Error msg phone',
+                            'errorMsg'=>'Error msg phone',
                         ])
         </div>
 
@@ -80,7 +80,7 @@
                             'label'=>'Date de naissance',
                             'changeFilled'=>true,
                             'required'=>'birthday',
-                            // 'errorMsg'=>'Error msg lastname',
+                            'errorMsg'=>'Error msg lastname',
                         ])
         </div>
 
@@ -113,7 +113,7 @@
                             'label'=>'Mot de passe',
                             'changeFilled'=>true,
                             'required'=>true,
-                            // 'errorMsg'=>'Error msg password',
+                            'errorMsg'=>'Error msg password',
                         ])
         </div>
 
@@ -125,7 +125,7 @@
                             'changeFilled'=>true,
                             'required'=>'match',
                             'match'=>'#password',
-                            // 'errorMsg'=>'Error msg password',
+                            'errorMsg'=>'Error msg password',
                         ])
         </div>
 
@@ -136,7 +136,7 @@
                             'label'=>'Message (optional)',
                             'changeFilled'=>true,
                             // 'required'=>true,
-                            // 'errorMsg'=>'Error msg message',
+                            'errorMsg'=>'Error msg message',
                         ])
         </div> 
         <div class="column is-12">
@@ -152,7 +152,7 @@
                         'block'=>true,
                         'label'=>'YES',
                         'value'=>'Y',
-                        'name'=>'optin',
+                        'name'=>'radio2',
                         'required'=>true,
                         'errorMsg'=>'Error msg radio',
                     ])    
@@ -163,24 +163,20 @@
                         'block'=>true,
                         'label'=>'NO',
                         'value'=>'N',
-                        'name'=>'optin',
+                        'name'=>'radio2',
                         'required'=>true,
                         'errorMsg'=>'Error msg radio',
                     ])    
         </div> 
 
-        {{-- <div class="column is-12">
-            @include('_ressources/form/elements/select2',
-                        [
-                            'name'=>'select3',
-                            'label'=>'Select 2',
-                            'placeholder'=>'Placeholder',
-                            'classes'=>'with-search',
-                            // 'changeFilled'=>true,
-                            'required'=>true,
-                            'errorMsg'=>'Error msg select',
-                        ])
-        </div> --}}
+        <div class="column is-12">
+            @include('_ressources/form/elements/radio',
+                    [
+                        'name'=>'radio2',
+                        'errorMsgTarget'=>true,
+                    ])    
+            
+        </div>
 
         <div class="column is-12">
 
