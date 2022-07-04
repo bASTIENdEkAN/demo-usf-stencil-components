@@ -1,10 +1,15 @@
 // Global
 $radio--size: rem(30);
-$radio--after-size: rem(17);
 $radio--border-size: $form--border-size;
 $radio--color: $form--color;
 $radio--label-weight: $form--label-weight;
 $radio--border-radius: 50%;
+// After
+$radio--after-size: rem(17);
+$radio--after-size-hover: 2.5;
+$radio--after-background: transparent;
+$radio--after-background-hover: rgba($form--border-color-focus, 0.2);
+$radio--after-background-checked: $form--primary;
 // Background
 $radio--back-background: $white;
 $radio--back-background-hover: $white;
@@ -14,9 +19,6 @@ $radio--border-color: $form--border-color;
 $radio--border-color-hover: $form--border-color-focus;
 $radio--border-color-checked: $form--primary;
 // Background
-$radio--background: transparent;
-$radio--background-hover: rgba($radio--border-color, 0.4);
-$radio--background-checked: $form--primary;
 
 .radio {
     color: $radio--color;
@@ -51,8 +53,8 @@ $radio--background-checked: $form--primary;
             border-color: $radio--border-color-hover;
 
             &:after {
-                background: $radio--background-hover;
-                transform: translate3d(-50%, -50%, 0) scale(2.5);
+                background: $radio--after-background-hover;
+                transform: translate3d(-50%, -50%, 0) scale($radio--after-size-hover);
             }
         }
     }
@@ -98,7 +100,7 @@ $radio--background-checked: $form--primary;
     width: $radio--size;
 
     &:after {
-        background: $radio--background;
+        background: $radio--after-background;
         border-radius: $radio--border-radius;
         content: '';
         height: $radio--after-size;
@@ -124,13 +126,13 @@ $radio--background-checked: $form--primary;
     border-color: $radio--border-color-checked;
 
     &:after {
-        background: $radio--background-checked;
+        background: $radio--after-background-checked;
         transform: translate3d(-50%, -50%, 0) scale(1);
         transition: all 0.1s ease;
     }
 
     &:not(.radio-radio) {
-        background: $radio--background-checked;
+        background: $radio--after-background-checked;
 
         &:after {
             opacity: 0;

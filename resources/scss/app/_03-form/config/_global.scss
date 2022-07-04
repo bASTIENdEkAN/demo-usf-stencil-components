@@ -25,7 +25,7 @@ $form--border-right-size: $form--border-size;
 $form--border-bottom-size: $form--border-size;
 $form--border-left-size: $form--border-size;
 // Change Filled
-$form--change-filled-google: false;
+$form--change-filled-google: true;
 
 form{
     *{ @include placeholder{ color: $form--placeholder-color !important }; }

@@ -8,7 +8,7 @@ $checkbox--after-size: rem(17);
 $checkbox--after-size-hover: 2.8;
 $checkbox--after-background: transparent;
 $checkbox--after-background-hover: rgba($form--border-color-focus, 0.2);
-$checkbox--after-background-checked: $primary;
+$checkbox--after-background-checked: $form--primary;
 // Background
 $checkbox--back-background: $white;
 $checkbox--back-background-hover: $white;
@@ -18,10 +18,10 @@ $checkbox--border-radius: 0px;
 $checkbox--border-size: $form--border-size;
 $checkbox--border-color: $form--border-color;
 $checkbox--border-color-hover: $form--border-color-focus;
-$checkbox--border-color-checked: $primary;
+$checkbox--border-color-checked: $form--primary;
 // Check
 $checkbox--check-width: 2;
-$checkbox--check-color: findColorInvert($primary); // findColorInvert is a bulma function
+$checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a bulma function
 
 .checkbox {
     color: $checkbox--color;
@@ -116,12 +116,12 @@ $checkbox--check-color: findColorInvert($primary); // findColorInvert is a bulma
         border-radius: 50%;
         content: '';
         height: $checkbox--after-size;
+        width: $checkbox--after-size;
         left: 50%;
         position: absolute;
         top: 50%;
         transform: translate3d(-50%, -50%, 0);
         transition: all 0.2s ease;
-        width: $checkbox--after-size;
     }
 }
 

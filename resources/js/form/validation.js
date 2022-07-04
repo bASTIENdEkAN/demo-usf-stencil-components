@@ -114,8 +114,10 @@ requireds.forEach((item, index)=>{
 	const field = item.closest('.field');
 	if(field){
 		const label = field.querySelector('.label');
-		if(label){
-			label.innerHTML = label.innerHTML+'*';
+		const span = label.querySelector('span');
+		const balise = span ? span : label; 
+		if(balise){
+			balise.innerHTML = balise.innerHTML+'*';
 		}
 	}
 })
