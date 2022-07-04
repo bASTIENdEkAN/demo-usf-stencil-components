@@ -60,6 +60,11 @@ button{
 }
 a{
     text-decoration: none;
+	&:hover{
+		// color: inherit;
+		text-decoration: underline;
+		color: darken($link, 10%);
+	}
 }
 button{
     cursor: pointer;
@@ -98,7 +103,7 @@ body,
 html {
 	// @include mq(min-hugescreen){ font-size: 18px } // If you use REM this can be usefull
 	font-size: #{$browser-context}px;
-	line-height: 1.5;
+	line-height: 1.4;
 	// overflow: auto;
 }
 

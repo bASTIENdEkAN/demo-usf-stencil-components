@@ -2,6 +2,7 @@ $button--height: $form--height;
 $button--radius: $radius;
 $button--transition: all .2s ease-in-out;
 
+$button--color: $white !default;
 $button--background: $primary !default;
 $button--family: false !default;
 
@@ -14,8 +15,61 @@ $button--px: rem(25) !default;
 $button--hover-color: $link-hover !default;
 $button--hover-border-color: $link-hover-border !default;
 
+$button--focus-size: rem(4);
+
+// Function 
+@function boxShadowFlat($size,$color,$size2,$color2) {
+  $result: 0 0 0 $size $color, 0 0 0 $size2 $color2;
+  @if $size2 and $color2 {
+    $result: 0 0 0 $size $color, 0 0 0 $size2 $color2;
+  } 
+  @return $result;
+}
+// Mixin to Overhide button
+@mixin buttonOverhide(
+  $color: $black,
+  $background: transparent,
+  $colorHover: $black,
+  $backgroundHover: transparent,
+){
+  color: $color;
+  background: $background;
+  @if $background == transparent {
+    border-color: $color;
+  } @else {
+    border-color: $background;
+  }
+  .icon-svg .fill{
+    fill: $color;
+  }
+  &:focus{
+    @if $background == transparent {
+      box-shadow: boxShadowFlat(0,$colorHover,$button--focus-size,rgba($colorHover, .2));
+      &:hover{
+        box-shadow: boxShadowFlat(rem(1),$colorHover,$button--focus-size,rgba($colorHover, .2));
+      }
+    } @else {
+      box-shadow: boxShadowFlat(0,$backgroundHover,$button--focus-size,rgba($backgroundHover, .2));
+      &:hover{
+        box-shadow: boxShadowFlat(rem(1),$backgroundHover,$button--focus-size,rgba($backgroundHover, .2));
+      }
+    }
+  }
+  &:hover{
+    color: $colorHover;
+    background: $backgroundHover;
+    @if $background == transparent {
+      border-color: $colorHover;
+      box-shadow:  backShadowFlat(rem(1), $colorHover);
+    } @else {
+      border-color: $backgroundHover;
+      box-shadow: backShadowFlat(rem(1), $backgroundHover);
+    }
+  }
+}
 // The button sizes use mixins so they can be used at different breakpoints
-.button {
+.button,
+%button {
   @extend %control;
   @extend %unselectable;
   height: $button--height;
@@ -25,7 +79,8 @@ $button--hover-border-color: $link-hover-border !default;
   cursor: pointer;
   font-family: $font-default;
   background-color: $button--background;
-  color: findColorInvert($button--background);
+  // color: findColorInvert($button--background);
+  color: $button--color;
   padding: $button--py $button--px;
   
   display: inline-flex; 
@@ -48,27 +103,41 @@ $button--hover-border-color: $link-hover-border !default;
         margin-left: rem(-4);
     }
     .fill{
-        fill: findColorInvert($button--background);
+        // fill: findColorInvert($button--background);
+        fill: $button--color;
     }
   }
   
-  &:hover{
-    background: darken($button--background, 5%);
-    color: findColorInvert($button--background);
+  &:focus{
+    box-shadow: 0 0 0 0 darken($button--background, 5%), 0 0 0 $button--focus-size rgba($button--background, .2);
+    &:hover{
+      box-shadow: 0 0 0 rem(1) darken($button--background, 5%), 0 0 0 $button--focus-size rgba($button--background, .2);
+    }
   }
+  &:hover{
+    text-decoration: none;
+    background: darken($button--background, 5%);
+    border-color: darken($button--background, 5%);
+    // color: findColorInvert($button--background);
+    color: $button--color;
+    box-shadow: 0 0 0 rem(1) darken($button--background, 5%);
+  }
+
 
   &[disabled],
   fieldset[disabled] & {
-    opacity: .5;
+    pointer-events: none;
+    @include buttonOverhide($white,$grey-lighter);
   }
   &.has-link{
       color: $black;
       text-decoration: underline;
       background-color: transparent;
       border-color: transparent;
-        &:hover{
-            text-decoration: none;
-        }
+      box-shadow: none;
+      &:hover, &:focus{
+          text-decoration: none;
+      }
   }
   &.is-fullwidth {
     width: 100%;
@@ -81,6 +150,9 @@ $button--hover-border-color: $link-hover-border !default;
       @include center(1em);
       position: absolute !important;
     }
+  }
+  &.is-outlined{
+    @include buttonOverhide($button--background,transparent,$button--background,transparent)
   }
 }
 

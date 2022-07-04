@@ -21,7 +21,7 @@
                             ],
                             'infos'=>'Infos supplémentaire sur ce champ.',
                             'required'=>true,
-                            'checkStyle'=>true,
+                            // 'checkStyle'=>true,
                             // 'errorMsg'=>'Error msg radio',
                         ])    
         </div> 
@@ -60,7 +60,7 @@
                             'infos'=>'exemple d\'infos dans le mail',
                             'required'=>true,
                             // 'errorMsg'=>'Error msg email',
-                        ])
+                            ])
         </div>
 
         <div class="column is-6">
@@ -199,8 +199,20 @@
 
     <div>
         <div class="buttons is-centered mb-3">
-            {{-- <a class="button has-link" href="#">voir le détails</a> --}}
+            <a class="button has-link" href="#">voir le détails</a>
+            <button class="button is-outlined" type="submit">
+                <span>Submit</span>
+                <span class="icon-svg">
+                    @include('_ressources/icon-svg/arrow')
+                </span>
+            </button>
             <button class="button" type="submit">
+                <span>Submit</span>
+                <span class="icon-svg">
+                    @include('_ressources/icon-svg/arrow')
+                </span>
+            </button>
+            <button class="button" type="submit" disabled>
                 <span>Submit</span>
                 <span class="icon-svg">
                     @include('_ressources/icon-svg/arrow')

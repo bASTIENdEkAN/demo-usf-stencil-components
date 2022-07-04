@@ -4,10 +4,7 @@
         <div class="radio-inner">
             @if(!empty($checkStyle))
                 <span class="radio-check">
-                    {{-- check #01 --}}
-                    <svg class="check-svg" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path class="check-svg-path" d="M1.00098 4.104L5.54298 8.973L12.972 0.102997" stroke="#FF0000" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    @include('_ressources/form/elements/check',['check'=>1])
                 </span>
             @else
                 <span class="radio-radio"></span>
@@ -39,10 +36,7 @@
             <div class="radio-inner">
                 @if(!empty($checkStyle))
                     <span class="radio-check">
-                        {{-- check #01 --}}
-                        <svg class="check-svg" width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path class="check-svg-path" d="M1.00098 4.104L5.54298 8.973L12.972 0.102997" stroke="#FF0000" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        @include('_ressources/form/elements/check',['check'=>1])
                     </span>
                 @else
                     <span class="radio-radio"></span>

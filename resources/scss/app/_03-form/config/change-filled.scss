@@ -49,6 +49,14 @@ $change-filled-google--label-px: rem(5);
         } 
     }
 
+    // SELECT
+    .select{
+        z-index: 2;
+        select{
+            background-color: transparent;
+        }
+    }
+
     // TEXTAREA
     .textarea{
         min-height: rem(180);

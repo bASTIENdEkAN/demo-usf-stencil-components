@@ -18,18 +18,6 @@ $radio--background: transparent;
 $radio--background-hover: rgba($radio--border-color, 0.4);
 $radio--background-checked: $form--primary;
 
-@keyframes checkPathAnim {
-    0% {
-        opacity: 1;
-        stroke-dashoffset: 18;
-    }
-
-    100% {
-        opacity: 1;
-        stroke-dashoffset: 0;
-    }
-}
-
 .radio {
     color: $radio--color;
     cursor: pointer;
@@ -123,24 +111,6 @@ $radio--background-checked: $form--primary;
     }
 }
 
-.check-svg {
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    z-index: 1;
-
-}
-
-.check-svg-path {
-    fill: none;
-    opacity: 0;
-    stroke: $white; // TODO: convert to var
-    stroke-dasharray: 18;
-    stroke-dashoffset: 18;
-    stroke-width: 2; // TODO: convert to var
-}
-
 .radio-inner {
     align-items: center;
     display: inline-flex;
@@ -166,10 +136,6 @@ $radio--background-checked: $form--primary;
             opacity: 0;
         }
     }
-}
-
-.input-radio:checked~* .check-svg-path {
-    animation: checkPathAnim 0.2s ease-out 0.1s forwards;
 }
 
 // RADIOS

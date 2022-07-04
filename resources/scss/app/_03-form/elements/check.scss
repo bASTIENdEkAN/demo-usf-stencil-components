@@ -1,0 +1,75 @@
+// Check animation #01
+@keyframes check1 {
+    0% { 
+        stroke-dasharray: 20;
+        stroke-dashoffset: 20; 
+        opacity: 1;
+    }
+    100% { 
+        stroke-dasharray: 20;
+        stroke-dashoffset: 0; 
+        opacity: 1;
+    }
+}
+// Check animation #02
+@keyframes check2 {
+    0% { 
+        stroke-dasharray: 18;
+        stroke-dashoffset: 18; 
+        opacity: 1;
+    }
+    100% { 
+        stroke-dasharray: 18;
+        stroke-dashoffset: 0; 
+        opacity: 1;
+    }
+}
+// Check animation #03
+@keyframes check3 {
+    0% { 
+        stroke-dasharray: 24;
+        stroke-dashoffset: 24; 
+        opacity: 1;
+    }
+    100% { 
+        stroke-dasharray: 24;
+        stroke-dashoffset: 0; 
+        opacity: 1;
+    }
+}
+
+
+.check-svg {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 1;
+
+}
+
+.check-svg-path {
+    fill: none;
+    opacity: 0;
+    stroke: $white;
+    stroke-width: 2;
+}
+
+.input-checkbox:checked~* .check-svg,
+.input-radio:checked~* .check-svg{
+    &.is-1{
+        .check-svg-path {
+            animation: check1 0.2s ease-out 0.1s forwards;
+        }
+    }
+    &.is-2{
+        .check-svg-path {
+            animation: check2 0.2s ease-out 0.1s forwards;
+        }
+    }
+    &.is-3{
+        .check-svg-path {
+            animation: check3 0.2s ease-out 0.1s forwards;
+        }
+    }
+}

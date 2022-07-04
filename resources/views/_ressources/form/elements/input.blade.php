@@ -18,8 +18,8 @@
 
   @if(!empty($required) || !empty($infos))
   <div class="input-infos content">
-     @if( !empty($infos))<p>{{$infos}}</p>@endif
-     <div class="error-msg" id="{{$name}}ErrorMsgLocation">
+     @if( !empty($infos))<div class="info"><p>{{$infos}}</p></div>@endif
+     <div class="info error-msg" id="{{$name}}ErrorMsgLocation">
      </div>
   </div>
   @endif

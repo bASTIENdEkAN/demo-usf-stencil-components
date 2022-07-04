@@ -11,10 +11,9 @@
     </div>
     @if(!empty($required) || !empty($infos))
     <div class="input-infos content">
-        @if( !empty($infos))<p>{{$infos}}</p>
-        @endif
-        <p id="suggestionEmail" class="has-text-black" data-sentence-pt1="Vous voulez dire " data-sentence-pt2=" ?"></p>
-        <div class="error-msg" id="emailErrorMsgLocation">
+        @if( !empty($infos))<div class="info"><p>{{$infos}}</p></div>@endif
+        <div class="info suggestion-msg" id="suggestionEmail" data-sentence-pt1="Vous voulez dire " data-sentence-pt2=" ?"></div>
+        <div class="info error-msg" id="emailErrorMsgLocation">
         </div>
     </div>
     @endif

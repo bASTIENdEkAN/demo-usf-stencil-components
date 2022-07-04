@@ -14,9 +14,10 @@
     </div>
     @if(!empty($required) || !empty($infos))
     <div class="input-infos content">
-        @if( !empty($infos))<p>{{$infos}}</p>
+        @if( !empty($infos))
+        <div class="info"><p>{{$infos}}</p></div>
         @endif
-        <div class="error-msg" id="phoneErrorMsgLocation">
+        <div class="info error-msg" id="phoneErrorMsgLocation">
         </div>
     </div>
     @endif
