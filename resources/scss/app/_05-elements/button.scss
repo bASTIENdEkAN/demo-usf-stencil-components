@@ -135,8 +135,9 @@ $button--focus-size: rem(4);
       background-color: transparent;
       border-color: transparent;
       box-shadow: none;
-      &:hover, &:focus{
-          text-decoration: none;
+      &:hover, &:focus, &:focus:hover{
+        text-decoration: none;
+        box-shadow: none;
       }
   }
   &.is-fullwidth {
