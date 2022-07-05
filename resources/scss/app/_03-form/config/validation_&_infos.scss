@@ -49,11 +49,14 @@ input[type="radio"]{
     }
 }
 
+.checkbox-infos{
+    margin-top: rem(-3);
+}
+
 .radio-infos{
     margin-top: calc(#{$form--gap-y} * -2);       
-    padding-top: rem(5);
 }
 
 .radio + .radio-infos{
-    margin-top: rem(0);       
+    margin-top: rem(-7);       
 }
