@@ -1,6 +1,7 @@
 <?php
 
-use Jenssegers\Blade\Blade;use Wa72\HtmlPrettymin\PrettyMin;
+use Jenssegers\Blade\Blade;
+use MallardDuck\HtmlFormatter\Formatter;
 require __DIR__ . '/vendor/autoload.php';
 
 function _log($str){
@@ -31,14 +32,11 @@ foreach(glob("resources/views/pages/{,*/,*/*/,*/*/*/}*.blade.php", GLOB_BRACE) a
     try{
         $html = $blade->make($page)->render();
         
-        // $config = array(
-        //         'indent'         => true,
-        //         'output-xhtml'   => true,
-        //         'wrap'           => 200);
+        // https://packagist.org/packages/mallardduck/html-formatter
+        $formatter = new Formatter();
+        $htmlFormatted = $formatter->beautify($html);
+        
 
-        // $tidy = new tidy;
-        // $tidy->parseString($html, $config, 'utf8');
-        // $tidy->cleanRepair();
 
         if(is_file('output/html/'.$pageName.'.html')) unlink('output/html/'.$pageName.'.html');
         
@@ -51,7 +49,7 @@ foreach(glob("resources/views/pages/{,*/,*/*/,*/*/*/}*.blade.php", GLOB_BRACE) a
             $completePath .= $slug.'/';
         }
 
-        file_put_contents('output/html/'.$pageName.'.html',(string)$html);  
+        file_put_contents('output/html/'.$pageName.'.html',(string)$htmlFormatted);  
     } catch(\Exception $e){
         _log("-> ERROR: ".$e->getMessage());
     }

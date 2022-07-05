@@ -15,7 +15,7 @@
                         @include('_ressources/form/elements/check',['check'=>1])
                     </span>
                 @else
-                    <span class="radio-radio"></span>
+                    <span class="radio-radio">&nbsp;</span>
                 @endif
                 <span calss="radio-label">{{$item['label']}}</span>
             </div>

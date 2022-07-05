@@ -43,10 +43,10 @@
                 <!-- FORM -->
                 @include('_ressources/form/form')
                 <!--/ FORM -->
-            </div>
+            </div> 
         </div>
         
-        
+         
         <div class="wrapper wrapper-accordions">
             <div class="container is-medium py-6">
         
@@ -86,14 +86,13 @@
                             <a class="link" href="#">
                                 Privacy
                             </a>
-                        </li>
+                        </li> 
                         <li class="el">
                             <a class="link" href="#">
                                 Coockies
                             </a>
                         </li>
                     </ul>
-        
         
                     <ul class="list-right">
                         <li class="el">
@@ -109,7 +108,7 @@
         <!--/ FOOT -->
     </div>
 </div>
-
+ 
 
 
 
