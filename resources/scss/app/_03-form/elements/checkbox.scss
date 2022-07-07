@@ -24,13 +24,13 @@ $checkbox--check-width: 2;
 $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a bulma function
 
 .checkbox {
-    color: $checkbox--color;
+    color: $checkbox--color; 
     cursor: pointer;
     display: inline-block;
     font-weight: $checkbox--label-weight;
     position: relative;
     width: auto;
-
+ 
     input {
         cursor: pointer;
         opacity: 0;
