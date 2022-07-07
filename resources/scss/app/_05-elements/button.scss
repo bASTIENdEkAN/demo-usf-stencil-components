@@ -43,15 +43,16 @@ $button--focus-size: rem(4);
     fill: $color;
   }
   &:focus{
+    $button--focus-rgba-trans: .2;
     @if $background == transparent {
-      box-shadow: boxShadowFlat(0,$colorHover,$button--focus-size,rgba($colorHover, .2));
+      box-shadow: boxShadowFlat(0,$colorHover,$button--focus-size,rgba($colorHover, $button--focus-rgba-trans));
       &:hover{
-        box-shadow: boxShadowFlat(rem(1),$colorHover,$button--focus-size,rgba($colorHover, .2));
+        box-shadow: boxShadowFlat(rem(1),$colorHover,$button--focus-size,rgba($colorHover, $button--focus-rgba-trans));
       }
     } @else {
-      box-shadow: boxShadowFlat(0,$backgroundHover,$button--focus-size,rgba($backgroundHover, .2));
+      box-shadow: boxShadowFlat(0,$backgroundHover,$button--focus-size,rgba($backgroundHover, $button--focus-rgba-trans));
       &:hover{
-        box-shadow: boxShadowFlat(rem(1),$backgroundHover,$button--focus-size,rgba($backgroundHover, .2));
+        box-shadow: boxShadowFlat(rem(1),$backgroundHover,$button--focus-size,rgba($backgroundHover, $button--focus-rgba-trans));
       }
     }
   }
@@ -60,10 +61,10 @@ $button--focus-size: rem(4);
     background: $backgroundHover;
     @if $background == transparent {
       border-color: $colorHover;
-      box-shadow:  backShadowFlat(rem(1), $colorHover);
+      box-shadow:  boxShadowFlat(rem(1), $colorHover, rem(1), $backgroundHover);
     } @else {
       border-color: $backgroundHover;
-      box-shadow: backShadowFlat(rem(1), $backgroundHover);
+      box-shadow: boxShadowFlat(rem(1), $backgroundHover, rem(1), $backgroundHover);
     }
   }
 }
