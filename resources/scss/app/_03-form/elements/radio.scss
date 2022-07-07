@@ -39,7 +39,7 @@ $radio--border-color-checked: $form--primary;
         position: absolute;
     }
 
-    &:hover {
+    &:hover, &:focus {
         color: $radio--color;
 
         .radio-radio,
@@ -72,7 +72,7 @@ $radio--border-color-checked: $form--primary;
             padding: $form--pt $form--pr $form--pb $form--pl;
     
         }
-        &:hover {
+        &:hover, &:focus {
             .radio-inner{
                 border-color: $radio--border-color-hover;
             }

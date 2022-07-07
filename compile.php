@@ -60,8 +60,10 @@ function getLineWithString($fileName, $str, $return) {
 // Script
 
 
+$waitMsg = sprintf($colorFormats['bg_blue'], ' PHP WAIT ').sprintf($colorFormats['blue'], ' Compiling templates...');
 _log('');
-_log(sprintf($colorFormats['blue'], 'Compiling templates...'));
+_log($waitMsg);
+_log('');
 
 if(!is_dir('tmp')) mkdir('tmp');
 if(!is_dir('tmp/cache')) mkdir('tmp/cache');
@@ -104,6 +106,7 @@ foreach(glob("resources/views/pages/{,*/,*/*/,*/*/*/}*.blade.php", GLOB_BRACE) a
 
         // Error log
         if(str_contains($htmlFormatted, 'Undefined variable')){
+            _log('');
             $errorCount = $errorCount + 1;
             $errorLabel = sprintf($colorFormats['bg_red'], ' PHP ERROR ');
             $errorMsg = sprintf($colorFormats['red'], ' '.$pageName.'.html contains undefined variable');
@@ -128,8 +131,9 @@ foreach(glob("resources/views/pages/{,*/,*/*/,*/*/*/}*.blade.php", GLOB_BRACE) a
 
 // Success log
 if($errorCount === 0){
-    $success = sprintf($colorFormats['bg_green'], ' PHP SUCCESS ');
-    $msg = sprintf($colorFormats['green'], ' All the page are successfully compiled');
+    _log('');
+    $success = sprintf($colorFormats['bg_green'], ' PHP DONE ');
+    $msg = sprintf($colorFormats['green'], ' Compiled successfully');
     _log($success.$msg);
 }
 

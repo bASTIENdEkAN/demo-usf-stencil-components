@@ -69,7 +69,6 @@ const validate = new Bouncer('[data-validate]', {
 	}   
 });
 
-console.log(validate)
 // document.addEventListener('bouncerFormInvalid', function (event) {
 // 	console.log(event.detail.errors);
 // 	console.log(event.detail.errors[0].offsetTop);

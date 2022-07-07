@@ -36,9 +36,8 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
         opacity: 0;
         position: absolute;
     }
-
-    &:hover {
-        color: $checkbox--color;
+    
+    &:hover{
 
         .checkbox-checkbox,
         .checkbox-check {
@@ -79,7 +78,7 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
             padding: $form--pt $form--pr $form--pb $form--pl;
     
         }
-        &:hover {
+        &:hover{
             .checkbox-inner{
                 border-color: $checkbox--border-color-hover;
             }
@@ -125,10 +124,8 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
     }
 }
 
-.input-checkbox:checked~.checkbox-check,
-.input-checkbox:checked~* .checkbox-check,
-.input-checkbox:checked~.checkbox-checkbox,
-.input-checkbox:checked~* .checkbox-checkbox {
+.input-checkbox:checked~ .checkbox-inner .checkbox-check,
+.input-checkbox:checked~ .checkbox-inner .checkbox-checkbox{
     background: $checkbox--back-background-checked;
     border-color: $checkbox--border-color-checked;
 

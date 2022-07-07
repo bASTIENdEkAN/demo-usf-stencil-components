@@ -1,3 +1,6 @@
+/* Credit */
+require('./credit/credit'); // 1bk
+
 /* Polyfill */
 require('./polyfill/foreach'); // 1bk
 require('./polyfill/closest'); // 1bk

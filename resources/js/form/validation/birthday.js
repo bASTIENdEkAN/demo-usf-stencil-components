@@ -28,7 +28,6 @@ const validationBirthday = (field) => {
     
     if( required(field, 'birthday') ){
         // Return false because there is NO error
-        console.log('getAge(field.value):', getAge(field.value))
         if( regxBirth.test(field.value) && getAge(field.value) >= 18 && getAge(field.value) < 130 ){
             return false;
         }
