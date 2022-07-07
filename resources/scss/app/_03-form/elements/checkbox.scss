@@ -36,9 +36,16 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
         opacity: 0;
         position: absolute;
     }
-    
-    &:hover{
 
+    .input-checkbox{
+        &:checked:focus:not(:hover) ~.checkbox-inner .checkbox-checkbox,
+        &:checked:focus:not(:hover) ~.checkbox-inner .checkbox-check{
+            box-shadow: 0 0 0 $form--focus-width rgba($checkbox--border-color-checked, $form--focus-rgba);
+        }        
+    }
+    
+    &:hover,
+    input:focus:not(:checked)~.checkbox-inner {
         .checkbox-checkbox,
         .checkbox-check {
             border-color: $checkbox--border-color-hover;
@@ -78,10 +85,9 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
             padding: $form--pt $form--pr $form--pb $form--pl;
     
         }
-        &:hover{
-            .checkbox-inner{
-                border-color: $checkbox--border-color-hover;
-            }
+        &:hover .checkbox-inner,
+        .input-checkbox:focus ~.checkbox-inner{
+            border-color: $checkbox--border-color-hover;
         }
     }
 }
@@ -93,7 +99,7 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
 }
 
 .checkbox-label {
-    // line-height: 1.325;
+    // line-height: 1.325;    
 }
 
 .checkbox-checkbox,
@@ -108,6 +114,7 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
     position: relative;
     width: $checkbox--size;
     margin-right: rem(15);
+    transition: all 0.2s ease;
     
     &:after {
         background: $checkbox--after-background;
@@ -122,6 +129,11 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
         transform: translate3d(-50%, -50%, 0);
         transition: all 0.2s ease;
     }
+}
+
+.check-svg-path{
+    stroke-width: $checkbox--check-width;
+    stroke: $checkbox--check-color;
 }
 
 .input-checkbox:checked~ .checkbox-inner .checkbox-check,

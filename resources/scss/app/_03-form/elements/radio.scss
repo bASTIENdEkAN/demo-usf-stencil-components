@@ -39,9 +39,15 @@ $radio--border-color-checked: $form--primary;
         position: absolute;
     }
 
-    &:hover, &:focus {
-        color: $radio--color;
+    .input-radio{
+        &:checked:focus:not(:hover) ~.radio-inner .radio-radio,
+        &:checked:focus:not(:hover) ~.radio-inner .radio-check{
+            box-shadow: 0 0 0 $form--focus-width rgba($radio--border-color-checked, $form--focus-rgba);
+        }        
+    }
 
+    &:hover, 
+    input:focus:not(:checked)~.radio-inner {
         .radio-radio,
         .radio-check {
             border-color: $radio--border-color-hover;
@@ -72,10 +78,9 @@ $radio--border-color-checked: $form--primary;
             padding: $form--pt $form--pr $form--pb $form--pl;
     
         }
-        &:hover, &:focus {
-            .radio-inner{
-                border-color: $radio--border-color-hover;
-            }
+        &:hover .radio-inner,
+        .input-radio:checked:focus:not(:hover) ~.radio-inner{
+            border-color: $radio--border-color-hover;
         }
     }
 }
@@ -98,6 +103,8 @@ $radio--border-color-checked: $form--primary;
     min-width: $radio--size;
     position: relative;
     width: $radio--size;
+    transition: all 0.2s ease;
+
 
     &:after {
         background: $radio--after-background;
@@ -118,10 +125,8 @@ $radio--border-color-checked: $form--primary;
     display: inline-flex;
 }
 
-.input-radio:checked~.radio-check,
-.input-radio:checked~* .radio-check,
-.input-radio:checked~.radio-radio,
-.input-radio:checked~* .radio-radio {
+.input-radio:checked~ .radio-inner .radio-check,
+.input-radio:checked~ .radio-inner .radio-radio{
     background: $radio--back-background-checked;
     border-color: $radio--border-color-checked;
 

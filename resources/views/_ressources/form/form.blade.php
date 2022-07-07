@@ -26,7 +26,6 @@
                         ])    
         </div> 
 
-
         <div class="column is-6">
             @include('_ressources/form/elements/input',
                         [

@@ -3,6 +3,8 @@ $form--primary: $primary;
 $form--transition: all .2s ease;
 $form--height: rem(60);
 $form--placeholder-color: $grey-light;
+$form--focus-width: rem(4);
+$form--focus-rgba: .2;
 // Font
 $form--label-weight: $fw-semibold;
 $form--label-color: $black;

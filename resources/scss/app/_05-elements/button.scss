@@ -14,8 +14,9 @@ $button--px: rem(25) !default;
 
 $button--hover-color: $link-hover !default;
 $button--hover-border-color: $link-hover-border !default;
+$button--hover-width: rem(1);
 
-$button--focus-size: rem(4);
+$button--focus-size: $form--focus-width;
 
 // Function 
 @function boxShadowFlat($size,$color,$size2,$color2) {
@@ -43,16 +44,15 @@ $button--focus-size: rem(4);
     fill: $color;
   }
   &:focus{
-    $button--focus-rgba-trans: .2;
     @if $background == transparent {
-      box-shadow: boxShadowFlat(0,$colorHover,$button--focus-size,rgba($colorHover, $button--focus-rgba-trans));
+      box-shadow: boxShadowFlat(0,$colorHover,$button--focus-size,rgba($colorHover, $form--focus-rgba));
       &:hover{
-        box-shadow: boxShadowFlat(rem(1),$colorHover,$button--focus-size,rgba($colorHover, $button--focus-rgba-trans));
+        box-shadow: boxShadowFlat($button--hover-width,$colorHover,$button--focus-size,rgba($colorHover, $form--focus-rgba));
       }
     } @else {
-      box-shadow: boxShadowFlat(0,$backgroundHover,$button--focus-size,rgba($backgroundHover, $button--focus-rgba-trans));
+      box-shadow: boxShadowFlat(0,$backgroundHover,$button--focus-size,rgba($backgroundHover, $form--focus-rgba));
       &:hover{
-        box-shadow: boxShadowFlat(rem(1),$backgroundHover,$button--focus-size,rgba($backgroundHover, $button--focus-rgba-trans));
+        box-shadow: boxShadowFlat($button--hover-width,$backgroundHover,$button--focus-size,rgba($backgroundHover, $form--focus-rgba));
       }
     }
   }
@@ -61,10 +61,10 @@ $button--focus-size: rem(4);
     background: $backgroundHover;
     @if $background == transparent {
       border-color: $colorHover;
-      box-shadow:  boxShadowFlat(rem(1), $colorHover, rem(1), $backgroundHover);
+      box-shadow:  boxShadowFlat($button--hover-width, $colorHover, $button--hover-width, $backgroundHover);
     } @else {
       border-color: $backgroundHover;
-      box-shadow: boxShadowFlat(rem(1), $backgroundHover, rem(1), $backgroundHover);
+      box-shadow: boxShadowFlat($button--hover-width, $backgroundHover, $button--hover-width, $backgroundHover);
     }
   }
 }
@@ -110,9 +110,9 @@ $button--focus-size: rem(4);
   }
   
   &:focus{
-    box-shadow: 0 0 0 0 darken($button--background, 5%), 0 0 0 $button--focus-size rgba($button--background, .2);
+    box-shadow: 0 0 0 0 darken($button--background, 5%), 0 0 0 $button--focus-size rgba($button--background, $form--focus-rgba);
     &:hover{
-      box-shadow: 0 0 0 rem(1) darken($button--background, 5%), 0 0 0 $button--focus-size rgba($button--background, .2);
+      box-shadow: 0 0 0 rem(1) darken($button--background, 5%), 0 0 0 $button--focus-size rgba($button--background, $form--focus-rgba);
     }
   }
   &:hover{
