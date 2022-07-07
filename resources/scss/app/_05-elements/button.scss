@@ -1,6 +1,7 @@
-$button--height: $form--height;
-$button--radius: $radius;
-$button--transition: all .2s ease-in-out;
+$button--height: $form--height !default;
+$button--radius: $radius !default;
+$button--font-weight: $fw-bold !default;
+$button--transition: all .2s ease-in-out !default;
 
 $button--color: $white !default;
 $button--background: $primary !default;
@@ -16,7 +17,7 @@ $button--hover-color: $link-hover !default;
 $button--hover-border-color: $link-hover-border !default;
 $button--hover-width: rem(1);
 
-$button--focus-size: $form--focus-width;
+$button--focus-size: $form--focus-width !default;
 
 // Function 
 @function boxShadowFlat($size,$color,$size2,$color2) {
@@ -76,7 +77,7 @@ $button--focus-size: $form--focus-width;
   height: $button--height;
   border-radius: $button--radius; 
   border: $button--border-width solid $button--border-color;
-  font-weight: $fw-bold;
+  font-weight: $button--font-weight;
   cursor: pointer;
   font-family: $font-default;
   background-color: $button--background;

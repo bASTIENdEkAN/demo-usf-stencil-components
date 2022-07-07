@@ -10,8 +10,8 @@ $browser-context: 16;
 
 /* Import a Font and set your fonts variables */
 // @import 'fonts/base64/VW';
-$font-default: Tahoma,Geneva,Verdana,sans-serif;
-$font-title: Tahoma,Geneva,Verdana,sans-serif;
+$font-default: Tahoma,Geneva,Verdana,sans-serif !default;
+$font-title: Tahoma,Geneva,Verdana,sans-serif !default;
 $fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
@@ -21,21 +21,21 @@ $fw-extrabold: 800;
 $fw-black: 900;
 
 /* Colors variables: */
-$black:  #000000;
-$black-bis: hsl(0, 0%, 7%);
-$black-ter: #373737;
-$grey-darker: #333;
-$grey-dark: #666;
-$grey: #999;
-$grey-light: #CCC;
-$grey-lighter: #DDD;
-$white-ter: #F3F5F6;
-$white-bis: hsl(0, 0%, 98%);
-$white:  #ffffff;
+$black:  #000000 !default;
+$black-bis: hsl(0, 0%, 7%) !default;
+$black-ter: #373737 !default;
+$grey-darker: #333 !default;
+$grey-dark: #666 !default;
+$grey: #999 !default;
+$grey-light: #CCC !default;
+$grey-lighter: #DDD !default;
+$white-ter: #F3F5F6 !default;
+$white-bis: hsl(0, 0%, 98%) !default;
+$white:  #ffffff !default;
 /**/
-$primary: #23a6f0;
-$link: #0F84D8;
-// $success: $green;
+$primary: #23a6f0 !default;
+// $link: #0F84D8 !default;
+// $success: $green !default;
 
 /* Font sizes: */ 
 $size-1: rem(48);
@@ -68,6 +68,7 @@ $text: $black;
 // Global
 $body-background-color: $white;
 $body-size: #{$browser-context}px;
+$body-line-height: 1.4;
 // Border
 $radius: 0px;
 $border-color: $grey-lighter;
@@ -78,10 +79,15 @@ $shadow  :
 0 6px 23px rgba(0, 0, 0, 0.03)!default;
 $shadow-far  : 0 0 40px 0 rgba(0,0,0,0.15) !default;
 
+/* Try some customization stylesheet and see the power of SCSS */
+// @import "customization/brico";
+// @import "customization/google";
+
 /* 
   What we import from bulma.io: 
   column, utilities, content -> 40Kb
   
   Feel free to use more compoenent from bulma if need.
 */
+
 @import "bulma";

@@ -1,27 +1,27 @@
 // Global
-$checkbox--size: rem(30);
-$checkbox--margin-size: 24px;
-$checkbox--color: $form--color;
-$checkbox--label-weight: $form--label-weight;
+$checkbox--size: rem(30) !default;
+$checkbox--margin-size: rem(24) !default;
+$checkbox--color: $form--color !default;
+$checkbox--label-weight: $form--label-weight !default;
 // After
-$checkbox--after-size: rem(17);
-$checkbox--after-size-hover: 2.8;
-$checkbox--after-background: transparent;
-$checkbox--after-background-hover: rgba($form--border-color-focus, 0.2);
-$checkbox--after-background-checked: $form--primary;
+$checkbox--after-size: rem(17) !default;
+$checkbox--after-size-hover: 2.8 !default;
+$checkbox--after-background: transparent !default;
+$checkbox--after-background-hover: rgba($form--border-color-focus, 0.2) !default;
+$checkbox--after-background-checked: $form--primary !default;
 // Background
-$checkbox--back-background: $white;
-$checkbox--back-background-hover: $white;
-$checkbox--back-background-checked: $white;
+$checkbox--back-background: $white !default;
+$checkbox--back-background-hover: $white !default;
+$checkbox--back-background-checked: $white !default;
 // Border
-$checkbox--border-radius: 0px;
-$checkbox--border-size: $form--border-size;
-$checkbox--border-color: $form--border-color;
-$checkbox--border-color-hover: $form--border-color-focus;
-$checkbox--border-color-checked: $form--primary;
+$checkbox--border-radius: 0px !default;
+$checkbox--border-size: $form--border-size !default;
+$checkbox--border-color: $form--border-color !default;
+$checkbox--border-color-hover: $form--border-color-focus !default;
+$checkbox--border-color-checked: $form--primary !default;
 // Check
-$checkbox--check-width: 2;
-$checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a bulma function
+$checkbox--check-width: 2 !default;
+$checkbox--check-color: findColorInvert($form--primary) !default; // findColorInvert is a bulma function
 
 .checkbox {
     color: $checkbox--color; 
@@ -102,7 +102,6 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
     // line-height: 1.325;    
 }
 
-.checkbox-checkbox,
 .checkbox-check {
     background: $checkbox--back-background;
     border: $checkbox--border-size solid darken($checkbox--border-color, 5%);
@@ -136,8 +135,7 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
     stroke: $checkbox--check-color;
 }
 
-.input-checkbox:checked~ .checkbox-inner .checkbox-check,
-.input-checkbox:checked~ .checkbox-inner .checkbox-checkbox{
+.input-checkbox:checked~ .checkbox-inner .checkbox-check{
     background: $checkbox--back-background-checked;
     border-color: $checkbox--border-color-checked;
 
@@ -147,11 +145,9 @@ $checkbox--check-color: findColorInvert($form--primary); // findColorInvert is a
         transition: all 0.1s ease;
     }
 
-    &:not(.checkbox-checkbox) {
-        background: $checkbox--after-background-checked;
-
-        &:after {
-            opacity: 0;
-        }
+    background: $checkbox--after-background-checked;
+    &:after {
+        opacity: 0;
     }
+
 }

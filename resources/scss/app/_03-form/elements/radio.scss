@@ -1,23 +1,23 @@
 // Global
-$radio--size: rem(30);
-$radio--border-size: $form--border-size;
-$radio--color: $form--color;
-$radio--label-weight: $form--label-weight;
-$radio--border-radius: 50%;
+$radio--size: rem(30) !default;
+$radio--border-size: $form--border-size !default;
+$radio--color: $form--color !default;
+$radio--label-weight: $form--label-weight !default;
+$radio--border-radius: 50% !default;
 // After
-$radio--after-size: rem(17);
-$radio--after-size-hover: 2.5;
-$radio--after-background: transparent;
-$radio--after-background-hover: rgba($form--border-color-focus, 0.2);
-$radio--after-background-checked: $form--primary;
+$radio--after-size: rem(17) !default;
+$radio--after-size-hover: 2.5 !default;
+$radio--after-background: transparent !default;
+$radio--after-background-hover: rgba($form--border-color-focus, 0.2) !default;
+$radio--after-background-checked: $form--primary !default;
 // Background
-$radio--back-background: $white;
-$radio--back-background-hover: $white;
-$radio--back-background-checked: $white;
+$radio--back-background: $white !default;
+$radio--back-background-hover: $white !default;
+$radio--back-background-checked: $white !default;
 // Border
-$radio--border-color: $form--border-color;
-$radio--border-color-hover: $form--border-color-focus;
-$radio--border-color-checked: $form--primary;
+$radio--border-color: $form--border-color !default;
+$radio--border-color-hover: $form--border-color-focus !default;
+$radio--border-color-checked: $form--primary !default;
 // Background
 
 .radio {

@@ -31,9 +31,6 @@ footer, header, hgroup, main, menu, nav, section {
 *[hidden] {
     display: none;
 }
-body {
-	line-height: 1;
-}
 ol, ul {
 	list-style: none;
 }
@@ -103,8 +100,6 @@ body,
 html {
 	// @include mq(min-hugescreen){ font-size: 18px } // If you use REM this can be usefull
 	font-size: #{$browser-context}px;
-	line-height: 1.4;
-	// overflow: auto;
 }
 
 body {

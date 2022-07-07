@@ -1,5 +1,6 @@
-$change-filled-google: $form--change-filled-google;
-$change-filled-google--label-px: rem(5);
+$change-filled--google: $form--change-filled-google !default;
+$change-filled--google--label-px: rem(5) !default;
+$change-filled--label-color-filled: $form--label-color !default;
 
 .field.change-filled{
     position: relative;
@@ -32,9 +33,9 @@ $change-filled-google--label-px: rem(5);
         white-space: nowrap;
         span{
             background: transparent;
-            @if $change-filled-google {
-                padding: calc(#{$change-filled-google--label-px} / 2) $change-filled-google--label-px;
-                margin-left: -#{$change-filled-google--label-px};
+            @if $change-filled--google {
+                padding: calc(#{$change-filled--google--label-px} / 2) $change-filled--google--label-px;
+                margin-left: -#{$change-filled--google--label-px};
                 border-radius: 100px;
             }
         }
@@ -44,7 +45,7 @@ $change-filled-google--label-px: rem(5);
     .input, .textarea{
         @include placeholder{color: transparent !important};
         background: transparent; width: 100%;
-        @if $change-filled-google != true {
+        @if $change-filled--google != true {
             padding-top: calc((#{$form--height} / 100 ) * 60);
         } 
     }
@@ -71,7 +72,7 @@ $change-filled-google--label-px: rem(5);
         }
         .control{
             position: relative;
-            @if $change-filled-google != true {
+            @if $change-filled--google != true {
                 &:after{
                     @include pseudo();
                     border-radius: $form--radius $form--radius 0 0;
@@ -93,7 +94,7 @@ $change-filled-google--label-px: rem(5);
             .iti__selected-flag{ background: transparent; }
         }
         .iti__selected-flag{
-            @if $change-filled-google != true {
+            @if $change-filled--google != true {
                 padding-top: calc((#{$form--height} / 100 ) * 25) !important;
             }
             padding-left: $form--pl !important;
@@ -128,7 +129,8 @@ $change-filled-google--label-px: rem(5);
             z-index: 3;
             font-size: rem(14);
             transform: translate3d(0,-18%,0);
-            @if $change-filled-google {
+            color: $change-filled--label-color-filled;
+            @if $change-filled--google {
                 transform: translate3d(0,-50%,0);
                 >span{
                     background: $form--background;

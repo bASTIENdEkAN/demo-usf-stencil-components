@@ -1,26 +1,24 @@
-$input--color: $black;
-$input--background: $white;
-$input--border-color: $form--border-color;
-$input--border-color-focus: $form--border-color-focus;
-$input--radius: $form--radius;
+$input--color: $black !default;
+$input--background: $white !default;
+$input--radius: $form--radius !default;
+$input--border-color: $form--border-color !default;
+$input--border-color-focus: $form--border-color-focus !default;
 
-$input--pt: $form--pt;
-$input--pr: $form--pr;
-$input--pb: $form--pb;
-$input--pl: $form--pl;
+$input--pt: $form--pt !default;
+$input--pr: $form--pr !default;
+$input--pb: $form--pb !default;
+$input--pl: $form--pl !default;
 
-$input--border-size: $form--border-size;
-$form-border-top-size: $input--border-size;
-$form-border-right-size: $input--border-size;
-$form-border-bottom-size: $input--border-size;
-$form-border-left-size: $input--border-size;
+$input--border-size: $form--border-size !default;
+$input--border-top-size: $input--border-size !default;
+$input--border-right-size: $input--border-size !default;
+$input--border-bottom-size: $input--border-size !default;
+$input--border-left-size: $input--border-size !default;
 
-
-
-$input--disabled-color: $text-light;
-$input--disabled-background-color: $background;
-$input--disabled-border-color: $background;
-$input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3);
+$input--disabled-color: $text-light !default;
+$input--disabled-background-color: $background !default;
+$input--disabled-border-color: $background !default;
+$input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3) !default;
 
 @mixin input {
     @extend %control;
@@ -28,10 +26,10 @@ $input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3);
     // Border
     border-radius: $input--radius;
     border-color: $input--border-color;
-    border-top: $form-border-top-size solid $input--border-color;
-    border-left: $form-border-left-size solid $input--border-color;
-    border-bottom: $form-border-bottom-size solid $input--border-color;
-    border-right: $form-border-right-size solid $input--border-color;
+    border-top: $input--border-top-size solid $input--border-color;
+    border-left: $input--border-left-size solid $input--border-color;
+    border-bottom: $input--border-bottom-size solid $input--border-color;
+    border-right: $input--border-right-size solid $input--border-color;
 
     color: $input--color;
     height: $form--height;
@@ -41,9 +39,18 @@ $input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3);
     width: 100%; 
     display: block;
 
+    transition: $form--transition;
+
     &:hover,
     &:focus{
         border-color: $input--border-color-focus;
+    }
+
+    @if $form--change-filled-google {
+        &:focus{
+            border-color: $form--primary;
+            box-shadow: 0 0 0 1px $form--primary;
+        }
     }
     
     &[disabled],

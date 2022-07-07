@@ -1,36 +1,36 @@
 // Global
-$form--primary: $primary;
-$form--transition: all .2s ease;
-$form--height: rem(60);
-$form--placeholder-color: $grey-light;
-$form--focus-width: rem(4);
-$form--focus-rgba: .2;
+$form--primary: $primary !default;
+$form--transition: all .2s ease !default;
+$form--height: rem(60) !default;
+$form--placeholder-color: $grey-light !default;
+$form--focus-width: rem(4) !default;
+$form--focus-rgba: .2 !default;
 // Font
-$form--label-weight: $fw-semibold;
-$form--label-color: $black;
-$form--color: $black;
+$form--label-weight: $fw-semibold !default;
+$form--label-color: $black !default;
+$form--color: $black !default;
 // Background
-$form--background: $white;
+$form--background: $white !default;
 // Padding
-$form--pt: calc( (#{$form--height} / 100) * 32 );
-$form--pr: rem(15);
-$form--pb: calc( (#{$form--height} / 100) * 32 );
-$form--pl: rem(15);
+$form--pt: calc( (#{$form--height} / 100) * 32 ) !default;
+$form--pr: rem(15) !default;
+$form--pb: calc( (#{$form--height} / 100) * 32 ) !default;
+$form--pl: rem(15) !default;
 // Border
-$form--radius: 0px;
-$form--border-size: 1px;
-$form--border-color: $border-color;
-$form--border-color-focus: darken($form--border-color, 25%);
-$form--border-size: $form--border-size;
-$form--border-top-size: $form--border-size;
-$form--border-right-size: $form--border-size;
-$form--border-bottom-size: $form--border-size;
-$form--border-left-size: $form--border-size;
+$form--radius: 0px !default;
+$form--border-size: 1px !default;
+$form--border-color: $border-color !default;
+$form--border-color-focus: darken($form--border-color, 25%) !default;
+$form--border-size: $form--border-size !default;
+$form--border-top-size: $form--border-size !default;
+$form--border-right-size: $form--border-size !default;
+$form--border-bottom-size: $form--border-size !default;
+$form--border-left-size: $form--border-size !default;
 // Change Filled
-$form--change-filled-google: false;
+$form--change-filled-google: false !default;
 // Layout
-$form--gap-x: rem(5);
-$form--gap-y: rem(10);
+$form--gap-x: rem(5) !default;
+$form--gap-y: rem(10) !default;
 
 form{
     *{ @include placeholder{ color: $form--placeholder-color !important }; }

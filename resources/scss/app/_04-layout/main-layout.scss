@@ -1,3 +1,5 @@
+$main-layout--background: $white !default;
+
 // MAIN LAYOUT
 .main-layout{
     align-items: stretch;
@@ -5,8 +7,7 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
-    
-    @include mq(ie){ height: rem(600); }
+    background: $main-layout--background;    
 
     // max-width: rem(1440);
     // margin: 0 auto;
