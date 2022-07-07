@@ -35,4 +35,4 @@ form{
     .columns, &.columns{
         @include layoutRestartColumn($form--gap-x, $form--gap-y)
     }
-}
+}  

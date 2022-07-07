@@ -58,24 +58,23 @@
                                     [
                                         'question'=>'Question '.$i,
                                         'answer'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                                    ])
-                    </li>
-                @endfor
-        
-                </ul>
-        
-            </div>
-        </div>        
+                                    ]) 
+                    </li> 
+                @endfor 
+                 
+                </ul> 
+            </div> 
+        </div>            
         <!--/ BODY  -->
-    </div>
-
-    <!-- footer: will stick at the bottom -->
+    </div> 
+ 
+    <!-- footer: will stick at the bottom -->  
     <div class="foot">
         <!-- FOOT -->
-        <footer class="footer" id="smoothScroll">
+        <footer class="footer" id="smoothScroll"> 
             <div class="container">
                 <nav class="footer-nav">
-        
+         
                     <ul class="list-left">
                         <li class="el">
                             <a class="link" href="#">

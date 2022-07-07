@@ -177,9 +177,8 @@
                     ])    
             
         </div>
-
+ 
         <div class="column is-12">
-
             @include('_ressources/form/elements/pre-build/optin',
                         [
                             'label'=>'<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, doloribus consequatur dolor eligendi eius recusandae quasi velit ad sit nihil, ratione pariatur? Deleniti enim, tenetur minima dicta laboriosam omnis minus.</p>',
@@ -189,9 +188,9 @@
                             'errorMsg'=>'Error msg optin',
                         ])
 
-        </div>
+        </div>  
 
-    </div>
+    </div> 
 
     <div>
         <div class="buttons is-centered mb-3">
