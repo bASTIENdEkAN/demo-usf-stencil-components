@@ -119,12 +119,20 @@ foreach(glob("resources/views/pages/{,*/,*/*/,*/*/*/}*.blade.php", GLOB_BRACE) a
             $errorMsg3Line = getLineWithString($outputPath, 'Undefined variable','string');
             $errorMsg3 = sprintf($colorFormats['red'], '-> '.trim($errorMsg3Line));
             _log($errorMsg3);
+        }else if(str_contains($htmlFormatted, 'Notice:')){
+            _log('');
+            $errorCount = $errorCount + 1;
+            $errorLabel = sprintf($colorFormats['bg_yellow'], ' PHP WARNING ');
+            $errorMsg = sprintf($colorFormats['yellow'], ' '.$pageName.'.html contains some wierde think');
+            _log($errorLabel.$errorMsg);
         }
         
     } catch(\Exception $e){
         // Error log
+        $errorCount = $errorCount + 1;
         $errorLabel = sprintf($colorFormats['bg_red'], ' PHP ERROR ');
         $erroMsg = sprintf($colorFormats['red'], " ".$e->getMessage());
+        $errorMsg = sprintf($colorFormats['red'], " ".$e);
         _log($errorLabel.$errorMsg);
     }
 }
