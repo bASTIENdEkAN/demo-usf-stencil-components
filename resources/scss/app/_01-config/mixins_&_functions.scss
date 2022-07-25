@@ -23,6 +23,7 @@ $breakpoints: (
     max-tiny: "(max-width:370px)", min-tiny: "(max-width:370px)",
 ) !default;
 
+/// Get some error sometime with this mixin so I updatet it
 @mixin mq($breakpoint-name){
   $breakpoint-name: unquote($breakpoint-name);
   @if map-has-key($breakpoints, $breakpoint-name){
@@ -32,6 +33,23 @@ $breakpoints: (
    }
   }@else{
   @warn "#{$mq-name} is not a value defined in the 'breakpoints' map.";
+  }
+}
+
+/// Mixin to manage responsive breakpoints
+/// @author Kitty Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+/// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+@mixin mq($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
 // BACKGROUND @2x
