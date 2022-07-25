@@ -28,10 +28,10 @@
 
         <div class="column is-6">
             @include('_ressources/form/elements/input',
-                        [
-                            'name'=>'firstname',
+                        [ 
+                            'name'=>'firstname', 
                             'label'=>'Firstname',
-                            'changeFilled'=>true,
+                            'changeFilled'=>true, 
                             'placeholder'=>'Firstname placeholder',
                             'required'=>true,
                             'errorMsg'=>'Error msg firstname',
