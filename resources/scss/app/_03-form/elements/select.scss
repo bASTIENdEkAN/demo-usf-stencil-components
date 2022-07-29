@@ -68,6 +68,9 @@ $select--with-triangle: false;
                 padding: 0.5em 1em;
             }  // States
         }
+        &:not([multiple]){
+            @include ltr-property("padding", 2.5em);
+        }
     }
     &:not(.is-loading) {
         &::after {
