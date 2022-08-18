@@ -1,20 +1,25 @@
 @charset "utf-8";
+/* 
+    If you want to look into the nodes_modules and convert the sass to scss to personalise it you can with this link: 
+    @source https://sass-scss-converter.netlify.app/
+*/
+
 /*! bulma.io v0.9.0 | MIT License | github.com/jgthms/bulma */
 // UTILITIES
-@import "~bulma/sass/utilities/_all";
+// @import "~bulma/sass/utilities/_all";
 
 // BASE
-@import "~bulma/sass/base/_all";
-
-/* If you want to look into the nodes_modules and convert the sass to scss to personalise it you can with this link: */
-// https://sass-scss-converter.netlify.app/
+// @import '~bulma/sass/base/_all';
+// @import '~bulma/sass/base/minireset';
+// @import '~bulma/sass/base/generic';
+// @import '~bulma/sass/base/animations';
 
 // ELEMENTS
 // @import "~bulma/sass/elements/_all";
 // @import "~bulma/sass/elements/box";
 // @import "~bulma/sass/elements/button";
 // @import "~bulma/sass/elements/container";
-@import "~bulma/sass/elements/content";
+// @import "~bulma/sass/elements/content";
 // @import "~bulma/sass/elements/icon";
 // @import "~bulma/sass/elements/image";
 // @import "~bulma/sass/elements/notification";

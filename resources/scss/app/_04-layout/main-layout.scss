@@ -27,19 +27,38 @@ $main-layout--background: $white !default;
 .wrapper, %wrapper{
     padding: 0 $gutter;
 }
+/// CONTAINER WRAPPER: to extend to container, like that no need to have wrapper div to have gutter
+%container-wrapper{
+    // box-sizing: initial;
+    // padding: 0 $gutter;
+    width: calc(100% - #{($gutter * 2)} );
+}
 // CONTAINER
-.container{
-    width: 100%;
-    margin: 0 auto;
-    max-width: rem(1160);
-    &.is-medium{
-        max-width: rem(960);
+$container-sizes:(
+    'default': rem(1160),
+    'medium': rem(960),
+    'small': rem(760),
+    'tiny': rem(560),
+);
+
+@each $key, $value in $container-sizes {
+    @if($key == 'default'){
+        .container, %container{
+            display: block;
+            flex-grow: 1;
+            margin: 0 auto;
+            width: 100%;
+            max-width: $value;
+        }
     }
-    &.is-small{
-        max-width: rem(760);
-    }
-    &.is-tiny{
-        max-width: rem(560);
+
+    @else{
+        .container-#{$key}, %container-#{$key}{
+            display: block;
+            flex-grow: 1;
+            margin: 0 auto;
+            width: 100%;
+            max-width: $value;
+        }
     }
 }
-

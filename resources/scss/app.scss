@@ -1,16 +1,19 @@
 @charset "utf-8";
 
 /* Configuration: */
+@import 'app/_01-config/functions';
 @import 'app/_01-config/variables';
-@import 'app/_01-config/mixins_&_functions';
-@import 'app/_01-config/reset';
+@import 'app/_01-config/mixins';
 
-/* Features: */
-@import 'app/_02-features/tricks';
-@import 'app/_02-features/intl-tel-input';// 19ko uncompressed
+/* Base: */
+@import 'app/_02-base/minireset';
+@import 'app/_02-base/generic';
+@import 'app/_02-base/tricks';
+@import 'app/_02-base/intl-tel-input'; // 19ko uncompressed
+@import 'app/_02-base/bulma'; // Bulma used for the grid layout
 
 /* Form (the special feature from Bastien R+S): */
-@import 'app/_03-form/init';
+@import 'app/_03-form/_all';
 
 /* Layout Grid: */
 @import 'app/_04-layout/main-layout';

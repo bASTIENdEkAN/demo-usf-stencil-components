@@ -1,0 +1,204 @@
+
+$body-background-color: $scheme-main !default;
+$body-size: 16px !default;
+$body-min-width: 300px !default;
+$body-rendering: optimizeLegibility !default;
+$body-family: $family-primary !default;
+$body-overflow-x: hidden !default;
+$body-overflow-y: scroll !default;
+
+// $body-color: $text !default;
+$body-font-size: 1em !default;
+$body-weight: $weight-normal !default;
+$body-line-height: 1.5 !default;
+
+$code-family: $family-code !default;
+$code-padding: 0.25em 0.5em 0.25em !default;
+$code-weight: normal !default;
+$code-size: 0.875em !default;
+
+$small-font-size: 0.875em !default;
+
+$hr-background-color: $border-color !default;
+$hr-height: 2px !default;
+$hr-margin: 1.5rem 0 !default;
+
+$strong-color: currentColor !default;
+$strong-weight: $weight-bold !default;
+
+$code: darken($red, 15%) !default;
+$code-background: $white-ter !default;
+
+$pre: $body-color !default;
+$pre-background:  $white-ter !default;
+$pre-font-size: 0.875em !default;
+$pre-padding: 1.25rem 1.5rem !default;
+$pre-code-font-size: 1em !default;
+
+html {
+  background-color: $body-background-color;
+  font-size: $body-size;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: $body-min-width;
+  overflow-x: $body-overflow-x;
+  overflow-y: $body-overflow-y;
+  text-rendering: $body-rendering;
+  text-size-adjust: 100%;
+}
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+  display: block;
+}
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $body-family;
+}
+code,
+pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-family: $code-family;
+}
+// body {
+//   color: $body-color;
+//   font-size: $body-font-size;
+//   font-weight: $body-weight;
+//   line-height: $body-line-height;
+// }
+
+// Inline
+a {
+  color: $link;
+  cursor: pointer;
+  text-decoration: none;
+  strong {
+    color: currentColor;
+  }
+  &:hover {
+    color: darken($link, 10%);
+  }
+}
+code {
+  background-color: $code-background;
+  color: $code;
+  font-size: $code-size;
+  font-weight: $code-weight;
+  padding: $code-padding;
+}
+hr {
+  background-color: $hr-background-color;
+  border: none;
+  display: block;
+  height: $hr-height;
+  margin: $hr-margin;
+}
+img {
+  height: auto;
+  max-width: 100%;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: baseline;
+}
+small {
+  font-size: $small-font-size;
+}
+span {
+  font-style: inherit;
+  font-weight: inherit;
+}
+strong {
+  color: $strong-color;
+  font-weight: $strong-weight;
+}
+// Block
+
+fieldset {
+  border: none;
+}
+pre {
+  @include overflow-touch;
+  background-color: $pre-background;
+  color: $pre;
+  font-size: $pre-font-size;
+  overflow-x: auto;
+  padding: $pre-padding;
+  white-space: pre;
+  word-wrap: normal;
+  code {
+    background-color: transparent;
+    color: currentColor;
+    font-size: $pre-code-font-size;
+    padding: 0;
+  }
+}
+table {
+  td,
+  th {
+    vertical-align: top;
+    &:not([align]) {
+      text-align: inherit;
+    }
+  }
+  th {
+    color: $strong-weight;
+  }
+}
+/* Custom generic: from here is personal customisation of the reset */
+*[hidden] {
+    display: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+input, button {
+    appearance: none;
+}
+button{
+    cursor: pointer;
+    border: 0 none;
+    border-radius: 0;
+}
+* {
+	@include box-sizing();
+	outline: none;
+}
+
+body {
+    color: $body-color;
+    font-size: $body-font-size;
+    font-weight: $body-weight;
+    line-height: $body-line-height;
+
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: relative;
+}
+/*
+     If you want to increase the size of the all website at some breakpoint do it here on the html! 
+*/
+// html{
+//     @include mq(min-hugescreen){ font-size: 18px } // If you use REM this can be usefull
+// }
+

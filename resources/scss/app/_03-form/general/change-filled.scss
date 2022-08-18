@@ -13,8 +13,8 @@ $change-filled--label-color-filled: $form--label-color !default;
     &.is-disabled{
         &.is-filled{
             .input{
-                background: $light;
-                border-color: $light;
+                background: $input--disabled-background-color;
+                border-color: $input--disabled-border-color;
             }
         }
     }

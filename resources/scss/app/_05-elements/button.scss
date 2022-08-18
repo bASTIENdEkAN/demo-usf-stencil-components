@@ -1,6 +1,6 @@
 $button--height: $form--height !default;
-$button--radius: $radius !default;
-$button--font-weight: $fw-bold !default;
+$button--radius: $border-radius !default;
+$button--font-weight: $weight-bold !default;
 $button--transition: all .2s ease-in-out !default;
 
 $button--color: $white !default;
@@ -8,16 +8,13 @@ $button--background: $primary !default;
 $button--family: false !default;
 
 $button--border-color: $button--background !default;
-$button--border-width: $control-border-width !default;
+$button--border-width: 2px !default;
 
-$button--py: rem(15) !default;
+$button--py: rem(15) !default; 
 $button--px: rem(25) !default;
 
-$button--hover-color: $link-hover !default;
-$button--hover-border-color: $link-hover-border !default;
 $button--hover-width: rem(1);
-
-$button--focus-size: $form--focus-width !default;
+$button--focus-width: $form--focus-width !default;
 
 // Function 
 @function boxShadowFlat($size,$color,$size2,$color2) {
@@ -47,14 +44,14 @@ $button--focus-size: $form--focus-width !default;
 
   &:focus{
     @if $background == transparent {
-      box-shadow: boxShadowFlat(0,$colorHover,$button--focus-size,rgba($colorHover, $form--focus-rgba));
+      box-shadow: boxShadowFlat(0,$colorHover,$button--focus-width,rgba($colorHover, $form--focus-rgba));
       &:hover{
-        box-shadow: boxShadowFlat($button--hover-width,$colorHover,$button--focus-size,rgba($colorHover, $form--focus-rgba));
+        box-shadow: boxShadowFlat($button--hover-width,$colorHover,$button--focus-width,rgba($colorHover, $form--focus-rgba));
       }
     } @else {
-      box-shadow: boxShadowFlat(0,$backgroundHover,$button--focus-size,rgba($backgroundHover, $form--focus-rgba));
+      box-shadow: boxShadowFlat(0,$backgroundHover,$button--focus-width,rgba($backgroundHover, $form--focus-rgba));
       &:hover{
-        box-shadow: boxShadowFlat($button--hover-width,$backgroundHover,$button--focus-size,rgba($backgroundHover, $form--focus-rgba));
+        box-shadow: boxShadowFlat($button--hover-width,$backgroundHover,$button--focus-width,rgba($backgroundHover, $form--focus-rgba));
       }
     }
   }
@@ -84,7 +81,7 @@ $button--focus-size: $form--focus-width !default;
   border: $button--border-width solid $button--border-color;
   font-weight: $button--font-weight;
   cursor: pointer;
-  font-family: $font-default;
+  font-family: $family-default;
   background-color: $button--background;
   // color: findColorInvert($button--background);
   color: $button--color;
@@ -116,9 +113,9 @@ $button--focus-size: $form--focus-width !default;
   }
   
   &:focus{
-    box-shadow: 0 0 0 0 darken($button--background, 5%), 0 0 0 $button--focus-size rgba($button--background, $form--focus-rgba);
+    box-shadow: 0 0 0 0 darken($button--background, 5%), 0 0 0 $button--focus-width rgba($button--background, $form--focus-rgba);
     &:hover{
-      box-shadow: 0 0 0 rem(1) darken($button--background, 5%), 0 0 0 $button--focus-size rgba($button--background, $form--focus-rgba);
+      box-shadow: 0 0 0 rem(1) darken($button--background, 5%), 0 0 0 $button--focus-width rgba($button--background, $form--focus-rgba);
     }
   }
   &:hover{

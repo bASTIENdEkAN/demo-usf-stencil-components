@@ -1,0 +1,13 @@
+$label--color: $form--label-color;
+$label--weight: $form--label-weight;
+$label--size: $size-6;
+
+.label {
+  color: $label--color;
+  display: block;
+  font-size: $label--size;
+  font-weight: $label--weight;
+  &:not(:last-child) {
+    margin-bottom: 0.5em;
+  }  // Sizes
+}

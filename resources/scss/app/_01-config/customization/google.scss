@@ -1,6 +1,6 @@
 // VARIABLES => '_01-config/variables.scss'
-$font-default: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
-$font-title: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
+$family-default: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
+$family-title: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
 
 $black:  #202124;
 $grey-light: #dadce0;
@@ -18,7 +18,7 @@ $form--focus-rgba: .2;
 $form--radius: rem(4); 
 $form--border-color: $grey-light; 
 $form--border-color-focus: darken($grey-light, 25%); 
-$form--label-weight: $fw-regular;
+$form--label-weight: $weight-regular;
 $form--change-filled-google: true;
 
 $form--pt: calc( (#{$form--height} / 100) * 32 ) !default;
@@ -46,5 +46,5 @@ $checkbox--check-color: findColorInvert($checkbox--border-color-checked);
 $button--height: rem(36);
 $button--radius: $form--radius;
 $button--background: $primary;
-$button--font-weight: $fw-regular;
+$button--font-weight: $weight-regular;
  

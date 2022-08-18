@@ -26,7 +26,7 @@ $transition: all .3s ease;
 .accordion-head{
     display: flex;
     background: $white;
-    font-weight: $fw-bold;
+    font-weight: $weight-bold;
     transition: $transition;
     .content-container, .arrow-container{
         margin: 0;
@@ -65,7 +65,7 @@ $transition: all .3s ease;
     }
 
     .content{
-        font-weight: $fw-regular;
+        font-weight: $weight-regular;
     }
 }
 

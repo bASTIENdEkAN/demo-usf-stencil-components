@@ -1,7 +1,7 @@
 // VARIABLES => '_01-config/variables.scss'
 @import '../fonts/base64/Brico';
-$font-default: 'Brico';
-$font-title: 'Brico';
+$family-default: 'Brico';
+$family-title: 'Brico';
 
 $black:  #5e5e5e;
 $black-ter: #373737;
@@ -31,7 +31,7 @@ $form--focus-rgba: .2;
 $form--radius: rem(4); 
 $form--border-color: #e7e7e7; 
 $form--border-color-focus: darken($form--border-color, 25%); 
-$form--label-weight: $fw-regular;
+$form--label-weight: $weight-regular;
 
 // RADIO => '_03-form/elements/radio.scss'
 $radio--size: rem(16);

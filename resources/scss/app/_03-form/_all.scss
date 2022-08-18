@@ -6,9 +6,9 @@ $form--placeholder-color: $grey-light !default;
 $form--focus-width: rem(4) !default;
 $form--focus-rgba: .2 !default;
 // Font
-$form--label-weight: $fw-semibold !default;
-$form--label-color: $black !default;
-$form--color: $black !default;
+$form--label-weight: $weight-semibold !default;
+$form--label-color: $body-color !default;
+$form--color: $body-color !default;
 // Background
 $form--background: $white !default;
 // Padding
@@ -38,3 +38,17 @@ form{
         @include layoutRestartColumn($form--gap-x, $form--gap-y)
     }
 }  
+
+// Elements
+@import 'elements/input';
+@import 'elements/select';
+@import 'elements/check';
+@import 'elements/checkbox';
+@import 'elements/radio';
+
+// General
+@import 'general/label';
+@import 'general/field';
+@import 'general/change-filled';
+@import 'general/validation';
+@import 'general/messages';

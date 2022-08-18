@@ -1,30 +1,3 @@
-.field.is-error{
-
-}
-
-.field.is-valid{
-
-}
-
-.input,
-.textarea,
-.select select,
-select,
-input[type="checkbox"],
-input[type="radio"]{
-
-}
-
-.error-msg{
-    color: $danger;
-    text-align: left;
-}
-
-.suggestion-msg{
-    color: $black;
-}
-
-
 // Infos
 .input-infos, 
 .radio-infos, 
@@ -32,7 +5,7 @@ input[type="radio"]{
     font-size: rem(14); *{ font-size: rem(14); }
     margin: 0 0 0 $form--pl;
     color: $grey-dark;
-    font-weight: $fw-regular;
+    font-weight: $weight-regular;
     line-height: 1;
     position: relative;
     &.content{

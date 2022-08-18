@@ -34,7 +34,7 @@
         <progress class="header-progress progress" max="100" value="0" data-anim-to="75"> 70% </progress>
 
         <div class="wrapper" >
-            <div class="container is-small py-4"> 
+            <div class="container-small py-4"> 
                 <h1 class="title">Form components</h1>
                 <h2 class="subtitle">Developed with love by Bastien De Kan</h2>
                 <div class="content">
@@ -48,7 +48,7 @@
         
          
         <div class="wrapper wrapper-accordions">
-            <div class="container is-medium py-6">
+            <div class="container-medium py-6">
         
                 <ul class="list-faq">
         

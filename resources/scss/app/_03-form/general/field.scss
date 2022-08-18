@@ -1,16 +1,3 @@
-$label--color: $form--label-color;
-$label--weight: $form--label-weight;
-
-.label {
-  color: $label--color;
-  display: block;
-  font-size: $size-normal;
-  font-weight: $label--weight;
-  &:not(:last-child) {
-    margin-bottom: 0.5em;
-  }  // Sizes
-}
-
 .field {
   &:not(:last-child) {
     margin-bottom: 0.75rem;
@@ -149,21 +136,6 @@ $label--weight: $form--label-weight;
     flex-shrink: 0;
     @include ltr-property("margin", 1.5rem);
     text-align: right;
-    &.is-small {
-      font-size: $size-small;
-      padding-top: 0.375em;
-    }
-    &.is-normal {
-      padding-top: 0.375em;
-    }
-    &.is-medium {
-      font-size: $size-medium;
-      padding-top: 0.375em;
-    }
-    &.is-large {
-      font-size: $size-large;
-      padding-top: 0.375em;
-    }
   }
 }
 .field-body {
@@ -192,7 +164,6 @@ $label--weight: $form--label-weight;
 .control {
   box-sizing: border-box;
   clear: both;
-  font-size: $size-normal;
   position: relative;
   text-align: inherit;
   // Modifiers

@@ -1,5 +1,5 @@
 @use "sass:math";
-/* REM & EM */
+// REM & EM
 $browser-context: 16;
 @function em($pixels, $context: $browser-context) {
   @return math.div($pixels, $context) * 1em;
@@ -8,36 +8,40 @@ $browser-context: 16;
     @return math.div($pixels,  $context) * 1rem;
 }
 
-/* Import a Font and set your fonts variables */
-// @import 'fonts/base64/VW';
-$font-default: Tahoma,Geneva,Verdana,sans-serif !default;
-$font-title: Tahoma,Geneva,Verdana,sans-serif !default;
-$fw-light: 300;
-$fw-regular: 400;
-$fw-medium: 500;
-$fw-semibold: 600;
-$fw-bold: 700;
-$fw-extrabold: 800;
-$fw-black: 900;
-
-/* Colors variables: */
+// Colors
 $black:  #000000 !default;
-$black-bis: hsl(0, 0%, 7%) !default;
+$black-bis: #333 !default;
 $black-ter: #373737 !default;
+
 $grey-darker: #333 !default;
 $grey-dark: #666 !default;
 $grey: #999 !default;
 $grey-light: #CCC !default;
 $grey-lighter: #DDD !default;
+
 $white-ter: #F3F5F6 !default;
 $white-bis: hsl(0, 0%, 98%) !default;
 $white:  #ffffff !default;
-/**/
-$primary: #23a6f0 !default;
-// $link: #0F84D8 !default;
-// $success: $green !default;
 
-/* Font sizes: */ 
+$orange: hsl(14,  100%, 53%) !default;
+$yellow: hsl(44,  100%, 77%) !default;
+$green: hsl(153, 53%,  53%) !default;
+$turquoise: hsl(171, 100%, 41%) !default;
+$cyan: hsl(207, 61%,  53%) !default;
+$blue: hsl(229, 53%,  53%) !default;
+$purple: hsl(271, 100%, 71%) !default;
+$red: hsl(348, 86%, 61%) !default;
+
+$primary: #23a6f0 !default;
+$link: #0F84D8 !default;
+$success: #5CC423 !default;
+$danger: #DA291C !default;
+
+// Typography
+$family-default: Tahoma,Geneva,Verdana,sans-serif !default;
+$family-title: Tahoma,Geneva,Verdana,sans-serif !default;
+$family-code: monospace !default;
+
 $size-1: rem(48);
 $size-2: rem(40);
 $size-3: rem(32);
@@ -48,7 +52,15 @@ $size-7: rem(12);
 
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
 
-/* Spacing : https://bulma.io/documentation/helpers/spacing-helpers/ */
+$weight-light: 300 !default;
+$weight-regular: 400 !default;
+$weight-medium: 500 !default;
+$weight-semibold: 600 !default;
+$weight-bold: 700 !default;
+$weight-extrabold: 800 !default;
+$weight-black: 900 !default;
+
+// Spacing
 $spacing-values: (
     "1": rem(10), 
     "2": rem(20),  
@@ -58,36 +70,35 @@ $spacing-values: (
     "6": rem(60),
 ); 
 
-/* Global settings */ 
-// Spacing values
+$rtl: false !default;
+
 $column-gap: 10px;
 $gutter: 16px;
-// Font settings
-$family-sans-serif: $font-default;
-$text: $black;
+
 // Global
 $body-background-color: $white;
-$body-size: #{$browser-context}px;
+$body-font-size: #{$browser-context}px;
 $body-line-height: 1.4;
+$body-family: $family-default;
+$body-weight: $weight-regular;
+$body-color: $black-bis;
+$body-background-color: $white;
+
 // Border
-$radius: 0px;
+$border-radius: 0px;
+$border-radius-rounded: 99999px !default;
 $border-color: $grey-lighter;
-/* Shadow smooth: https://s.muz.li/MWNjYTY2Yjk4 */ 
+
+// Effects
+// Shadow smooth @source https://s.muz.li/MWNjYTY2Yjk4
 $shadow  :
 0 0.4px 1.5px rgba(0, 0, 0, 0.008),
 0 1.3px 5.1px rgba(0, 0, 0, 0.011),
 0 6px 23px rgba(0, 0, 0, 0.03)!default;
-$shadow-far  : 0 0 40px 0 rgba(0,0,0,0.15) !default;
+$shadow-far  : 
+0 0 40px 0 rgba(0,0,0,0.15) !default;
 
-/* Try some customization stylesheet and see the power of SCSS */
+// Customisation
+// Try some customization stylesheet and see the power of SCSS:
 // @import "customization/brico";
 // @import "customization/google";
-
-/* 
-  What we import from bulma.io: 
-  column, utilities, content -> 40Kb
-  
-  Feel free to use more compoenent from bulma if need.
-*/
-
-@import "bulma";
