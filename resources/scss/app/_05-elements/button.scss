@@ -44,6 +44,7 @@ $button--focus-size: $form--focus-width !default;
   .icon-svg .fill{
     fill: $color;
   }
+
   &:focus{
     @if $background == transparent {
       box-shadow: boxShadowFlat(0,$colorHover,$button--focus-size,rgba($colorHover, $form--focus-rgba));
@@ -57,15 +58,19 @@ $button--focus-size: $form--focus-width !default;
       }
     }
   }
-  &:hover{
+  &:hover, &:focus{
     color: $colorHover;
     background: $backgroundHover;
     @if $background == transparent {
       border-color: $colorHover;
-      box-shadow:  boxShadowFlat($button--hover-width, $colorHover, $button--hover-width, $backgroundHover);
+      &:not(:focus){
+        box-shadow:  boxShadowFlat($button--hover-width, $colorHover, $button--hover-width, $backgroundHover);
+      }
     } @else {
       border-color: $backgroundHover;
-      box-shadow: boxShadowFlat($button--hover-width, $backgroundHover, $button--hover-width, $backgroundHover);
+      &:not(:focus){
+        box-shadow: boxShadowFlat($button--hover-width, $backgroundHover, $button--hover-width, $backgroundHover);
+      }
     }
   }
 }

@@ -10,7 +10,7 @@
           box-sizing: $property;
 }
 // MEDIA QUERIES
-$breakpoints: (
+$breakpoints_nobu: (
     // FOR IE //
     ie: "(-ms-high-contrast: active), (-ms-high-contrast: none)",
     // LIKE BULMA: https://bulma.io/documentation/overview/responsiveness/ //
@@ -26,8 +26,8 @@ $breakpoints: (
 /// Get some error sometime with this mixin so I updatet it
 // @mixin mq($breakpoint-name){
 //   $breakpoint-name: unquote($breakpoint-name);
-//   @if map-has-key($breakpoints, $breakpoint-name){
-//   $query: map-get($breakpoints, $breakpoint-name);
+//   @if map-has-key($breakpoints_nobu, $breakpoint-name){
+//   $query: map-get($breakpoints_nobu, $breakpoint-name);
 //    @media all and #{$query}{
 //      @content;
 //    }
@@ -39,11 +39,11 @@ $breakpoints: (
 /// Mixin to manage responsive breakpoints
 /// @author Kitty Giraudel
 /// @param {String} $breakpoint - Breakpoint name
-/// @require $breakpoints
+/// @require $breakpoints_nobu
 /// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
 @mixin mq($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media screen and #{map-get($breakpoints, $breakpoint)} {
+  @if map-has-key($breakpoints_nobu, $breakpoint) {
+    @media screen and #{map-get($breakpoints_nobu, $breakpoint)} {
       @content;
     }
   }
