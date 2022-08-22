@@ -33,7 +33,7 @@
         <!-- BODY -->
         <progress class="header-progress progress" max="100" value="0" data-anim-to="75"> 70% </progress>
 
-        <div class="wrapper" >
+        <div class="wrapper">
             <div class="container-small py-4"> 
                 <h1 class="title">Form components</h1>
                 <h2 class="subtitle">Developed with love by Bastien De Kan</h2>
