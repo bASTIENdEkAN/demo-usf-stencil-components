@@ -12,7 +12,7 @@
             <div class="radio-inner">
                 @if(!empty($checkStyle))
                     <span class="radio-check">
-                        @include('_ressources/form/elements/check',['check'=>1])
+                        @include('_resources/form/elements/check',['check'=>1])
                     </span>
                 @else
                     <span class="radio-radio">&nbsp;</span>

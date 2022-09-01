@@ -1,11 +1,13 @@
-.icon-svg {
+.icon {
   position: relative;
-  display: inline-block;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: rem(24);
   height: rem(24);
 
   svg {
-    @include centeriser("both");
     width: 100%;
     height: auto;
   }

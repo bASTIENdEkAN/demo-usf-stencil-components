@@ -4,7 +4,7 @@ $select--primary: $form--primary;
 $select--color: $black;
 $select--background: $white;
 // Border
-$select--radius: $form--radius;
+$select--radius: $form--border-radius;
 $select--border-color: $form--border-color;
 $select--border-color-focus: $form--border-color-focus;
 $select--border-top-size: $form--border-size;
@@ -20,93 +20,112 @@ $select--with-triangle: false;
 
 // BULMA STUFF
 .select,
-%select{
-    display: inline-block;
+%select {
+  position: relative;
+
+  display: inline-block;
+  width: 100%;
+
+  vertical-align: top;
+
+  select {
+    display: block;
     width: 100%;
-    position: relative;
-    vertical-align: top;
-    select {
-        // @extend input
-        cursor: pointer;
-        display: block;
-        font-size: 1em;
-        width: 100%;
-        outline: none;
-        box-shadow: none;
-        
-        // Remove default arrow
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        &::-ms-expand {
-            display: none;
-        }
-        //// Remove default arrow
-        
-        background: $select--background;
-        border-radius: $select--radius;
-        padding: $select--ptb $select--plr;
-        height: $form--height;
+    height: $form--height;
+    padding: $select--ptb $select--plr;
 
-        @if $select--border-less {
-            border: 0 none;
-            border-bottom: $select--border-bottom-size solid $border-color;
-        }@else{
-            border-top: $select--border-top-size solid $border-color;
-            border-left: $select--border-left-size solid $border-color;
-            border-bottom: $select--border-bottom-size solid $border-color;
-            border-right: $select--border-right-size solid $border-color;
-        }
-        // @include selectBorderLess($select--border-less, darken($select--border-color,5%));
+    font-size: 1em;
+    //// Remove default arrow
+        
+    background: $select--background;
+    border-radius: $select--radius;
+    outline: none;
+    box-shadow: none;
+    // @extend input
+    cursor: pointer;
+        
+    // Remove default arrow
+    appearance: none;
+    appearance: none;
 
-        &:hover {
-            border-color: $select--border-color-focus;
-        }
-        &[multiple] {
-            height: auto;
-            padding: 0;
-            option {
-                padding: 0.5em 1em;
-            }  // States
-        }
-        &:not([multiple]){
-            @include ltr-property("padding", 2.5em);
-        }
+    &::-ms-expand {
+      display: none;
     }
-    &:not(.is-loading) {
-        &::after {
-            @if $select--with-triangle {
-                @include pseudo();
-                @include centeriser('vertical');
-                @include triangle(bottom,$select--primary,10px,10px);
-                top: 51%;
-                border-radius: rem(10);
-            }@else{
-                @include arrow();
-                border-color: $select--primary;
-            }
 
-            @include ltr-position(1.125em);
-            z-index: 4;
-        }
+    @if $select--border-less {
+      border: 0 none;
+      border-bottom: $select--border-bottom-size solid $border-color;
+    }@else {
+      border-top: $select--border-top-size solid $border-color;
+      border-left: $select--border-left-size solid $border-color;
+      border-bottom: $select--border-bottom-size solid $border-color;
+      border-right: $select--border-right-size solid $border-color;
+    }
+    // @include selectBorderLess($select--border-less, darken($select--border-color,5%));
+
+    &:hover {
+      border-color: $select--border-color-focus;
+    }
+
+    &[multiple] {
+      height: auto;
+      padding: 0;
+
+      option {
+        padding: 0.5em 1em;
+      }  // States
+    }
+
+    &:not([multiple]) {
+      @include ltr-property('padding', 2.5em);
+    }
+  }
+
+  &:not(.is-loading) {
+    &::after {
+      @if $select--with-triangle {
+        @include pseudo();
+        @include centeriser('vertical');
+        @include triangle(bottom,$select--primary,10px,10px);
+        top: 51%;
+
+        border-radius: rem(10);
+      }@else {
+        @include arrow();
+        border-color: $select--primary;
       }
-    &.is-loading {
-        &::after {
-            @extend %loader;
-            margin-top: 0;
-            position: absolute;
-            // top: 0.625em;
-            transform: none;
-        }
+
+      @include ltr-position(1.125em);
+      z-index: 4;
     }
+  }
+
+  &.is-loading {
+    &::after {
+      @extend %loader;
+      position: absolute;
+
+      margin-top: 0;
+      // top: 0.625em;
+      transform: none;
+    }
+  }
     
 }
 // INTL TEL INPUT
-.selected-flag{
-	max-height: $select--height;
+.selected-flag {
+  max-height: $select--height;
 }
-.intl-tel-input .selected-flag{
-    padding-left:$form--pl;
+
+.intl-tel-input .selected-flag {
+  padding-left: $form--pl;
 }
-.intl-tel-input.allow-dropdown input, .intl-tel-input.allow-dropdown input[type=text], .intl-tel-input.allow-dropdown input[type=tel], .intl-tel-input.separate-dial-code input, .intl-tel-input.separate-dial-code input[type=text], .intl-tel-input.separate-dial-code input[type=tel]{
-    padding-left: calc(#{$form--pl} + 40px);
+
+.intl-tel-input.allow-dropdown input,
+.intl-tel-input.allow-dropdown input[type=text],
+.intl-tel-input.allow-dropdown input[type=tel],
+.intl-tel-input.separate-dial-code input,
+.intl-tel-input.separate-dial-code input[type=text],
+.intl-tel-input.separate-dial-code input[type=tel] {
+  padding-left: calc(#{$form--pl} + 40px);
 }

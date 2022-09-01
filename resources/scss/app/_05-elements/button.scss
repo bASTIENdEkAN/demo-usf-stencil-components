@@ -1,190 +1,223 @@
+// Box Model
 $button--height: $form--height !default;
-$button--radius: $border-radius !default;
-$button--font-weight: $weight-bold !default;
-$button--transition: all .2s ease-in-out !default;
-
-$button--color: $white !default;
-$button--background: $primary !default;
-$button--family: false !default;
-
-$button--border-color: $button--background !default;
-$button--border-width: 2px !default;
-
-$button--py: rem(15) !default; 
+$button--py: rem(15) !default;
 $button--px: rem(25) !default;
-
-$button--hover-width: rem(1);
-$button--focus-width: $form--focus-width !default;
+// Typography
+$button--color: $white !default;
+$button--family: $family-default !default;
+$button--font-weight: $weight-bold !default;
+// Visual
+$button--background: $primary !default;
+$button--background-disabled: $grey-lighter !default;
+$button--border-width: rem(2) !default;
+$button--border-radius: $border-radius !default;
+$button--shadow-hover-width: rem(1);
+$button--shadow-active-width: rem(2);
+$button--shadow-focus-width: $form--focus-width !default;
+// Animation
+$button--transition: all 0.2s ease-in-out !default;
 
 // Function 
-@function boxShadowFlat($size,$color,$size2,$color2) {
-  $result: 0 0 0 $size $color, 0 0 0 $size2 $color2;
-  @if $size2 and $color2 {
+@function box-shadow-flat($size, $color, $size2, $color2) {
     $result: 0 0 0 $size $color, 0 0 0 $size2 $color2;
-  } 
-  @return $result;
-}
-// Mixin to Overhide button
-@mixin buttonOverhide(
-  $color: $black,
-  $background: transparent,
-  $colorHover: $black,
-  $backgroundHover: transparent,
-){
-  color: $color;
-  background: $background;
-  @if $background == transparent {
-    border-color: $color;
-  } @else {
-    border-color: $background;
-  }
-  .icon-svg .fill{
-    fill: $color;
-  }
 
-  &:focus{
-    @if $background == transparent {
-      box-shadow: boxShadowFlat(0,$colorHover,$button--focus-width,rgba($colorHover, $form--focus-rgba));
-      &:hover{
-        box-shadow: boxShadowFlat($button--hover-width,$colorHover,$button--focus-width,rgba($colorHover, $form--focus-rgba));
-      }
-    } @else {
-      box-shadow: boxShadowFlat(0,$backgroundHover,$button--focus-width,rgba($backgroundHover, $form--focus-rgba));
-      &:hover{
-        box-shadow: boxShadowFlat($button--hover-width,$backgroundHover,$button--focus-width,rgba($backgroundHover, $form--focus-rgba));
-      }
+    @if $size2 and $color2 {
+        $result: 0 0 0 $size $color, 0 0 0 $size2 $color2;
     }
-  }
-  &:hover, &:focus{
-    color: $colorHover;
-    background: $backgroundHover;
-    @if $background == transparent {
-      border-color: $colorHover;
-      &:not(:focus){
-        box-shadow:  boxShadowFlat($button--hover-width, $colorHover, $button--hover-width, $backgroundHover);
-      }
-    } @else {
-      border-color: $backgroundHover;
-      &:not(:focus){
-        box-shadow: boxShadowFlat($button--hover-width, $backgroundHover, $button--hover-width, $backgroundHover);
-      }
-    }
-  }
-}
-// The button sizes use mixins so they can be used at different breakpoints
-.button,
-%button {
-  @extend %control;
-  @extend %unselectable;
-  height: $button--height;
-  border-radius: $button--radius; 
-  border: $button--border-width solid $button--border-color;
-  font-weight: $button--font-weight;
-  cursor: pointer;
-  font-family: $family-default;
-  background-color: $button--background;
-  // color: findColorInvert($button--background);
-  color: $button--color;
-  padding: $button--py $button--px;
-  
-  display: inline-flex; 
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  white-space: nowrap;
-  transition: $button--transition;
-  strong {
-    color: inherit;
-  }
 
-  .icon-svg{
-    &:not(:first-child){
-        margin-left: rem(6);
-        margin-right: rem(-4);
-    }
-    &:not(:last-child){
-        margin-right: rem(6);
-        margin-left: rem(-4);
-    }
-    .fill{
-        // fill: findColorInvert($button--background);
-        fill: $button--color;
-    }
-  }
-  
-  &:focus{
-    box-shadow: 0 0 0 0 darken($button--background, 5%), 0 0 0 $button--focus-width rgba($button--background, $form--focus-rgba);
-    &:hover{
-      box-shadow: 0 0 0 rem(1) darken($button--background, 5%), 0 0 0 $button--focus-width rgba($button--background, $form--focus-rgba);
-    }
-  }
-  &:hover{
-    text-decoration: none;
-    background: darken($button--background, 5%);
-    border-color: darken($button--background, 5%);
-    // color: findColorInvert($button--background);
+    @return $result;
+}
+
+// Mixins
+@mixin button-base() {
+    @extend %control; 
+    @extend %unselectable;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: $button--height;
+    padding: $button--py $button--px;
+
     color: $button--color;
-    box-shadow: 0 0 0 rem(1) darken($button--background, 5%);
-  }
+    font-weight: $button--font-weight;
+    font-family: $button--family;
+    white-space: nowrap;
+    text-align: center;
 
+    border-style: solid;
+    border-width: $button--border-width;
+    border-radius: $button--border-radius;
+    cursor: pointer;
 
-  &[disabled],
-  fieldset[disabled] & {
-    pointer-events: none;
-    @include buttonOverhide($white,$grey-lighter);
-  }
-  &.has-link{
-      color: $black;
-      text-decoration: underline;
-      background-color: transparent;
-      border-color: transparent;
-      box-shadow: none;
-      &:hover, &:focus, &:focus:hover{
-        text-decoration: none;
-        box-shadow: none;
-      }
-  }
-  &.is-fullwidth {
-    width: 100%;
-  }
-  &.is-loading {
-    color: transparent !important;
-    pointer-events: none;
-    &::after {
-      @extend %loader;
-      @include center(1em);
-      position: absolute !important;
+    transition: $button--transition;
+ 
+    strong { 
+        color: inherit; 
+    } 
+
+    .icon {  
+        &:not(:first-child) {
+            margin-right: rem(-4);
+            margin-left: rem(6);
+        }
+
+        &:not(:last-child) {
+            margin-right: rem(6);
+            margin-left: rem(-4);
+        }
     }
-  }
-  &.is-outlined{
-    @include buttonOverhide($button--background,transparent,$button--background,transparent)
-  }
+    // Loading
+    &--loading {
+        color: transparent !important;
+
+        pointer-events: none;
+
+        &::after {
+            @extend %loader;
+            @include center(1em);
+            position: absolute !important;
+        }
+    }
 }
 
+@mixin button-color-background(
+    $color: $button--color, 
+    $background: $button--background, 
+    $color-hover: $button--color, 
+    $background-hover: darken($button--background, 5%),
+) {
+    $border-shadow-color: $background;
+    $border-shadow-color-hover: $background-hover;
+    $background-disabled: $button--background-disabled;
+    $color-disabled: $white;
+    @if $background==transparent {
+        $border-shadow-color: $color;
+        $border-shadow-color-hover: $color;
+        $background-disabled: transparent;
+        $color-disabled: $button--background-disabled;
+    }
+
+    color: $color;
+
+    background: $background;
+    border-color: $border-shadow-color;
+
+    &:focus:not(:active) {
+        box-shadow: box-shadow-flat(0, $border-shadow-color, $button--shadow-focus-width, rgba($border-shadow-color, $form--focus-rgba));
+
+        &:hover {
+            box-shadow: box-shadow-flat($button--shadow-hover-width, $border-shadow-color-hover, $button--shadow-focus-width, rgba($border-shadow-color-hover, $form--focus-rgba));
+        }
+    }
+
+    &:hover {
+        color: $color-hover;
+
+        background: $background-hover;
+        border-color: $border-shadow-color-hover;
+        box-shadow: box-shadow-flat($button--shadow-hover-width, $border-shadow-color-hover, $button--shadow-hover-width, $border-shadow-color-hover);
+
+        &:active {
+            box-shadow: box-shadow-flat($button--shadow-active-width, $border-shadow-color-hover, $button--shadow-active-width, $border-shadow-color-hover);
+        } 
+    }
+
+    // Disbaled
+    &[disabled] {
+        color: $color-disabled;
+
+        background: $background-disabled;
+        border-color: $button--background-disabled;
+
+        pointer-events: none;
+    }
+    // Loading
+    &--loading {
+        &::after {
+            border-bottom-color: $color;
+            border-left-color: $color;
+        }
+    }
+}
+
+@mixin button-link-color($color: $button--background) {
+    color: $color;
+    text-decoration: underline;
+
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    
+    &:hover,
+    &:focus,
+    &:focus:hover {
+        color: $color;
+        text-decoration: none;
+      
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+    // Disbaled
+    &[disabled] {
+        color: $button--background-disabled;
+
+        pointer-events: none;
+    }
+    // Loading
+    &--loading {
+        &::after {
+            border-bottom-color: $color;
+            border-left-color: $color;
+        }
+    }
+}
+
+// Button
+.button,
+%button { 
+    @include button-base();
+    @include button-color-background();
+
+    &--outlined {
+        @include button-color-background($button--background, transparent, $button--background, transparent);
+    }
+
+    &--has-link {
+        @include button-link-color();
+    }
+}
+
+// Buttons
 $buttons--gutter-x: rem(4);
 $buttons--gutter-y: rem(8);
+
 .buttons {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  .button {
-    margin-bottom: $buttons--gutter-y;
-    &:not(:last-child):not(.is-fullwidth) {
-      @include ltr-property("margin", #{$buttons--gutter-x});
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    .button {
+        margin-bottom: $buttons--gutter-y;
+
+        &:not(:last-child):not(.is-fullwidth) {
+            @include ltr-property('margin', #{$buttons--gutter-x});
+        }
     }
-  }
-  
-  &.is-centered {
-    justify-content: center;
-    &:not(.has-addons) {
-      .button:not(.is-fullwidth) {
-        margin-left: $buttons--gutter-x;
-        margin-right: $buttons--gutter-x;
-      }
+
+    &--centered {
+        justify-content: center;
+
+        &:not(.has-addons) {
+            .button:not(.is-fullwidth) {
+                margin-right: $buttons--gutter-x;
+                margin-left: $buttons--gutter-x;
+            }
+        }
     }
-  }
-  &.is-right {
-      justify-content: flex-end;
-  }
-}
+
+    &--right {
+        justify-content: flex-end;
+    }
+} 

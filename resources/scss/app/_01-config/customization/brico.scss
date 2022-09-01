@@ -3,19 +3,19 @@
 $family-default: 'Brico';
 $family-title: 'Brico';
 
-$black:  #5e5e5e;
+$black: #5e5e5e;
 $black-ter: #373737;
 $grey-darker: #333;
 $grey-dark: #565654;
 $grey: #999;
-$grey-light: #CCC;
-$grey-lighter: #E7E7E7;
-$white-ter: #FAFAFA;
+$grey-light: #ccc;
+$grey-lighter: #e7e7e7;
+$white-ter: #fafafa;
 $white-bis: hsl(0, 0%, 98%);
-$white:  #ffffff;
+$white: #fff;
 
 $yellow: #ffce00;
-$red: #ee4444;
+$red: #e44;
 $green: #339919;
 $blueLight: #fbfbfb;
 
@@ -27,8 +27,8 @@ $text: $black;
 // FORM => '_03-form/_global.scss'
 $form--primary: $primary; 
 $form--focus-width: rem(3); 
-$form--focus-rgba: .2; 
-$form--radius: rem(4); 
+$form--focus-rgba: 0.2; 
+$form--border-radius: rem(4); 
 $form--border-color: #e7e7e7; 
 $form--border-color-focus: darken($form--border-color, 25%); 
 $form--label-weight: $weight-regular;
@@ -46,7 +46,7 @@ $radio--border-color-checked: #565654;
 $checkbox--size: rem(22);
 $checkbox--after-size: rem(12);
 $checkbox--after-background-checked: $secondary;
-$checkbox--border-radius: $form--radius;
+$checkbox--border-radius: $form--border-radius;
 $checkbox--border-color-checked: $secondary;
 $checkbox--check-color: findColorInvert($checkbox--border-color-checked);
 
@@ -54,7 +54,7 @@ $checkbox--check-color: findColorInvert($checkbox--border-color-checked);
 $main-layout--background: #fafafa;
 
 // BUTTON => '_05-elements/button.scss'
-$button--radius: $form--radius;
+$button--radius: $form--border-radius;
 $button--background: $primary;
 
 // Note:

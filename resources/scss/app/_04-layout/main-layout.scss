@@ -1,64 +1,64 @@
-$main-layout--background: $white !default;
-
-// MAIN LAYOUT
-.main-layout{
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
-    background: $main-layout--background;    
-
-    // max-width: rem(1440);
-    // margin: 0 auto;
-    // box-shadow: 0 0 0 1px $grey-lighter;
-    
-    >.head, >.foot{
-        flex-grow: 0;
-        flex-shrink: 0;
-    }   
-    >.body{
-        flex-grow: 1;
-        flex-shrink: 0;
-    } 
-    
-}
-// WRAPPER
-.wrapper, %wrapper{
-    padding: 0 $gutter;
-}
-/// CONTAINER WRAPPER: to extend to container, like that no need to have wrapper div to have gutter
-%container-wrapper{
-    // box-sizing: initial;
-    // padding: 0 $gutter;
-    width: calc(100% - #{($gutter * 2)} );
-}
 // CONTAINER
-$container-sizes:(
-    'default': rem(1160),
-    'medium': rem(960),
-    'small': rem(760),
-    'tiny': rem(560),
+$container-sizes: (
+  'default': rem(1170),
+  'medium': rem(960),
+  'small': rem(760),
+  'tiny': rem(560),
 );
 
 @each $key, $value in $container-sizes {
-    @if($key == 'default'){
-        .container, %container{
-            display: block;
-            flex-grow: 1;
-            margin: 0 auto;
-            width: 100%;
-            max-width: $value;
-        }
+  @if($key == 'default') {
+    .container,
+    %container {
+      display: block;
+      width: 100%;
+      max-width: $value;
+      margin: 0 auto;
     }
+  }
 
-    @else{
-        .container-#{$key}, %container-#{$key}{
-            display: block;
-            flex-grow: 1;
-            margin: 0 auto;
-            width: 100%;
-            max-width: $value;
-        }
+  @else {
+    .container-#{$key}, %container-#{$key} {
+      display: block;
+      width: 100%;
+      max-width: $value;
+      margin: 0 auto;
     }
+  }
+}
+// WRAPPER
+.wrapper,
+%wrapper {
+  padding: 0 $gutter;
+}
+// CONTAINER WRAPPER: to extend to container, like that no need to have wrapper div to have gutter
+.container-wrapper,
+%container-wrapper {
+  @extend %container;
+  width: calc(100% - #{($gutter * 2)});
+}
+
+// MAIN LAYOUT
+$main-layout--background: $body-background-color !default;
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 100vh;
+
+  background: $main-layout--background;
+    
+  &__head,
+  &__foot {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }   
+
+  &__body {
+    flex-grow: 1;
+    flex-shrink: 0;
+  } 
+    
 }

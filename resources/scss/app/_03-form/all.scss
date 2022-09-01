@@ -1,10 +1,10 @@
 // Global
 $form--primary: $primary !default;
-$form--transition: all .2s ease !default;
+$form--transition: all 0.2s ease !default;
 $form--height: rem(60) !default;
 $form--placeholder-color: $grey-light !default;
 $form--focus-width: rem(4) !default;
-$form--focus-rgba: .2 !default;
+$form--focus-rgba: 0.2 !default;
 // Font
 $form--label-weight: $weight-semibold !default;
 $form--label-color: $body-color !default;
@@ -12,12 +12,12 @@ $form--color: $body-color !default;
 // Background
 $form--background: $white !default;
 // Padding
-$form--pt: calc( (#{$form--height} / 100) * 32 ) !default;
+$form--pt: calc((#{$form--height} / 100) * 32) !default;
 $form--pr: rem(15) !default;
-$form--pb: calc( (#{$form--height} / 100) * 32 ) !default;
+$form--pb: calc((#{$form--height} / 100) * 32) !default;
 $form--pl: rem(15) !default;
 // Border
-$form--radius: 0px !default;
+$form--border-radius: $border-radius !default;
 $form--border-size: 1px !default;
 $form--border-color: $border-color !default;
 $form--border-color-focus: darken($form--border-color, 25%) !default;
@@ -32,11 +32,13 @@ $form--change-filled-google: false !default;
 $form--gap-x: rem(5) !default;
 $form--gap-y: rem(10) !default;
 
-form{
-    *{ @include placeholder{ color: $form--placeholder-color !important }; }
-    .columns, &.columns{
-        @include layoutRestartColumn($form--gap-x, $form--gap-y)
-    }
+form {
+    * { @include placeholder { color: $form--placeholder-color !important; }; }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    .columns,
+    &.columns {
+        @include layoutRestartColumn($form--gap-x, $form--gap-y); }
 }  
 
 // Elements

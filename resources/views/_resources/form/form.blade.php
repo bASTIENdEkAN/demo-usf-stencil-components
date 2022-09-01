@@ -4,7 +4,7 @@
         
 
         <div class="column is-12">
-                @include('_ressources/form/elements/radios',
+                @include('_resources/form/elements/radios',
                         [
                             // 'label'=>'Gender',
                             'name'=>'gender',
@@ -27,7 +27,7 @@
         </div> 
 
         <div class="column is-6">
-            @include('_ressources/form/elements/input',
+            @include('_resources/form/elements/input',
                         [ 
                             'name'=>'firstname', 
                             'label'=>'Firstname',
@@ -39,7 +39,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/elements/input',
+            @include('_resources/form/elements/input',
                         [
                             'name'=>'lastname',
                             'label'=>'Lastname',
@@ -51,7 +51,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/elements/pre-build/email',
+            @include('_resources/form/elements/pre-build/email',
                         [
                             'label'=>'Email',
                             'changeFilled'=>true,
@@ -63,7 +63,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/elements/pre-build/phone',
+            @include('_resources/form/elements/pre-build/phone',
                         [
                             'label'=>'Phone',
                             'changeFilled'=>true,
@@ -73,7 +73,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/elements/input',
+            @include('_resources/form/elements/input',
                         [
                             'name'=>'input_birthday',
                             'label'=>'Date de naissance',
@@ -84,7 +84,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/elements/select',
+            @include('_resources/form/elements/select',
                         [
                             'name'=>'select',
                             'label'=>'Select',
@@ -95,7 +95,7 @@
         </div>
 
         {{-- <div class="column is-12">
-            @include('_ressources/form/elements/tailselect',
+            @include('_resources/form/elements/tailselect',
                         [
                             'name'=>'tailselect',
                             'label'=>'Tailselect',
@@ -106,7 +106,7 @@
         </div> --}}
 
         <div class="column is-6">
-            @include('_ressources/form/elements/pre-build/password',
+            @include('_resources/form/elements/pre-build/password',
                         [
                             'name'=>'password',
                             'label'=>'Mot de passe',
@@ -117,7 +117,7 @@
         </div>
 
         <div class="column is-6">
-            @include('_ressources/form/elements/pre-build/password',
+            @include('_resources/form/elements/pre-build/password',
                         [
                             'name'=>'confirm-password',
                             'label'=>'Confirmer le mot de passe',
@@ -129,7 +129,7 @@
         </div>
 
         <div class="column is-12">
-            @include('_ressources/form/elements/textarea',
+            @include('_resources/form/elements/textarea',
                         [
                             'name'=>'message',
                             'label'=>'Message (optional)',
@@ -146,7 +146,7 @@
             </div>
         </div>
         <div class="column is-6">
-            @include('_ressources/form/elements/radio',
+            @include('_resources/form/elements/radio',
                     [
                         'block'=>true,
                         'label'=>'YES',
@@ -157,7 +157,7 @@
                     ])    
         </div> 
         <div class="column is-6">
-            @include('_ressources/form/elements/radio',
+            @include('_resources/form/elements/radio',
                     [
                         'block'=>true,
                         'label'=>'NO',
@@ -169,7 +169,7 @@
         </div> 
 
         <div class="column is-12">
-            @include('_ressources/form/elements/radio',
+            @include('_resources/form/elements/radio',
                     [
                         'name'=>'radio2',
                         'errorMsgTarget'=>true,
@@ -178,7 +178,7 @@
         </div>
  
         <div class="column is-12">
-            @include('_ressources/form/elements/pre-build/optin',
+            @include('_resources/form/elements/pre-build/optin',
                         [
                             'label'=>'<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, doloribus consequatur dolor eligendi eius recusandae quasi velit ad sit nihil, ratione pariatur? Deleniti enim, tenetur minima dicta laboriosam omnis minus.</p>',
                             'name'=>'Optin',
@@ -192,24 +192,24 @@
     </div> 
 
     <div>
-        <div class="buttons is-centered mb-3">
-            <a class="button has-link" href="#">voir le détails</a>
-            <button class="button is-outlined" type="submit">
+        <div class="buttons buttons--centered mb-3">
+            <a class="button button--has-link" href="#">voir le détails</a>
+            <button class="button button--outlined" type="submit">
                 <span>Submit</span>
-                <span class="icon-svg">
-                    @include('_ressources/icon-svg/arrow')
+                <span class="icon">
+                    @include('_resources/icon-svg/arrow')
                 </span>
             </button>
             <button class="button" type="submit">
                 <span>Submit</span>
-                <span class="icon-svg">
-                    @include('_ressources/icon-svg/arrow')
+                <span class="icon">
+                    @include('_resources/icon-svg/arrow')
                 </span>
             </button>
             <button class="button" type="submit" disabled>
                 <span>Submit</span>
-                <span class="icon-svg">
-                    @include('_ressources/icon-svg/arrow')
+                <span class="icon">
+                    @include('_resources/icon-svg/arrow')
                 </span>
             </button>
         </div>

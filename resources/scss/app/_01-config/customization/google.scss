@@ -1,8 +1,8 @@
 // VARIABLES => '_01-config/variables.scss'
-$family-default: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
-$family-title: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
+$family-default: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+$family-title: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
 
-$black:  #202124;
+$black: #202124;
 $grey-light: #dadce0;
 
 $primary: #1a73e8;
@@ -11,19 +11,19 @@ $text: $black;
 
 // FORM => '_03-form/_global.scss'
 $form--primary: $primary; 
-$form--transition: .15s ease all;
+$form--transition: 0.15s ease all;
 $form--height: rem(34);
 $form--focus-width: rem(3); 
-$form--focus-rgba: .2; 
-$form--radius: rem(4); 
+$form--focus-rgba: 0.2; 
+$form--border-radius: rem(4); 
 $form--border-color: $grey-light; 
 $form--border-color-focus: darken($grey-light, 25%); 
 $form--label-weight: $weight-regular;
 $form--change-filled-google: true;
 
-$form--pt: calc( (#{$form--height} / 100) * 32 ) !default;
+$form--pt: calc((#{$form--height} / 100) * 32) !default;
 $form--pr: rem(8);
-$form--pb: calc( (#{$form--height} / 100) * 32 ) !default;
+$form--pb: calc((#{$form--height} / 100) * 32) !default;
 $form--pl: rem(8);
 
 $change-filled--label-color-filled: $primary;
@@ -38,13 +38,12 @@ $radio--after-background-checked: $primary;
 $checkbox--size: rem(20);
 $checkbox--after-size: rem(12);
 $checkbox--after-background-checked: $primary;
-$checkbox--border-radius: $form--radius;
+$checkbox--border-radius: $form--border-radius;
 $checkbox--border-color-checked: $primary;
 $checkbox--check-color: findColorInvert($checkbox--border-color-checked);
 
 // BUTTON => '_05-elements/button.scss'
 $button--height: rem(36);
-$button--radius: $form--radius;
+$button--radius: $form--border-radius;
 $button--background: $primary;
 $button--font-weight: $weight-regular;
- 

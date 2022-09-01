@@ -1,55 +1,55 @@
-@use "sass:string";
-@use "sass:math";
+@use 'sass:string';
+@use 'sass:math';
 // REM & EM
 $browser-context: 16 !default;
 @function em($pixels, $context: $browser-context) {
-  @return math.div($pixels, $context) * 1em;
+    @return math.div($pixels, $context) * 1em;
 }
 @function rem($pixels, $context: $browser-context) {
     @return math.div($pixels,  $context) * 1rem;
 }
 
 @function z($name) {
-  @if index($z-indexes, $name) {
-      @return (length($z-indexes) - index($z-indexes, $name)) + 1;
-  } @else {
-      @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
-      @return null;
-  }
+    @if index($z-indexes, $name) {
+        @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+    } @else {
+        @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+        @return null;
+    }
 }
 $z-indexes: (
-  "outdated-browser",
-  "modal",
-  "site-header",
-  "page-wrapper",
-  "site-footer"
+    'outdated-browser',
+    'modal',
+    'site-header',
+    'page-wrapper',
+    'site-footer'
 );
 // Background SVG usefull personnal functions
-@function hexToSVG($string){
-  @return string.slice($string, 2, 100);
+@function hexToSVG($string) {
+    @return string.slice($string, 2, 100);
 }
-@function backgroundSVG($string){
-  @return url('data:image/svg+xml;charset=UTF-8,'+$string+'');
+@function backgroundSVG($string) {
+    @return url('data:image/svg+xml;charset=UTF-8,'+$string+'');
 }
-@function removeXFirstSting($string, $number){
-	@return #{string.slice($string, $number, 100)};
+@function removeXFirstSting($string, $number) {
+    @return #{string.slice($string, $number, 100)};
 }
 // Psd2html Mixin :
 // https://www.psd2html.com/blog/5-useful-sass-mixins.html
 @function makelongshadow($color) {
-  $val: 0px 0px $color;
-  @for $i from 1 through 200 {
-    $val: #{$val}, #{$i}px #{$i}px #{$color};
-  }
-  @return $val;
+    $val: 0 0 $color;
+    @for $i from 1 through 200 {
+        $val: #{$val}, #{$i}px #{$i}px #{$color};
+    }
+    @return $val;
 }
 
 // Proportional Padding
 // By me
 $pp: 2;
 @function pp($size) {
-  $val: $size calc(#{$size} + (#{$size} / #{$pp}) );
-  @return $val;
+    $val: $size calc(#{$size} + (#{$size} / #{$pp}));
+    @return $val;
 }
 // Function from css trick
 //https://css-tricks.com/snippets/sass/strip-unit-function/
@@ -58,11 +58,11 @@ $pp: 2;
 /// @param {Number} $number - Number to remove unit from
 /// @return {Number} - Unitless number
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
-  }
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
 
-  @return $number;
+    @return $number;
 }
 // Select CHILD:
 // https://lukyvj.github.io/family.scss/

@@ -3,7 +3,7 @@
         <input class="input-checkbox" id="{{$name}}" type="checkbox" name="{{$name}}" value="y" @if(!empty($required)) required @if(!empty($errorMsg))  data-error-msg="{{$errorMsg}}" @endif data-error-location="#{{$name}}ErrorMsgLocation" @endif/>
         <div class="checkbox-inner">
             <span class="checkbox-check">
-                @include('_ressources/form/elements/check',['check'=>1])
+                @include('_resources/form/elements/check',['check'=>1])
             </span>
 
             <span class="checkbox-label">

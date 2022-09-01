@@ -1,0 +1,17 @@
+<div class="accordion">
+    <div class="accordion__head">
+        <div class="accordion__head-content">
+            <div class="content">
+                {{$question}}
+            </div>
+        </div>
+        <div class="accordion__head-arrow">
+            <div class="accordion__arrow"></div>
+        </div>
+    </div>
+    <div class="accordion__body">
+        <div class="accordion__content">
+            {{$answer}}
+        </div>
+    </div>
+</div>

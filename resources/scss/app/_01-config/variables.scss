@@ -1,31 +1,31 @@
 // Colors
-$black:  #000000 !default;
+$black: #000 !default;
 $black-bis: #333 !default;
 $black-ter: #373737 !default;
 
 $grey-darker: #333 !default;
 $grey-dark: #666 !default;
 $grey: #999 !default;
-$grey-light: #CCC !default;
-$grey-lighter: #DDD !default;
+$grey-light: #ccc !default;
+$grey-lighter: #ddd !default;
 
-$white-ter: #F3F5F6 !default;
+$white-ter: #f3f3f3 !default;
 $white-bis: hsl(0, 0%, 98%) !default;
-$white:  #ffffff !default;
+$white: #fff !default;
 
-$orange: hsl(14,  100%, 53%) !default;
-$yellow: hsl(44,  100%, 77%) !default;
-$green: hsl(153, 53%,  53%) !default;
+$orange: hsl(14, 100%, 53%) !default;
+$yellow: hsl(44, 100%, 77%) !default;
+$green: hsl(153, 53%, 53%) !default;
 $turquoise: hsl(171, 100%, 41%) !default;
-$cyan: hsl(207, 61%,  53%) !default;
-$blue: hsl(229, 53%,  53%) !default;
+$cyan: hsl(207, 61%, 53%) !default;
+$blue: hsl(229, 53%, 53%) !default;
 $purple: hsl(271, 100%, 71%) !default;
 $red: hsl(348, 86%, 61%) !default;
 
 $primary: #23a6f0 !default;
-$link: #0F84D8 !default;
-$success: #5CC423 !default;
-$danger: #DA291C !default;
+$link: #0f84d8 !default;
+$success: #5cc423 !default;
+$danger: #da291c !default;
 
 // Typography
 $family-default: Tahoma,Geneva,Verdana,sans-serif !default;
@@ -52,12 +52,12 @@ $weight-black: 900 !default;
 
 // Spacing
 $spacing-values: (
-    "1": rem(10), 
-    "2": rem(20),  
-    "3": rem(30),
-    "4": rem(40),
-    "5": rem(50),
-    "6": rem(60),
+    '1': rem(10), 
+    '2': rem(20),  
+    '3': rem(30),
+    '4': rem(40),
+    '5': rem(50),
+    '6': rem(60),
 ); 
 
 $rtl: false !default;
@@ -66,7 +66,6 @@ $column-gap: 10px;
 $gutter: 16px;
 
 // Global
-$body-background-color: $white;
 $body-font-size: #{$browser-context}px;
 $body-line-height: 1.4;
 $body-family: $family-default;
@@ -75,18 +74,16 @@ $body-color: $black-bis;
 $body-background-color: $white;
 
 // Border
-$border-radius: 0px;
+$border-radius: rem(7);
 $border-radius-rounded: 99999px !default;
 $border-color: $grey-lighter;
 
 // Effects
 // Shadow smooth @source https://s.muz.li/MWNjYTY2Yjk4
-$shadow  :
-0 0.4px 1.5px rgba(0, 0, 0, 0.008),
-0 1.3px 5.1px rgba(0, 0, 0, 0.011),
-0 6px 23px rgba(0, 0, 0, 0.03)!default;
-$shadow-far  : 
-0 0 40px 0 rgba(0,0,0,0.15) !default;
+$shadow: 0 0.4px 1.5px rgba(0, 0, 0, 0.008),
+    0 1.3px 5.1px rgba(0, 0, 0, 0.011),
+    0 6px 23px rgba(0, 0, 0, 0.03) !default;
+$shadow-far: 0 0 40px 0 rgba(0, 0, 0, 0.15) !default;
 
 // Customisation
 // Try some customization stylesheet and see the power of SCSS:

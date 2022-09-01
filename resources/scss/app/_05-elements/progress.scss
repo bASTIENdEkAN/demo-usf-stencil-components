@@ -3,61 +3,71 @@ $progress-value-background-color: $primary !default;
 $progress-indeterminate-duration: 1.5s !default;
 
 .progress {
-  @extend %block;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  border: none;
-  display: block;
-  height: rem(8);
-  overflow: hidden;
-  padding: 0;
-  width: 100%;
+    @extend %block;
+    display: block;
+    width: 100%;
+    height: rem(8);
+    padding: 0;
+    overflow: hidden;
+
+    border: none solid $black;
+
+    appearance: none;
+    appearance: none;
   
-  &::-webkit-progress-bar {
-    background-color: $progress-bar-background-color;
-    border-radius: 0;
-  }
-  &::-webkit-progress-value {
-    background-color: $progress-value-background-color;
-    border-radius: 0;
-  }
-  &::-moz-progress-bar {
-    background-color: $progress-value-background-color;
-    border-radius: 0;
-  }
-  &::-ms-fill {
-    background-color: $progress-value-background-color;
-    border-radius: 0;
-    border: none;
-  }  // Colors
-  &:indeterminate {
-    animation-duration: $progress-indeterminate-duration;
-    animation-iteration-count: infinite;
-    animation-name: moveIndeterminate;
-    animation-timing-function: linear;
-    background-color: $progress-bar-background-color;
-    background-image: linear-gradient(to right, $grey-dark 30%, $progress-bar-background-color 30%);
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: 150% 150%;
     &::-webkit-progress-bar {
-      background-color: transparent;
+        background-color: $progress-bar-background-color;
+        border-radius: 0;
     }
+
+    &::-webkit-progress-value {
+        background-color: $progress-value-background-color;
+        border-radius: 0;
+    }
+
     &::-moz-progress-bar {
-      background-color: transparent;
+        background-color: $progress-value-background-color;
+        border-radius: 0;
     }
+
     &::-ms-fill {
-      animation-name: none;
+        background-color: $progress-value-background-color;
+        border: none;
+        border-radius: 0;
+    }  // Colors
+    &:indeterminate {
+        background-color: $progress-bar-background-color;
+        background-image: linear-gradient(to right, $grey-dark 30%, $progress-bar-background-color 30%);
+        background-repeat: no-repeat;
+        background-position: top left;
+        background-size: 150% 150%;
+
+        animation-name: moveIndeterminate;
+        animation-duration: $progress-indeterminate-duration;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        &::-webkit-progress-bar {
+            background-color: transparent;
+        }
+
+        &::-moz-progress-bar {
+            background-color: transparent;
+        }
+
+        &::-ms-fill {
+            animation-name: none;
+        }
+        // Sizes
     }
-  // Sizes
-  }
   
 }
 @keyframes moveIndeterminate {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
-};
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
+}

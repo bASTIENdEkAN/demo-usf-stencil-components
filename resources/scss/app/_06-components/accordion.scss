@@ -1,74 +1,110 @@
-$transition: all .3s ease;
+$accordion--border-radius: $border-radius;
+$accordion--border-color: $border-color;
+$accordion--transition: all 0.3s ease;
 
-.accordion{
+.accordion {
+    $self: &;
     width: 100%;
+    overflow: hidden;
+
+    
+    border-radius: $accordion--border-radius;
     cursor: pointer;
-    border-bottom: 1px solid $grey-light;
-    &.is-active{
-        border-bottom: 1px solid transparent;
-        .accordion-head{
-            background: $black-ter;
-            color: $white;
-            // ARROW CSS
-            // ARROW CSS
-            .arrow{
-                transform: rotate(180deg);
-                border-color: rgba($white, .5);
-                &:after{
-                    border-top-color: $primary;
-                    border-left-color: $primary;
-                }
-            }
+    // Layout
+    &__head {
+        display: flex;
+
+        font-weight: $weight-bold;
+
+        background: $white;
+
+        transition: $accordion--transition;
+
+        &-content,
+        &-arrow {
+            margin: 0;
+            padding: rem(20);
+        }
+
+        &-content {
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: flex-start;
+            padding-right: 0;
+    
+            font-size: rem(14);
+            text-transform: uppercase;
         }
     }
-}
 
-.accordion-head{
-    display: flex;
-    background: $white;
-    font-weight: $weight-bold;
-    transition: $transition;
-    .content-container, .arrow-container{
-        margin: 0;
-        padding: rem(20);
-    }
-    .content-container{
-        font-size: rem(14);
-        text-transform: uppercase;
-        flex-grow: 1;
-        padding-right: 0;
-        display: flex; justify-content: flex-start;align-items: center;
-    }
-    .arrow-container{
+    &__body {
+        height: 0;
+        overflow: hidden;
+
+        background: rgba($accordion--border-color, 0.2);
+
+        transition: $accordion--transition;
 
     }
-    // ARROW CSS
-    // ARROW CSS
-    .arrow{
-        transition: $transition;
-        @include iconTricks(
+    // Elements
+    &__arrow {
+        @include icon-tricks(
             $crossBackground: $black,
             $crossWidth: 33%,
             $crossHeight: 2px,
             $dir: down,
         );
+        transition: $accordion--transition;
     }
-}
 
-.accordion-content{
-    overflow: hidden;
-    transition: $transition;
-    .container{
+    &__content {
         max-width: rem(1180);
-        padding: rem(30) rem(20) rem(50) rem(20);
         margin-left: 0;
-    }
+        padding: rem(30) rem(20) rem(50) rem(20);
 
-    .content{
-        font-weight: $weight-regular;
+    }
+    // Modifier
+    &--active {
+        border-bottom: 1px solid transparent;
+
+        #{$self}__head {
+            color: $white;
+
+            background: $black-ter;
+        }
+        #{$self}__arrow {
+            border-color: rgba($white, 0.5);
+            transform: rotate(180deg);
+
+            &::after {
+                border-top-color: $white;
+                border-left-color: $white;
+            }
+        }
     }
 }
 
-.wrapper-accordions{
+// Accordions
+.accordions {
+    .accordion {
+        border-radius: 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $accordion--border-color;
+        }
+        
+        &:first-child {
+            border-radius: $accordion--border-radius $accordion--border-radius 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 $accordion--border-radius $accordion--border-radius;
+        }
+    }    
+}
+
+// Wrapper
+.wrapper-accordions {
     background: $white-bis;
 }

@@ -33,8 +33,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 100%;
   font-weight: normal;
+  font-size: 100%;
 }
 // List
 ul {
@@ -51,6 +51,7 @@ textarea {
 html {
   box-sizing: border-box;
 }
+
 * {
   &,
   &::before,
@@ -61,8 +62,8 @@ html {
 // Media
 img,
 video {
-  height: auto;
   max-width: 100%;
+  height: auto;
 }
 // Iframe
 iframe {
@@ -73,9 +74,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 td,
 th {
   padding: 0;
+
   &:not([align]) {
     text-align: inherit;
   }
