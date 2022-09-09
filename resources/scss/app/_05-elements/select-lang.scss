@@ -9,41 +9,46 @@
     $dir: 'tiny',
     $arrow-color: $primary,
     $arrow-width: rem(10),
-){
-    select{
+) {
+    select {
         width: 100%;
-        box-shadow: none;
         height: $height;
-        background: $background;
 
-        border-radius: $radius;
+
+        padding: $paddingY $paddingX;
+
+        background: $background;
         border: $border-size solid $border-color;
 
-
-        padding:  $paddingY $paddingX;
-        @if($dir == 'tiny'){
-            padding-right: calc(#{$paddingX} + #{$arrow-width} )!important;
+        border-radius: $radius;
+        box-shadow: none;
+        @if($dir == 'tiny') {
+            padding-right: calc(#{$paddingX} + #{$arrow-width}) !important;
         }
 
         &:active,
         &:focus,
-        &:hover{
+        &:hover {
             border: $border-size solid $border-color;
         }
+
     }
+
     &:not(.is-loading)::after {
         top: calc(#{$height} / 2);
-        @if($dir == 'tiny'){
+        @if($dir == 'tiny') {
             right: 0;
         }
     }
-    &:not(.is-loading)::after {
+
+    &:not(.is-loading)::after { width: $arrow-width;
+        height: $arrow-width;
+
         border-color: $arrow-color;
-        height: $arrow-width; width: $arrow-width;
     }
 }
 
-.select-lang{
+.select-lang {
     @extend %select;
     @include selectOverhided();
 }

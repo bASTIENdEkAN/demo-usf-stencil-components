@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="accordion__head-arrow">
-            <div class="accordion__arrow"></div>
+            <button class="accordion__arrow"></button>
         </div>
     </div>
     <div class="accordion__body">
