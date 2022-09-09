@@ -21,104 +21,105 @@ $select--with-triangle: false;
 // BULMA STUFF
 .select,
 %select {
-  position: relative;
+    position: relative;
 
-  display: inline-block;
-  width: 100%;
-
-  vertical-align: top;
-
-  select {
-    display: block;
+    display: inline-block;
     width: 100%;
-    height: $form--height;
-    padding: $select--ptb $select--plr;
 
-    font-size: 1em;
-    //// Remove default arrow
+    vertical-align: top;
+
+    select {
+        display: block;
+        width: 100%;
+        height: $form--height;
+        padding: $select--ptb $select--plr;
+
+        font-size: 1em;
+        //// Remove default arrow
         
-    background: $select--background;
-    border-radius: $select--radius;
-    outline: none;
-    box-shadow: none;
-    // @extend input
-    cursor: pointer;
+        background: $select--background;
+        border-radius: $select--radius;
+        outline: none;
+        box-shadow: none;
+        // @extend input
+        cursor: pointer;
         
-    // Remove default arrow
-    appearance: none;
-    appearance: none;
+        // Remove default arrow
+        appearance: none;
+        appearance: none;
 
-    &::-ms-expand {
-      display: none;
+        &::-ms-expand {
+            display: none;
+        }
+
+        @if $select--border-less {
+            border: 0 none;
+            border-bottom: $select--border-bottom-size solid $border-color;
+        }@else {
+            border-top: $select--border-top-size solid $border-color;
+            border-left: $select--border-left-size solid $border-color;
+            border-bottom: $select--border-bottom-size solid $border-color;
+            border-right: $select--border-right-size solid $border-color;
+        }
+        // @include selectBorderLess($select--border-less, darken($select--border-color,5%));
+
+        &:hover,
+        &:focus {
+            border-color: $select--border-color-focus;
+        }
+
+        &[multiple] {
+            height: auto;
+            padding: 0;
+
+            option {
+                padding: 0.5em 1em;
+            }  // States
+        }
+
+        &:not([multiple]) {
+            @include ltr-property('padding', 2.5em);
+        }
     }
 
-    @if $select--border-less {
-      border: 0 none;
-      border-bottom: $select--border-bottom-size solid $border-color;
-    }@else {
-      border-top: $select--border-top-size solid $border-color;
-      border-left: $select--border-left-size solid $border-color;
-      border-bottom: $select--border-bottom-size solid $border-color;
-      border-right: $select--border-right-size solid $border-color;
-    }
-    // @include selectBorderLess($select--border-less, darken($select--border-color,5%));
+    &:not(.is-loading) {
+        &::after {
+            @if $select--with-triangle {
+                @include pseudo();
+                @include centeriser('vertical');
+                @include triangle(bottom,$select--primary,10px,10px);
+                top: 51%;
 
-    &:hover {
-      border-color: $select--border-color-focus;
-    }
+                border-radius: rem(10);
+            }@else {
+                @include arrow();
+                border-color: $select--primary;
+            }
 
-    &[multiple] {
-      height: auto;
-      padding: 0;
-
-      option {
-        padding: 0.5em 1em;
-      }  // States
+            @include ltr-position(1.125em);
+            z-index: 4;
+        }
     }
 
-    &:not([multiple]) {
-      @include ltr-property('padding', 2.5em);
+    &.is-loading {
+        &::after {
+            @extend %loader;
+            position: absolute;
+
+            margin-top: 0;
+            // top: 0.625em;
+            transform: none;
+        }
     }
-  }
-
-  &:not(.is-loading) {
-    &::after {
-      @if $select--with-triangle {
-        @include pseudo();
-        @include centeriser('vertical');
-        @include triangle(bottom,$select--primary,10px,10px);
-        top: 51%;
-
-        border-radius: rem(10);
-      }@else {
-        @include arrow();
-        border-color: $select--primary;
-      }
-
-      @include ltr-position(1.125em);
-      z-index: 4;
-    }
-  }
-
-  &.is-loading {
-    &::after {
-      @extend %loader;
-      position: absolute;
-
-      margin-top: 0;
-      // top: 0.625em;
-      transform: none;
-    }
-  }
     
 }
 // INTL TEL INPUT
 .selected-flag {
-  max-height: $select--height;
+    max-height: $select--height;
 }
 
 .intl-tel-input .selected-flag {
-  padding-left: $form--pl;
+    padding-left: $form--pl;
 }
 
 .intl-tel-input.allow-dropdown input,
@@ -127,5 +128,5 @@ $select--with-triangle: false;
 .intl-tel-input.separate-dial-code input,
 .intl-tel-input.separate-dial-code input[type=text],
 .intl-tel-input.separate-dial-code input[type=tel] {
-  padding-left: calc(#{$form--pl} + 40px);
+    padding-left: calc(#{$form--pl} + 40px);
 }
