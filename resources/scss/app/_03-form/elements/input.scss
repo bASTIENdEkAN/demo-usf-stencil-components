@@ -21,110 +21,110 @@ $input--disabled-border-color: $white-ter !default;
 $input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3) !default;
 
 @mixin input {
-  @extend %control; 
-  display: block;
-  width: 100%;
+    @extend %control; 
+    display: block;
+    width: 100%;
 
-  max-width: 100%;
-  height: $form--height;
-  padding: $input--pt $input--pr $input--pb $input--pl;
+    max-width: 100%;
+    height: $form--height;
+    padding: $input--pt $input--pr $input--pb $input--pl;
 
-  color: $input--color;
+    color: $input--color;
 
-  background: $input--background;
-  border-color: $input--border-color;
-  border-top: $input--border-top-size solid $input--border-color;
-  border-right: $input--border-right-size solid $input--border-color;
-  border-bottom: $input--border-bottom-size solid $input--border-color;
-  border-left: $input--border-left-size solid $input--border-color;
-  // Border
-  border-radius: $input--radius;
+    background: $input--background;
+    border-color: $input--border-color;
+    border-top: $input--border-top-size solid $input--border-color;
+    border-right: $input--border-right-size solid $input--border-color;
+    border-bottom: $input--border-bottom-size solid $input--border-color;
+    border-left: $input--border-left-size solid $input--border-color;
+    // Border
+    border-radius: $input--radius;
 
-  transition: $form--transition;
+    transition: $form--transition;
 
-  &:hover,
-  &:focus {
-    border-color: $input--border-color-focus;
-  }
-
-  @if $form--change-filled-google {
+    &:hover,
     &:focus {
-      border-color: $form--primary;
-      box-shadow: 0 0 0 1px $form--primary;
+        border-color: $input--border-color-focus;
     }
-  }
+
+    @if $form--change-filled-google {
+        &:focus {
+            border-color: $form--primary;
+            box-shadow: 0 0 0 1px $form--primary;
+        }
+    }
     
-  &[disabled],
-  fieldset[disabled] & {
-    color: $input--disabled-color;
+    &[disabled],
+    fieldset[disabled] & {
+        color: $input--disabled-color;
 
-    background-color: $input--disabled-background-color;
-    border-color: $input--disabled-border-color;
-    box-shadow: none;
+        background-color: $input--disabled-background-color;
+        border-color: $input--disabled-border-color;
+        box-shadow: none;
 
-    @include placeholder {
-      color: $input--disabled-placeholder-color;
+        @include placeholder {
+            color: $input--disabled-placeholder-color;
+        }
     }
-  }
 }
 
 .input {
-  @include input;
+    @include input;
 }
 
 // Password
 .input-switch-type {
-  position: absolute;
-  top: 50%;
-  right: $form--pr;
-  z-index: 9;
+    position: absolute;
+    top: 50%;
+    right: $form--pr;
+    z-index: 9;
 
-  font-weight: $form--label-weight;
-  font-size: rem(12);
-  text-transform: uppercase;
+    font-weight: $form--label-weight;
+    font-size: rem(12);
+    text-transform: uppercase;
 
-  transform: translate3d(0, -50%, 0);
-  cursor: pointer;
+    transform: translate3d(0, -50%, 0);
+    cursor: pointer;
 }
 
 // Intl tel input
 .iti {
-  // height: $input--height;
-  &:hover,
-  &:focus {
-    .input {
-      border-color: $input--border-color-focus;
+    // height: $input--height;
+    &:hover,
+    &:focus {
+        .input {
+            border-color: $input--border-color-focus;
+        }
     }
-  }
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  transition: background-color 5000s ease-in-out 0s;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 $textarea--max-height: 40em !default;
 $textarea--min-height: 8em !default;
 
 .textarea {
-  @include input;
-  display: block;
-  min-width: 100%;
-  max-width: 100%;
+    @include input;
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
 
-  resize: vertical;
+    resize: vertical;
 
-  &:not([rows]) {
-    min-height: $textarea--min-height;
-    max-height: $textarea--max-height;
-  }
+    &:not([rows]) {
+        min-height: $textarea--min-height;
+        max-height: $textarea--max-height;
+    }
 
-  &[rows] {
-    height: initial;
-  }  // Modifiers
-  &.has-fixed-size {
-    resize: none;
-  }
+    &[rows] {
+        height: initial;
+    }  // Modifiers
+    &.has-fixed-size {
+        resize: none;
+    }
 }
