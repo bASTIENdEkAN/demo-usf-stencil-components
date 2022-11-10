@@ -2,7 +2,7 @@ const name = 'Bastien De Kan'
 
 console.log(
 `%c^%c springbok Brussels %c
-Slicing made wide ♥ by ${name}`,
+Slicing made with ♥ by ${name}`,
     `   color:#000; 
         font-family: Tahoma,Geneva,Verdana,sans-serif; 
         font-weight: 600;
