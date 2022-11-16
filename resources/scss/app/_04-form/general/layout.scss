@@ -1,0 +1,7 @@
+form {
+    * { @include placeholder { color: $form--placeholder-color !important; }; }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    .columns {
+        @include layoutRestartColumn($form--gap-x, $form--gap-y); }
+}

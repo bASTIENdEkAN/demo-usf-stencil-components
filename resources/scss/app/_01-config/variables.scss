@@ -1,3 +1,7 @@
+/* Global */
+/* Global */
+/* Global */
+
 // Colors
 $black: #000 !default;
 $black-bis: #333 !default;
@@ -85,7 +89,48 @@ $shadow: 0 0.4px 1.5px rgba(0, 0, 0, 0.008),
     0 6px 23px rgba(0, 0, 0, 0.03) !default;
 $shadow-far: 0 0 40px 0 rgba(0, 0, 0, 0.15) !default;
 
-// Customisation
+/* Formulaire */
+/* Formulaire */
+/* Formulaire */
+
+// Form global
+$form--primary: $primary !default;
+$form--transition: all 0.2s ease !default;
+$form--height: rem(60) !default;
+$form--placeholder-color: $grey-light !default;
+$form--focus-width: rem(4) !default;
+$form--focus-rgba: 0.2 !default;
+// Form font
+$form--label-weight: $weight-semibold !default;
+$form--label-color: $body-color !default;
+$form--color: $body-color !default;
+// form background
+$form--background: $white !default;
+// Padding
+$form--pt: calc((#{$form--height} / 100) * 32) !default;
+$form--pr: rem(15) !default;
+$form--pb: calc((#{$form--height} / 100) * 32) !default;
+$form--pl: rem(15) !default;
+// Form border
+$form--border-radius: $border-radius !default;
+$form--border-size: 1px !default;
+$form--border-color: $border-color !default;
+$form--border-color-focus: darken($form--border-color, 25%) !default;
+$form--border-size: $form--border-size !default;
+$form--border-top-size: $form--border-size !default;
+$form--border-right-size: $form--border-size !default;
+$form--border-bottom-size: $form--border-size !default;
+$form--border-left-size: $form--border-size !default;
+// Form change filled
+$form--change-filled-google: false !default;
+// Form layout
+$form--gap-x: rem(5) !default;
+$form--gap-y: rem(10) !default;
+
+/* Customisation */
+/* Customisation */
+/* Customisation */
+
 // Try some customization stylesheet and see the power of SCSS:
 // @import "customization/brico";
 // @import "customization/google";

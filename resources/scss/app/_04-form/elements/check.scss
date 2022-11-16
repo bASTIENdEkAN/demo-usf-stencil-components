@@ -66,21 +66,21 @@
     stroke-width: 2;
 }
 
-.input-checkbox:checked~* .check-svg,
-.input-radio:checked~* .check-svg {
-    &.is-1 {
+input[type=checkbox]:checked~* .check-svg ,
+input[type=radio]:checked~* .check-svg {
+    &--1 {
         .check-svg-path {
             animation: check1 0.2s ease-out 0.1s forwards;
         }
     }
 
-    &.is-2 {
+    &--2 {
         .check-svg-path {
             animation: check2 0.2s ease-out 0.1s forwards;
         }
     }
 
-    &.is-3 {
+    &--3 {
         .check-svg-path {
             animation: check3 0.2s ease-out 0.1s forwards;
         }

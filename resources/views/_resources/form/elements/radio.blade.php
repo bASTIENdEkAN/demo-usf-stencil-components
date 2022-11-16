@@ -1,15 +1,15 @@
 @if(empty($errorMsgTarget))
-<label class="radio @if(!empty($block))is-block @endif" for="{{$name.$value}}">
-    <input class="input-radio" id="{{$name.$value}}" type="radio" value="{{$value}}" name="{{$name}}" @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
-    <div class="radio-inner">
-        @if(!empty($checkStyle))
-            <span class="radio-check">
+<label class="radio @if(!empty($button))radio--button @endif" for="{{$name.$value}}">
+    <input class="radio__input" id="{{$name.$value}}" type="radio" value="{{$value}}" name="{{$name}}" @if(!empty($required)) required data-error-location="#{{$name}}ErrorMsgLocation" @endif @if(!empty($errorMsg)) data-error-msg="{{$errorMsg}}" @endif/>
+    <div class="radio__inner">
+        @if(!empty($check))
+            <span class="radio__check">
                 @include('_resources/form/elements/check',['check'=>1])
             </span>
         @else
-            <span class="radio-radio">&nbsp;</span>
+            <span class="radio__radio"></span>
         @endif
-        <span calss="radio-label">{{$label}}</span>
+        <span calss="radio__label">{{$label}}</span>
     </div>
 </label>
 @else

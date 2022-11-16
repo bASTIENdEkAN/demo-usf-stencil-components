@@ -113,20 +113,3 @@ $select--with-triangle: false;
     }
     
 }
-// INTL TEL INPUT
-.selected-flag {
-    max-height: $select--height;
-}
-
-.intl-tel-input .selected-flag {
-    padding-left: $form--pl;
-}
-
-.intl-tel-input.allow-dropdown input,
-.intl-tel-input.allow-dropdown input[type=text],
-.intl-tel-input.allow-dropdown input[type=tel],
-.intl-tel-input.separate-dial-code input,
-.intl-tel-input.separate-dial-code input[type=text],
-.intl-tel-input.separate-dial-code input[type=tel] {
-    padding-left: calc(#{$form--pl} + 40px);
-}

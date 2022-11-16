@@ -40,6 +40,7 @@ $button--transition: all 0.2s ease-in-out !default;
 
     color: $button--color;
     font-weight: $button--font-weight;
+    font-size: rem(14);
     font-family: $button--family;
     white-space: nowrap;
     text-align: center;
@@ -83,14 +84,15 @@ $button--transition: all 0.2s ease-in-out !default;
 @mixin button-color-background(
     $color: $button--color, 
     $background: $button--background, 
-    $color-hover: $button--color, 
-    $background-hover: darken($button--background, 5%),
+    $color-hover: $color, 
+    $background-hover: darken($background, 5%),
 ) {
     $border-shadow-color: $background;
     $border-shadow-color-hover: $background-hover;
     $background-disabled: $button--background-disabled;
     $color-disabled: $white;
     @if $background==transparent {
+        $background-hover: transparent;
         $border-shadow-color: $color;
         $border-shadow-color-hover: $color;
         $background-disabled: transparent;

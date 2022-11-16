@@ -94,17 +94,6 @@
                         ])
         </div>
 
-        {{-- <div class="column is-12">
-            @include('_resources/form/elements/tailselect',
-                        [
-                            'name'=>'tailselect',
-                            'label'=>'Tailselect',
-                            'changeFilled'=>true,
-                            'required'=>true,
-                            'errorMsg'=>'Error msg select',
-                        ])
-        </div> --}}
-
         <div class="column is-6">
             @include('_resources/form/elements/pre-build/password',
                         [
@@ -148,7 +137,7 @@
         <div class="column is-6">
             @include('_resources/form/elements/radio',
                     [
-                        'block'=>true,
+                        'button'=>true,
                         'label'=>'YES',
                         'value'=>'Y',
                         'name'=>'radio2',
@@ -159,7 +148,8 @@
         <div class="column is-6">
             @include('_resources/form/elements/radio',
                     [
-                        'block'=>true,
+                        'button'=>true,
+                        'check'=>true,
                         'label'=>'NO',
                         'value'=>'N',
                         'name'=>'radio2',
@@ -169,20 +159,52 @@
         </div> 
 
         <div class="column is-12">
-            @include('_resources/form/elements/radio',
-                    [
-                        'name'=>'radio2',
-                        'errorMsgTarget'=>true,
-                    ])    
-            
+            @include('_resources/form/elements/checkboxs',
+                [
+                    'label'=>'Select one or many of these multiple choice',
+                    'name'=>'multi_choice',
+                    'button'=>false,
+                    'required'=>true,
+                    'errorMsg'=>'Error msg radios',
+                    'labelsValues'=>[
+                        [
+                            'label'=>'Choice 1',
+                            'name'=>'choice_1',
+                        ],  
+                        [
+                            'label'=>'Choice 2',
+                            'name'=>'choice_2',
+                        ],  
+                        [
+                            'label'=>'Choice 3',
+                            'name'=>'choice_3',
+                        ],  
+                        [
+                            'label'=>'Choice 4',
+                            'name'=>'choice_4',
+                        ]
+                    ],
+                ]) 
         </div>
- 
+
         <div class="column is-12">
-            @include('_resources/form/elements/pre-build/optin',
+            @include('_resources/form/elements/checkbox',
+                        [
+                            'label'=>'Choice 1',
+                            'name'=>'choice_a',
+                            'button'=>true,
+                            'required'=>true,
+                            'errorMsg'=>'Error msg optin',
+                        ])
+
+        </div>  
+
+        <div class="column is-12">
+            @include('_resources/form/elements/checkbox',
                         [
                             'label'=>'<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, doloribus consequatur dolor eligendi eius recusandae quasi velit ad sit nihil, ratione pariatur? Deleniti enim, tenetur minima dicta laboriosam omnis minus.</p>',
                             'name'=>'Optin',
-                            'isFloat'=>true,
+                            'float'=>true,
                             'required'=>true,
                             'errorMsg'=>'Error msg optin',
                         ])
@@ -197,19 +219,19 @@
             <button class="button button--outlined" type="submit">
                 <span>Submit</span>
                 <span class="icon">
-                    @include('_resources/icon-svg/arrow')
+                    @include('_resources/icons/arrow')
                 </span>
             </button>
             <button class="button" type="submit">
                 <span>Submit</span>
                 <span class="icon">
-                    @include('_resources/icon-svg/arrow')
+                    @include('_resources/icons/arrow')
                 </span>
             </button>
             <button class="button" type="submit" disabled>
                 <span>Submit</span>
                 <span class="icon">
-                    @include('_resources/icon-svg/arrow')
+                    @include('_resources/icons/arrow')
                 </span>
             </button>
         </div>

@@ -92,6 +92,14 @@ $fullhd-enabled: true !default;
         border-color: transparent transparent transparent $color;
     }
 }
+
+@mixin square($size) {
+    width: rem($size);
+    min-width: rem($size);
+    height: rem($size);
+    min-height: rem($size);
+}
+
 // BACKGROUND GRADIENT
 // https://robots.thoughtbot.com/controlling-color-with-sass-color-functions
 // https://glennmccomb.com/articles/creating-smooth-sequential-animations-with-sass/

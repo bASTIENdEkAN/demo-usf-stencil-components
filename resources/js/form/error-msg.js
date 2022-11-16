@@ -34,10 +34,15 @@ const messages = {
 
 const defaultErrorMsg = (field, message) => {
     
-    // console.log('field:', field)
-    // console.log('message:', message)
-    const customMessage = field.getAttribute('data-error-msg');
-    return customMessage ? customMessage : message
+    let custom_message = false;
+    const wrapper = field.closest('div[data-required-set]');
+
+    if(wrapper)
+        custom_message = wrapper.getAttribute('data-error-msg');
+    else
+        custom_message = field.getAttribute('data-error-msg');
+
+    return custom_message ? custom_message : message
 }
     
 

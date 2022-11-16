@@ -7,6 +7,7 @@ import { validationEmailExcludeMailCheck } from './validation/email-exclude-mail
 import { validationPhone } from './validation/phone';
 import { validationBirthday } from './validation/birthday';
 import { validationMatch } from './validation/match';
+import { validationCheckboxSet } from './validation/checkboxset';
 // Import Default Error Message
 import { defaultErrorMsg, messages } from './error-msg';
 
@@ -29,6 +30,9 @@ const validate = new Bouncer('[data-validate]', {
 		},
 		match: function (field) {
             return validationMatch(field);
+		},
+		checkboxset: function (field) {
+            return validationCheckboxSet(field);
 		},
 	},
 	messages: {
@@ -89,7 +93,7 @@ document.addEventListener('bouncerShowError', function (event) {
 	const field = input.closest('.field');
 	
 	if(field){
-		field.classList.add('error');
+		field.classList.add('field--error');
 	}
 
 }, false);
@@ -102,7 +106,7 @@ document.addEventListener('bouncerRemoveError', function (event) {
 	const field = input.closest('.field');
 	
 	if(field){
-		field.classList.remove('error');
+		field.classList.remove('field--error');
 	}
 
 }, false);
