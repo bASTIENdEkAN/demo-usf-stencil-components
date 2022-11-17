@@ -13,7 +13,7 @@ require('./features/progress'); //2kb
 
 /* Vanilla from validation */
 // require('./form/vanilla/tailselect.js'); // 54kb
-require('./form/change-filled.js'); // 2kb
+require('./form/float-label.js'); // 2kb
 require('./form/mailcheck.js'); // 12kb
 require('./form/intl-tel-input.js'); // 99 Kb
 require('./form/birthday.js'); // 99 Kb

@@ -67,6 +67,7 @@ const validate = new Bouncer('[data-validate]', {
 		phone: function (field) { return defaultErrorMsg(field, messages.patternMismatch.phone)},
 		birthday: function (field) { return defaultErrorMsg(field, messages.patternMismatch.birthday)},
 		match: function (field) { return defaultErrorMsg(field, messages.patternMismatch.match)},
+		checkboxset: function (field) { return defaultErrorMsg(field, messages.missingValue.checkboxset)},
 
 		fallback: function (field) { return defaultErrorMsg(field, messages.fallback)},
 		
@@ -117,10 +118,12 @@ requireds.forEach((item, index)=>{
 	const field = item.closest('.field');
 	if(field){
 		const label = field.querySelector('.label');
-		const span = label.querySelector('span');
-		const balise = span ? span : label; 
-		if(balise){
-			balise.innerHTML = balise.innerHTML+'*';
+		if(label){
+			const span = label.querySelector('span');
+			const balise = span ? span : label; 
+			if(balise){
+				balise.innerHTML = balise.innerHTML+'*';
+			}
 		}
 	}
 })

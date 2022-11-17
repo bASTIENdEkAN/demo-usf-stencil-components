@@ -5,6 +5,7 @@ const messages = {
     missingValue : {
         checkbox: fr ? "Ce champ est requis.": "Dit veld is verplicht.",
         radio: fr ? "Veuillez sélectionner une valeur.": "Selecteer een waarde.",
+        checkboxset: fr ? "Veuillez sélectionner au moin une valeur.": "Selecteer ten minste één waarde.",
         selectMultiple: fr ? "Veuillez sélectionner au moins une valeur.": "Selecteer ten minste één waarde.",
         default: fr ? "Veuillez remplir ce champ.": "Vul alstublieft dit veld in."
     },

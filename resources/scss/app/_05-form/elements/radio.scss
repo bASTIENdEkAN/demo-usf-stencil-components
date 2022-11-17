@@ -33,11 +33,6 @@ $radio--border-color-checked: $form--primary !default;
 
     cursor: pointer;
 
-    /* stylelint-disable-next-line scss/selector-no-redundant-nesting-selector */
-    &+.radio {
-        @include ltr-property('margin', #{rem(15)}, false);
-    }
-
     // Elements
     &__input {
         position: absolute;
@@ -164,26 +159,27 @@ $radio--border-color-checked: $form--primary !default;
     }
 }
 
-
-// RADIOS
+// Radios
 .radios {
     display: flex;
     flex-wrap: wrap;
-    margin: rem(-3) rem(-10);
-
-    .radio,
-    .radio-infos,
-    .radio-label {
-        padding: rem(3) rem(10);
+    
+    // Layout
+    .radio {
+        margin-right: rem(25);
+        @include mq('max-mobile') {
+            width: 100%;
+        }
     }
-}
-
-.radio-infos {
-    width: 100%;
-}
-
-.radio-label {
-    width: 100%;
-
-    font-weight: $form--label-weight;
+      
+    // Modifier
+    &--tile {
+        margin: -#{$form--gap-x};
+        
+        .radio {
+            width: 50%;
+            margin-right: rem(0);
+            padding: $form--gap-x;
+        }
+    }
 }

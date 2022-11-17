@@ -116,13 +116,9 @@ $form--border-radius: $border-radius !default;
 $form--border-size: 1px !default;
 $form--border-color: $border-color !default;
 $form--border-color-focus: darken($form--border-color, 25%) !default;
-$form--border-size: $form--border-size !default;
-$form--border-top-size: $form--border-size !default;
-$form--border-right-size: $form--border-size !default;
-$form--border-bottom-size: $form--border-size !default;
-$form--border-left-size: $form--border-size !default;
+$form--border-less: false;
 // Form change filled
-$form--change-filled-google: false !default;
+$form--float-label-google: false !default;
 // Form layout
 $form--gap-x: rem(5) !default;
 $form--gap-y: rem(10) !default;
@@ -132,5 +128,5 @@ $form--gap-y: rem(10) !default;
 /* Customisation */
 
 // Try some customization stylesheet and see the power of SCSS:
-// @import "customization/brico";
+// @import 'customization/brico';
 // @import "customization/google";

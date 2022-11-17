@@ -19,14 +19,14 @@ $form--border-radius: rem(4);
 $form--border-color: $grey-light; 
 $form--border-color-focus: darken($grey-light, 25%); 
 $form--label-weight: $weight-regular;
-$form--change-filled-google: true;
+$form--float-label-google: true;
 
 $form--pt: calc((#{$form--height} / 100) * 32) !default;
 $form--pr: rem(8);
 $form--pb: calc((#{$form--height} / 100) * 32) !default;
 $form--pl: rem(8);
 
-$change-filled--label-color-filled: $primary;
+$float-label--label-color-filled: $primary;
 
 // RADIO => '_03-form/elements/radio.scss'
 $radio--size: rem(16);

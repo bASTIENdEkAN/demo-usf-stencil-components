@@ -6,17 +6,14 @@
         name="{{$name}}" 
         @if(!empty($required)) 
             required 
+            data-error-location="#{{$name}}ErrorMsgLocation"
             @if(!empty($errorMsg)) 
                 data-error-msg="{{$errorMsg}}" 
             @endif 
         @endif
-        @if(!empty($errorLocation)) 
-            @if(!empty($required)) 
-                data-error-location="#{{$name}}ErrorMsgLocation" 
-            @else 
-                data-error-location="#{{$errorLocation}}" 
-            @endif 
-        @endif 
+        @if(!empty($requiredSet)) 
+            data-error-location="#{{$errorLocation}}"
+        @endif
         />
 
     <div class="checkbox__inner">
@@ -31,10 +28,10 @@
 </label>
 
 
-@if(!empty($required) || !empty($infos))
-<div class="checkbox-infos content">
-    @if( !empty($infos))<div class="info"><p>{{$infos}}</p></div>@endif
-    <div class="info error-msg" id="{{$name}}ErrorMsgLocation">
+@if(!empty($required) || !empty($help))
+<div class="input-help">
+    @if( !empty($help))<div class="input-help__el"><p>{{$help}}</p></div>@endif
+    <div class="input-help__el error-msg" id="{{$name}}ErrorMsgLocation">
     </div>
-</div>
+ </div>
 @endif

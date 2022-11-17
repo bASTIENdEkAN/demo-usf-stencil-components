@@ -1,19 +1,16 @@
 $input--color: $black !default;
-$input--background: $white !default;
-$input--radius: $form--border-radius !default;
-$input--border-color: $form--border-color !default;
-$input--border-color-focus: $form--border-color-focus !default;
+$input--background: $form--background !default;
 
 $input--pt: $form--pt !default;
 $input--pr: $form--pr !default;
 $input--pb: $form--pb !default;
 $input--pl: $form--pl !default;
 
+$input--radius: $form--border-radius !default;
 $input--border-size: $form--border-size !default;
-$input--border-top-size: $input--border-size !default;
-$input--border-right-size: $input--border-size !default;
-$input--border-bottom-size: $input--border-size !default;
-$input--border-left-size: $input--border-size !default;
+$input--border-color: $form--border-color !default;
+$input--border-color-focus: $form--border-color-focus !default;
+$input--border-less: $form--border-less;
 
 $input--disabled-color: $grey !default;
 $input--disabled-background-color: $white-ter !default;
@@ -32,13 +29,13 @@ $input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3) !defa
     color: $input--color;
 
     background: $input--background;
-    border-color: $input--border-color;
-    border-top: $input--border-top-size solid $input--border-color;
-    border-right: $input--border-right-size solid $input--border-color;
-    border-bottom: $input--border-bottom-size solid $input--border-color;
-    border-left: $input--border-left-size solid $input--border-color;
-    // Border
+    border: $input--border-size solid $input--border-color;
     border-radius: $input--radius;
+    @if $input--border-less {
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
+    }
 
     transition: $form--transition;
 
@@ -47,7 +44,7 @@ $input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3) !defa
         border-color: $input--border-color-focus;
     }
 
-    @if $form--change-filled-google {
+    @if $form--float-label-google {
         &:focus {
             border-color: $form--primary;
             box-shadow: 0 0 0 1px $form--primary;

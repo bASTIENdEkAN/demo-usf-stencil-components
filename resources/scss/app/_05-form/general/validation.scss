@@ -1,0 +1,23 @@
+
+.error-msg {
+    color: $danger;
+    text-align: left;
+}
+
+.error-msg {
+    &--has-set {
+        >* {
+            display: none;
+        }   
+    }
+}
+
+.field--error {
+    .error-msg {
+        &--has-set {
+            >*:first-child {
+                display: block;
+            }   
+        }
+    }   
+}

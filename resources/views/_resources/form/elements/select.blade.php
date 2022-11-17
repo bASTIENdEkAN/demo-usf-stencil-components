@@ -1,13 +1,13 @@
-<div class="field @if(!empty($changeFilled)) change-filled @endif">
+<div class="field @if(!empty($floatLabel)) field--float-label @endif">
     <div class="control">
         <label class="label" for="{{$name}}">
-            @if(!empty($changeFilled)) <span> @endif
+            @if(!empty($floatLabel)) <span> @endif
                 {{$label}}
-            @if(!empty($changeFilled)) </span> @endif
+            @if(!empty($floatLabel)) </span> @endif
         </label>
-        <div class="select is-fullwidth">
+        <div class="select">
             <select id="{{$name}}" name="{{$name}}" @if(!empty($required)) required @if(!empty($errorMsg))  data-error-msg="{{$errorMsg}}" @endif data-error-location="#{{$name}}ErrorMsgLocation" @endif>
-                @if(!empty($changeFilled))
+                @if(!empty($floatLabel))
                     <option selected></option>
                 @else
                     <option disabled selected>Placeholder</option>
@@ -20,12 +20,12 @@
     </div>
 
 
-    @if(!empty($required) || !empty($infos))
-    <div class="input-infos content">
-       @if( !empty($infos))<div class="info"><p>{{$infos}}</p></div>@endif
-       <div class="info error-msg" id="{{$name}}ErrorMsgLocation">
-       </div>
-    </div>
+    @if(!empty($required) || !empty($help))
+    <div class="input-help">
+        @if( !empty($help))<div class="input-help__el"><p>{{$help}}</p></div>@endif
+        <div class="input-help__el error-msg" id="{{$name}}ErrorMsgLocation">
+        </div>
+     </div>
     @endif
 
 </div>

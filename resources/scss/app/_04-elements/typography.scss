@@ -1,0 +1,323 @@
+$title--family: $family-title;
+$title--size: $size-3;
+$title--weight: $weight-semibold;
+$title--line-height: 1.125;
+$title--strong-color: inherit;
+$title--strong-weight: inherit;
+
+$subtitle--size: $size-5;
+$subtitle--weight: $weight-regular;
+$subtitle--line-height: 1.25;
+$subtitle--strong-color: $grey-darker;
+$subtitle--strong-weight: $weight-semibold;
+$subtitle--negative-margin: -1.25rem;
+
+// TITLE & SUBTITLE
+.title,
+.subtitle {
+    @extend %block;
+    word-break: break-word;
+
+    em,
+    span {
+        font-weight: inherit;
+    }
+
+    .tag {
+        vertical-align: middle;
+    }
+}
+
+// TITLE
+.title {
+    font-weight: $title--weight;
+    font-size: $title--size;
+    font-family: $title--family;
+    line-height: $title--line-height;
+
+    strong {
+        color: $title--strong-color;
+        font-weight: $title--strong-weight;
+    }
+  
+    &:not(.is-spaced) + .subtitle {
+        margin-top: $subtitle--negative-margin;
+    } 
+}
+
+// SUBTITLE
+.subtitle {
+    font-weight: $subtitle--weight;
+    font-size: $subtitle--size;
+    line-height: $subtitle--line-height;
+
+    strong {
+        color: $subtitle--strong-color;
+        font-weight: $subtitle--strong-weight;
+    }
+
+    &:not(.is-spaced) + .title {
+        margin-top: $subtitle--negative-margin;
+    } 
+}
+
+// Size
+/*
+It's based on the start config file "variablse.scss"
+*/
+@each $size in $sizes {
+    $i: index($sizes, $size);
+    $i-next: $i + 1;
+    .is-size-#{$i},
+    %is-size-#{$i} {
+        font-size: $size;
+        @include mq('max-mobile') {
+            @if $i-next < 7 {
+                // @debug "$i mean: #{$i-previous}";
+                font-size: nth($sizes, $i-next);
+            }
+        }
+    }
+}
+
+
+// CONTENT
+/*
+    Juste to let you know it's almost a copy->past from bulma.
+    You can see the comportement of the content on there docs:
+    @source https://bulma.io/documentation/elements/content/
+*/
+
+$content-heading-color: $grey-darker !default;
+$content-heading-weight: $weight-semibold !default;
+$content-heading-line-height: 1.125 !default;
+
+$content-blockquote-background-color: $white-ter !default;
+$content-blockquote-border-left: 5px solid $border-radius !default;
+$content-blockquote-padding: em(20) em(24) !default;
+
+$content-pre-padding: em(20) em(24) !default;
+
+$content-table-cell-border: 1px solid $border-radius !default;
+$content-table-cell-border-width: 0 0 1px !default;
+$content-table-cell-padding: em(8) em(12) !default;
+$content-table-cell-heading-color: $grey-darker !default;
+$content-table-head-cell-border-width: 0 0 2px !default;
+$content-table-head-cell-color: $grey-darker !default;
+$content-table-foot-cell-border-width: 2px 0 0 !default;
+$content-table-foot-cell-color: $grey-darker !default;
+
+@mixin content-base() {
+    @extend %block;
+    // Inline
+    li + li {
+        margin-top: 0.25em;
+    }  // Block
+    p,
+    dl,
+    ol,
+    ul,
+    blockquote,
+    pre,
+    table {
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $content-heading-color;
+        font-weight: $content-heading-weight;
+        line-height: $content-heading-line-height;
+    }
+
+    h1 {
+        margin-bottom: 0.5em;
+
+        font-size: 2em;
+
+        &:not(:first-child) {
+            margin-top: 1em;
+        }
+    }
+
+    h2 {
+        margin-bottom: 0.5714em;
+
+        font-size: 1.75em;
+
+        &:not(:first-child) {
+            margin-top: 1.1428em;
+        }
+    }
+
+    h3 {
+        margin-bottom: 0.6666em;
+
+        font-size: 1.5em;
+
+        &:not(:first-child) {
+            margin-top: 1.3333em;
+        }
+    }
+
+    h4 {
+        margin-bottom: 0.8em;
+
+        font-size: 1.25em;
+    }
+
+    h5 {
+        margin-bottom: 0.8888em;
+
+        font-size: 1.125em;
+    }
+
+    h6 {
+        margin-bottom: 1em;
+
+        font-size: 1em;
+    }
+
+    blockquote {
+        @include ltr-property('border', $content-blockquote-border-left, false);
+        padding: $content-blockquote-padding;
+
+        background-color: $content-blockquote-background-color;
+    }
+
+    ol {
+        @include ltr-property('margin', 2em, false);
+        margin-top: 1em;
+
+        list-style-position: outside;
+
+        &:not([type]) {
+            list-style-type: decimal;
+        }
+    }
+
+    ul {
+        @include ltr-property('margin', 2em, false);
+        margin-top: 1em;
+
+        list-style: disc outside;
+
+        ul {
+            margin-top: 0.5em;
+
+            list-style-type: circle;
+
+            ul {
+                list-style-type: square;
+            }
+        }
+    }
+}
+
+.content {
+    @include content-base();
+
+    dd {
+        @include ltr-property('margin', 2em, false);
+    }
+
+    figure {
+        margin-right: 2em;
+        margin-left: 2em;
+
+        text-align: center;
+
+        &:not(:first-child) {
+            margin-top: 2em;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 2em;
+        }
+
+        img {
+            display: inline-block;
+        }
+
+        figcaption {
+            font-style: italic;
+        }
+    }
+
+    pre {
+        @include overflow-touch;
+        padding: $content-pre-padding;
+        overflow-x: auto;
+
+        white-space: pre;
+        word-wrap: normal;
+    }
+
+    sup,
+    sub {
+        font-size: 75%;
+    }
+
+    table {
+        width: 100%;
+
+        td,
+        th {
+            padding: $content-table-cell-padding;
+
+            vertical-align: top;
+
+            border: $content-table-cell-border;
+            border-width: $content-table-cell-border-width;
+        }
+
+        th {
+            color: $content-table-cell-heading-color;
+
+            &:not([align]) {
+                text-align: inherit;
+            }
+        }
+
+        thead {
+            td,
+            th {
+                color: $content-table-head-cell-color;
+
+                border-width: $content-table-head-cell-border-width;
+            }
+        }
+
+        tfoot {
+            td,
+            th {
+                color: $content-table-foot-cell-color;
+
+                border-width: $content-table-foot-cell-border-width;
+            }
+        }
+
+        tbody {
+            tr {
+                &:last-child {
+                    td,
+                    th {
+                        border-bottom-width: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .tabs {
+        li + li {
+            margin-top: 0;
+        }  // Sizes
+    }
+}

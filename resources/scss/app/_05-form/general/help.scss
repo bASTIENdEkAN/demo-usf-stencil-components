@@ -1,0 +1,30 @@
+// Help
+.input-help {
+    $self: &;
+    position: relative;
+
+    margin: 0 0 0 $form--pl;
+
+    color: $grey-dark;
+    font-weight: $weight-regular;
+    font-size: rem(14);
+    line-height: 1;
+
+    &__el {
+        margin-bottom: 0;
+        p:not(:last-child) {margin-bottom: rem(4);}
+
+        >* {
+            margin-top: rem(7);
+        }
+
+        & + #{$self}__el>* {
+            margin-top: rem(3);
+        }
+    }
+}
+
+// Suggestion
+.suggestion-msg {
+    color: $black;
+}

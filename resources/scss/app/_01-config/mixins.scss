@@ -244,14 +244,6 @@ $fullhd-enabled: true !default;
         background: $backgroundHover;
     }
 }
-// BULMA mixin :
-// @include arrow($color);
-// @include center($size);
-// @include delete();
-// @include loader()
-// @include unselectable()
-
-// @include placeholder() à essaié ?
 
 // Medium mixin :
 // https://medium.com/@justinbrazeau/10-useful-sass-mixins-for-automation-833cdee9d69b
@@ -465,7 +457,7 @@ $fullhd-enabled: true !default;
 }
 
 
-@mixin loader($color: $white) {
+@mixin loading($color: $grey-light) {
     position: relative;
 
     display: block;
@@ -559,8 +551,8 @@ $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default;
     @include control;
 }
 
-%loader {
-    @include loader;
+%loading {
+    @include loading;
 }
 
 %block {

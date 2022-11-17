@@ -74,7 +74,7 @@ $button--transition: all 0.2s ease-in-out !default;
         pointer-events: none;
 
         &::after {
-            @extend %loader;
+            @include loading($button--color);
             @include center(1em);
             position: absolute !important;
         }

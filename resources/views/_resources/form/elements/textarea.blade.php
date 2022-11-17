@@ -1,8 +1,8 @@
-<div class="field has-textarea @if(!empty($changeFilled)) change-filled @endif">
+<div class="field field--textarea @if(!empty($floatLabel)) field--float-label @endif">
     <label class="label" for="{{$name}}">
-        @if(!empty($changeFilled)) <span> @endif
+        @if(!empty($floatLabel)) <span> @endif
             {{$label}}
-        @if(!empty($changeFilled)) </span> @endif
+        @if(!empty($floatLabel)) </span> @endif
     </label>
     <div class="control">
       <textarea id="{{$name}}"
@@ -15,12 +15,12 @@
             @endif></textarea>
     </div>
   
-    @if(!empty($required) || !empty($infos))
-    <div class="input-infos content">
-       @if( !empty($infos))<p>{{$infos}}</p>@endif
-       <div class="error-msg" id="{{$name}}ErrorMsgLocation">
-       </div>
-    </div>
+    @if(!empty($required) || !empty($help))
+    <div class="input-help">
+        @if( !empty($help))<div class="input-help__el"><p>{{$help}}</p></div>@endif
+        <div class="input-help__el error-msg" id="{{$name}}ErrorMsgLocation">
+        </div>
+     </div>
     @endif
   
   </div>

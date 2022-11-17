@@ -8,6 +8,7 @@
                         [
                             // 'label'=>'Gender',
                             'name'=>'gender',
+                            'button'=>false,
                             'required'=>true,
                             'labelsValues'=>[
                                 [
@@ -19,9 +20,7 @@
                                     'value'=>'M',
                                 ],  
                             ],
-                            'infos'=>'Infos supplémentaire sur ce champ.',
-                            'required'=>true,
-                            // 'checkStyle'=>true,
+                            'help'=>'Infos supplémentaire sur ce champ.',
                             'errorMsg'=>'Error msg radio',
                         ])    
         </div> 
@@ -31,7 +30,7 @@
                         [ 
                             'name'=>'firstname', 
                             'label'=>'Firstname',
-                            'changeFilled'=>true, 
+                            'floatLabel'=>true, 
                             'placeholder'=>'Firstname placeholder',
                             'required'=>true,
                             'errorMsg'=>'Error msg firstname',
@@ -43,7 +42,7 @@
                         [
                             'name'=>'lastname',
                             'label'=>'Lastname',
-                            'changeFilled'=>true,
+                            'floatLabel'=>true,
                             'placeholder'=>'Lastname placeholder',
                             'required'=>true,
                             'errorMsg'=>'Error msg lastname',
@@ -54,9 +53,9 @@
             @include('_resources/form/elements/pre-build/email',
                         [
                             'label'=>'Email',
-                            'changeFilled'=>true,
+                            'floatLabel'=>true,
                             'placeholder'=>'Email placeholder',
-                            'infos'=>'Exemple d\'infos dans le mail',
+                            'help'=>'Exemple d\'infos dans le mail',
                             'required'=>true,
                             'errorMsg'=>'Error msg email',
                             ])
@@ -66,7 +65,7 @@
             @include('_resources/form/elements/pre-build/phone',
                         [
                             'label'=>'Phone',
-                            'changeFilled'=>true,
+                            'floatLabel'=>true,
                             'required'=>true,
                             'errorMsg'=>'Error msg phone',
                         ])
@@ -77,7 +76,7 @@
                         [
                             'name'=>'input_birthday',
                             'label'=>'Date de naissance',
-                            'changeFilled'=>true,
+                            'floatLabel'=>true,
                             'required'=>'birthday',
                             'errorMsg'=>'Error msg lastname',
                         ])
@@ -88,7 +87,7 @@
                         [
                             'name'=>'select',
                             'label'=>'Select',
-                            'changeFilled'=>true,
+                            'floatLabel'=>true,
                             'required'=>true,
                             'errorMsg'=>'Error msg select',
                         ])
@@ -99,7 +98,7 @@
                         [
                             'name'=>'password',
                             'label'=>'Mot de passe',
-                            'changeFilled'=>true,
+                            'floatLabel'=>true,
                             'required'=>true,
                             'errorMsg'=>'Error msg password',
                         ])
@@ -110,7 +109,7 @@
                         [
                             'name'=>'confirm-password',
                             'label'=>'Confirmer le mot de passe',
-                            'changeFilled'=>true,
+                            'floatLabel'=>true,
                             'required'=>'match',
                             'match'=>'#password',
                             'errorMsg'=>'Error msg password',
@@ -122,39 +121,33 @@
                         [
                             'name'=>'message',
                             'label'=>'Message (optional)',
-                            'changeFilled'=>true,
+                            'floatLabel'=>true,
                             // 'required'=>true,
                             'errorMsg'=>'Error msg message',
                         ])
         </div> 
+
         <div class="column is-12">
-            <div class="content is-size-5">
-                <p>
-                    I agree to receive offers and promotions relating to the services and products of the Renault Group, its subsidiaries and members of its sales network:
-                </p>
-            </div>
-        </div>
-        <div class="column is-6">
-            @include('_resources/form/elements/radio',
+            @include('_resources/form/elements/radios',
                     [
+                        'label'=>'I agree to receive offers and promotions relating to the services and products of the Renault Group, its subsidiaries and members of its sales network:',
+                        'name'=>'optin_newsletter',
                         'button'=>true,
-                        'label'=>'YES',
-                        'value'=>'Y',
-                        'name'=>'radio2',
                         'required'=>true,
-                        'errorMsg'=>'Error msg radio',
-                    ])    
-        </div> 
-        <div class="column is-6">
-            @include('_resources/form/elements/radio',
-                    [
-                        'button'=>true,
-                        'check'=>true,
-                        'label'=>'NO',
-                        'value'=>'N',
-                        'name'=>'radio2',
+                        // 'errorMsg'=>'Error msg radio',
+                        'labelsValues'=>[
+                            [
+                                'label'=>'YES',
+                                'value'=>'Y',
+                            ],  
+                            [
+                                'label'=>'NO',
+                                'value'=>'N',
+                            ],  
+                        ],
+                        // 'help'=>'Infos supplémentaire sur ce champ.',
                         'required'=>true,
-                        'errorMsg'=>'Error msg radio',
+                        // 'checkStyle'=>true,
                     ])    
         </div> 
 
@@ -163,9 +156,9 @@
                 [
                     'label'=>'Select one or many of these multiple choice',
                     'name'=>'multi_choice',
-                    'button'=>false,
+                    'button'=>true,
                     'required'=>true,
-                    'errorMsg'=>'Error msg radios',
+                    // 'errorMsg'=>'Error msg radios',
                     'labelsValues'=>[
                         [
                             'label'=>'Choice 1',
@@ -186,18 +179,6 @@
                     ],
                 ]) 
         </div>
-
-        <div class="column is-12">
-            @include('_resources/form/elements/checkbox',
-                        [
-                            'label'=>'Choice 1',
-                            'name'=>'choice_a',
-                            'button'=>true,
-                            'required'=>true,
-                            'errorMsg'=>'Error msg optin',
-                        ])
-
-        </div>  
 
         <div class="column is-12">
             @include('_resources/form/elements/checkbox',

@@ -16,29 +16,26 @@
 /* Layout Grid: */
 @import 'app/_03-layout/main-layout';
 
-/* Form (the special feature from Bastien R+S): */
-// Form elements
-@import 'app/_04-form/elements/button';
-@import 'app/_04-form/elements/input';
-@import 'app/_04-form/elements/select';
-@import 'app/_04-form/elements/radio';
-@import 'app/_04-form/elements/check';
-@import 'app/_04-form/elements/checkbox';
-@import 'app/_04-form/elements/checkbox-button';
-// Form general
-@import 'app/_04-form/general/layout';
-@import 'app/_04-form/general/label';
-@import 'app/_04-form/general/field';
-@import 'app/_04-form/general/change-filled';
-@import 'app/_04-form/general/validation';
-@import 'app/_04-form/general/messages';
-
-
 /* Elements */
-@import 'app/_05-elements/typography';
-@import 'app/_05-elements/icon';
-@import 'app/_05-elements/select-lang';
-@import 'app/_05-elements/progress';
+@import 'app/_04-elements/typography';
+@import 'app/_04-elements/button';
+@import 'app/_04-elements/icon';
+@import 'app/_04-elements/select-lang';
+@import 'app/_04-elements/progress';
+
+/* Form (the special feature from Bastien R+S): */
+@import 'app/_05-form/elements/input';
+@import 'app/_05-form/elements/select';
+@import 'app/_05-form/elements/radio';
+@import 'app/_05-form/elements/check';
+@import 'app/_05-form/elements/checkbox';
+
+@import 'app/_05-form/general/layout';
+@import 'app/_05-form/general/field';
+@import 'app/_05-form/general/label';
+@import 'app/_05-form/general/control';
+@import 'app/_05-form/general/help';
+@import 'app/_05-form/general/validation';
 
 /* Components */ 
 @import 'app/_06-components/header';

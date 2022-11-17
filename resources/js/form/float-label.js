@@ -26,7 +26,7 @@ var getClosest = function (elem, selector) {
 };
 ///
 
-const inputs = document.querySelectorAll('.change-filled input, .change-filled textarea, .change-filled select');
+const inputs = document.querySelectorAll('.field--float-label input, .field--float-label textarea, .field--float-label select');
 
 let setInputClasses = (input, boolean) => {
 
@@ -35,14 +35,18 @@ let setInputClasses = (input, boolean) => {
 
 
     if (input.value.length > 0 || input == document.activeElement) {
-        wrapper.classList.add('is-filled');
+        wrapper.classList.add('field--filled');
     }else{
         if(input.id != 'intl-tel-input'){
-            wrapper.classList.remove('is-filled');
+            wrapper.classList.remove('field--filled');
         }
     }
 
-    if( boolean == true ) wrapper.classList.add('is-filled');
+    if( boolean == true ) wrapper.classList.add('field--filled');
+
+    if(input.disabled){
+        wrapper.classList.add('field--disabled');
+    }
 }
 
 inputs.forEach(input => {

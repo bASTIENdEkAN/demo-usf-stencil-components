@@ -7,15 +7,12 @@ $select--background: $white;
 $select--radius: $form--border-radius;
 $select--border-color: $form--border-color;
 $select--border-color-focus: $form--border-color-focus;
-$select--border-top-size: $form--border-size;
-$select--border-right-size: $form--border-size;
-$select--border-bottom-size: $form--border-size;
-$select--border-left-size: $form--border-size;
+$select--border-size: $form--border-size;
 // Padding
 $select--ptb: $form--pl;
 $select--plr: $form--pl;
 // Config
-$select--border-less: false;
+$select--border-less: $form--border-less;
 $select--with-triangle: false;
 
 // BULMA STUFF
@@ -38,6 +35,8 @@ $select--with-triangle: false;
         //// Remove default arrow
         
         background: $select--background;
+
+        border: $select--border-size solid $border-color;
         border-radius: $select--radius;
         outline: none;
         box-shadow: none;
@@ -51,17 +50,11 @@ $select--with-triangle: false;
         &::-ms-expand {
             display: none;
         }
-
         @if $select--border-less {
-            border: 0 none;
-            border-bottom: $select--border-bottom-size solid $border-color;
-        }@else {
-            border-top: $select--border-top-size solid $border-color;
-            border-left: $select--border-left-size solid $border-color;
-            border-bottom: $select--border-bottom-size solid $border-color;
-            border-right: $select--border-right-size solid $border-color;
+            border-top: 0;
+            border-right: 0;
+            border-left: 0;
         }
-        // @include selectBorderLess($select--border-less, darken($select--border-color,5%));
 
         &:hover,
         &:focus {
@@ -82,7 +75,7 @@ $select--with-triangle: false;
         }
     }
 
-    &:not(.is-loading) {
+    &:not(.select--loading) {
         &::after {
             @if $select--with-triangle {
                 @include pseudo();
@@ -92,22 +85,25 @@ $select--with-triangle: false;
 
                 border-radius: rem(10);
             }@else {
-                @include arrow();
-                border-color: $select--primary;
+                @include arrow($select--primary);
             }
 
-            @include ltr-position(1.125em);
-            z-index: 4;
         }
     }
+    
+    &::after {
+        @include ltr-position(1.125em);
+        z-index: 4;
+    }
 
-    &.is-loading {
+    &--loading {
         &::after {
-            @extend %loader;
+            @include loading($select--primary);
             position: absolute;
+            top: 50%;
 
-            margin-top: 0;
-            // top: 0.625em;
+            margin-top: -0.4375em;
+
             transform: none;
         }
     }

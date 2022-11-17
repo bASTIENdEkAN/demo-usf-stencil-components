@@ -1,0 +1,158 @@
+$float-label--google: $form--float-label-google !default;
+$float-label--google--label-px: rem(5) !default;
+$float-label--label-color-filled: $form--label-color !default;
+
+.field {
+    $self: &;
+
+    &--float-label {
+        position: relative;
+    
+        cursor: pointer;
+    
+        .control {
+            background: $form--background;
+            border-radius: $form--border-radius;
+        }
+    
+        // LABEL
+        .label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+    
+            height: $form--height;
+            padding: calc(#{$form--pt} + #{rem(0)}) $form--pr $form--pb $form--pl;
+    
+            line-height: calc((#{$form--height} / 100 ) * 37.5);
+            white-space: nowrap;
+    
+            transform: translate3d(0, 0, 0);
+            cursor: text;
+    
+            transition: $form--transition;
+    
+            user-select: none; /* Standard */
+            span {
+                background: transparent;
+                @if $float-label--google {
+                    margin-left: -#{$float-label--google--label-px};
+                    padding: calc(#{$float-label--google--label-px} / 2) $float-label--google--label-px;
+    
+                    border-radius: 100px;
+                }
+            }
+        }
+    
+        // INPUT
+        .input,
+        .textarea {
+            background: transparent;
+            @include placeholder {color: transparent !important;}
+            @if $float-label--google != true {
+                padding-top: calc((#{$form--height} / 100 ) * 60);
+            } 
+        }
+    
+        // SELECT
+        .select {
+            z-index: 2;
+    
+            select {
+                background-color: transparent;
+            }
+        }
+    
+        // TEXTAREA
+        .textarea {
+            min-height: rem(180);
+    
+            resize: none;
+            @include mq('max-mobile') {
+                min-height: rem(300);
+            }
+        }
+    
+        &#{$self}--textarea { 
+            /* stylelint-disable-next-line max-nesting-depth */
+            .label {
+                width: 100%;
+            }
+    
+            /* stylelint-disable-next-line max-nesting-depth */
+            .control {
+                position: relative;
+                @if $float-label--google != true {
+                    &::after {
+                        @include pseudo(); top: $form--border-size;
+                        left: $form--border-size;
+    
+                        width: calc(100% - (#{$form--border-size} * 2));
+                        height: rem(40);
+    
+                        background: linear-gradient(to bottom, $form--background 0%, $form--background 50%, rgba($form--background, 0) 100%);
+                        border-radius: $form--border-radius $form--border-radius 0 0;
+                    }
+                }
+            }
+        }
+    
+        // PASSWORD
+        .input-switch-type {
+            opacity: 0;
+        }
+    
+        // Modifiler
+        &#{$self}--filled {
+            /* stylelint-disable-next-line max-nesting-depth */
+            .input-switch-type {
+                opacity: 1;
+            }
+            
+            /* stylelint-disable-next-line max-nesting-depth */
+            .label {
+                z-index: 3;
+    
+                color: $float-label--label-color-filled;
+                font-size: rem(14);
+    
+                transform: translate3d(0, -18%, 0);
+                @if $float-label--google {
+                    transform: translate3d(0, -50%, 0);
+    
+                    >span {
+                        background: $form--background;
+                    }
+                }
+            }
+            
+            /* stylelint-disable-next-line max-nesting-depth */
+            .input {
+                position: relative;
+                z-index: 2;
+            }
+        }
+        
+        &#{$self}--disabled {
+            /* stylelint-disable-next-line max-nesting-depth */
+            .control {
+                background: transparent;
+            }
+            
+            /* stylelint-disable-next-line max-nesting-depth */
+            .label {
+                color: darken($input--disabled-color, 7%);
+            }
+            
+            /* stylelint-disable-next-line max-nesting-depth */
+            .input {
+                color: $input--disabled-color;
+    
+                background-color: $input--disabled-background-color;
+                border-color: $input--disabled-border-color;
+                box-shadow: none;
+            }
+        }
+    }
+}

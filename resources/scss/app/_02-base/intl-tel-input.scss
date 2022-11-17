@@ -43,3 +43,62 @@
 .intl-tel-input.separate-dial-code input[type=tel] {
     padding-left: calc(#{$form--pl} + 40px);
 }
+
+// Float label
+.field--float-label {
+    /* stylelint-disable-next-line selector-class-pattern */
+    .iti__flag-container,
+    .icon {
+        z-index: 9;
+
+        opacity: 0;
+
+        transition: $form--transition;
+
+        &:hover {
+            /* stylelint-disable-next-line selector-class-pattern */
+            .iti__selected-flag { background: transparent; }
+        }
+
+        /* stylelint-disable-next-line selector-class-pattern */
+        .iti__selected-flag {
+            padding: 0;
+            padding-left: $form--pl !important;
+
+            background: transparent;
+            // PARENTHESE
+            /* stylelint-disable-next-line max-nesting-depth */
+            &::before {
+                display: inline-block;
+                margin-right: rem(5);
+
+                opacity: 0.5;
+
+                content: '( ';
+            }
+
+            &::after {
+                display: inline-block;
+                margin-left: rem(5);
+
+                opacity: 0.5;
+
+                content: ' )';
+            }
+            @if $form--float-label-google != true {
+                padding-top: calc((#{$form--height} / 100 ) * 25) !important;
+            }
+            /// PARENTHESE
+        }
+        /* stylelint-disable-next-line selector-class-pattern */
+        .iti__arrow { display: none; }
+    }
+
+    &.field--filled {
+        /* stylelint-disable-next-line selector-class-pattern */
+        .iti__flag-container,
+        .icon {
+            opacity: 1;
+        }
+    }
+}
