@@ -5,6 +5,21 @@ $float-label--label-color-filled: $form--label-color !default;
 .field {
     $self: &;
 
+    // Modifier
+    &--horizontal {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .label {
+            margin-right: rem(18);
+        }
+
+        .input-help {
+            width: 100%;
+        }
+    }
+    
     &--float-label {
         position: relative;
     

@@ -1,12 +1,11 @@
-<div class="field">
+<div class="field @if(!empty($horizontal)) field--horizontal @endif">
 
     @if(!empty($label))
         <div class="label">
             <p>{{$label}}</p>
         </div>
     @endif
-    <div class="radios @if(!empty($button)) radios--tile @endif">
-        {{-- @if(!empty($required)) data-required-set @if(!empty($errorMsg))data-error-msg="{{$errorMsg}}"@endif @endif --}}
+    <div class="radios @if(!empty($button)) radios--tile @endif @if(!empty($centered)) radios--centered @endif">
         @foreach ($labelsValues as $item)   
             @include('_resources/form/elements/radio',[
                         'label'=>$item['label'],
