@@ -62,3 +62,121 @@ $main-layout--background: $body-background-color !default;
     } 
     
 }
+
+// Grid
+.grid {
+    display: grid;
+
+    &__el {
+        padding: rem(30);
+
+        background: $grey-light;
+        border-radius: rem(14);
+    }
+}
+
+
+.grid {
+    // GRID BASICS
+    // grid-template-rows: 1fr [row] 3fr [row] 1fr [row];
+    // grid-template-columns: repeat(3, 1fr [col]);
+    
+    // // grid-template-columns => the "horizontal layout"
+    // // grid-template-rows => the "vertical layout"
+
+    // // fr is a "fraction"
+    // grid-template-columns: 1fr 1fr;
+    // // this one is explicite:
+    // grid-template-columns: minmax(10px, 1fr) 3fr;
+    // // there ismultiple way to define a frame: 
+    // // minmax(xsize,xsize),
+    // // repeat(xtime, xsize),
+    // // min-content, max-content
+
+    // // the bracke syntax is to name a columnx or row [name].
+    // // here for example this:
+    // grid-template-columns: repeat(3, 60px [col-start]);
+    // // si the same as:
+    // grid-template-columns: 60px [col-start] 60px [col-start] 60px [col-start];
+
+    // GRID ROW / GRID COLUMN
+    // &__el{
+    //     &:nth-child(2) {
+    //         // // this let you position the "el" on a position difened, here the number is releated to the index of the row and "row" is the name difened on the bracket
+    //         // grid-row-start: row 1;
+    //         // grid-column-start: col 1;
+    //         background: $grey-lighter;
+    //     }
+    // }
+}
+
+.grid {
+    // GRID AREA
+    // create a layout depending to the grid area name of the els
+    // display: grid;
+    // grid-template-areas: 
+    //     'header header header'
+    //     'main main sidebar'
+    //     'footer footer footer';
+    // grid-template-rows: auto;
+    // grid-template-columns: repeat(3, 1fr);
+
+    &__el {
+        // &--a {
+        //     grid-area: header;
+        // }
+
+        // &--b {
+        //     grid-area: main;
+        // }
+
+        // &--c {
+        //     grid-area: sidebar;
+        // }
+
+        // &--d {
+        //     grid-area: footer;
+        // }
+    }
+}
+
+.grid {
+    // GRID 
+    // Bad: Since grid-template doesn’t reset the implicit grid properties (grid-auto-columns, grid-auto-rows, and grid-auto-flow), which is probably what you want to do in most cases, it’s recommended to use the grid property instead of grid-template.
+    // "A shorthand for setting grid-template-rows, grid-template-columns, and grid-template-areas in a single declaration."
+    // grid-template: none | <grid-template-rows> / <grid-template-columns>;
+    // // ...
+}
+
+
+.grid {
+    // GAP
+    // column-gap: gap-y;
+    // row-gap: gap-x;
+    // gap: gap-x gap-y;
+
+    grid-template-rows: 1fr [row] 3fr [row] 1fr [row];
+    grid-template-columns: repeat(3, 1fr [col]);
+
+    // row-gap: rem(20);
+    // column-gap: rem(40);
+    gap: rem(20) rem(40);
+    
+    // JUSTIFY ITEMS & ALIGN ITEMS
+    // justify-items: start / end / stretch;
+    // align-items: start / end / stretch;
+    // by default it's stretch
+    // PLACE ITEMs
+    // it is like = place-items: align justify
+    // so that:
+    // justify-items: start;
+    // align-items: center;
+    // is the same as
+    // place-items: center start;
+
+    // JUSTIFY CONTENT
+    // so items is about the items and CONTENT is about the content on the container.
+    // justify-content: start | end | center | stretch | space-around | space-between | space-evenly;    
+    // PLACE CONTENT
+    // same as place items but for content
+}

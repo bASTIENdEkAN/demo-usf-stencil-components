@@ -36,7 +36,8 @@ $float-label--label-color-filled: $form--label-color !default;
             top: 0;
             left: 0;
             z-index: 1;
-    
+
+            width: 0;
             height: $form--height;
             padding: calc(#{$form--pt} + #{rem(0)}) $form--pr $form--pb $form--pl;
     
