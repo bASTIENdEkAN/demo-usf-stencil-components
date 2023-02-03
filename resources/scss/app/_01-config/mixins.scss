@@ -166,23 +166,22 @@ $fullhd-enabled: true !default;
 }
 // CROSS PLUS BACK
 @mixin icon-tricks(
-    $width: rem(30),
-    $height: rem(30),
+    $size: rem(30),
     $background: transparent,
-    $backgroundHover: rgba(black, 0.05),
-    $borderSize: 1px,
-    $borderColor: rgba(black, 0.1),
-    $radius: 50%,
-    $crossWidth: 50%,
-    $crossHeight: 1px,
-    $crossBackground: black,
+    $background-hover: rgba(black, 0.05),
+    $border-size: 1px,
+    $border-color: rgba(black, 0.1),
+    $border-radius: 50%,
+    $line-width: 50%,
+    $line-height: 1px,
+    $line-background: black,
     $dir: cross,
 ) {
     position: relative;
 
     display: block;
-    width: $width;
-    height: $height;
+    width: $size;
+    height: $size;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -190,8 +189,8 @@ $fullhd-enabled: true !default;
     text-indent: -999999px;
 
     background: $background;
-    border: $borderSize solid $borderColor;
-    border-radius: $radius;
+    border: $border-size solid $border-color;
+    border-radius: $border-radius;
     cursor: pointer;
 
     transition: all 0.2s ease;
@@ -202,10 +201,10 @@ $fullhd-enabled: true !default;
         top: 50%;
         left: 50%;
 
-        width: $crossWidth;
-        height: $crossHeight;
+        width: $line-width;
+        height: $line-height;
 
-        background: $crossBackground;
+        background: $line-background;
 
         content: '';
     }
@@ -228,12 +227,12 @@ $fullhd-enabled: true !default;
         }@else if $dir == back or $dir == down {
             transform: translate3d(-30%, -50%, 0) rotate(-45deg);
 
-            width: $crossWidth;
-            height: $crossWidth;
+            width: $line-width;
+            height: $line-width;
 
             background: transparent;
-            border-top: $crossHeight solid $crossBackground;
-            border-left: $crossHeight solid $crossBackground;
+            border-top: $line-height solid $line-background;
+            border-left: $line-height solid $line-background;
             @if $dir == down {
                 transform: translate3d(-50%, -70%, 0) rotate(-135deg);
             }
@@ -241,7 +240,7 @@ $fullhd-enabled: true !default;
     }
 
     &:hover {
-        background: $backgroundHover;
+        background: $background-hover;
     }
 }
 

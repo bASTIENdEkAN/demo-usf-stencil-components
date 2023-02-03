@@ -19,3 +19,6 @@ require('./form/intl-tel-input.js'); // 99 Kb
 require('./form/birthday.js'); // 99 Kb
 require('./form/password.js'); // 2kb
 require('./form/validation.js'); // 26kb
+
+// import { defineCustomElement, UsfStickyHeader } from 'usf-components';
+// defineCustomElement('usf-header-sticky', UsfStickyHeader);
