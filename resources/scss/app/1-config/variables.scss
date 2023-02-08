@@ -67,7 +67,9 @@ $spacing-values: (
 $rtl: false !default;
 
 $column-gap: 10px;
-$gutter: 16px;
+//
+$gutter: 30px;
+$gutter-mobile: 16px;
 
 // Global
 $body-font-size: #{$browser-context}px;

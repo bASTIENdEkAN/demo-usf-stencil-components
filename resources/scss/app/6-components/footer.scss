@@ -16,10 +16,10 @@ $footer-font-size: rem(14);
     &__nav {
         display: flex;
         justify-content: space-between;
-        @include mq('max-mobile') {
+        @include mq('max','sm') {
             display: block;
         }
-        @include mq('max-mobile') {
+        @include mq('max','sm') {
             .footer-list {
                 &--left {
                     padding-bottom: rem(10);
@@ -53,7 +53,7 @@ $footer-font-size: rem(14);
     align-items: center;
     margin: 0 rem(-10);
 
-    @include mq('max-mobile') {
+    @include mq('max','sm') {
         display: block;
         margin: 0;
 

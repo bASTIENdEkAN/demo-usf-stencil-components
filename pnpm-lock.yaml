@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   animejs: ^3.2.1
   axios: ^0.21.1
+  bootstrap: ^5.2.3
   browser-sync: ^2.26.7
   browser-sync-webpack-plugin: ^2.0.1
   bulma: ^0.9.0
@@ -41,6 +42,7 @@ specifiers:
 dependencies:
   animejs: 3.2.1
   axios: 0.21.4
+  bootstrap: 5.2.3
   bulma: 0.9.3
   cross-env: 7.0.3
   date-fns: 2.26.0
@@ -1928,6 +1930,12 @@ packages:
 
   /boolbase/1.0.0:
     resolution: {integrity: sha1-aN/1++YMUes3cl6p4+0xDcwed24=}
+    dev: false
+
+  /bootstrap/5.2.3:
+    resolution: {integrity: sha512-cEKPM+fwb3cT8NzQZYEu4HilJ3anCrWqh3CHAok1p9jXqMPsPTBhU25fBckEJHJ/p+tTxTFTsFQGM+gaHpi3QQ==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.6
     dev: false
 
   /brace-expansion/1.1.11:

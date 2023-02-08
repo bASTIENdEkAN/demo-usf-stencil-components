@@ -50,9 +50,9 @@ $accordion--transition: all 0.3s ease;
     // Elements
     &__arrow {
         @include icon-tricks(
-            $crossBackground: $black,
-            $crossWidth: 33%,
-            $crossHeight: 2px,
+            $line-background: $black,
+            $line-width: 33%,
+            $line-height: 2px,
             $dir: down,
         );
         transition: $accordion--transition;

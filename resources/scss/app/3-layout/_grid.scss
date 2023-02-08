@@ -1,0 +1,68 @@
+@use "sass:math";
+
+@mixin ltr-property($property, $spacing, $right: true) {
+  $normal: if($right, "right", "left");
+  $opposite: if($right, "left", "right");
+  #{$property}-#{$normal}: $spacing;
+}
+
+$use-flex-grid: true !default;
+
+// Desktop
+$col-gap: var(--col-gap, rem(20)) !default;
+$row-gap: var(--row-gap, rem(30)) !default;
+
+$col-gap-split: calc($col-gap / 2) !default;
+$row-gap-split: calc($row-gap / 2) !default;
+
+@if $use-flex-grid==true {
+
+  %col,
+  .col {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: $row-gap-split $col-gap-split;
+  }
+
+
+  @for $i from 0 through 12 {
+    .col-#{$i} {
+      @extend %col;
+    }
+  }
+
+  @include mq('min', 'sm') {
+    @for $i from 0 through 12 {
+      .col-#{$i} {
+        flex: none;
+        width: math.percentage(math.div($i, 12));
+      }
+    }
+  }
+
+  .row {
+    @include ltr-property("margin", calc(#{$col-gap-split} * -1), false);
+    @include ltr-property("margin", calc(#{$col-gap-split} * -1));
+    flex-wrap: wrap;
+    margin-top: calc(#{$row-gap-split} * -1);
+
+    @include mq('min', 'sm') {
+      display: flex;
+    }
+
+    &:last-child {
+      margin-bottom: calc(#{$row-gap-split} * -1);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: calc(#{$row-gap} - #{$row-gap-split});
+    }
+
+    // Modifiers
+    &--mobile {
+      display: flex;
+    }
+  }
+}

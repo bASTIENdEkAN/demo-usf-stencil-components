@@ -71,7 +71,7 @@ It's based on the start config file "variablse.scss"
     .is-size-#{$i},
     %is-size-#{$i} {
         font-size: $size;
-        @include mq('max-mobile') {
+        @include mq('max', 'sm') {
             @if $i-next < 7 {
                 // @debug "$i mean: #{$i-previous}";
                 font-size: nth($sizes, $i-next);
@@ -320,4 +320,23 @@ $content-table-foot-cell-color: $grey-darker !default;
             margin-top: 0;
         }  // Sizes
     }
+}
+
+
+// Content utitlities
+
+.br {
+    @include mq('min', 'sm') {
+        display: block;
+    }
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.to-long {
+    display: inline-block;
+
+    hyphens: auto;
 }

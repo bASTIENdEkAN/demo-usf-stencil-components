@@ -1,0 +1,218 @@
+// // Inspirations : https://gist.github.com/passcod/a44db3503799cb89c3ccea3f75ca715e, https://github.com/SpringbokAgency/bridgestone_components/blob/master/src/sass/config/mixins/spacing.scss
+
+// $spacing: rem(4);
+
+// $spacing-sizes: (auto : auto,
+// 1 : $spacing, 
+// 2 : $spacing * 2, 
+// 3 : $spacing * 3, 
+// 4 : $spacing * 4, 
+// 5 : $spacing * 5, 
+// 6 : $spacing * 6, 
+// 7 : $spacing * 7, 
+// 8 : $spacing * 8, 
+// 9 : $spacing * 8, 
+// 10: $spacing * 10
+// );
+
+// @function map-get-or-key($map, $key) {
+//     @if map-has-key($map, $key) or map-has-key($map, -$key) {
+//         @if $key !='auto'and type-of($key)=='number'and $key < 0 {
+//             @return 0 - map-get($map, -$key);
+//         }
+
+//         @else {
+//             @return map-get($map, $key);
+//         }
+//     }
+
+//     @else if type-of($key)=='string' {
+//         @return unquote($key);
+//     }
+
+//     @else {
+//         @return $key;
+//     }
+// }
+
+// @function bsize($key) {
+//     @return map-get-or-key($spacing-sizes, $key);
+// }
+
+// // Margin
+// @mixin mt($space) {
+//     margin-top: bsize($space);
+// }
+
+// @mixin mb($space) {
+//     margin-bottom: bsize($space);
+// }
+
+// @mixin ml($space) {
+//     margin-left: bsize($space);
+// }
+
+// @mixin mr($space) {
+//     margin-right: bsize($space);
+// }
+
+// @mixin mx($space) {
+//     @include ml($space);
+//     @include mr($space);
+// }
+
+// @mixin my($space) {
+//     @include mt($space);
+//     @include mb($space);
+// }
+
+// @mixin m($t: 1, $r: null, $b: null, $l: null) {
+//     @if ($t and $r and $b and $l) {
+//         @include mt($t);
+//         @include mr($r);
+//         @include mb($b);
+//         @include ml($l);
+//     }
+
+//     @else if ($t and $r and $b and not $l) {
+//         @include mt($t);
+//         @include mx($r);
+//         @include mb($b);
+//     }
+
+//     @else if ($t and $r and not $b and not $l) {
+//         @include my($t);
+//         @include mx($r);
+//     }
+
+//     @else if ($t and not $r and not $b and not $l) {
+//         @if ($t==auto) {
+//             margin: 0 bsize($t);
+//         }
+
+//         @else {
+//             margin: bsize($t);
+//         }
+//     }
+// }
+
+// // Padding
+// @mixin p($space) {
+//     padding: bsize($space);
+// }
+
+// @mixin pt($space) {
+//     padding-top: bsize($space);
+// }
+
+// @mixin pb($space) {
+//     padding-bottom: bsize($space);
+// }
+
+// @mixin pl($space) {
+//     padding-left: bsize($space);
+// }
+
+// @mixin pr($space) {
+//     padding-right: bsize($space);
+// }
+
+// @mixin px($space) {
+//     @include pl($space);
+//     @include pr($space);
+// }
+
+// @mixin py($space) {
+//     @include pt($space);
+//     @include pb($space);
+// }
+
+// @mixin p($t: 1, $r: null, $b: null, $l: null) {
+//     @if ($t and $r and $b and $l) {
+//         @include pt($t);
+//         @include pr($r);
+//         @include pb($b);
+//         @include pl($l);
+//     }
+
+//     @else if ($t and $r and $b and not $l) {
+//         @include pt($t);
+//         @include px($r);
+//         @include pb($b);
+//     }
+
+//     @else if ($t and $r and not $b and not $l) {
+//         @include py($t);
+//         @include px($r);
+//     }
+
+//     @else if ($t and not $r and not $b and not $l) {
+//         padding: bsize($t);
+//     }
+// }
+
+
+// Here is some tricks from the helpers of bulma
+$spacing-shortcuts: ('margin': 'm', 'padding': 'p') !default;
+$spacing-directions: ('top': 't', 'right': 'r', 'bottom': 'b', 'left': 'l') !default;
+$spacing-horizontal: 'x' !default;
+$spacing-vertical: 'y' !default;
+// Allready definde in: _01-config/variables.scss
+// $spacing-values: ("0": 0, "1": 0.25rem, "2": 0.5rem, "3": 0.75rem, "4": 1rem, "5": 1.5rem, "6": 3rem) !default;
+
+@each $property, $shortcut in $spacing-shortcuts {
+    @each $name, $value in $spacing-values {    // Cardinal directions
+        $i: index($spacing-values, ($name $value));
+        $i-prev: $i - 1;
+        $value-prev: false;
+        @if $i-prev > 0 {
+            $object-prev: '#{nth($spacing-values, $i-prev)}';
+            $value-prev: removeXFirstSting($object-prev, 3);
+        }
+		
+        @each $direction, $suffix in $spacing-directions {
+            .#{$shortcut}#{$suffix}-#{$name},
+            %#{$shortcut}#{$suffix}-#{$name} {
+                #{$property}-#{$direction}: $value !important;
+                // Customisation from Bastien
+                @if $value-prev {
+                    @include mq('max', 'sm') {
+                        #{$property}-#{$direction}: $value-prev !important;
+                    }
+                }
+
+            }
+        };
+        // Horizontal axis;
+        @if $spacing-horizontal != null {
+            .#{$shortcut}#{$spacing-horizontal}-#{$name},
+            %#{$shortcut}#{$spacing-horizontal}-#{$name} {
+                #{$property}-left: $value !important;
+                #{$property}-right: $value !important;
+                // Customisation from Bastien
+                @if $value-prev {
+                    @include mq('max','sm') {
+                        #{$property}-left: $value-prev !important;
+                        #{$property}-right: $value-prev !important;
+                    }
+                }
+
+            }
+        };
+        // Vertical axis;
+        @if $spacing-vertical != null {
+            .#{$shortcut}#{$spacing-vertical}-#{$name},
+            %#{$shortcut}#{$spacing-vertical}-#{$name} {
+                #{$property}-top: $value !important;
+                #{$property}-bottom: $value !important;
+                // Customisation from Bastien
+                @if $value-prev {
+                    @include mq('max','sm') {
+                        #{$property}-top: $value-prev !important;
+                        #{$property}-bottom: $value-prev !important;
+                    }
+                }
+            }
+        }	
+    }
+}

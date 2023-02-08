@@ -1,9 +1,9 @@
 <form class="mt-3" data-validate action="" method="POST">
 
-    <div class="columns is-multiline">
+    <div class="row">
         
 
-        <div class="column is-12">
+        <div class="col-12">
                 @include('_resources/form/elements/radios',
                         [
                             // 'label'=>'Gender',
@@ -25,7 +25,7 @@
                         ])    
         </div> 
 
-        <div class="column is-6">
+        <div class="col-6">
             @include('_resources/form/elements/input',
                         [ 
                             'name'=>'firstname', 
@@ -37,7 +37,7 @@
                         ])
         </div>
 
-        <div class="column is-6">
+        <div class="col-6">
             @include('_resources/form/elements/input',
                         [
                             'name'=>'lastname',
@@ -49,7 +49,7 @@
                         ])
         </div>
 
-        <div class="column is-6">
+        <div class="col-6">
             @include('_resources/form/elements/pre-build/email',
                         [
                             'label'=>'Email',
@@ -61,7 +61,7 @@
                             ])
         </div>
 
-        <div class="column is-6">
+        <div class="col-6">
             @include('_resources/form/elements/pre-build/phone',
                         [
                             'label'=>'Phone',
@@ -71,7 +71,7 @@
                         ])
         </div>
 
-        <div class="column is-6">
+        <div class="col-6">
             @include('_resources/form/elements/input',
                         [
                             'name'=>'input_birthday',
@@ -82,7 +82,7 @@
                         ])
         </div>
 
-        <div class="column is-6">
+        <div class="col-6">
             @include('_resources/form/elements/select',
                         [
                             'name'=>'select',
@@ -93,7 +93,7 @@
                         ])
         </div>
 
-        <div class="column is-6">
+        <div class="col-6">
             @include('_resources/form/elements/pre-build/password',
                         [
                             'name'=>'password',
@@ -104,7 +104,7 @@
                         ])
         </div>
 
-        <div class="column is-6">
+        <div class="col-6">
             @include('_resources/form/elements/pre-build/password',
                         [
                             'name'=>'confirm-password',
@@ -116,7 +116,7 @@
                         ])
         </div>
 
-        <div class="column is-12">
+        <div class="col-12">
             @include('_resources/form/elements/textarea',
                         [
                             'name'=>'message',
@@ -127,7 +127,7 @@
                         ])
         </div> 
 
-        <div class="column is-12">
+        <div class="col-12">
             @include('_resources/form/elements/radios',
                     [
                         'label'=>'I agree to receive offers and promotions relating to the services and products of the Renault Group, its subsidiaries and members of its sales network:',
@@ -151,7 +151,7 @@
                     ])    
         </div> 
 
-        <div class="column is-12">
+        <div class="col-12">
             @include('_resources/form/elements/checkboxs',
                 [
                     'label'=>'Select one or many of these multiple choice',
@@ -180,7 +180,7 @@
                 ]) 
         </div>
 
-        <div class="column is-12">
+        <div class="col-12">
             @include('_resources/form/elements/checkbox',
                         [
                             'label'=>'<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, doloribus consequatur dolor eligendi eius recusandae quasi velit ad sit nihil, ratione pariatur? Deleniti enim, tenetur minima dicta laboriosam omnis minus.</p>',

@@ -1,47 +1,49 @@
 @charset "utf-8";
 
 /* Configuration: */
-@import 'app/_01-config/functions';
-@import 'app/_01-config/mixins';
-@import 'app/_01-config/variables';
+@import 'app/1-config/functions';
+@import 'app/1-config/mixins';
+@import 'app/1-config/variables';
 
 /* Base: */
-@import 'app/_02-base/minireset';
-@import 'app/_02-base/generic';
-@import 'app/_02-base/animation';
-@import 'app/_02-base/utilities';
-@import 'app/_02-base/intl-tel-input'; // 19ko uncompressed
-@import 'app/_02-base/bulma'; // Bulma used for the grid layout
+@import 'app/2-base/minireset';
+@import 'app/2-base/generic';
+@import 'app/2-base/animation';
+@import 'app/2-base/intl-tel-input'; // 19ko uncompressed
 
 /* Layout Grid: */
-@import 'app/_03-layout/main-layout';
+@import 'app/3-layout/container-wrapper';
+@import 'app/3-layout/main-layout';
+@import 'app/3-layout/grid';
+@import 'app/3-layout/spacing';
+@import 'app/3-layout/toggle-display';
 
 /* Elements */
-@import 'app/_04-elements/typography';
-@import 'app/_04-elements/button';
-@import 'app/_04-elements/icon';
-@import 'app/_04-elements/select-lang';
-@import 'app/_04-elements/progress';
+@import 'app/4-elements/typography';
+@import 'app/4-elements/button';
+@import 'app/4-elements/icon';
+@import 'app/4-elements/select-lang';
+@import 'app/4-elements/progress';
 
 /* Form (the special feature from Bastien R+S): */
-@import 'app/_05-form/elements/input';
-@import 'app/_05-form/elements/select';
-@import 'app/_05-form/elements/radio';
-@import 'app/_05-form/elements/check';
-@import 'app/_05-form/elements/checkbox';
+@import 'app/5-form/elements/input';
+@import 'app/5-form/elements/select';
+@import 'app/5-form/elements/radio';
+@import 'app/5-form/elements/check';
+@import 'app/5-form/elements/checkbox';
 
-@import 'app/_05-form/general/layout';
-@import 'app/_05-form/general/field';
-@import 'app/_05-form/general/label';
-@import 'app/_05-form/general/control';
-@import 'app/_05-form/general/help';
-@import 'app/_05-form/general/validation';
+@import 'app/5-form/general/layout';
+@import 'app/5-form/general/field';
+@import 'app/5-form/general/label';
+@import 'app/5-form/general/control';
+@import 'app/5-form/general/help';
+@import 'app/5-form/general/validation';
 
 /* Components */ 
-@import 'app/_06-components/header';
-@import 'app/_06-components/footer';
-@import 'app/_06-components/accordion';
-@import 'app/_06-components/hero-split';
+@import 'app/6-components/header';
+@import 'app/6-components/footer';
+@import 'app/6-components/accordion';
+@import 'app/6-components/hero-split';
 
 /* Pages */
-@import 'app/_07-pages/landing';
+@import 'app/7-pages/landing';
