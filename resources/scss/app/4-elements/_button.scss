@@ -30,8 +30,6 @@ $button--transition: all 0.2s ease-in-out !default;
 
 // Mixins
 @mixin button-base() {
-    @extend %control; 
-    @extend %unselectable;
     display: inline-flex;
     align-items: center;
     justify-content: center;

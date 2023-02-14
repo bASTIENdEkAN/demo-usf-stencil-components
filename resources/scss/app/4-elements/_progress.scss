@@ -3,7 +3,6 @@ $progress-value-background-color: $primary !default;
 $progress-indeterminate-duration: 1.5s !default;
 
 .progress {
-    // @extend %block;
     display: block;
     width: 100%;
     height: rem(8);

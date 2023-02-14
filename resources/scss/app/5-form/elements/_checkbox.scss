@@ -180,7 +180,7 @@ $checkbox--check-color: findColorInvert($form--primary) !default; // findColorIn
     // Layout
     .checkbox {
         margin-right: rem(25);
-        @include mq('max', 'sm') {
+        @include mq('max', 'md') {
             width: 100%;
         }
     }

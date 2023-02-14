@@ -85,7 +85,7 @@ $float-label--label-color-filled: $form--label-color !default;
             min-height: rem(180);
     
             resize: none;
-            @include mq('max','sm') {
+            @include mq('max','md') {
                 min-height: rem(300);
             }
         }

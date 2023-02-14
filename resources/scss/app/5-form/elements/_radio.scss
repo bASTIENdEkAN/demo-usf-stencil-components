@@ -167,7 +167,7 @@ $radio--border-color-checked: $form--primary !default;
     // Layout
     .radio {
         margin-right: rem(25);
-        @include mq('max','sm') {
+        @include mq('max','md') {
             width: 100%;
         }
     }

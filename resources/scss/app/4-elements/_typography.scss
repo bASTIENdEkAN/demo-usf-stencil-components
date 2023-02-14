@@ -15,7 +15,7 @@ $subtitle--negative-margin: -1.25rem;
 // TITLE & SUBTITLE
 .title,
 .subtitle {
-    @extend %block;
+    @extend %not-last-mb;
     word-break: break-word;
 
     em,
@@ -71,7 +71,7 @@ It's based on the start config file "variablse.scss"
     .is-size-#{$i},
     %is-size-#{$i} {
         font-size: $size;
-        @include mq('max', 'sm') {
+        @include mq('max', 'md') {
             @if $i-next < 7 {
                 // @debug "$i mean: #{$i-previous}";
                 font-size: nth($sizes, $i-next);
@@ -108,7 +108,7 @@ $content-table-foot-cell-border-width: 2px 0 0 !default;
 $content-table-foot-cell-color: $grey-darker !default;
 
 @mixin content-base() {
-    @extend %block;
+    @extend %not-last-mb;
     // Inline
     li + li {
         margin-top: 0.25em;
@@ -326,7 +326,7 @@ $content-table-foot-cell-color: $grey-darker !default;
 // Content utitlities
 
 .br {
-    @include mq('min', 'sm') {
+    @include mq('min', 'md') {
         display: block;
     }
 }

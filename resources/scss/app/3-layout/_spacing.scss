@@ -1,3 +1,65 @@
+// code snippets
+// "Margin": {
+//   "scope": "scss",
+//   "prefix": "m",
+//   "body": ["@include m(${1:1});"],
+//   "description": "Margin spacing"
+// },
+// "Margin top": {
+//   "scope": "scss",
+//   "prefix": "mt",
+//   "body": ["@include mt(${1:1});"],
+//   "description": "Margin top spacing"
+// },
+// "Margin right": {
+//   "scope": "scss",
+//   "prefix": "mr",
+//   "body": ["@include mr(${1:1});"],
+//   "description": "Margin right spacing"
+// },
+// "Margin bottom": {
+//   "scope": "scss",
+//   "prefix": "mb",
+//   "body": ["@include mb(${1:1});"],
+//   "description": "Margin bottom spacing"
+// },
+// "Margin left": {
+//   "scope": "scss",
+//   "prefix": "ml",
+//   "body": ["@include ml(${1:1});"],
+//   "description": "Margin left spacing"
+// },
+// "Padding": {
+//   "scope": "scss",
+//   "prefix": "p",
+//   "body": ["@include p(${1:1});"],
+//   "description": "Padding spacing"
+// },
+// "Padding top": {
+//   "scope": "scss",
+//   "prefix": "pt",
+//   "body": ["@include pt(${1:1});"],
+//   "description": "Padding top spacing"
+// },
+// "Padding right": {
+//   "scope": "scss",
+//   "prefix": "pr",
+//   "body": ["@include pr(${1:1});"],
+//   "description": "Padding right spacing"
+// },
+// "Padding bottom": {
+//   "scope": "scss",
+//   "prefix": "pb",
+//   "body": ["@include pb(${1:1});"],
+//   "description": "Padding bottom spacing"
+// },
+// "Padding left": {
+//   "scope": "scss",
+//   "prefix": "pl",
+//   "body": ["@include pl(${1:1});"],
+//   "description": "Padding left spacing"
+// },
+
 // // Inspirations : https://gist.github.com/passcod/a44db3503799cb89c3ccea3f75ca715e, https://github.com/SpringbokAgency/bridgestone_components/blob/master/src/sass/config/mixins/spacing.scss
 
 // $spacing: rem(4);
@@ -176,7 +238,7 @@ $spacing-vertical: 'y' !default;
                 #{$property}-#{$direction}: $value !important;
                 // Customisation from Bastien
                 @if $value-prev {
-                    @include mq('max', 'sm') {
+                    @include mq('max', 'md') {
                         #{$property}-#{$direction}: $value-prev !important;
                     }
                 }
@@ -191,7 +253,7 @@ $spacing-vertical: 'y' !default;
                 #{$property}-right: $value !important;
                 // Customisation from Bastien
                 @if $value-prev {
-                    @include mq('max','sm') {
+                    @include mq('max','md') {
                         #{$property}-left: $value-prev !important;
                         #{$property}-right: $value-prev !important;
                     }
@@ -207,7 +269,7 @@ $spacing-vertical: 'y' !default;
                 #{$property}-bottom: $value !important;
                 // Customisation from Bastien
                 @if $value-prev {
-                    @include mq('max','sm') {
+                    @include mq('max','md') {
                         #{$property}-top: $value-prev !important;
                         #{$property}-bottom: $value-prev !important;
                     }

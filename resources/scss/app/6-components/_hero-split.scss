@@ -5,7 +5,7 @@
 
     border-bottom: 1px solid $border-color;
 
-    @include mq('max','sm') {
+    @include mq('max','md') {
         flex-direction: column;
         height: auto;
     }
@@ -14,7 +14,7 @@
     &__img-wrapper,
     &__content-wrapper {
         width: 50%;
-        @include mq('max','sm') {
+        @include mq('max','md') {
             width: 100%;
         }
     }
@@ -34,7 +34,7 @@
         display: flex;
         align-items: center;
         padding: rem(50);
-        @include mq('max','sm') {
+        @include mq('max','md') {
             padding: rem(40) $gutter;
         }
     }
@@ -49,7 +49,7 @@
         &.min-mobile {
             @include fit();
             @include objectfit();
-            @include mq('min','xl') {
+            @include mq('min','2xl') {
                 mask-image: linear-gradient(to left, $black 75%, rgba($black, 0) 100%);
             }
             

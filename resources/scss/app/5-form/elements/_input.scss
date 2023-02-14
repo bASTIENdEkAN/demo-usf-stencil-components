@@ -18,7 +18,6 @@ $input--disabled-border-color: $white-ter !default;
 $input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3) !default;
 
 @mixin input {
-    @extend %control; 
     display: block;
     width: 100%;
 
