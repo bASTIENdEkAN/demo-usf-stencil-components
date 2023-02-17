@@ -33,7 +33,7 @@
 </div>
 
 <div class="wrapper">
-    <div class="container-small py-6" id="main_form"> 
+    <div class="container-small my-6" id="main_form"> 
         <h2 class="title">Form components</h2>
         <div class="content">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, illo qui! Atque distinctio enim nihil, numquam, odit autem voluptatem corporis modi officia voluptate explicabo totam soluta. Dolorum veniam quibusdam consequatur.</p>
@@ -46,18 +46,17 @@
 
     
 <div class="wrapper wrapper-accordions">
-    <div class="container-medium py-6">
-
-        <ul class="accordions">
-            @for($i=1;$i<5;$i++)
-                @include('_resources/components/accordion',
-                            [
-                                'question'=>'Question '.$i, 
-                                'answer'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                            ]) 
-            @endfor 
-        </ul> 
-    </div> 
+        <div class="container-medium py-6">
+            <ul class="accordions">
+                @for($i=1;$i<5;$i++)
+                    @include('_resources/components/accordion',
+                                [
+                                    'question'=>'Question '.$i, 
+                                    'answer'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                                ]) 
+                @endfor 
+            </ul> 
+        </div> 
 </div>            
     
 @endsection

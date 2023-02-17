@@ -79,7 +79,7 @@ $select--with-triangle: false;
         &::after {
             @if $select--with-triangle {
                 @include pseudo();
-                @include centeriser('vertical');
+                @include center('absolute','x');
                 @include triangle(bottom,$select--primary,10px,10px);
                 top: 51%;
 

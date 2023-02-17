@@ -9,14 +9,13 @@
 @import 'app/2-base/minireset';
 @import 'app/2-base/generic';
 @import 'app/2-base/animation';
+@import 'app/2-base/utilities';
 @import 'app/2-base/intl-tel-input'; // 19ko uncompressed
 
 /* Layout Grid: */
 @import 'app/3-layout/container-wrapper';
 @import 'app/3-layout/main-layout';
 @import 'app/3-layout/grid';
-@import 'app/3-layout/spacing';
-@import 'app/3-layout/toggle-display';
 
 /* Elements */
 @import 'app/4-elements/typography';

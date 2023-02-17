@@ -1,15 +1,15 @@
-$title--family: $family-title;
-$title--size: $size-3;
-$title--weight: $weight-semibold;
+$title--family: $ff-title;
+$title--size: $fs-2xl;
+$title--weight: $fw-semibold;
 $title--line-height: 1.125;
 $title--strong-color: inherit;
 $title--strong-weight: inherit;
 
-$subtitle--size: $size-5;
-$subtitle--weight: $weight-regular;
+$subtitle--size: $fs-lg;
+$subtitle--weight: $fw-regular;
 $subtitle--line-height: 1.25;
 $subtitle--strong-color: $grey-darker;
-$subtitle--strong-weight: $weight-semibold;
+$subtitle--strong-weight: $fw-semibold;
 $subtitle--negative-margin: -1.25rem;
 
 // TITLE & SUBTITLE
@@ -61,26 +61,6 @@ $subtitle--negative-margin: -1.25rem;
     } 
 }
 
-// Size
-/*
-It's based on the start config file "variablse.scss"
-*/
-@each $size in $sizes {
-    $i: index($sizes, $size);
-    $i-next: $i + 1;
-    .is-size-#{$i},
-    %is-size-#{$i} {
-        font-size: $size;
-        @include mq('max', 'md') {
-            @if $i-next < 7 {
-                // @debug "$i mean: #{$i-previous}";
-                font-size: nth($sizes, $i-next);
-            }
-        }
-    }
-}
-
-
 // CONTENT
 /*
     Juste to let you know it's almost a copy->past from bulma.
@@ -89,7 +69,7 @@ It's based on the start config file "variablse.scss"
 */
 
 $content-heading-color: $grey-darker !default;
-$content-heading-weight: $weight-semibold !default;
+$content-heading-weight: $fw-semibold !default;
 $content-heading-line-height: 1.125 !default;
 
 $content-blockquote-background-color: $white-ter !default;
@@ -251,7 +231,8 @@ $content-table-foot-cell-color: $grey-darker !default;
     }
 
     pre {
-        @include overflow-touch;
+        -webkit-overflow-scrolling: touch;
+
         padding: $content-pre-padding;
         overflow-x: auto;
 
@@ -320,23 +301,4 @@ $content-table-foot-cell-color: $grey-darker !default;
             margin-top: 0;
         }  // Sizes
     }
-}
-
-
-// Content utitlities
-
-.br {
-    @include mq('min', 'md') {
-        display: block;
-    }
-}
-
-.no-wrap {
-    white-space: nowrap;
-}
-
-.to-long {
-    display: inline-block;
-
-    hyphens: auto;
 }

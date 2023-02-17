@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@springbokagency/scss-config": "^1.0.0",
     "animejs": "^3.2.1",
     "axios": "^0.21.1",
     "bootstrap": "^5.2.3",

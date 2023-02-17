@@ -4,8 +4,8 @@ $button--py: rem(15) !default;
 $button--px: rem(25) !default;
 // Typography
 $button--color: $white !default;
-$button--family: $family-default !default;
-$button--font-weight: $weight-bold !default;
+$button--family: $ff-default !default;
+$button--font-weight: $fw-bold !default;
 // Visual
 $button--background: $primary !default;
 $button--background-disabled: $grey-lighter !default;
@@ -73,7 +73,7 @@ $button--transition: all 0.2s ease-in-out !default;
 
         &::after {
             @include loading($button--color);
-            @include center(1em);
+            @include center-no-transform(1em);
             position: absolute !important;
         }
     }

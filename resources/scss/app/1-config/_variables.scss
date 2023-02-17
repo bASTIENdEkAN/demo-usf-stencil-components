@@ -1,72 +1,84 @@
-/* Global */
-/* Global */
-/* Global */
 
-// Colors
-$black: #000 !default;
-$black-bis: #333 !default;
-$black-ter: #373737 !default;
+// Color
+$black: #000;
+$black-bis: #333;
+$black-ter: #373737;
 
-$grey-darker: #333 !default;
-$grey-dark: #666 !default;
-$grey: #999 !default;
-$grey-light: #ccc !default;
-$grey-lighter: #ddd !default;
+$grey-darker: #333;
+$grey-dark: #666;
+$grey: #999;
+$grey-light: #ccc;
+$grey-lighter: #ddd;
 
-$white-ter: #f3f3f3 !default;
-$white-bis: hsl(0, 0%, 98%) !default;
-$white: #fff !default;
+$white-ter: #f3f3f3;
+$white-bis: #fafafa;
+$white: #fff;
 
-$primary: #23a6f0 !default;
-$link: #0f84d8 !default;
-$success: #5cc423 !default;
-$danger: #da291c !default;
+$primary: #23a6f0;
+$link: #0f84d8;
+$success: #5cc423;
+$danger: #da291c;
 
 // Typography
-$family-default: Tahoma,Geneva,Verdana,sans-serif !default;
-$family-title: Tahoma,Geneva,Verdana,sans-serif !default;
-$family-code: monospace !default;
+$ff-default: Tahoma, Geneva, Verdana, sans-serif;
+$ff-title: Tahoma, Geneva, Verdana, sans-serif;
+$ff-code: monospace;
 
-$size-1: rem(48);
-$size-2: rem(40);
-$size-3: rem(32);
-$size-4: rem(24);
-$size-5: rem(20);
-$size-6: rem(16);
-$size-7: rem(12);
+$fs-xs: var(--fs-xs, #{rem(12)}) !default;
+$fs-sm: var(--fs-sm, #{rem(14)}) !default;
+$fs-base: var(--fs-base, #{rem(16)}) !default;
+$fs-lg: var(--fs-lg, #{rem(20)}) !default;
+$fs-xl: var(--fs-xl, #{rem(24)}) !default;
+$fs-2xl: var(--fs-2xl, #{rem(32)}) !default;
+$fs-3xl: var(--fs-3xl, #{rem(40)}) !default;
+$fs-4xl: var(--fs-4xl, #{rem(48)}) !default;
 
-$sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
+$fw-light: 300 !default;
+$fw-regular: 400 !default;
+$fw-medium: 500 !default;
+$fw-semibold: 600 !default;
+$fw-bold: 700 !default;
+$fw-extrabold: 800 !default;
+$fw-black: 900 !default;
 
-$weight-light: 300 !default;
-$weight-regular: 400 !default;
-$weight-medium: 500 !default;
-$weight-semibold: 600 !default;
-$weight-bold: 700 !default;
-$weight-extrabold: 800 !default;
-$weight-black: 900 !default;
+// Browser context
+$browser-context: 16 !default;
+
+// Media queries
+$breakpoints: (
+    xs: 375,
+    sm: 640,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+    2xl: 1536,
+    3xl: 1920,
+);
 
 // Spacing
-$spacing-values: (
-    '1': rem(10), 
-    '2': rem(20),  
-    '3': rem(30),
-    '4': rem(40),
-    '5': rem(50),
-    '6': rem(60),
-); 
+$spacing: 10px;
+$spacing-sizes: (
+    auto: auto,
+    1: $spacing,
+    2: $spacing * 2,
+    3: $spacing * 3,
+    4: $spacing * 4,
+    5: $spacing * 5,
+    6: $spacing * 6,
+);
 
-$rtl: false !default;
+// Z-index
+$z-index-values: ('modal', 'tooltip', 'header', 'base');
 
-$column-gap: 10px;
-//
+// Gutter 
 $gutter: 30px;
 $gutter-mobile: 16px;
 
-// Global
+// Generic
 $body-font-size: #{$browser-context}px;
 $body-line-height: 1.4;
-$body-family: $family-default;
-$body-weight: $weight-regular;
+$body-family: $ff-default;
+$body-weight: $fw-regular;
 $body-color: $black-bis;
 $body-background-color: $white;
 
@@ -74,17 +86,10 @@ $body-background-color: $white;
 $border-radius: rem(7);
 $border-radius-rounded: 99999px !default;
 $border-color: $grey-lighter;
+$border-color-focus: $grey-light;
 
-// Effects
-// Shadow smooth @source https://s.muz.li/MWNjYTY2Yjk4
-$shadow: 0 0.4px 1.5px rgba(0, 0, 0, 0.008),
-    0 1.3px 5.1px rgba(0, 0, 0, 0.011),
-    0 6px 23px rgba(0, 0, 0, 0.03) !default;
-$shadow-far: 0 0 40px 0 rgba(0, 0, 0, 0.15) !default;
-
-/* Formulaire */
-/* Formulaire */
-/* Formulaire */
+// Shadow @source https://s.muz.li/MWNjYTY2Yjk4
+$shadow: 0 0.4px 1.5px rgba(0, 0, 0, 0.008), 0 1.3px 5.1px rgba(0, 0, 0, 0.011), 0 6px 23px rgba(0, 0, 0, 0.03) !default;
 
 // Form global
 $form--primary: $primary !default;
@@ -94,7 +99,7 @@ $form--placeholder-color: $grey-light !default;
 $form--focus-width: rem(4) !default;
 $form--focus-rgba: 0.2 !default;
 // Form font
-$form--label-weight: $weight-semibold !default;
+$form--label-fw: $fw-semibold !default;
 $form--label-color: $body-color !default;
 $form--color: $body-color !default;
 // form background
@@ -108,17 +113,13 @@ $form--pl: rem(15) !default;
 $form--border-radius: $border-radius !default;
 $form--border-size: 1px !default;
 $form--border-color: $border-color !default;
-$form--border-color-focus: darken($form--border-color, 25%) !default;
+$form--border-color-focus: $border-color-focus !default;
 $form--border-less: false;
 // Form change filled
 $form--float-label-google: false !default;
 // Form layout
 $form--gap-x: rem(5) !default;
 $form--gap-y: rem(10) !default;
-
-/* Customisation */
-/* Customisation */
-/* Customisation */
 
 // Try some customization stylesheet and see the power of SCSS:
 // @import 'customization/brico';

@@ -28,9 +28,7 @@
     margin-right: rem(7);
 
     >svg {
-        @include centeriser('both');
-        position: absolute;
-
+        @include center;
         width: 24px;
         height: 24px;
     }

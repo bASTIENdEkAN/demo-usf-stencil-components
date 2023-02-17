@@ -1,0 +1,218 @@
+{
+  "Background SVG": {
+    "body": ["background-svg('$1')"],
+    "description": "Background SVG function",
+    "prefix": "background-svg",
+    "scope": "scss"
+  },
+  "Center": {
+    "body": ["@include center('${1:absolute}', '${2:both}');"],
+    "description": "Center element with position absolute or flexbox",
+    "prefix": "center",
+    "scope": "scss"
+  },
+  "Coarse Pointer": {
+    "body": ["@include coarse-pointer {", "  $0", "}"],
+    "description": "Coarse pointer media query mixin",
+    "prefix": "coarse",
+    "scope": "scss"
+  },
+  "Cover": {
+    "body": ["@include cover;"],
+    "description": "Object fit cover for images",
+    "prefix": "cover",
+    "scope": "scss"
+  },
+  "EM": {
+    "body": ["em($1)"],
+    "description": "Em function",
+    "prefix": "em",
+    "scope": "scss"
+  },
+  "Hover": {
+    "body": ["@include hover {", "  $0", "}"],
+    "description": "Hover media query mixin",
+    "prefix": "hover",
+    "scope": "scss"
+  },
+  "Margin": {
+    "body": ["@include m($1);"],
+    "description": "Margin mixin",
+    "prefix": "margin",
+    "scope": "scss"
+  },
+  "Margin bottom": {
+    "body": ["@include mb($1);"],
+    "description": "Margin bottom mixin",
+    "prefix": "mb",
+    "scope": "scss"
+  },
+  "Margin left": {
+    "body": ["@include ml($1);"],
+    "description": "Margin left mixin",
+    "prefix": "ml",
+    "scope": "scss"
+  },
+  "Margin right": {
+    "body": ["@include mr($1);"],
+    "description": "Margin right mixin",
+    "prefix": "mr",
+    "scope": "scss"
+  },
+  "Margin top": {
+    "body": ["@include mt($1);"],
+    "description": "Margin top mixin",
+    "prefix": "mt",
+    "scope": "scss"
+  },
+  "Margin x": {
+    "body": ["@include mx($1);"],
+    "description": "Margin x mixin",
+    "prefix": "mx",
+    "scope": "scss"
+  },
+  "Margin y": {
+    "body": ["@include my($1);"],
+    "description": "Margin y mixin",
+    "prefix": "my",
+    "scope": "scss"
+  },
+  "Media query": {
+    "body": ["@include mq('${1:max}', '${2:sm}') {", "  $0", "}"],
+    "description": "Breakpoints media query mixin",
+    "prefix": "mq",
+    "scope": "scss"
+  },
+  "Padding": {
+    "body": ["@include p($1);"],
+    "description": "Padding mixin",
+    "prefix": "padding",
+    "scope": "scss"
+  },
+  "Padding bottom": {
+    "body": ["@include pb($1);"],
+    "description": "Padding bottom mixin",
+    "prefix": "pb",
+    "scope": "scss"
+  },
+  "Padding left": {
+    "body": ["@include pl($1);"],
+    "description": "Padding left mixin",
+    "prefix": "pl",
+    "scope": "scss"
+  },
+  "Padding right": {
+    "body": ["@include pr($1);"],
+    "description": "Padding right mixin",
+    "prefix": "pr",
+    "scope": "scss"
+  },
+  "Padding top": {
+    "body": ["@include pt($1);"],
+    "description": "Padding top mixin",
+    "prefix": "pt",
+    "scope": "scss"
+  },
+  "Padding x": {
+    "body": ["@include px($1);"],
+    "description": "Padding x mixin",
+    "prefix": "px",
+    "scope": "scss"
+  },
+  "Padding y": {
+    "body": ["@include py($1);"],
+    "description": "Padding y mixin",
+    "prefix": "py",
+    "scope": "scss"
+  },
+  "Placeholder": {
+    "body": ["@include placeholder {", "$0", "};"],
+    "description": "Input's placeholder",
+    "prefix": "placeholder",
+    "scope": "scss"
+  },
+  "Pseudo": {
+    "body": ["@include pseudo('${1:block}', '${2:absolute}', '$3');"],
+    "description": "Define squared element",
+    "prefix": "pseudo",
+    "scope": "scss"
+  },
+  "REM": {
+    "body": ["rem($1)"],
+    "description": "Rem function",
+    "prefix": "rem",
+    "scope": "scss"
+  },
+  "Reset": {
+    "body": ["@include reset;"],
+    "description": "Reset mixin",
+    "prefix": "reset",
+    "scope": "scss"
+  },
+  "Reset font smoothing": {
+    "body": ["@include reset-font-smoothing;"],
+    "description": "Reset font smoothing mixin",
+    "prefix": "reset-font-smoothing",
+    "scope": "scss"
+  },
+  "Reset form": {
+    "body": ["@include reset-form;"],
+    "description": "Reset form mixin",
+    "prefix": "reset-form",
+    "scope": "scss"
+  },
+  "Reset host": {
+    "body": ["@include reset-host;"],
+    "description": "Reset host mixin",
+    "prefix": "reset-host",
+    "scope": "scss"
+  },
+  "Reset media": {
+    "body": ["@include reset-media;"],
+    "description": "Reset media mixin",
+    "prefix": "reset-media",
+    "scope": "scss"
+  },
+  "Reset root": {
+    "body": ["@include reset-root;"],
+    "description": "Reset root mixin",
+    "prefix": "reset-root",
+    "scope": "scss"
+  },
+  "Reset sizing": {
+    "body": ["@include reset-sizing;"],
+    "description": "Reset sizing mixin",
+    "prefix": "reset-sizing",
+    "scope": "scss"
+  },
+  "Reset spacing": {
+    "body": ["@include reset-spacing;"],
+    "description": "Reset spacing mixin",
+    "prefix": "reset-spacing",
+    "scope": "scss"
+  },
+  "Reset text": {
+    "body": ["@include reset-text;"],
+    "description": "Reset text mixin",
+    "prefix": "reset-text",
+    "scope": "scss"
+  },
+  "Square": {
+    "body": ["@include square($0);"],
+    "description": "Define squared element dimensions",
+    "prefix": "square",
+    "scope": "scss"
+  },
+  "Var": {
+    "body": ["var(--$1)"],
+    "description": "CSS variable",
+    "prefix": "var",
+    "scope": "scss"
+  },
+  "Z-index": {
+    "body": ["@include z-index('${1:base}');"],
+    "description": "Define z-index",
+    "prefix": "z-index",
+    "scope": "scss"
+  }
+}

@@ -1,117 +1,31 @@
+// @mixin center...
+// @import '@springbokagency/scss-config/mixins/center'
 
-// BOX SIZING
-@mixin box-sizing($property: border-box) {
-    box-sizing: $property;
-    box-sizing: $property;
-    box-sizing: $property;
-}
-// MEDIA QUERIES
-$breakpoints: (
-    'xs': 375,
-    'sm': 640,
-    'md': 768,
-    'lg': 1024,
-    'xl': 1280,
-    '2xl': 1536,
-    '3xl': 1920,
-) !default;
+// @mixin cover...
+// @import '@springbokagency/scss-config/mixins/cover'
 
-@mixin mq($type, $value) {
-    $size: map-get($breakpoints, $value);
+// @mixin mq...
+// @import '@springbokagency/scss-config/mixins/mq'
 
-    @if $size {
-        @if $type == 'min' {
-            @media screen and (min-width: $size + 'px') {
-                @content;
-            }
-        } @else if $type == 'max' {
-            @media screen and (max-width: $size - 1 + 'px') {
-                @content;
-            }
-        } @else {
-            @warn 'Unknown `#{$type}` in media mixin.';
-        }
-    } @else {
-        @error '`#{$size}` does not exist in the $breakpoints map';
-    }
-}
+// @mixin placeholder...
+// @import '@springbokagency/scss-config/mixins/placeholder'
 
-@mixin coarse-pointer() {
-    @media (pointer: coarse) {
-        @content;
-    }
-}
+// @mixin pseudo...
+// @import '@springbokagency/scss-config/mixins/pseudo'
 
-@mixin hover() {
-    @media (hover: hover) {
-        &:hover {
-            @content;
-        }
-    }
-}
+// @mixin reset...
+// @import '@springbokagency/scss-config/mixins/reset'
 
+// @mixin spacing...
+// @import '@springbokagency/scss-config/mixins/spacing'
 
-// BACKGROUND @2x
-@mixin background-2x($path, $ext: 'png', $w: auto, $pos: left top, $repeat: no-repeat) {
+// @mixin square...
+// @import '@springbokagency/scss-config/mixins/square'
 
-    $at1x_path: '#{$path}.#{$ext}';
-    $at2x_path: '#{$path}@2x.#{$ext}';
+// @mixin z-index...
+// @import '@springbokagency/scss-config/mixins/z-index'
 
-    background-image: url('#{$at1x_path}');
-    background-repeat: $repeat;
-    background-position: $pos;
-    background-size: $w;
-
-    @media all and (minpixel-ratio : 1.5),
-        all and (minpixel-ratio: 3/2),
-        all and (min-device-pixel-ratio: 1.5),
-        all and (min-device-pixel-ratio: 1.5) {
-        background-image: url('#{$at2x_path}');
-        background-repeat: $repeat;
-        background-position: $pos;
-        background-size: $w;
-    } 
-}
-
-// TRIANGLE
-@mixin triangle($dir, $color, $width, $height) {
-    width: 0;
-    height: 0;
-
-    border-style: solid;
-    @if $dir == top {
-        border-width: 0 $width $height $width;
-        border-color: transparent transparent $color transparent;
-
-    }@else if $dir == bottom {
-        border-width: $height $width 0 $width;
-        border-color: $color transparent transparent transparent;
-    }
-    @else if $dir == left {
-        border-width: $height $width $height 0;
-        border-color: transparent $color transparent transparent;
-    }
-    @else if $dir == right {
-        border-width: $height 0 $height $width;
-        border-color: transparent transparent transparent $color;
-    }
-}
-
-@mixin square($size) {
-    flex-shrink: 0;
-    width: rem($size);
-    height: rem($size);
-}
-
-
-// BACKGROUND GRADIENT
-// https://robots.thoughtbot.com/controlling-color-with-sass-color-functions
-// https://glennmccomb.com/articles/creating-smooth-sequential-animations-with-sass/
-@mixin bg-gradient($directionTo: top, $colorStart: black, $colorEnd: white , $upTo: 100%) {
-    background: linear-gradient(to $directionTo, $colorStart 0%, $colorEnd $upTo);
-}
-
-// ELLIPSIS
+// Ellipsis
 @mixin ellipsis() {
     width: 100%;
     overflow: hidden;
@@ -120,23 +34,7 @@ $breakpoints: (
     text-overflow: ellipsis;
 }
 
-// FIT
-@mixin fit() {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-}
-
-@mixin objectfit() {
-    @include fit();
-    object-fit: cover;
-    object-position: center;
-}
-
-// CROSS PLUS BACK
+// Icon tricks
 @mixin icon-tricks(
     $size: rem(30),
     $background: transparent,
@@ -215,60 +113,22 @@ $breakpoints: (
         background: $background-hover;
     }
 }
-// Medium mixin :
-// https://medium.com/@justinbrazeau/10-useful-sass-mixins-for-automation-833cdee9d69b
-// Define vertical, horizontal, or both position
-@mixin centeriser($position) {
-    position: absolute;
-    @if $position == 'vertical' {
-        top: 50%;
 
-        transform: translate3d(0, -50%, 0);
-    }
-    @else if $position == 'horizontal' {
-        left: 50%;
-
-        transform: translate3d(-50%, 0, 0);
-    }
-    @else if $position == 'both' {
-        top: 50%;
-        left: 50%;
-
-        transform: translate3d(-50%, -50%, 0);
-    }
-}
-
-// Engage mixin :
-// https://engageinteractive.co.uk/blog/top-10-scss-mixins
-@mixin pseudo($display: block, $pos: absolute, $content: '') {
-    position: $pos;
-
-    display: $display;
-
-    content: $content;
-}
+// Please use aspect-ratio now.
 // http://qatsi.eu/calcul.ratio.image.php
-@mixin responsive-ratio($x,$y, $pseudo: true) {
-    $padding: unquote(( $y / $x ) * 100 + '%');
-    @if $pseudo {
-        &::before {
-            @include pseudo($pos: relative);
-            width: 100%;
-            padding-top: $padding;
-        }
-    } @else {
-        padding-top: $padding;
-    }
-}
-// Bulma mixins
-@mixin placeholder {
-    $placeholders: ':-moz' ':-webkit-input' '-moz' '-ms-input';
-    @each $placeholder in $placeholders {
-        &:#{$placeholder}-placeholder {
-            @content;
-        }
-    }
-}
+// @mixin responsive-ratio($x,$y, $pseudo: true) {
+//     $padding: unquote(( $y / $x ) * 100 + '%');
+//     @if $pseudo {
+//         &::before {
+//             @include pseudo($pos: relative);
+//             width: 100%;
+//             padding-top: $padding;
+//         }
+//     } @else {
+//         padding-top: $padding;
+//     }
+// }
+
 // Responsiveness
 @mixin ltr-property($property, $spacing, $right: true) {
     $normal: if($right, 'right', 'left');
@@ -281,11 +141,7 @@ $breakpoints: (
     #{$normal}: $spacing;
 }
 
-// Placeholder
-@mixin overflow-touch {
-    -webkit-overflow-scrolling: touch;
-}
-
+// Arrow
 @mixin arrow($color: transparent) {
     position: absolute;
     top: 50%;
@@ -306,7 +162,7 @@ $breakpoints: (
     pointer-events: none;
 }
 
-
+// Loading
 @mixin loading($color: #ccc) {
     position: relative;
 
@@ -324,7 +180,8 @@ $breakpoints: (
     content: '';
 }
 
-@mixin center($width, $height: 0) {
+// Center no transform
+@mixin center-no-transform($width, $height: 0) {
     position: absolute;
     @if $height != 0 {
         left: calc(50% - (#{$width} * 0.5));
@@ -335,9 +192,10 @@ $breakpoints: (
     }
 }
 
-@mixin not-last-mb($spacing: var(--not-last-mb, rem(24))) {
+// Not last mb
+@mixin not-last-mb($spacing: var(--not-last-mb, #{rem(24)}) ) {
     &:not(:last-child) {
-        margin-bottom: $spacing;
+        margin-bottom: rem(24);
     }
 }
 
@@ -347,6 +205,6 @@ $breakpoints: (
 
 %not-last-mb {
     @include not-last-mb;
-}
+} 
 
 

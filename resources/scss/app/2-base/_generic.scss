@@ -3,16 +3,16 @@ $body-background-color: $scheme-main !default;
 $body-size: 16px !default;
 $body-min-width: 300px !default;
 $body-rendering: optimizeLegibility !default;
-$body-family: $family-primary !default;
+$body-family: $ff-default !default;
 $body-overflow-x: hidden !default;
 $body-overflow-y: scroll !default;
 
 // $body-color: $text !default;
 $body-font-size: 1em !default;
-$body-weight: $weight-normal !default;
+$body-weight: $fw-normal !default;
 $body-line-height: 1.5 !default;
 
-$code-family: $family-code !default;
+$code-family: $ff-code !default;
 $code-padding: 0.25em 0.5em 0.25em !default;
 $code-weight: normal !default;
 $code-size: 0.875em !default;
@@ -24,9 +24,9 @@ $hr-height: 2px !default;
 $hr-margin: 1.5rem 0 !default;
 
 $strong-color: currentColor !default;
-$strong-weight: $weight-bold !default;
+$strong-weight: $fw-bold !default;
 
-$code: darken($red, 15%) !default;
+$code: darken($danger, 15%) !default;
 $code-background: $white-ter !default;
 
 $pre: $body-color !default;
@@ -36,17 +36,17 @@ $pre-padding: 1.25rem 1.5rem !default;
 $pre-code-font-size: 1em !default;
 
 html {
-  min-width: $body-min-width;
-  overflow-x: $body-overflow-x;
-  overflow-y: $body-overflow-y;
+    min-width: $body-min-width;
+    overflow-x: $body-overflow-x;
+    overflow-y: $body-overflow-y;
 
-  font-size: $body-size;
+    font-size: $body-size;
 
-  background-color: $body-background-color;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: $body-rendering;
-  text-size-adjust: 100%;
+    background-color: $body-background-color;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: $body-rendering;
+    text-size-adjust: 100%;
 }
 
 article,
@@ -56,7 +56,7 @@ footer,
 header,
 hgroup,
 section {
-  display: block;
+    display: block;
 }
 
 body,
@@ -65,15 +65,15 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: $body-family;
+    font-family: $body-family;
 }
 
 code,
 pre {
-  -moz-osx-font-smoothing: auto;
-  -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
 
-  font-family: $code-family;
+    font-family: $code-family;
 }
 // body {
 //   color: $body-color;
@@ -84,161 +84,161 @@ pre {
 
 // Inline
 a {
-  color: $link;
-  text-decoration: none;
+    color: $link;
+    text-decoration: none;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  strong {
-    color: currentColor;
-  }
+    strong {
+        color: currentColor;
+    }
 
-  &:hover {
-    color: darken($link, 10%);
-  }
+    &:hover {
+        color: darken($link, 10%);
+    }
 }
 
 code {
-  padding: $code-padding;
+    padding: $code-padding;
 
-  color: $code;
-  font-weight: $code-weight;
-  font-size: $code-size;
+    color: $code;
+    font-weight: $code-weight;
+    font-size: $code-size;
 
-  background-color: $code-background;
+    background-color: $code-background;
 }
 
 hr {
-  display: block;
-  height: $hr-height;
-  margin: $hr-margin;
+    display: block;
+    height: $hr-height;
+    margin: $hr-margin;
 
-  background-color: $hr-background-color;
-  border: none;
+    background-color: $hr-background-color;
+    border: none;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 input[type='checkbox'],
 input[type='radio'] {
-  vertical-align: baseline;
+    vertical-align: baseline;
 }
 
 small {
-  font-size: $small-font-size;
+    font-size: $small-font-size;
 }
 
 span {
-  font-weight: inherit;
-  font-style: inherit;
+    font-weight: inherit;
+    font-style: inherit;
 }
 
 strong {
-  color: $strong-color;
-  font-weight: $strong-weight;
+    color: $strong-color;
+    font-weight: $strong-weight;
 }
 // Block
 
 fieldset {
-  border: none;
+    border: none;
 }
 
 pre {
-  @include overflow-touch;
-  padding: $pre-padding;
-  overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 
-  color: $pre;
-  font-size: $pre-font-size;
-  white-space: pre;
-  word-wrap: normal;
+    padding: $pre-padding;
+    overflow-x: auto;
 
-  background-color: $pre-background;
+    color: $pre;
+    font-size: $pre-font-size;
+    white-space: pre;
+    word-wrap: normal;
 
-  code {
-    padding: 0;
+    background-color: $pre-background;
 
-    color: currentColor;
-    font-size: $pre-code-font-size;
+    code {
+        padding: 0;
 
-    background-color: transparent;
-  }
+        color: currentColor;
+        font-size: $pre-code-font-size;
+
+        background-color: transparent;
+    }
 }
 
 table {
-  td,
-  th {
-    vertical-align: top;
+    td,
+    th {
+        vertical-align: top;
 
-    &:not([align]) {
-      text-align: inherit;
+        &:not([align]) {
+            text-align: inherit;
+        }
     }
-  }
 
-  th {
-    color: $strong-weight;
-  }
+    th {
+        color: $strong-weight;
+    }
 }
 /* Custom generic: from here is personal customisation of the reset */
 *[hidden] {
-  display: none;
+    display: none;
 }
 
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
 
 blockquote::before,
 blockquote::after,
 q::before,
 q::after {
-  content: '';
-  content: none;
+    content: '';
+    content: none;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 input,
 button {
-  appearance: none;
+    appearance: none;
 }
 
 button {
-  border: 0 none;
-  border-radius: 0;
-  cursor: pointer;
+    border: 0 none;
+    border-radius: 0;
+    cursor: pointer;
 }
 
 * {
-  @include box-sizing();
-  // outline: none;
+    box-sizing: border-box;
 }
 
 body {
-  position: relative;
+    position: relative;
 
-  overflow-x: hidden;
-  overflow-y: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 
-  color: $body-color;
-  font-weight: $body-weight;
-  font-size: $body-font-size;
-  line-height: $body-line-height;
+    color: $body-color;
+    font-weight: $body-weight;
+    font-size: $body-font-size;
+    line-height: $body-line-height;
 
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 /*
      If you want to increase the size of the all website at some breakpoint do it here on the html! 
 */
 // html{
-//     @include mq('min-hugescreen'){ font-size: 18px } // If you use REM this can be usefull
+//     @include mq('min',2xl){ font-size: 18px } // If you use REM this can be usefull
 // }
 

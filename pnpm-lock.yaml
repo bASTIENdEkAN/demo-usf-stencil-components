@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@springbokagency/scss-config': ^1.0.0
   animejs: ^3.2.1
   axios: ^0.21.1
   bootstrap: ^5.2.3
@@ -41,6 +42,7 @@ specifiers:
   watch: ^1.0.2
 
 dependencies:
+  '@springbokagency/scss-config': 1.0.0
   animejs: 3.2.1
   axios: 0.21.4
   bootstrap: 5.2.3
@@ -1240,6 +1242,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: true
+
+  /@springbokagency/scss-config/1.0.0:
+    resolution: {integrity: sha512-YdmCL9038+QqwT4W3RKWInVGjdNNDzc+FrArjQcrg/eR5TzoYB4GqxmST2c2M9lJVRjQeQPUG7n1o+Zio5mpxw==}
+    dev: false
 
   /@stencil/core/2.22.2:
     resolution: {integrity: sha512-r+vbxsGNcBaV1VDOYW25lv4QfXTlNoIb5GpUX7rZ+cr59yqYCZC5tlV+IzX6YgHKW62ulCc9M3RYtTfHtNbNNw==}

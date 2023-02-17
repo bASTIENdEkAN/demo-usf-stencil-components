@@ -75,7 +75,7 @@ $input--disabled-placeholder-color: bulmaRgba($input--disabled-color, 0.3) !defa
     right: $form--pr;
     z-index: 9;
 
-    font-weight: $form--label-weight;
+    font-weight: $form--label-fw;
     font-size: rem(12);
     text-transform: uppercase;
 

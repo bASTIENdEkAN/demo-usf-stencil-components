@@ -1,12 +1,12 @@
 $label--color: $form--label-color;
-$label--weight: $form--label-weight;
-$label--size: $size-6;
+$label--fw: $form--label-fw;
+$label--size: $fs-base;
 
 .label {
     display: block;
 
     color: $label--color;
-    font-weight: $label--weight;
+    font-weight: $label--fw;
     font-size: $label--size;
 
     &:not(:last-child) {

@@ -47,9 +47,8 @@
     // Elements
     &__img {
         &.min-mobile {
-            @include fit();
-            @include objectfit();
-            @include mq('min','2xl') {
+            @include cover();
+            @include mq('min', 2xl) {
                 mask-image: linear-gradient(to left, $black 75%, rgba($black, 0) 100%);
             }
             
