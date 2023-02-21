@@ -1,1 +1,0 @@
-<img src="../images/{{$path}}.{{$ext}}" srcset="../images/{{$path}}@2x.{{$ext}} 2x" @if(!empty($alt)) alt="{{$alt}}" @else alt="." @endif @if(!empty($class)) class="{{$class}}" @endif>
